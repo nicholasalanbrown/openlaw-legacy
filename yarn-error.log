@@ -1,0 +1,36 @@
+Arguments: 
+  /Users/nicholasbrown/.nvm/versions/node/v8.10.0/bin/node /Users/nicholasbrown/.nvm/versions/node/v8.10.0/bin/yarn init
+
+PATH: 
+  /Users/nicholasbrown/.nvm/versions/node/v8.10.0/bin:/Users/nicholasbrown/Source/mono/tools/knot/bin2:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Postgres.app/Contents/Versions/latest/bin
+
+Yarn version: 
+  1.13.0
+
+Node version: 
+  8.10.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: canceled
+      at Interface.<anonymous> (/Users/nicholasbrown/.nvm/versions/node/v8.10.0/lib/node_modules/yarn/lib/cli.js:125657:13)
+      at emitNone (events.js:106:13)
+      at Interface.emit (events.js:208:7)
+      at Interface._ttyWrite (readline.js:775:16)
+      at ReadStream.onkeypress (readline.js:160:10)
+      at emitTwo (events.js:126:13)
+      at ReadStream.emit (events.js:214:7)
+      at emitKeys (internal/readline.js:420:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (readline.js:1011:36)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
