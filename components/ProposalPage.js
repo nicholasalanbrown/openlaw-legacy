@@ -4,6 +4,7 @@ import MeactMarkdown from "react-markdown";
 import { useRouter } from "next/router";
 
 import MainLayout from "../layouts/MainLayout";
+import { ContentContainer } from "components";
 import {
   getProposalBranches,
   getProposalMetadata,
@@ -41,24 +42,22 @@ function Proposal({ branches, currentBranch, metadata, summary, legal }) {
 
   return (
     <MainLayout>
-      <Wrapper>
-        <Containter>
-          <select
-            onChange={e => handleBranchSelect(e)}
-            defaultValue={currentBranch || "master"}
-          >
-            {branches.map(branch => (
-              <option key={branch.name} value={branch.name}>
-                {branch.name}
-              </option>
-            ))}
-          </select>
-          <h1>{metadata.title}</h1>
-          <h2>{metadata.description}</h2>
-          <ReactMarkdown source={summary} />
-          <ReactMarkdown source={legal} />
-        </Containter>
-      </Wrapper>
+      <ContentContainer>
+        <select
+          onChange={e => handleBranchSelect(e)}
+          defaultValue={currentBranch || "master"}
+        >
+          {branches.map(branch => (
+            <option key={branch.name} value={branch.name}>
+              {branch.name}
+            </option>
+          ))}
+        </select>
+        <h1>{metadata.title}</h1>
+        <h2>{metadata.description}</h2>
+        <ReactMarkdown source={summary} />
+        <ReactMarkdown source={legal} />
+      </ContentContainer>
     </MainLayout>
   );
 }
@@ -66,7 +65,6 @@ function Proposal({ branches, currentBranch, metadata, summary, legal }) {
 Proposal.getInitialProps = async function(context) {
   const allBranches = await getProposalBranches(1);
   const branches = allBranches.filter(branch => branch.merged === false);
-  console.log(branches);
   const currentBranch = context.query.branch || "master";
   const metadata = await getProposalMetadata(1, currentBranch);
   const summary = await getProposalSummary(1, currentBranch);
