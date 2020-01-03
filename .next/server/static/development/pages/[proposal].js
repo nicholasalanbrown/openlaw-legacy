@@ -106,58 +106,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
 var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/components/Header.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
-const linkStyle = {
-  marginRight: 15
-};
 
-const Header = () => __jsx("div", {
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 8
-  },
-  __self: undefined
-}, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-  href: "/",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 9
-  },
-  __self: undefined
-}, __jsx("a", {
-  style: linkStyle,
+const Nav = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div.withConfig({
+  displayName: "Header__Nav",
+  componentId: "p12jyt-0"
+})(["border-bottom:1px solid #ccc;height:60px;width:100%;"]);
+
+const Header = () => __jsx(Nav, {
   __source: {
     fileName: _jsxFileName,
     lineNumber: 10
   },
   __self: undefined
-}, "Home")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-  href: "/about",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 12
-  },
-  __self: undefined
-}, __jsx("a", {
-  style: linkStyle,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 13
-  },
-  __self: undefined
-}, "About")));
+});
 
 /* harmony default export */ __webpack_exports__["default"] = (Header);
 
 /***/ }),
 
-/***/ "./layouts/MyLayout.js":
-/*!*****************************!*\
-  !*** ./layouts/MyLayout.js ***!
-  \*****************************/
+/***/ "./layouts/MainLayout.js":
+/*!*******************************!*\
+  !*** ./layouts/MainLayout.js ***!
+  \*******************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -165,33 +141,49 @@ const Header = () => __jsx("div", {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Header */ "./components/Header.js");
-var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/layouts/MyLayout.js";
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Header */ "./components/Header.js");
+var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/layouts/MainLayout.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
-const layoutStyle = {
-  margin: 20,
-  padding: 20,
-  border: "1px solid #DDD"
-};
+const GlobalStyles = styled_components__WEBPACK_IMPORTED_MODULE_1__["createGlobalStyle"]`
 
-const Layout = props => __jsx("div", {
-  style: layoutStyle,
+  @import url('https://fonts.googleapis.com/css?family=Cabin:400,500,600&display=swap');
+
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Cabin', sans-serif;
+  }
+`;
+
+
+const MainLayout = props => __jsx("div", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 10
+    lineNumber: 20
   },
   __self: undefined
-}, __jsx(_components_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
+}, __jsx(GlobalStyles, {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 11
+    lineNumber: 21
+  },
+  __self: undefined
+}), __jsx(_components_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 22
   },
   __self: undefined
 }), props.children);
 
-/* harmony default export */ __webpack_exports__["default"] = (Layout);
+/* harmony default export */ __webpack_exports__["default"] = (MainLayout);
 
 /***/ }),
 
@@ -2265,8 +2257,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! isomorphic-unfetch */ "isomorphic-unfetch");
 /* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _layouts_MyLayout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../layouts/MyLayout */ "./layouts/MyLayout.js");
-/* harmony import */ var _queries__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../queries */ "./queries/index.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_markdown__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-markdown */ "react-markdown");
+/* harmony import */ var react_markdown__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_markdown__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _layouts_MainLayout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../layouts/MainLayout */ "./layouts/MainLayout.js");
+/* harmony import */ var _queries__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../queries */ "./queries/index.js");
 var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/pages/[proposal].js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -2274,29 +2270,80 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+
+
+const Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+const Containter = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div`
+  font-size: 18px;
+  line-height: 1.4;
+  max-width: 900px;
+  padding: 60px 20px 0;
+`;
+
 function Proposal({
-  content
+  metadata,
+  summary,
+  legal
 }) {
-  console.log(content);
-  return __jsx(_layouts_MyLayout__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  return __jsx(_layouts_MainLayout__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 28
     },
     __self: this
-  }, __jsx("div", {
+  }, __jsx(Wrapper, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 29
     },
     __self: this
-  }, content));
+  }, __jsx(Containter, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30
+    },
+    __self: this
+  }, __jsx("h1", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 31
+    },
+    __self: this
+  }, metadata.title), __jsx("h2", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 32
+    },
+    __self: this
+  }, metadata.description), __jsx(react_markdown__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    source: summary,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33
+    },
+    __self: this
+  }), __jsx(react_markdown__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    source: legal,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34
+    },
+    __self: this
+  }))));
 }
 
 Proposal.getInitialProps = async function (context) {
-  const content = await Object(_queries__WEBPACK_IMPORTED_MODULE_3__["getProposalContent"])(1);
+  const metadata = await Object(_queries__WEBPACK_IMPORTED_MODULE_5__["getProposalMetadata"])(1);
+  const summary = await Object(_queries__WEBPACK_IMPORTED_MODULE_5__["getProposalSummary"])(1);
+  const legal = await Object(_queries__WEBPACK_IMPORTED_MODULE_5__["getProposalLegal"])(1);
   return {
-    content
+    metadata,
+    summary,
+    legal
   };
 };
 
@@ -2308,17 +2355,27 @@ Proposal.getInitialProps = async function (context) {
 /*!**************************!*\
   !*** ./queries/index.js ***!
   \**************************/
-/*! exports provided: getProposalContent */
+/*! exports provided: getProposalMetadata, getProposalSummary, getProposalLegal */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getProposalContent", function() { return getProposalContent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getProposalMetadata", function() { return getProposalMetadata; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getProposalSummary", function() { return getProposalSummary; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getProposalLegal", function() { return getProposalLegal; });
 /* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! isomorphic-unfetch */ "isomorphic-unfetch");
 /* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0__);
 
-const getProposalContent = async (gitlabProjectId, refName = "master") => {
-  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0___default()(`${"http://127.0.0.1:30080/api/v4"}/projects/${gitlabProjectId}/repository/files/content%2Emd/raw?ref=${refName}`).then(response => response.text()).then(data => data);
+const getProposalMetadata = async (gitlabProjectId, refName = "master") => {
+  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0___default()(`${"http://127.0.0.1:30080/api/v4"}/projects/${gitlabProjectId}/repository/files/metadata%2Ejson/raw?ref=${refName}`).then(response => response.json()).then(data => data);
+  return res;
+};
+const getProposalSummary = async (gitlabProjectId, refName = "master") => {
+  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0___default()(`${"http://127.0.0.1:30080/api/v4"}/projects/${gitlabProjectId}/repository/files/summary%2Emd/raw?ref=${refName}`).then(response => response.text()).then(data => data);
+  return res;
+};
+const getProposalLegal = async (gitlabProjectId, refName = "master") => {
+  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0___default()(`${"http://127.0.0.1:30080/api/v4"}/projects/${gitlabProjectId}/repository/files/legal%2Emd/raw?ref=${refName}`).then(response => response.text()).then(data => data);
   return res;
 };
 
@@ -2487,6 +2544,28 @@ module.exports = require("prop-types-exact");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-markdown":
+/*!*********************************!*\
+  !*** external "react-markdown" ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-markdown");
+
+/***/ }),
+
+/***/ "styled-components":
+/*!************************************!*\
+  !*** external "styled-components" ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("styled-components");
 
 /***/ }),
 
