@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 
-  @import url('https://fonts.googleapis.com/css?family=Cabin:400,500,600&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap');
 
   html, body {
     margin: 0;
@@ -10,7 +10,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    font-family: 'Cabin', sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 `;
 

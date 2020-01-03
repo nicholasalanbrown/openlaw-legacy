@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { ProposalPage } from \"components\";","map":{"version":3,"sources":["/Users/nicholasbrown/Source/openlaw/pages/[proposal]/index.js"],"names":["ProposalPage"],"mappings":"AAAA,SAASA,YAAT,QAA6B,YAA7B","sourcesContent":["import { ProposalPage } from \"components\";\n"]},"metadata":{},"sourceType":"module"}

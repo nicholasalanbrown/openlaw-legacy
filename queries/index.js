@@ -1,5 +1,21 @@
 import fetch from "isomorphic-unfetch";
 
+export const getProposals = async () => {
+  const res = await fetch(`${process.env.GITLAB_BASE_URL}/projects`)
+    .then(response => response.json())
+    .then(data => data);
+  return res;
+};
+
+export const getProposalBranches = async gitlabProjectId => {
+  const res = await fetch(
+    `${process.env.GITLAB_BASE_URL}/projects/${gitlabProjectId}/repository/branches`
+  )
+    .then(response => response.json())
+    .then(data => data);
+  return res;
+};
+
 export const getProposalMetadata = async (
   gitlabProjectId,
   refName = "master"

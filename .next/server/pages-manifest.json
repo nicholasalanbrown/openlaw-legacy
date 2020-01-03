@@ -1,1 +1,1 @@
-{"/[proposal]":"static/development/pages/[proposal].js","/_app":"static/development/pages/_app.js","/_document":"static/development/pages/_document.js","/_error":"static/development/pages/_error.js"}
+{"/[proposal]":"static/development/pages/[proposal].js","/[proposal]/tree/[branch]":"static/development/pages/[proposal]/tree/[branch].js","/_app":"static/development/pages/_app.js","/_document":"static/development/pages/_document.js","/_error":"static/development/pages/_error.js","/next/dist/pages/_error":"static/development/pages/next/dist/pages/_error.js"}
