@@ -2,6 +2,7 @@ import fetch from "isomorphic-unfetch";
 import styled from "styled-components";
 import MeactMarkdown from "react-markdown";
 import { useRouter } from "next/router";
+import { withAuth, withLoginRequired } from "use-auth0-hooks";
 
 import MainLayout from "../layouts/MainLayout";
 import { ContentContainer } from "components";
@@ -26,7 +27,7 @@ const Containter = styled.div`
   padding: 60px 20px 0;
 `;
 
-function Proposal({ branches, currentBranch, metadata, summary, legal }) {
+function Proposal({ auth, branches, currentBranch, metadata, summary, legal }) {
   const router = useRouter();
 
   const handleBranchSelect = e => {
@@ -72,4 +73,4 @@ Proposal.getInitialProps = async function(context) {
   return { branches, currentBranch, metadata, summary, legal };
 };
 
-export default Proposal;
+export default withLoginRequired(withAuth(Proposal));
