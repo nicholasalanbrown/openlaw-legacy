@@ -2,8 +2,10 @@ import MainLayout from "../layouts/MainLayout";
 import Link from "next/link";
 import fetch from "isomorphic-unfetch";
 import styled from "styled-components";
+import { useQuery } from "@apollo/react-hooks";
+
 import { ContentContainer } from "components";
-import { getProposals } from "../queries";
+import { getProposals, PROPOSALS_QUERY } from "../queries";
 
 const SubNav = styled.div`
   display: flex;
@@ -30,6 +32,16 @@ const CreateButton = styled.button`
 `;
 
 function Index({ proposals }) {
+  const { data, loading, error } = useQuery(PROPOSALS_QUERY);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {JSON.stringify(error)}</p>;
+  }
+
   return (
     <MainLayout>
       <ContentContainer>
@@ -37,12 +49,13 @@ function Index({ proposals }) {
           <Title>Home</Title>
           <CreateButton>New proposal</CreateButton>
         </SubNav>
-        {proposals &&
-          proposals.map(proposal => (
-            <Link key={proposal.id} href="/proposal">
-              <a>{proposal.name}</a>
+        {data.proposals.map(proposal => (
+          <div key={proposal.id}>
+            <Link href={`/p/${proposal.slug}`}>
+              <a>{proposal.title}</a>
             </Link>
-          ))}
+          </div>
+        ))}
       </ContentContainer>
     </MainLayout>
   );

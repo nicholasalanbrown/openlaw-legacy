@@ -24,7 +24,7 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/new": [
+    "/p/[proposal]": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]

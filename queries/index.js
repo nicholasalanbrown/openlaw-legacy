@@ -48,3 +48,5 @@ export const getProposalLegal = async (gitlabProjectId, refName = "master") => {
     .then(data => data);
   return res;
 };
+
+export { default as PROPOSALS_QUERY } from "./proposals.query";

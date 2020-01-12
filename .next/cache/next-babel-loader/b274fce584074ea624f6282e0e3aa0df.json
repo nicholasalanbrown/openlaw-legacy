@@ -1,0 +1,1 @@
+{"ast":null,"code":"export { default as withApollo } from \"./apollo-client\";","map":{"version":3,"sources":["/Users/nicholasbrown/Source/openlaw/utils/index.js"],"names":["default","withApollo"],"mappings":"AAAA,SAASA,OAAO,IAAIC,UAApB,QAAsC,iBAAtC","sourcesContent":["export { default as withApollo } from \"./apollo-client\";\n"]},"metadata":{},"sourceType":"module"}

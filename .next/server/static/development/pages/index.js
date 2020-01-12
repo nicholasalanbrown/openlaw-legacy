@@ -546,6 +546,17 @@ const MainLayout = props => __jsx("div", {
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/json/stringify */ "core-js/library/fn/json/stringify");
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/map.js":
 /*!************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/core-js/map.js ***!
@@ -2612,35 +2623,41 @@ if (false) {} else {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _layouts_MainLayout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../layouts/MainLayout */ "./layouts/MainLayout.js");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! isomorphic-unfetch */ "isomorphic-unfetch");
-/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components */ "./components/index.js");
-/* harmony import */ var _queries__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../queries */ "./queries/index.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _layouts_MainLayout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../layouts/MainLayout */ "./layouts/MainLayout.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! isomorphic-unfetch */ "isomorphic-unfetch");
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @apollo/react-hooks */ "@apollo/react-hooks");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components */ "./components/index.js");
+/* harmony import */ var _queries__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../queries */ "./queries/index.js");
+
 var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/pages/index.js";
 
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
 
 
 
-const SubNav = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.div.withConfig({
+
+const SubNav = styled_components__WEBPACK_IMPORTED_MODULE_5___default.a.div.withConfig({
   displayName: "pages__SubNav",
   componentId: "kbnfey-0"
 })(["display:flex;justify-content:space-between;align-items:center;height:100px;"]);
-const Title = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.h1.withConfig({
+const Title = styled_components__WEBPACK_IMPORTED_MODULE_5___default.a.h1.withConfig({
   displayName: "pages__Title",
   componentId: "kbnfey-1"
 })(["line-height:1;margin:0;"]);
-const CreateButton = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.button.withConfig({
+const CreateButton = styled_components__WEBPACK_IMPORTED_MODULE_5___default.a.button.withConfig({
   displayName: "pages__CreateButton",
   componentId: "kbnfey-2"
 })(["border:none;background:#372237;border-radius:2px;color:white;font-size:18px;padding:10px;&:hover{cursor:pointer;}"]);
@@ -2648,55 +2665,87 @@ const CreateButton = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.bu
 function Index({
   proposals
 }) {
-  return __jsx(_layouts_MainLayout__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  const {
+    data,
+    loading,
+    error
+  } = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_6__["useQuery"])(_queries__WEBPACK_IMPORTED_MODULE_8__["PROPOSALS_QUERY"]);
+
+  if (loading) {
+    return __jsx("p", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 38
+      },
+      __self: this
+    }, "Loading...");
+  }
+
+  if (error) {
+    return __jsx("p", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 42
+      },
+      __self: this
+    }, "Error: ", _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(error));
+  }
+
+  return __jsx(_layouts_MainLayout__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 46
     },
     __self: this
-  }, __jsx(_components__WEBPACK_IMPORTED_MODULE_5__["ContentContainer"], {
+  }, __jsx(_components__WEBPACK_IMPORTED_MODULE_7__["ContentContainer"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 47
     },
     __self: this
   }, __jsx(SubNav, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36
+      lineNumber: 48
     },
     __self: this
   }, __jsx(Title, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37
+      lineNumber: 49
     },
     __self: this
   }, "Home"), __jsx(CreateButton, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 50
     },
     __self: this
-  }, "New proposal")), proposals && proposals.map(proposal => __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
+  }, "New proposal")), data.proposals.map(proposal => __jsx("div", {
     key: proposal.id,
-    href: "/proposal",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42
+      lineNumber: 53
+    },
+    __self: this
+  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    href: `/p/${proposal.slug}`,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 54
     },
     __self: this
   }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43
+      lineNumber: 55
     },
     __self: this
-  }, proposal.name)))));
+  }, proposal.title))))));
 }
 
 Index.getInitialProps = async function () {
-  const proposals = await Object(_queries__WEBPACK_IMPORTED_MODULE_6__["getProposals"])();
+  const proposals = await Object(_queries__WEBPACK_IMPORTED_MODULE_8__["getProposals"])();
   return {
     proposals
   };
@@ -2710,7 +2759,7 @@ Index.getInitialProps = async function () {
 /*!**************************!*\
   !*** ./queries/index.js ***!
   \**************************/
-/*! exports provided: getProposals, getProposalBranches, getProposalMetadata, getProposalSummary, getProposalLegal */
+/*! exports provided: getProposals, getProposalBranches, getProposalMetadata, getProposalSummary, getProposalLegal, PROPOSALS_QUERY */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2722,6 +2771,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getProposalLegal", function() { return getProposalLegal; });
 /* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! isomorphic-unfetch */ "isomorphic-unfetch");
 /* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _proposals_query__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./proposals.query */ "./queries/proposals.query.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PROPOSALS_QUERY", function() { return _proposals_query__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
 
 const getProposals = async () => {
   const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0___default()(`${"http://localhost:10080/api/v4"}/projects`).then(response => response.json()).then(data => data);
@@ -2744,6 +2796,32 @@ const getProposalLegal = async (gitlabProjectId, refName = "master") => {
   return res;
 };
 
+
+/***/ }),
+
+/***/ "./queries/proposals.query.js":
+/*!************************************!*\
+  !*** ./queries/proposals.query.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
+
+const PROPOSALS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default.a`
+  query Proposals {
+    proposals {
+      id
+      title
+      slug
+    }
+  }
+`;
+/* harmony default export */ __webpack_exports__["default"] = (PROPOSALS_QUERY);
+
 /***/ }),
 
 /***/ 4:
@@ -2755,6 +2833,28 @@ const getProposalLegal = async (gitlabProjectId, refName = "master") => {
 
 module.exports = __webpack_require__(/*! /Users/nicholasbrown/Source/openlaw/pages/index.js */"./pages/index.js");
 
+
+/***/ }),
+
+/***/ "@apollo/react-hooks":
+/*!**************************************!*\
+  !*** external "@apollo/react-hooks" ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@apollo/react-hooks");
+
+/***/ }),
+
+/***/ "core-js/library/fn/json/stringify":
+/*!****************************************************!*\
+  !*** external "core-js/library/fn/json/stringify" ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("core-js/library/fn/json/stringify");
 
 /***/ }),
 
@@ -2865,6 +2965,17 @@ module.exports = require("core-js/library/fn/symbol/iterator");
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/library/fn/weak-map");
+
+/***/ }),
+
+/***/ "graphql-tag":
+/*!******************************!*\
+  !*** external "graphql-tag" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("graphql-tag");
 
 /***/ }),
 
