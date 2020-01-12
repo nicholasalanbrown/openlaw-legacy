@@ -12,6 +12,15 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-family: 'Poppins', sans-serif;
   }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  input, textarea {
+    border: 1px solid #ccc;
+    outline: none;
+  }
 `;
 
 import Header from "../components/Header";

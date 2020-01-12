@@ -117,7 +117,7 @@ const Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.wit
 const Containter = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.withConfig({
   displayName: "ContentContainer__Containter",
   componentId: "sc-89ib3d-1"
-})(["font-size:18px;line-height:1.4;max-width:900px;width:100%;padding:60px 0 160px;"]);
+})(["font-size:18px;line-height:1.4;max-width:900px;width:100%;padding:0 0 160px;"]);
 
 function ContentContainer({
   children
@@ -170,7 +170,11 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 const Nav = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div.withConfig({
   displayName: "Header__Nav",
   componentId: "p12jyt-0"
-})(["border-bottom:1px solid #ccc;height:60px;width:100%;"]);
+})(["border-bottom:1px solid #ccc;align-items:center;justify-content:flex-end;display:flex;height:60px;padding:0 20px;width:100%;"]);
+const AccountButton = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.button.withConfig({
+  displayName: "Header__AccountButton",
+  componentId: "p12jyt-1"
+})(["background:none;border:none;box-shadow:none;font-size:18px;outline:none;&:hover{cursor:pointer;text-decoration:underline;}"]);
 
 function Header() {
   const {
@@ -186,19 +190,19 @@ function Header() {
   return __jsx(Nav, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 32
     },
     __self: this
-  }, !isLoading && (isAuthenticated ? __jsx("button", {
+  }, !isLoading && (isAuthenticated ? __jsx(AccountButton, {
     onClick: () => logout({
       returnTo: "http://localhost:3000/"
     }),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 35
     },
     __self: this
-  }, "Log out") : __jsx("button", {
+  }, "Log out") : __jsx(AccountButton, {
     onClick: () => login({
       appState: {
         returnTo: {
@@ -209,7 +213,7 @@ function Header() {
     }),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27
+      lineNumber: 43
     },
     __self: this
   }, "Log in")));
@@ -363,11 +367,96 @@ Proposal.getInitialProps = async function (context) {
 
 /***/ }),
 
+/***/ "./components/RichTextEditor.js":
+/*!**************************************!*\
+  !*** ./components/RichTextEditor.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var slate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! slate */ "slate");
+/* harmony import */ var slate__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(slate__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var slate_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! slate-react */ "slate-react");
+/* harmony import */ var slate_react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(slate_react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var slate_history__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! slate-history */ "slate-history");
+/* harmony import */ var slate_history__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(slate_history__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_4__);
+var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/components/RichTextEditor.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+const StyledEditable = styled_components__WEBPACK_IMPORTED_MODULE_4___default()(slate_react__WEBPACK_IMPORTED_MODULE_2__["Editable"]).withConfig({
+  displayName: "RichTextEditor__StyledEditable",
+  componentId: "qlh8hx-0"
+})(["border:1px solid #ccc;margin-top:30px;padding:12px 8px;&:placeholder{color:#757575;opacity:1 !important;}"]);
+
+const RichTextEditor = ({
+  placeholder,
+  onChange
+}) => {
+  const {
+    0: value,
+    1: setValue
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([{
+    children: [{
+      text: ""
+    }]
+  }]);
+
+  const serialize = nodes => {
+    return nodes.map(n => slate__WEBPACK_IMPORTED_MODULE_1__["Node"].string(n)).join("\n");
+  };
+
+  const handleChange = value => {
+    if (onChange) {
+      onChange(serialize(value));
+    }
+
+    setValue(value);
+  };
+
+  const editor = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(() => Object(slate_history__WEBPACK_IMPORTED_MODULE_3__["withHistory"])(Object(slate_react__WEBPACK_IMPORTED_MODULE_2__["withReact"])(Object(slate__WEBPACK_IMPORTED_MODULE_1__["createEditor"])())), []);
+  return __jsx(slate_react__WEBPACK_IMPORTED_MODULE_2__["Slate"], {
+    editor: editor,
+    value: value,
+    onChange: value => handleChange(value),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41
+    },
+    __self: undefined
+  }, __jsx(StyledEditable, {
+    placeholder: placeholder,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46
+    },
+    __self: undefined
+  }));
+};
+
+const initialValue = [{
+  children: [{
+    text: "This is editable plain text, just like a <textarea>!"
+  }]
+}];
+/* harmony default export */ __webpack_exports__["default"] = (RichTextEditor);
+
+/***/ }),
+
 /***/ "./components/index.js":
 /*!*****************************!*\
   !*** ./components/index.js ***!
   \*****************************/
-/*! exports provided: ContentContainer, Header, ProposalPage */
+/*! exports provided: ContentContainer, Header, ProposalPage, RichTextEditor */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -380,6 +469,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony import */ var _ProposalPage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProposalPage */ "./components/ProposalPage.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProposalPage", function() { return _ProposalPage__WEBPACK_IMPORTED_MODULE_2__["default"]; });
+
+/* harmony import */ var _RichTextEditor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RichTextEditor */ "./components/RichTextEditor.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RichTextEditor", function() { return _RichTextEditor__WEBPACK_IMPORTED_MODULE_3__["default"]; });
+
 
 
 
@@ -417,25 +510,34 @@ const GlobalStyles = styled_components__WEBPACK_IMPORTED_MODULE_1__["createGloba
   body {
     font-family: 'Poppins', sans-serif;
   }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  input, textarea {
+    border: 1px solid #ccc;
+    outline: none;
+  }
 `;
 
 
 const MainLayout = props => __jsx("div", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 20
+    lineNumber: 29
   },
   __self: undefined
 }, __jsx(GlobalStyles, {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 21
+    lineNumber: 30
   },
   __self: undefined
 }), __jsx(_components_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 22
+    lineNumber: 31
   },
   __self: undefined
 }), props.children);
@@ -2530,6 +2632,18 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+const SubNav = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.div.withConfig({
+  displayName: "pages__SubNav",
+  componentId: "kbnfey-0"
+})(["display:flex;justify-content:space-between;align-items:center;height:100px;"]);
+const Title = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.h1.withConfig({
+  displayName: "pages__Title",
+  componentId: "kbnfey-1"
+})(["line-height:1;margin:0;"]);
+const CreateButton = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.button.withConfig({
+  displayName: "pages__CreateButton",
+  componentId: "kbnfey-2"
+})(["border:none;background:#372237;border-radius:2px;color:white;font-size:18px;padding:10px;&:hover{cursor:pointer;}"]);
 
 function Index({
   proposals
@@ -2537,27 +2651,45 @@ function Index({
   return __jsx(_layouts_MainLayout__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 34
     },
     __self: this
   }, __jsx(_components__WEBPACK_IMPORTED_MODULE_5__["ContentContainer"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 35
     },
     __self: this
-  }, proposals && proposals.map(proposal => __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
+  }, __jsx(SubNav, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36
+    },
+    __self: this
+  }, __jsx(Title, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37
+    },
+    __self: this
+  }, "Home"), __jsx(CreateButton, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38
+    },
+    __self: this
+  }, "New proposal")), proposals && proposals.map(proposal => __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
     key: proposal.id,
     href: "/proposal",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 42
     },
     __self: this
   }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 43
     },
     __self: this
   }, proposal.name)))));
@@ -2592,23 +2724,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0__);
 
 const getProposals = async () => {
-  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0___default()(`${"http://127.0.0.1:30080/api/v4"}/projects`).then(response => response.json()).then(data => data);
+  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0___default()(`${"http://localhost:10080/api/v4"}/projects`).then(response => response.json()).then(data => data);
   return res;
 };
 const getProposalBranches = async gitlabProjectId => {
-  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0___default()(`${"http://127.0.0.1:30080/api/v4"}/projects/${gitlabProjectId}/repository/branches`).then(response => response.json()).then(data => data);
+  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0___default()(`${"http://localhost:10080/api/v4"}/projects/${gitlabProjectId}/repository/branches`).then(response => response.json()).then(data => data);
   return res;
 };
 const getProposalMetadata = async (gitlabProjectId, refName = "master") => {
-  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0___default()(`${"http://127.0.0.1:30080/api/v4"}/projects/${gitlabProjectId}/repository/files/metadata%2Ejson/raw?ref=${refName}`).then(response => response.json()).then(data => data);
+  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0___default()(`${"http://localhost:10080/api/v4"}/projects/${gitlabProjectId}/repository/files/metadata%2Ejson/raw?ref=${refName}`).then(response => response.json()).then(data => data);
   return res;
 };
 const getProposalSummary = async (gitlabProjectId, refName = "master") => {
-  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0___default()(`${"http://127.0.0.1:30080/api/v4"}/projects/${gitlabProjectId}/repository/files/summary%2Emd/raw?ref=${refName}`).then(response => response.text()).then(data => data);
+  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0___default()(`${"http://localhost:10080/api/v4"}/projects/${gitlabProjectId}/repository/files/summary%2Emd/raw?ref=${refName}`).then(response => response.text()).then(data => data);
   return res;
 };
 const getProposalLegal = async (gitlabProjectId, refName = "master") => {
-  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0___default()(`${"http://127.0.0.1:30080/api/v4"}/projects/${gitlabProjectId}/repository/files/legal%2Emd/raw?ref=${refName}`).then(response => response.text()).then(data => data);
+  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0___default()(`${"http://localhost:10080/api/v4"}/projects/${gitlabProjectId}/repository/files/legal%2Emd/raw?ref=${refName}`).then(response => response.text()).then(data => data);
   return res;
 };
 
@@ -2799,6 +2931,39 @@ module.exports = require("react");
 /***/ (function(module, exports) {
 
 module.exports = require("react-markdown");
+
+/***/ }),
+
+/***/ "slate":
+/*!************************!*\
+  !*** external "slate" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("slate");
+
+/***/ }),
+
+/***/ "slate-history":
+/*!********************************!*\
+  !*** external "slate-history" ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("slate-history");
+
+/***/ }),
+
+/***/ "slate-react":
+/*!******************************!*\
+  !*** external "slate-react" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("slate-react");
 
 /***/ }),
 

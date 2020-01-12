@@ -12,7 +12,7 @@ const Containter = styled.div`
   line-height: 1.4;
   max-width: 900px;
   width: 100%;
-  padding: 60px 0 160px;
+  padding: 0 0 160px;
 `;
 
 function ContentContainer({ children }) {

@@ -5,8 +5,24 @@ import { useAuth } from "use-auth0-hooks";
 
 const Nav = styled.div`
   border-bottom: 1px solid #ccc;
+  align-items: center;
+  justify-content: flex-end;
+  display: flex;
   height: 60px;
+  padding: 0 20px;
   width: 100%;
+`;
+
+const AccountButton = styled.button`
+  background: none;
+  border: none;
+  box-shadow: none;
+  font-size: 18px;
+  outline: none;
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
 `;
 
 function Header() {
@@ -16,21 +32,21 @@ function Header() {
     <Nav>
       {!isLoading &&
         (isAuthenticated ? (
-          <button
+          <AccountButton
             onClick={() =>
               logout({ returnTo: process.env.POST_LOGOUT_REDIRECT_URI })
             }
           >
             Log out
-          </button>
+          </AccountButton>
         ) : (
-          <button
+          <AccountButton
             onClick={() =>
               login({ appState: { returnTo: { pathname, query } } })
             }
           >
             Log in
-          </button>
+          </AccountButton>
         ))}
     </Nav>
   );
