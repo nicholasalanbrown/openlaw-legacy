@@ -43150,7 +43150,7 @@ var PROPOSALS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_1___default()(_templa
 
 /***/ }),
 
-/***/ 3:
+/***/ 1:
 /*!****************************************************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fp%2F%5Bproposal%5D%2Fcommits%2F%5Bbranch%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Fcommits%2F%5Bbranch%5D.js ***!
   \****************************************************************************************************************************************************************************************************************/
@@ -43173,5 +43173,5 @@ module.exports = dll_5f137288facb1107b491;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=[branch].js.map

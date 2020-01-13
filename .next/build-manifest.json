@@ -16,10 +16,6 @@
       "static/runtime/polyfills.js",
       "static/runtime/polyfills.js.map"
     ],
-    "/p/[proposal]/branches": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
     "/p/[proposal]/commits/[branch]": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
