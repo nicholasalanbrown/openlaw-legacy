@@ -3,6 +3,7 @@ import styled from "styled-components";
 import MeactMarkdown from "react-markdown";
 import { useRouter } from "next/router";
 import { withAuth, withLoginRequired } from "use-auth0-hooks";
+import { useQuery } from "@apollo/react-hooks";
 
 import MainLayout from "../layouts/MainLayout";
 import { ContentContainer } from "components";
@@ -10,7 +11,8 @@ import {
   getProposalBranches,
   getProposalMetadata,
   getProposalSummary,
-  getProposalLegal
+  getProposalLegal,
+  PROPOSAL_BY_SLUG_QUERY
 } from "../queries";
 import ReactMarkdown from "react-markdown";
 
@@ -27,7 +29,21 @@ const Containter = styled.div`
   padding: 60px 20px 0;
 `;
 
-function Proposal({ auth, branches, currentBranch, metadata, summary, legal }) {
+function Proposal({ auth, query }) {
+  const { loading, error, data } = useQuery(PROPOSAL_BY_SLUG_QUERY, {
+    variables: { slug: query.proposal }
+  });
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {JSON.stringify(error)}</p>;
+  }
+
+  console.log(data);
+
   const router = useRouter();
 
   const handleBranchSelect = e => {
@@ -44,6 +60,7 @@ function Proposal({ auth, branches, currentBranch, metadata, summary, legal }) {
   return (
     <MainLayout>
       <ContentContainer>
+        {/*
         <select
           onChange={e => handleBranchSelect(e)}
           defaultValue={currentBranch || "master"}
@@ -54,23 +71,18 @@ function Proposal({ auth, branches, currentBranch, metadata, summary, legal }) {
             </option>
           ))}
         </select>
-        <h1>{metadata.title}</h1>
-        <h2>{metadata.description}</h2>
-        <ReactMarkdown source={summary} />
-        <ReactMarkdown source={legal} />
+          */}
+        <h1>{data.proposalBySlug.title}</h1>
+        <h2>{data.proposalBySlug.description}</h2>
+        <ReactMarkdown source={data.proposalBySlug.summary} />
+        <ReactMarkdown source={data.proposalBySlug.legal} />
       </ContentContainer>
     </MainLayout>
   );
 }
 
-Proposal.getInitialProps = async function(context) {
-  const allBranches = await getProposalBranches(1);
-  const branches = allBranches.filter(branch => branch.merged === false);
-  const currentBranch = context.query.branch || "master";
-  const metadata = await getProposalMetadata(1, currentBranch);
-  const summary = await getProposalSummary(1, currentBranch);
-  const legal = await getProposalLegal(1, currentBranch);
-  return { branches, currentBranch, metadata, summary, legal };
+Proposal.getInitialProps = ({ query }) => {
+  return { query };
 };
 
-export default withLoginRequired(withAuth(Proposal));
+export default Proposal;

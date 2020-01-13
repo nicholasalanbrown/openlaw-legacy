@@ -50,3 +50,4 @@ export const getProposalLegal = async (gitlabProjectId, refName = "master") => {
 };
 
 export { default as PROPOSALS_QUERY } from "./proposals.query";
+export { default as PROPOSAL_BY_SLUG_QUERY } from "./proposalBySlug.query";

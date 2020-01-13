@@ -1,7 +1,9 @@
 import { useState } from "react";
 import MainLayout from "../layouts/MainLayout";
 import styled from "styled-components";
+import { useMutation } from "@apollo/react-hooks";
 import { ContentContainer, RichTextEditor } from "components";
+import { CREATE_PROPOSAL_MUTATION } from "../mutations";
 
 const SubNav = styled.div`
   display: flex;
@@ -60,15 +62,27 @@ function New() {
   const [description, setDescription] = useState("");
   const [summary, setSummary] = useState("");
   const [legal, setLegal] = useState("");
+  const [createProposal, { data }] = useMutation(CREATE_PROPOSAL_MUTATION);
+
+  const handleSubmit = () => {
+    createProposal({
+      variables: {
+        title,
+        description,
+        summary,
+        legal
+      }
+    });
+  };
 
   return (
     <MainLayout>
       <ContentContainer>
         <SubNav>
           <Title>New Proposal</Title>
-          <CreateButton>Create</CreateButton>
+          <CreateButton onClick={() => handleSubmit()}>Create</CreateButton>
         </SubNav>
-        <Form>
+        <Form onSubmit={() => handleSubmit()}>
           <TitleInput
             placeholder="Title"
             onChange={e => setTitle(e.target.value)}

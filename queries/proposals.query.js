@@ -5,6 +5,8 @@ const PROPOSALS_QUERY = gql`
     proposals {
       id
       title
+      summary
+      legal
       slug
     }
   }
