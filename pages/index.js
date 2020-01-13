@@ -19,13 +19,14 @@ const Title = styled.h1`
   margin: 0;
 `;
 
-const CreateButton = styled.button`
+const CreateButton = styled.a`
   border: none;
   background: #372237;
   border-radius: 2px;
   color: white;
   font-size: 18px;
-  padding: 10px;
+  padding: 12px;
+  text-decoration: none;
   &:hover {
     cursor: pointer;
   }
@@ -33,10 +34,6 @@ const CreateButton = styled.button`
 
 function Index({ proposals }) {
   const { data, loading, error } = useQuery(PROPOSALS_QUERY);
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
 
   if (error) {
     return <p>Error: {JSON.stringify(error)}</p>;
@@ -47,15 +44,19 @@ function Index({ proposals }) {
       <ContentContainer>
         <SubNav>
           <Title>Home</Title>
-          <CreateButton>New proposal</CreateButton>
+          <Link href="/new">
+            <CreateButton>New proposal</CreateButton>
+          </Link>
         </SubNav>
-        {data.proposals.map(proposal => (
-          <div key={proposal.id}>
-            <Link href={`/p/${proposal.slug}`}>
-              <a>{proposal.title}</a>
-            </Link>
-          </div>
-        ))}
+        {!loading &&
+          data &&
+          data.proposals.map(proposal => (
+            <div key={proposal.id}>
+              <Link href={`/p/${proposal.slug}`}>
+                <a>{proposal.title}</a>
+              </Link>
+            </div>
+          ))}
       </ContentContainer>
     </MainLayout>
   );

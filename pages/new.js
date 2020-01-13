@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 import MainLayout from "../layouts/MainLayout";
 import styled from "styled-components";
 import { useMutation } from "@apollo/react-hooks";
@@ -58,11 +59,16 @@ const LegalInput = styled(RichTextEditor)`
 `;
 
 function New() {
+  const router = useRouter();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [summary, setSummary] = useState("");
   const [legal, setLegal] = useState("");
-  const [createProposal, { data }] = useMutation(CREATE_PROPOSAL_MUTATION);
+  const [createProposal, { data }] = useMutation(CREATE_PROPOSAL_MUTATION, {
+    onCompleted() {
+      router.push("/");
+    }
+  });
 
   const handleSubmit = () => {
     createProposal({
