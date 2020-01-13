@@ -21,6 +21,15 @@ const GlobalStyles = createGlobalStyle`
     border: 1px solid #ccc;
     outline: none;
   }
+
+  a {
+    color: blue;
+    font-weight: 600;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 `;
 
 import Header from "../components/Header";

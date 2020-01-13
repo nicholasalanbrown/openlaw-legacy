@@ -1,7 +1,7 @@
 module.exports =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
-/******/ 	var installedModules = require('../../../../../../ssr-module-cache.js');
+/******/ 	var installedModules = require('../../../../ssr-module-cache.js');
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -326,30 +326,46 @@ function Proposal({
       lineNumber: 41
     },
     __self: this
-  }, __jsx("h1", {
+  }, __jsx("select", {
+    onChange: e => handleBranchSelect(e),
+    defaultValue: query.branch || "master",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54
+      lineNumber: 42
+    },
+    __self: this
+  }, data.proposalBySlug.branches.map(branch => __jsx("option", {
+    key: branch,
+    value: branch,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: this
+  }, branch))), __jsx("h1", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
     },
     __self: this
   }, data.proposalBySlug.title), __jsx("h2", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55
+      lineNumber: 53
     },
     __self: this
   }, data.proposalBySlug.description), __jsx(react_markdown__WEBPACK_IMPORTED_MODULE_4___default.a, {
     source: data.proposalBySlug.summary,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56
+      lineNumber: 54
     },
     __self: this
   }), __jsx(react_markdown__WEBPACK_IMPORTED_MODULE_4___default.a, {
     source: data.proposalBySlug.legal,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57
+      lineNumber: 55
     },
     __self: this
   })));
@@ -452,11 +468,35 @@ const initialValue = [{
 
 /***/ }),
 
+/***/ "./components/Row.js":
+/*!***************************!*\
+  !*** ./components/Row.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
+
+
+const borderColor = "#e1e4e8";
+const Row = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.withConfig({
+  displayName: "Row",
+  componentId: "sc-3emxm7-0"
+})(["border-bottom:1px solid ", ";border-left:1px solid ", ";border-right:1px solid ", ";display:flex;align-items:center;padding:20px;width:1005;&:first-child{border-top:1px solid ", ";}"], borderColor, borderColor, borderColor, borderColor);
+/* harmony default export */ __webpack_exports__["default"] = (Row);
+
+/***/ }),
+
 /***/ "./components/index.js":
 /*!*****************************!*\
   !*** ./components/index.js ***!
   \*****************************/
-/*! exports provided: ContentContainer, Header, ProposalPage, RichTextEditor */
+/*! exports provided: ContentContainer, Header, ProposalPage, RichTextEditor, Row */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -472,6 +512,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony import */ var _RichTextEditor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RichTextEditor */ "./components/RichTextEditor.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RichTextEditor", function() { return _RichTextEditor__WEBPACK_IMPORTED_MODULE_3__["default"]; });
+
+/* harmony import */ var _Row__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Row */ "./components/Row.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Row", function() { return _Row__WEBPACK_IMPORTED_MODULE_4__["default"]; });
+
 
 
 
@@ -519,25 +563,34 @@ const GlobalStyles = styled_components__WEBPACK_IMPORTED_MODULE_1__["createGloba
     border: 1px solid #ccc;
     outline: none;
   }
+
+  a {
+    color: blue;
+    font-weight: 600;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 `;
 
 
 const MainLayout = props => __jsx("div", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 29
+    lineNumber: 38
   },
   __self: undefined
 }, __jsx(GlobalStyles, {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 30
+    lineNumber: 39
   },
   __self: undefined
 }), __jsx(_components_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 31
+    lineNumber: 40
   },
   __self: undefined
 }), props.children);
@@ -2614,79 +2667,18 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./pages/p/[proposal]/commits/[branch].js":
-/*!************************************************!*\
-  !*** ./pages/p/[proposal]/commits/[branch].js ***!
-  \************************************************/
+/***/ "./pages/p/[proposal]/index.js":
+/*!*************************************!*\
+  !*** ./pages/p/[proposal]/index.js ***!
+  \*************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! isomorphic-unfetch */ "isomorphic-unfetch");
-/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "@apollo/react-hooks");
-/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _layouts_MainLayout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../layouts/MainLayout */ "./layouts/MainLayout.js");
-/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../components */ "./components/index.js");
-/* harmony import */ var _queries__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../queries */ "./queries/index.js");
-var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/pages/p/[proposal]/commits/[branch].js";
+/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components */ "./components/index.js");
 
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-
-
-
-
-
-
-function Commits({
-  query
-}) {
-  const {
-    loading,
-    error,
-    data
-  } = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(_queries__WEBPACK_IMPORTED_MODULE_6__["PROPOSAL_BY_SLUG_QUERY"], {
-    variables: {
-      slug: query.proposal,
-      branchName: query.branch
-    }
-  });
-  return __jsx(_layouts_MainLayout__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 18
-    },
-    __self: this
-  }, __jsx(_components__WEBPACK_IMPORTED_MODULE_5__["ContentContainer"], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 19
-    },
-    __self: this
-  }, !loading && data && data.proposalBySlug.commits.map(commit => __jsx("div", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 22
-    },
-    __self: this
-  }, commit.title))));
-}
-
-Commits.getInitialProps = ({
-  query
-}) => {
-  return {
-    query
-  };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Commits);
+/* harmony default export */ __webpack_exports__["default"] = (_components__WEBPACK_IMPORTED_MODULE_0__["ProposalPage"]);
 
 /***/ }),
 
@@ -2797,14 +2789,14 @@ const PROPOSALS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default.a`
 
 /***/ }),
 
-/***/ 3:
-/*!******************************************************!*\
-  !*** multi ./pages/p/[proposal]/commits/[branch].js ***!
-  \******************************************************/
+/***/ 4:
+/*!*******************************************!*\
+  !*** multi ./pages/p/[proposal]/index.js ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/nicholasbrown/Source/openlaw/pages/p/[proposal]/commits/[branch].js */"./pages/p/[proposal]/commits/[branch].js");
+module.exports = __webpack_require__(/*! /Users/nicholasbrown/Source/openlaw/pages/p/[proposal]/index.js */"./pages/p/[proposal]/index.js");
 
 
 /***/ }),
@@ -3085,4 +3077,4 @@ module.exports = require("use-auth0-hooks");
 /***/ })
 
 /******/ });
-//# sourceMappingURL=[branch].js.map
+//# sourceMappingURL=[proposal].js.map

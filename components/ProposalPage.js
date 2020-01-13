@@ -39,18 +39,16 @@ function Proposal({ auth, query }) {
   return (
     <MainLayout>
       <ContentContainer>
-        {/*
         <select
           onChange={e => handleBranchSelect(e)}
-          defaultValue={currentBranch || "master"}
+          defaultValue={query.branch || "master"}
         >
-          {branches.map(branch => (
-            <option key={branch.name} value={branch.name}>
-              {branch.name}
+          {data.proposalBySlug.branches.map(branch => (
+            <option key={branch} value={branch}>
+              {branch}
             </option>
           ))}
         </select>
-          */}
         <h1>{data.proposalBySlug.title}</h1>
         <h2>{data.proposalBySlug.description}</h2>
         <ReactMarkdown source={data.proposalBySlug.summary} />

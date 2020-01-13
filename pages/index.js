@@ -4,7 +4,7 @@ import fetch from "isomorphic-unfetch";
 import styled from "styled-components";
 import { useQuery } from "@apollo/react-hooks";
 
-import { ContentContainer } from "components";
+import { ContentContainer, Row } from "components";
 import { getProposals, PROPOSALS_QUERY } from "../queries";
 
 const SubNav = styled.div`
@@ -48,15 +48,17 @@ function Index({ proposals }) {
             <CreateButton>New proposal</CreateButton>
           </Link>
         </SubNav>
-        {!loading &&
-          data &&
-          data.proposals.map(proposal => (
-            <div key={proposal.id}>
-              <Link href={`/p/${proposal.slug}`}>
-                <a>{proposal.title}</a>
-              </Link>
-            </div>
-          ))}
+        <div>
+          {!loading &&
+            data &&
+            data.proposals.map(proposal => (
+              <Row key={proposal.id}>
+                <Link href={`/p/${proposal.slug}`}>
+                  <a>{proposal.title}</a>
+                </Link>
+              </Row>
+            ))}
+        </div>
       </ContentContainer>
     </MainLayout>
   );
