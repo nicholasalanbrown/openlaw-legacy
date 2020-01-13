@@ -8,7 +8,10 @@ import { PROPOSAL_BY_SLUG_QUERY } from "../../../../queries";
 
 function Commits({ query }) {
   const { loading, error, data } = useQuery(PROPOSAL_BY_SLUG_QUERY, {
-    variables: { slug: query.proposal }
+    variables: {
+      slug: query.proposal,
+      branchName: query.branch
+    }
   });
 
   return (

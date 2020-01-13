@@ -42889,7 +42889,8 @@ function Commits(_ref) {
 
   var _useQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(_queries__WEBPACK_IMPORTED_MODULE_6__["PROPOSAL_BY_SLUG_QUERY"], {
     variables: {
-      slug: query.proposal
+      slug: query.proposal,
+      branchName: query.branch
     }
   }),
       loading = _useQuery.loading,
@@ -42899,20 +42900,20 @@ function Commits(_ref) {
   return __jsx(_layouts_MainLayout__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 18
     },
     __self: this
   }, __jsx(_components__WEBPACK_IMPORTED_MODULE_5__["ContentContainer"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 19
     },
     __self: this
   }, !loading && data && data.proposalBySlug.commits.map(function (commit) {
     return __jsx("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 19
+        lineNumber: 22
       },
       __self: this
     }, commit.title);
@@ -43105,7 +43106,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function _templateObject() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  query getProposalBySlug($slug: String!) {\n    proposalBySlug(slug: $slug) {\n      id\n      title\n      description\n      summary\n      legal\n      branches\n      commits {\n        id\n        title\n      }\n    }\n  }\n"]);
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  query getProposalBySlug($slug: String!, $branchName: String) {\n    proposalBySlug(slug: $slug, branchName: $branchName) {\n      id\n      title\n      description\n      summary\n      legal\n      branches\n      commits {\n        id\n        title\n      }\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -43150,7 +43151,7 @@ var PROPOSALS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_1___default()(_templa
 
 /***/ }),
 
-/***/ 1:
+/***/ 0:
 /*!****************************************************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fp%2F%5Bproposal%5D%2Fcommits%2F%5Bbranch%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Fcommits%2F%5Bbranch%5D.js ***!
   \****************************************************************************************************************************************************************************************************************/
@@ -43173,5 +43174,5 @@ module.exports = dll_5f137288facb1107b491;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[0,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=[branch].js.map

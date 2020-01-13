@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -2653,25 +2653,26 @@ function Commits({
     data
   } = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(_queries__WEBPACK_IMPORTED_MODULE_6__["PROPOSAL_BY_SLUG_QUERY"], {
     variables: {
-      slug: query.proposal
+      slug: query.proposal,
+      branchName: query.branch
     }
   });
   return __jsx(_layouts_MainLayout__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 18
     },
     __self: this
   }, __jsx(_components__WEBPACK_IMPORTED_MODULE_5__["ContentContainer"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 19
     },
     __self: this
   }, !loading && data && data.proposalBySlug.commits.map(commit => __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 22
     },
     __self: this
   }, commit.title))));
@@ -2750,8 +2751,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
 
 const PROPOSAL_BY_SLUG_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default.a`
-  query getProposalBySlug($slug: String!) {
-    proposalBySlug(slug: $slug) {
+  query getProposalBySlug($slug: String!, $branchName: String) {
+    proposalBySlug(slug: $slug, branchName: $branchName) {
       id
       title
       description
@@ -2796,7 +2797,7 @@ const PROPOSALS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default.a`
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!******************************************************!*\
   !*** multi ./pages/p/[proposal]/commits/[branch].js ***!
   \******************************************************/
