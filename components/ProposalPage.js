@@ -7,27 +7,8 @@ import { useQuery } from "@apollo/react-hooks";
 
 import MainLayout from "../layouts/MainLayout";
 import { ContentContainer } from "components";
-import {
-  getProposalBranches,
-  getProposalMetadata,
-  getProposalSummary,
-  getProposalLegal,
-  PROPOSAL_BY_SLUG_QUERY
-} from "../queries";
+import { PROPOSAL_BY_SLUG_QUERY } from "../queries";
 import ReactMarkdown from "react-markdown";
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const Containter = styled.div`
-  font-size: 18px;
-  line-height: 1.4;
-  max-width: 900px;
-  padding: 60px 20px 0;
-`;
 
 function Proposal({ auth, query }) {
   const { loading, error, data } = useQuery(PROPOSAL_BY_SLUG_QUERY, {
@@ -41,8 +22,6 @@ function Proposal({ auth, query }) {
   if (error) {
     return <p>Error: {JSON.stringify(error)}</p>;
   }
-
-  console.log(data);
 
   const router = useRouter();
 

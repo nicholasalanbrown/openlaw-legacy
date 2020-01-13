@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/index.js"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/p/[proposal].js"],{
 
 /***/ "./components/ContentContainer.js":
 /*!****************************************!*\
@@ -171,14 +171,6 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
-var Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
-  displayName: "ProposalPage__Wrapper",
-  componentId: "sc-1xdfroq-0"
-})(["display:flex;flex-direction:column;align-items:center;"]);
-var Containter = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
-  displayName: "ProposalPage__Containter",
-  componentId: "sc-1xdfroq-1"
-})(["font-size:18px;line-height:1.4;max-width:900px;padding:60px 20px 0;"]);
 
 function Proposal(_ref) {
   var auth = _ref.auth,
@@ -197,7 +189,7 @@ function Proposal(_ref) {
     return __jsx("p", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38
+        lineNumber: 19
       },
       __self: this
     }, "Loading...");
@@ -207,13 +199,12 @@ function Proposal(_ref) {
     return __jsx("p", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 42
+        lineNumber: 23
       },
       __self: this
     }, "Error: ", _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(error));
   }
 
-  console.log(data);
   var router = Object(next_router__WEBPACK_IMPORTED_MODULE_5__["useRouter"])();
 
   var handleBranchSelect = function handleBranchSelect(e) {
@@ -231,39 +222,39 @@ function Proposal(_ref) {
   return __jsx(_layouts_MainLayout__WEBPACK_IMPORTED_MODULE_8__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61
+      lineNumber: 40
     },
     __self: this
   }, __jsx(___WEBPACK_IMPORTED_MODULE_9__["ContentContainer"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62
+      lineNumber: 41
     },
     __self: this
   }, __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75
+      lineNumber: 54
     },
     __self: this
   }, data.proposalBySlug.title), __jsx("h2", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76
+      lineNumber: 55
     },
     __self: this
   }, data.proposalBySlug.description), __jsx(react_markdown__WEBPACK_IMPORTED_MODULE_4___default.a, {
     source: data.proposalBySlug.summary,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77
+      lineNumber: 56
     },
     __self: this
   }), __jsx(react_markdown__WEBPACK_IMPORTED_MODULE_4___default.a, {
     source: data.proposalBySlug.legal,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78
+      lineNumber: 57
     },
     __self: this
   })));
@@ -17214,21 +17205,21 @@ var assign=Object.assign.bind(Object);function g(){return assign;}Object.defineP
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Findex.js!./":
-/*!***************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Findex.js ***!
-  \***************************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fp%2F%5Bproposal%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Findex.js!./":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fp%2F%5Bproposal%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Findex.js ***!
+  \******************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-    (window.__NEXT_P=window.__NEXT_P||[]).push(["/", function() {
-      var mod = __webpack_require__(/*! ./pages/index.js */ "./pages/index.js")
+    (window.__NEXT_P=window.__NEXT_P||[]).push(["/p/[proposal]", function() {
+      var mod = __webpack_require__(/*! ./pages/p/[proposal]/index.js */ "./pages/p/[proposal]/index.js")
       if(true) {
-        module.hot.accept(/*! ./pages/index.js */ "./pages/index.js", function() {
-          if(!next.router.components["/"]) return
-          var updatedPage = __webpack_require__(/*! ./pages/index.js */ "./pages/index.js")
-          next.router.update("/", updatedPage)
+        module.hot.accept(/*! ./pages/p/[proposal]/index.js */ "./pages/p/[proposal]/index.js", function() {
+          if(!next.router.components["/p/[proposal]"]) return
+          var updatedPage = __webpack_require__(/*! ./pages/p/[proposal]/index.js */ "./pages/p/[proposal]/index.js")
+          next.router.update("/p/[proposal]", updatedPage)
         })
       }
       return mod
@@ -42865,159 +42856,18 @@ if (hasSymbols()) {
 
 /***/ }),
 
-/***/ "./pages/index.js":
-/*!************************!*\
-  !*** ./pages/index.js ***!
-  \************************/
+/***/ "./pages/p/[proposal]/index.js":
+/*!*************************************!*\
+  !*** ./pages/p/[proposal]/index.js ***!
+  \*************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/index.js");
-/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _layouts_MainLayout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../layouts/MainLayout */ "./layouts/MainLayout.js");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! isomorphic-unfetch */ "./node_modules/next/dist/build/polyfills/fetch/index.js");
-/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components */ "./components/index.js");
-/* harmony import */ var _queries__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../queries */ "./queries/index.js");
+/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components */ "./components/index.js");
 
-
-var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/pages/index.js";
-
-var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
-
-
-
-
-
-
-
-var SubNav = styled_components__WEBPACK_IMPORTED_MODULE_6__["default"].div.withConfig({
-  displayName: "pages__SubNav",
-  componentId: "kbnfey-0"
-})(["display:flex;justify-content:space-between;align-items:center;height:100px;"]);
-var Title = styled_components__WEBPACK_IMPORTED_MODULE_6__["default"].h1.withConfig({
-  displayName: "pages__Title",
-  componentId: "kbnfey-1"
-})(["line-height:1;margin:0;"]);
-var CreateButton = styled_components__WEBPACK_IMPORTED_MODULE_6__["default"].a.withConfig({
-  displayName: "pages__CreateButton",
-  componentId: "kbnfey-2"
-})(["border:none;background:#372237;border-radius:2px;color:white;font-size:18px;padding:12px;text-decoration:none;&:hover{cursor:pointer;}"]);
-
-function Index(_ref) {
-  var proposals = _ref.proposals;
-
-  var _useQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_7__["useQuery"])(_queries__WEBPACK_IMPORTED_MODULE_9__["PROPOSALS_QUERY"]),
-      data = _useQuery.data,
-      loading = _useQuery.loading,
-      error = _useQuery.error;
-
-  if (error) {
-    return __jsx("p", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 39
-      },
-      __self: this
-    }, "Error: ", _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(error));
-  }
-
-  return __jsx(_layouts_MainLayout__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 43
-    },
-    __self: this
-  }, __jsx(_components__WEBPACK_IMPORTED_MODULE_8__["ContentContainer"], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 44
-    },
-    __self: this
-  }, __jsx(SubNav, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 45
-    },
-    __self: this
-  }, __jsx(Title, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 46
-    },
-    __self: this
-  }, "Home"), __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
-    href: "/new",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 47
-    },
-    __self: this
-  }, __jsx(CreateButton, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 48
-    },
-    __self: this
-  }, "New proposal"))), !loading && data && data.proposals.map(function (proposal) {
-    return __jsx("div", {
-      key: proposal.id,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 54
-      },
-      __self: this
-    }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
-      href: "/p/".concat(proposal.slug),
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 55
-      },
-      __self: this
-    }, __jsx("a", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 56
-      },
-      __self: this
-    }, proposal.title)));
-  })));
-}
-
-Index.getInitialProps = function _callee() {
-  var proposals;
-  return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function _callee$(_context) {
-    while (1) {
-      switch (_context.prev = _context.next) {
-        case 0:
-          _context.next = 2;
-          return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Object(_queries__WEBPACK_IMPORTED_MODULE_9__["getProposals"])());
-
-        case 2:
-          proposals = _context.sent;
-          return _context.abrupt("return", {
-            proposals: proposals
-          });
-
-        case 4:
-        case "end":
-          return _context.stop();
-      }
-    }
-  });
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Index);
+/* harmony default export */ __webpack_exports__["default"] = (_components__WEBPACK_IMPORTED_MODULE_0__["ProposalPage"]);
 
 /***/ }),
 
@@ -43196,7 +43046,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function _templateObject() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  query getProposalBySlug($slug: String!) {\n    proposalBySlug(slug: $slug) {\n      id\n      title\n      description\n      summary\n      legal\n    }\n  }\n"]);
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  query getProposalBySlug($slug: String!) {\n    proposalBySlug(slug: $slug) {\n      id\n      title\n      description\n      summary\n      legal\n      branches\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -43241,14 +43091,14 @@ var PROPOSALS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_1___default()(_templa
 
 /***/ }),
 
-/***/ 1:
-/*!*******************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Findex.js ***!
-  \*******************************************************************************************************************************/
+/***/ 2:
+/*!**********************************************************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2Fp%2F%5Bproposal%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Findex.js ***!
+  \**********************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Findex.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Findex.js!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fp%2F%5Bproposal%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Findex.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fp%2F%5Bproposal%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Findex.js!./");
 
 
 /***/ }),
@@ -43264,5 +43114,5 @@ module.exports = dll_5f137288facb1107b491;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
-//# sourceMappingURL=index.js.map
+},[[2,"static/runtime/webpack.js"]]]);
+//# sourceMappingURL=[proposal].js.map

@@ -8,6 +8,7 @@ const PROPOSAL_BY_SLUG_QUERY = gql`
       description
       summary
       legal
+      branches
     }
   }
 `;

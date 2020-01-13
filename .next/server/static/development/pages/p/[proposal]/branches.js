@@ -1,7 +1,7 @@
 module.exports =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
-/******/ 	var installedModules = require('../../../ssr-module-cache.js');
+/******/ 	var installedModules = require('../../../../../ssr-module-cache.js');
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -265,14 +265,6 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
-const Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withConfig({
-  displayName: "ProposalPage__Wrapper",
-  componentId: "sc-1xdfroq-0"
-})(["display:flex;flex-direction:column;align-items:center;"]);
-const Containter = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withConfig({
-  displayName: "ProposalPage__Containter",
-  componentId: "sc-1xdfroq-1"
-})(["font-size:18px;line-height:1.4;max-width:900px;padding:60px 20px 0;"]);
 
 function Proposal({
   auth,
@@ -292,7 +284,7 @@ function Proposal({
     return __jsx("p", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38
+        lineNumber: 19
       },
       __self: this
     }, "Loading...");
@@ -302,13 +294,12 @@ function Proposal({
     return __jsx("p", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 42
+        lineNumber: 23
       },
       __self: this
     }, "Error: ", _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(error));
   }
 
-  console.log(data);
   const router = Object(next_router__WEBPACK_IMPORTED_MODULE_5__["useRouter"])();
 
   const handleBranchSelect = e => {
@@ -326,39 +317,39 @@ function Proposal({
   return __jsx(_layouts_MainLayout__WEBPACK_IMPORTED_MODULE_8__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61
+      lineNumber: 40
     },
     __self: this
   }, __jsx(___WEBPACK_IMPORTED_MODULE_9__["ContentContainer"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62
+      lineNumber: 41
     },
     __self: this
   }, __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75
+      lineNumber: 54
     },
     __self: this
   }, data.proposalBySlug.title), __jsx("h2", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76
+      lineNumber: 55
     },
     __self: this
   }, data.proposalBySlug.description), __jsx(react_markdown__WEBPACK_IMPORTED_MODULE_4___default.a, {
     source: data.proposalBySlug.summary,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77
+      lineNumber: 56
     },
     __self: this
   }), __jsx(react_markdown__WEBPACK_IMPORTED_MODULE_4___default.a, {
     source: data.proposalBySlug.legal,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78
+      lineNumber: 57
     },
     __self: this
   })));
@@ -2623,34 +2614,29 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./pages/index.js":
-/*!************************!*\
-  !*** ./pages/index.js ***!
-  \************************/
+/***/ "./pages/p/[proposal]/branches/index.js":
+/*!**********************************************!*\
+  !*** ./pages/p/[proposal]/branches/index.js ***!
+  \**********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _layouts_MainLayout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../layouts/MainLayout */ "./layouts/MainLayout.js");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! isomorphic-unfetch */ "isomorphic-unfetch");
-/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @apollo/react-hooks */ "@apollo/react-hooks");
-/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components */ "./components/index.js");
-/* harmony import */ var _queries__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../queries */ "./queries/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! isomorphic-unfetch */ "isomorphic-unfetch");
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "@apollo/react-hooks");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _layouts_MainLayout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../layouts/MainLayout */ "./layouts/MainLayout.js");
+/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../components */ "./components/index.js");
+/* harmony import */ var _queries__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../queries */ "./queries/index.js");
+var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/pages/p/[proposal]/branches/index.js";
 
-var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/pages/index.js";
-
-var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
@@ -2658,106 +2644,49 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
-const SubNav = styled_components__WEBPACK_IMPORTED_MODULE_5___default.a.div.withConfig({
-  displayName: "pages__SubNav",
-  componentId: "kbnfey-0"
-})(["display:flex;justify-content:space-between;align-items:center;height:100px;"]);
-const Title = styled_components__WEBPACK_IMPORTED_MODULE_5___default.a.h1.withConfig({
-  displayName: "pages__Title",
-  componentId: "kbnfey-1"
-})(["line-height:1;margin:0;"]);
-const CreateButton = styled_components__WEBPACK_IMPORTED_MODULE_5___default.a.a.withConfig({
-  displayName: "pages__CreateButton",
-  componentId: "kbnfey-2"
-})(["border:none;background:#372237;border-radius:2px;color:white;font-size:18px;padding:12px;text-decoration:none;&:hover{cursor:pointer;}"]);
-
-function Index({
-  proposals
+function Branches({
+  query
 }) {
   const {
-    data,
     loading,
-    error
-  } = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_6__["useQuery"])(_queries__WEBPACK_IMPORTED_MODULE_8__["PROPOSALS_QUERY"]);
-
-  if (error) {
-    return __jsx("p", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 39
-      },
-      __self: this
-    }, "Error: ", _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(error));
-  }
-
-  return __jsx(_layouts_MainLayout__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    error,
+    data
+  } = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(_queries__WEBPACK_IMPORTED_MODULE_6__["PROPOSAL_BY_SLUG_QUERY"], {
+    variables: {
+      slug: query.proposal
+    }
+  });
+  console.log(data);
+  return __jsx(_layouts_MainLayout__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43
+      lineNumber: 17
     },
     __self: this
-  }, __jsx(_components__WEBPACK_IMPORTED_MODULE_7__["ContentContainer"], {
+  }, __jsx(_components__WEBPACK_IMPORTED_MODULE_5__["ContentContainer"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44
+      lineNumber: 18
     },
     __self: this
-  }, __jsx(SubNav, {
+  }, !loading && data && data.proposalBySlug.branches.map(branch => __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 21
     },
     __self: this
-  }, __jsx(Title, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 46
-    },
-    __self: this
-  }, "Home"), __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    href: "/new",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 47
-    },
-    __self: this
-  }, __jsx(CreateButton, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 48
-    },
-    __self: this
-  }, "New proposal"))), !loading && data && data.proposals.map(proposal => __jsx("div", {
-    key: proposal.id,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 54
-    },
-    __self: this
-  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    href: `/p/${proposal.slug}`,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 55
-    },
-    __self: this
-  }, __jsx("a", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 56
-    },
-    __self: this
-  }, proposal.title))))));
+  }, branch))));
 }
 
-Index.getInitialProps = async function () {
-  const proposals = await Object(_queries__WEBPACK_IMPORTED_MODULE_8__["getProposals"])();
+Branches.getInitialProps = ({
+  query
+}) => {
   return {
-    proposals
+    query
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Index);
+/* harmony default export */ __webpack_exports__["default"] = (Branches);
 
 /***/ }),
 
@@ -2829,6 +2758,7 @@ const PROPOSAL_BY_SLUG_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default.
       description
       summary
       legal
+      branches
     }
   }
 `;
@@ -2863,14 +2793,14 @@ const PROPOSALS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default.a`
 
 /***/ }),
 
-/***/ 4:
-/*!******************************!*\
-  !*** multi ./pages/index.js ***!
-  \******************************/
+/***/ 3:
+/*!****************************************************!*\
+  !*** multi ./pages/p/[proposal]/branches/index.js ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/nicholasbrown/Source/openlaw/pages/index.js */"./pages/index.js");
+module.exports = __webpack_require__(/*! /Users/nicholasbrown/Source/openlaw/pages/p/[proposal]/branches/index.js */"./pages/p/[proposal]/branches/index.js");
 
 
 /***/ }),
@@ -3151,4 +3081,4 @@ module.exports = require("use-auth0-hooks");
 /***/ })
 
 /******/ });
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=branches.js.map
