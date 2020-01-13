@@ -43241,7 +43241,7 @@ var PROPOSALS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_1___default()(_templa
 
 /***/ }),
 
-/***/ 0:
+/***/ 1:
 /*!*******************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Findex.js ***!
   \*******************************************************************************************************************************/
@@ -43264,5 +43264,5 @@ module.exports = dll_5f137288facb1107b491;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map
