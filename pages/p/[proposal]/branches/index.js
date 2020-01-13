@@ -11,8 +11,6 @@ function Branches({ query }) {
     variables: { slug: query.proposal }
   });
 
-  console.log(data);
-
   return (
     <MainLayout>
       <ContentContainer>

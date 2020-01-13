@@ -1,7 +1,7 @@
 module.exports =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
-/******/ 	var installedModules = require('../../../../ssr-module-cache.js');
+/******/ 	var installedModules = require('../../../../../../ssr-module-cache.js');
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -2614,18 +2614,78 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./pages/p/[proposal]/index.js":
-/*!*************************************!*\
-  !*** ./pages/p/[proposal]/index.js ***!
-  \*************************************/
+/***/ "./pages/p/[proposal]/commits/[branch].js":
+/*!************************************************!*\
+  !*** ./pages/p/[proposal]/commits/[branch].js ***!
+  \************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components */ "./components/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! isomorphic-unfetch */ "isomorphic-unfetch");
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "@apollo/react-hooks");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _layouts_MainLayout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../layouts/MainLayout */ "./layouts/MainLayout.js");
+/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../components */ "./components/index.js");
+/* harmony import */ var _queries__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../queries */ "./queries/index.js");
+var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/pages/p/[proposal]/commits/[branch].js";
 
-/* harmony default export */ __webpack_exports__["default"] = (_components__WEBPACK_IMPORTED_MODULE_0__["ProposalPage"]);
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+function Commits({
+  query
+}) {
+  const {
+    loading,
+    error,
+    data
+  } = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(_queries__WEBPACK_IMPORTED_MODULE_6__["PROPOSAL_BY_SLUG_QUERY"], {
+    variables: {
+      slug: query.proposal
+    }
+  });
+  return __jsx(_layouts_MainLayout__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15
+    },
+    __self: this
+  }, __jsx(_components__WEBPACK_IMPORTED_MODULE_5__["ContentContainer"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
+    },
+    __self: this
+  }, !loading && data && data.proposalBySlug.commits.map(commit => __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19
+    },
+    __self: this
+  }, commit.title))));
+}
+
+Commits.getInitialProps = ({
+  query
+}) => {
+  return {
+    query
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Commits);
 
 /***/ }),
 
@@ -2698,6 +2758,10 @@ const PROPOSAL_BY_SLUG_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default.
       summary
       legal
       branches
+      commits {
+        id
+        title
+      }
     }
   }
 `;
@@ -2732,14 +2796,14 @@ const PROPOSALS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default.a`
 
 /***/ }),
 
-/***/ 5:
-/*!*******************************************!*\
-  !*** multi ./pages/p/[proposal]/index.js ***!
-  \*******************************************/
+/***/ 6:
+/*!******************************************************!*\
+  !*** multi ./pages/p/[proposal]/commits/[branch].js ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/nicholasbrown/Source/openlaw/pages/p/[proposal]/index.js */"./pages/p/[proposal]/index.js");
+module.exports = __webpack_require__(/*! /Users/nicholasbrown/Source/openlaw/pages/p/[proposal]/commits/[branch].js */"./pages/p/[proposal]/commits/[branch].js");
 
 
 /***/ }),
@@ -3020,4 +3084,4 @@ module.exports = require("use-auth0-hooks");
 /***/ })
 
 /******/ });
-//# sourceMappingURL=[proposal].js.map
+//# sourceMappingURL=[branch].js.map

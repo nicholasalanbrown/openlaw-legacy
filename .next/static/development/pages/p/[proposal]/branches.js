@@ -42896,24 +42896,23 @@ function Branches(_ref) {
       error = _useQuery.error,
       data = _useQuery.data;
 
-  console.log(data);
   return __jsx(_layouts_MainLayout__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17
+      lineNumber: 15
     },
     __self: this
   }, __jsx(_components__WEBPACK_IMPORTED_MODULE_5__["ContentContainer"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 16
     },
     __self: this
   }, !loading && data && data.proposalBySlug.branches.map(function (branch) {
     return __jsx("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 21
+        lineNumber: 19
       },
       __self: this
     }, branch);
@@ -43106,7 +43105,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function _templateObject() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  query getProposalBySlug($slug: String!) {\n    proposalBySlug(slug: $slug) {\n      id\n      title\n      description\n      summary\n      legal\n      branches\n    }\n  }\n"]);
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  query getProposalBySlug($slug: String!) {\n    proposalBySlug(slug: $slug) {\n      id\n      title\n      description\n      summary\n      legal\n      branches\n      commits {\n        id\n        title\n      }\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;

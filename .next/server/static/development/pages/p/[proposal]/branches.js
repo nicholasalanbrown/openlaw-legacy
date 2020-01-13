@@ -2656,23 +2656,22 @@ function Branches({
       slug: query.proposal
     }
   });
-  console.log(data);
   return __jsx(_layouts_MainLayout__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17
+      lineNumber: 15
     },
     __self: this
   }, __jsx(_components__WEBPACK_IMPORTED_MODULE_5__["ContentContainer"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 16
     },
     __self: this
   }, !loading && data && data.proposalBySlug.branches.map(branch => __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 19
     },
     __self: this
   }, branch))));
@@ -2759,6 +2758,10 @@ const PROPOSAL_BY_SLUG_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default.
       summary
       legal
       branches
+      commits {
+        id
+        title
+      }
     }
   }
 `;

@@ -9,6 +9,10 @@ const PROPOSAL_BY_SLUG_QUERY = gql`
       summary
       legal
       branches
+      commits {
+        id
+        title
+      }
     }
   }
 `;

@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/p/[proposal].js"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/p/[proposal]/commits/[branch].js"],{
 
 /***/ "./components/ContentContainer.js":
 /*!****************************************!*\
@@ -17205,21 +17205,21 @@ var assign=Object.assign.bind(Object);function g(){return assign;}Object.defineP
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fp%2F%5Bproposal%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Findex.js!./":
-/*!******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fp%2F%5Bproposal%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Findex.js ***!
-  \******************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fp%2F%5Bproposal%5D%2Fcommits%2F%5Bbranch%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Fcommits%2F%5Bbranch%5D.js!./":
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fp%2F%5Bproposal%5D%2Fcommits%2F%5Bbranch%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Fcommits%2F%5Bbranch%5D.js ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-    (window.__NEXT_P=window.__NEXT_P||[]).push(["/p/[proposal]", function() {
-      var mod = __webpack_require__(/*! ./pages/p/[proposal]/index.js */ "./pages/p/[proposal]/index.js")
+    (window.__NEXT_P=window.__NEXT_P||[]).push(["/p/[proposal]/commits/[branch]", function() {
+      var mod = __webpack_require__(/*! ./pages/p/[proposal]/commits/[branch].js */ "./pages/p/[proposal]/commits/[branch].js")
       if(true) {
-        module.hot.accept(/*! ./pages/p/[proposal]/index.js */ "./pages/p/[proposal]/index.js", function() {
-          if(!next.router.components["/p/[proposal]"]) return
-          var updatedPage = __webpack_require__(/*! ./pages/p/[proposal]/index.js */ "./pages/p/[proposal]/index.js")
-          next.router.update("/p/[proposal]", updatedPage)
+        module.hot.accept(/*! ./pages/p/[proposal]/commits/[branch].js */ "./pages/p/[proposal]/commits/[branch].js", function() {
+          if(!next.router.components["/p/[proposal]/commits/[branch]"]) return
+          var updatedPage = __webpack_require__(/*! ./pages/p/[proposal]/commits/[branch].js */ "./pages/p/[proposal]/commits/[branch].js")
+          next.router.update("/p/[proposal]/commits/[branch]", updatedPage)
         })
       }
       return mod
@@ -42856,18 +42856,77 @@ if (hasSymbols()) {
 
 /***/ }),
 
-/***/ "./pages/p/[proposal]/index.js":
-/*!*************************************!*\
-  !*** ./pages/p/[proposal]/index.js ***!
-  \*************************************/
+/***/ "./pages/p/[proposal]/commits/[branch].js":
+/*!************************************************!*\
+  !*** ./pages/p/[proposal]/commits/[branch].js ***!
+  \************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components */ "./components/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! isomorphic-unfetch */ "./node_modules/next/dist/build/polyfills/fetch/index.js");
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var _layouts_MainLayout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../layouts/MainLayout */ "./layouts/MainLayout.js");
+/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../components */ "./components/index.js");
+/* harmony import */ var _queries__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../queries */ "./queries/index.js");
+var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/pages/p/[proposal]/commits/[branch].js";
 
-/* harmony default export */ __webpack_exports__["default"] = (_components__WEBPACK_IMPORTED_MODULE_0__["ProposalPage"]);
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+function Commits(_ref) {
+  var query = _ref.query;
+
+  var _useQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(_queries__WEBPACK_IMPORTED_MODULE_6__["PROPOSAL_BY_SLUG_QUERY"], {
+    variables: {
+      slug: query.proposal
+    }
+  }),
+      loading = _useQuery.loading,
+      error = _useQuery.error,
+      data = _useQuery.data;
+
+  return __jsx(_layouts_MainLayout__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15
+    },
+    __self: this
+  }, __jsx(_components__WEBPACK_IMPORTED_MODULE_5__["ContentContainer"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
+    },
+    __self: this
+  }, !loading && data && data.proposalBySlug.commits.map(function (commit) {
+    return __jsx("div", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 19
+      },
+      __self: this
+    }, commit.title);
+  })));
+}
+
+Commits.getInitialProps = function (_ref2) {
+  var query = _ref2.query;
+  return {
+    query: query
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Commits);
 
 /***/ }),
 
@@ -43046,7 +43105,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function _templateObject() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  query getProposalBySlug($slug: String!) {\n    proposalBySlug(slug: $slug) {\n      id\n      title\n      description\n      summary\n      legal\n      branches\n    }\n  }\n"]);
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  query getProposalBySlug($slug: String!) {\n    proposalBySlug(slug: $slug) {\n      id\n      title\n      description\n      summary\n      legal\n      branches\n      commits {\n        id\n        title\n      }\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -43091,14 +43150,14 @@ var PROPOSALS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_1___default()(_templa
 
 /***/ }),
 
-/***/ 2:
-/*!**********************************************************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2Fp%2F%5Bproposal%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Findex.js ***!
-  \**********************************************************************************************************************************************************************/
+/***/ 3:
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2Fp%2F%5Bproposal%5D%2Fcommits%2F%5Bbranch%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Fcommits%2F%5Bbranch%5D.js ***!
+  \****************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fp%2F%5Bproposal%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Findex.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fp%2F%5Bproposal%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Findex.js!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fp%2F%5Bproposal%5D%2Fcommits%2F%5Bbranch%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Fcommits%2F%5Bbranch%5D.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fp%2F%5Bproposal%5D%2Fcommits%2F%5Bbranch%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Fcommits%2F%5Bbranch%5D.js!./");
 
 
 /***/ }),
@@ -43114,5 +43173,5 @@ module.exports = dll_5f137288facb1107b491;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
-//# sourceMappingURL=[proposal].js.map
+},[[3,"static/runtime/webpack.js"]]]);
+//# sourceMappingURL=[branch].js.map

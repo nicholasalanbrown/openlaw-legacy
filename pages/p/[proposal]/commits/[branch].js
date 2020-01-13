@@ -4,37 +4,19 @@ import { useQuery } from "@apollo/react-hooks";
 
 import MainLayout from "../../../../layouts/MainLayout";
 import { ContentContainer } from "components";
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const Containter = styled.div`
-  font-size: 18px;
-  line-height: 1.4;
-  max-width: 900px;
-  padding: 60px 20px 0;
-`;
+import { PROPOSAL_BY_SLUG_QUERY } from "../../../../queries";
 
 function Commits({ query }) {
+  const { loading, error, data } = useQuery(PROPOSAL_BY_SLUG_QUERY, {
+    variables: { slug: query.proposal }
+  });
+
   return (
     <MainLayout>
       <ContentContainer>
-        {/*
-        <select
-          onChange={e => handleBranchSelect(e)}
-          defaultValue={currentBranch || "master"}
-        >
-          {branches.map(branch => (
-            <option key={branch.name} value={branch.name}>
-              {branch.name}
-            </option>
-          ))}
-        </select>
-          */}
-        Commits for {query.branch} go here
+        {!loading &&
+          data &&
+          data.proposalBySlug.commits.map(commit => <div>{commit.title}</div>)}
       </ContentContainer>
     </MainLayout>
   );
