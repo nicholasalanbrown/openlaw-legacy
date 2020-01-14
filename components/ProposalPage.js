@@ -12,7 +12,7 @@ import ReactMarkdown from "react-markdown";
 
 function Proposal({ auth, query }) {
   const { loading, error, data } = useQuery(PROPOSAL_BY_SLUG_QUERY, {
-    variables: { slug: query.proposal }
+    variables: { slug: query.proposal, branchName: query.branch }
   });
 
   if (loading) {
@@ -27,11 +27,11 @@ function Proposal({ auth, query }) {
 
   const handleBranchSelect = e => {
     const selectedBranch = e.target.value;
-    if (selectedBranch !== currentBranch) {
+    if (selectedBranch !== query.branch) {
       if (selectedBranch !== "master") {
-        router.push(`/hello/tree/${selectedBranch}`);
+        router.push(`/p/${query.proposal}/branch/${selectedBranch}`);
       } else {
-        router.push("/hello");
+        router.push(`/p/${query.proposal}`);
       }
     }
   };

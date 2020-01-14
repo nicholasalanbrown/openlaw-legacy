@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/p/[proposal].js"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/[proposal]/tree/[branch].js"],{
 
 /***/ "./components/ContentContainer.js":
 /*!****************************************!*\
@@ -178,7 +178,8 @@ function Proposal(_ref) {
 
   var _useQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_7__["useQuery"])(_queries__WEBPACK_IMPORTED_MODULE_10__["PROPOSAL_BY_SLUG_QUERY"], {
     variables: {
-      slug: query.proposal
+      slug: query.proposal,
+      branchName: query.branch
     }
   }),
       loading = _useQuery.loading,
@@ -210,11 +211,11 @@ function Proposal(_ref) {
   var handleBranchSelect = function handleBranchSelect(e) {
     var selectedBranch = e.target.value;
 
-    if (selectedBranch !== currentBranch) {
+    if (selectedBranch !== query.branch) {
       if (selectedBranch !== "master") {
-        router.push("/hello/tree/".concat(selectedBranch));
+        router.push("/p/".concat(query.proposal, "/branch/").concat(selectedBranch));
       } else {
-        router.push("/hello");
+        router.push("/p/".concat(query.proposal));
       }
     }
   };
@@ -452,7 +453,7 @@ var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/layouts/MainLayout.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 function _templateObject() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n\n  @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap');\n\n  html, body {\n    margin: 0;\n    padding: 0;\n  }\n\n  body {\n    font-family: 'Poppins', sans-serif;\n  }\n\n  * {\n    box-sizing: border-box;\n  }\n\n  input, textarea {\n    border: 1px solid #ccc;\n    outline: none;\n  }\n\n  a {\n    color: blue;\n    font-weight: 600;\n    text-decoration: none;\n    &:hover {\n      text-decoration: underline;\n    }\n  }\n"]);
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n\n  @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap');\n\n  html, body {\n    margin: 0;\n    padding: 0;\n  }\n\n  body {\n    font-family: 'Poppins', sans-serif;\n  }\n\n  * {\n    box-sizing: border-box;\n  }\n\n  input, textarea {\n    border: 1px solid #ccc;\n    outline: none;\n  }\n\n  a {\n    color: #0366d6;\n    font-weight: 600;\n    text-decoration: none;\n    &:hover {\n      text-decoration: underline;\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -17252,21 +17253,21 @@ var assign=Object.assign.bind(Object);function g(){return assign;}Object.defineP
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fp%2F%5Bproposal%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Findex.js!./":
-/*!******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fp%2F%5Bproposal%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Findex.js ***!
-  \******************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F%5Bproposal%5D%2Ftree%2F%5Bbranch%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2F%5Bproposal%5D%2Ftree%2F%5Bbranch%5D.js!./":
+/*!**********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F%5Bproposal%5D%2Ftree%2F%5Bbranch%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2F%5Bproposal%5D%2Ftree%2F%5Bbranch%5D.js ***!
+  \**********************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-    (window.__NEXT_P=window.__NEXT_P||[]).push(["/p/[proposal]", function() {
-      var mod = __webpack_require__(/*! ./pages/p/[proposal]/index.js */ "./pages/p/[proposal]/index.js")
+    (window.__NEXT_P=window.__NEXT_P||[]).push(["/[proposal]/tree/[branch]", function() {
+      var mod = __webpack_require__(/*! ./pages/[proposal]/tree/[branch].js */ "./pages/[proposal]/tree/[branch].js")
       if(true) {
-        module.hot.accept(/*! ./pages/p/[proposal]/index.js */ "./pages/p/[proposal]/index.js", function() {
-          if(!next.router.components["/p/[proposal]"]) return
-          var updatedPage = __webpack_require__(/*! ./pages/p/[proposal]/index.js */ "./pages/p/[proposal]/index.js")
-          next.router.update("/p/[proposal]", updatedPage)
+        module.hot.accept(/*! ./pages/[proposal]/tree/[branch].js */ "./pages/[proposal]/tree/[branch].js", function() {
+          if(!next.router.components["/[proposal]/tree/[branch]"]) return
+          var updatedPage = __webpack_require__(/*! ./pages/[proposal]/tree/[branch].js */ "./pages/[proposal]/tree/[branch].js")
+          next.router.update("/[proposal]/tree/[branch]", updatedPage)
         })
       }
       return mod
@@ -42903,10 +42904,10 @@ if (hasSymbols()) {
 
 /***/ }),
 
-/***/ "./pages/p/[proposal]/index.js":
-/*!*************************************!*\
-  !*** ./pages/p/[proposal]/index.js ***!
-  \*************************************/
+/***/ "./pages/[proposal]/tree/[branch].js":
+/*!*******************************************!*\
+  !*** ./pages/[proposal]/tree/[branch].js ***!
+  \*******************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -43138,14 +43139,14 @@ var PROPOSALS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_1___default()(_templa
 
 /***/ }),
 
-/***/ 1:
-/*!**********************************************************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2Fp%2F%5Bproposal%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Findex.js ***!
-  \**********************************************************************************************************************************************************************/
+/***/ 0:
+/*!**************************************************************************************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2F%5Bproposal%5D%2Ftree%2F%5Bbranch%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2F%5Bproposal%5D%2Ftree%2F%5Bbranch%5D.js ***!
+  \**************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fp%2F%5Bproposal%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Findex.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fp%2F%5Bproposal%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Findex.js!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2F%5Bproposal%5D%2Ftree%2F%5Bbranch%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2F%5Bproposal%5D%2Ftree%2F%5Bbranch%5D.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F%5Bproposal%5D%2Ftree%2F%5Bbranch%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2F%5Bproposal%5D%2Ftree%2F%5Bbranch%5D.js!./");
 
 
 /***/ }),
@@ -43161,5 +43162,5 @@ module.exports = dll_5f137288facb1107b491;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
-//# sourceMappingURL=[proposal].js.map
+},[[0,"static/runtime/webpack.js"]]]);
+//# sourceMappingURL=[branch].js.map

@@ -1,7 +1,7 @@
 module.exports =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
-/******/ 	var installedModules = require('../../../../ssr-module-cache.js');
+/******/ 	var installedModules = require('../../../../../ssr-module-cache.js');
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -276,7 +276,8 @@ function Proposal({
     data
   } = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_7__["useQuery"])(_queries__WEBPACK_IMPORTED_MODULE_10__["PROPOSAL_BY_SLUG_QUERY"], {
     variables: {
-      slug: query.proposal
+      slug: query.proposal,
+      branchName: query.branch
     }
   });
 
@@ -305,11 +306,11 @@ function Proposal({
   const handleBranchSelect = e => {
     const selectedBranch = e.target.value;
 
-    if (selectedBranch !== currentBranch) {
+    if (selectedBranch !== query.branch) {
       if (selectedBranch !== "master") {
-        router.push(`/hello/tree/${selectedBranch}`);
+        router.push(`/p/${query.proposal}/branch/${selectedBranch}`);
       } else {
-        router.push("/hello");
+        router.push(`/p/${query.proposal}`);
       }
     }
   };
@@ -565,7 +566,7 @@ const GlobalStyles = styled_components__WEBPACK_IMPORTED_MODULE_1__["createGloba
   }
 
   a {
-    color: blue;
+    color: #0366d6;
     font-weight: 600;
     text-decoration: none;
     &:hover {
@@ -2667,10 +2668,10 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./pages/p/[proposal]/index.js":
-/*!*************************************!*\
-  !*** ./pages/p/[proposal]/index.js ***!
-  \*************************************/
+/***/ "./pages/[proposal]/tree/[branch].js":
+/*!*******************************************!*\
+  !*** ./pages/[proposal]/tree/[branch].js ***!
+  \*******************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2789,14 +2790,14 @@ const PROPOSALS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default.a`
 
 /***/ }),
 
-/***/ 4:
-/*!*******************************************!*\
-  !*** multi ./pages/p/[proposal]/index.js ***!
-  \*******************************************/
+/***/ 3:
+/*!*************************************************!*\
+  !*** multi ./pages/[proposal]/tree/[branch].js ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/nicholasbrown/Source/openlaw/pages/p/[proposal]/index.js */"./pages/p/[proposal]/index.js");
+module.exports = __webpack_require__(/*! /Users/nicholasbrown/Source/openlaw/pages/[proposal]/tree/[branch].js */"./pages/[proposal]/tree/[branch].js");
 
 
 /***/ }),
@@ -3077,4 +3078,4 @@ module.exports = require("use-auth0-hooks");
 /***/ })
 
 /******/ });
-//# sourceMappingURL=[proposal].js.map
+//# sourceMappingURL=[branch].js.map
