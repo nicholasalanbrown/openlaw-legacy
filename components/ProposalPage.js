@@ -1,18 +1,22 @@
-import fetch from "isomorphic-unfetch";
-import styled from "styled-components";
-import MeactMarkdown from "react-markdown";
-import { useRouter } from "next/router";
-import { withAuth, withLoginRequired } from "use-auth0-hooks";
-import { useQuery } from "@apollo/react-hooks";
+import React from 'react';
+import fetch from 'isomorphic-unfetch';
+import Link from 'next/link';
+import styled from 'styled-components';
+import MeactMarkdown from 'react-markdown';
+import { useRouter } from 'next/router';
+import { withAuth, withLoginRequired } from 'use-auth0-hooks';
+import { useQuery } from '@apollo/react-hooks';
 
-import MainLayout from "../layouts/MainLayout";
-import { ContentContainer } from "components";
-import { PROPOSAL_BY_SLUG_QUERY } from "../queries";
-import ReactMarkdown from "react-markdown";
+import { ContentContainer, ProposalHeader } from 'components';
+import ReactMarkdown from 'react-markdown';
+import MainLayout from '../layouts/MainLayout';
+import { PROPOSAL_BY_SLUG_QUERY } from '../queries';
 
-function Proposal({ auth, query }) {
+function ProposalPage({
+  auth, query, sections, currentSection,
+}) {
   const { loading, error, data } = useQuery(PROPOSAL_BY_SLUG_QUERY, {
-    variables: { slug: query.proposal, branchName: query.branch }
+    variables: { slug: query.proposal, branchName: query.branch },
   });
 
   if (loading) {
@@ -20,15 +24,20 @@ function Proposal({ auth, query }) {
   }
 
   if (error) {
-    return <p>Error: {JSON.stringify(error)}</p>;
+    return (
+      <p>
+        Error:
+        {' '}
+        {JSON.stringify(error)}
+      </p>
+    );
   }
 
   const router = useRouter();
 
-  const handleBranchSelect = e => {
-    const selectedBranch = e.target.value;
+  const handleBranchSelect = (selectedBranch) => {
     if (selectedBranch !== query.branch) {
-      if (selectedBranch !== "master") {
+      if (selectedBranch !== 'master') {
         router.push(`/p/${query.proposal}/branch/${selectedBranch}`);
       } else {
         router.push(`/p/${query.proposal}`);
@@ -39,18 +48,14 @@ function Proposal({ auth, query }) {
   return (
     <MainLayout>
       <ContentContainer>
-        <select
-          onChange={e => handleBranchSelect(e)}
-          defaultValue={query.branch || "master"}
-        >
-          {data.proposalBySlug.branches.map(branch => (
-            <option key={branch} value={branch}>
-              {branch}
-            </option>
-          ))}
-        </select>
-        <h1>{data.proposalBySlug.title}</h1>
-        <h2>{data.proposalBySlug.description}</h2>
+        <ProposalHeader
+          title={data.proposalBySlug.title}
+          description={data.proposalBySlug.description}
+          branches={data.proposalBySlug.branches}
+          onBranchSelect={handleBranchSelect}
+          currentBranch={query.branch || 'master'}
+          sections={sections}
+        />
         <ReactMarkdown source={data.proposalBySlug.summary} />
         <ReactMarkdown source={data.proposalBySlug.legal} />
       </ContentContainer>
@@ -58,8 +63,6 @@ function Proposal({ auth, query }) {
   );
 }
 
-Proposal.getInitialProps = ({ query }) => {
-  return { query };
-};
+ProposalPage.getInitialProps = ({ query }) => ({ query });
 
-export default Proposal;
+export default ProposalPage;

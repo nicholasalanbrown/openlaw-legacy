@@ -2,8 +2,41 @@ import App from "next/app";
 import Router from "next/router";
 import { Auth0Provider } from "use-auth0-hooks";
 import { ApolloProvider } from "@apollo/react-hooks";
+import { createGlobalStyle } from "styled-components";
 
 import { withApollo } from "../utils";
+
+const GlobalStyles = createGlobalStyle`
+
+  @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap');
+
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  input, textarea {
+    border: 1px solid #ccc;
+    outline: none;
+  }
+
+  a {
+    color: #0366d6;
+    font-weight: 600;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`;
 
 /**
  * Where to send the user after they have signed in.
@@ -64,6 +97,7 @@ class Root extends App {
 
     return (
       <ApolloProvider client={apollo}>
+        <GlobalStyles />
         <Auth0Provider
           domain={process.env.AUTH0_DOMAIN}
           clientId={process.env.AUTH0_CLIENT_ID}

@@ -66,7 +66,9 @@ function New() {
   const [legal, setLegal] = useState("");
   const [createProposal, { data }] = useMutation(CREATE_PROPOSAL_MUTATION, {
     onCompleted() {
-      router.push("/");
+      router.push("/", "/", {
+        getInitialProps: true
+      });
     }
   });
 

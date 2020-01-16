@@ -1,3 +1,22 @@
-import { ProposalPage } from "components";
+import React from 'react';
+import { ProposalPage } from 'components';
 
-export default ProposalPage;
+const MainProposalPage = ({ query }) => (
+  <ProposalPage
+    query={query}
+    sections={[
+      {
+        label: 'Content',
+        href: `/p/${query.proposal}`,
+      },
+      {
+        label: 'Commits',
+        href: `/p/${query.proposal}/commits/master`,
+      },
+    ]}
+  />
+);
+
+MainProposalPage.getInitialProps = ({ query }) => ({ query });
+
+export default MainProposalPage;

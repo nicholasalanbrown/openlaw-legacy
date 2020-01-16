@@ -2084,7 +2084,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var use_auth0_hooks__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(use_auth0_hooks__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @apollo/react-hooks */ "@apollo/react-hooks");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils */ "./utils/index.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils */ "./utils/index.js");
 
 var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/pages/_app.js";
 
@@ -2094,6 +2096,38 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
+
+const GlobalStyles = styled_components__WEBPACK_IMPORTED_MODULE_6__["createGlobalStyle"]`
+
+  @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap');
+
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  input, textarea {
+    border: 1px solid #ccc;
+    outline: none;
+  }
+
+  a {
+    color: #0366d6;
+    font-weight: 600;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`;
 /**
  * Where to send the user after they have signed in.
  */
@@ -2140,19 +2174,19 @@ const onRedirecting = () => {
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48
+      lineNumber: 81
     },
     __self: undefined
   }, __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49
+      lineNumber: 82
     },
     __self: undefined
   }, "Signing you in"), __jsx("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50
+      lineNumber: 83
     },
     __self: undefined
   }, "In order to access this page you will need to sign in. Please wait while we redirect you to the login page..."));
@@ -2173,10 +2207,16 @@ class Root extends next_app__WEBPACK_IMPORTED_MODULE_2___default.a {
       client: apollo,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 66
+        lineNumber: 99
       },
       __self: this
-    }, __jsx(use_auth0_hooks__WEBPACK_IMPORTED_MODULE_4__["Auth0Provider"], {
+    }, __jsx(GlobalStyles, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 100
+      },
+      __self: this
+    }), __jsx(use_auth0_hooks__WEBPACK_IMPORTED_MODULE_4__["Auth0Provider"], {
       domain: "dev-2j6nfuqr.auth0.com",
       clientId: "shF0wfybnqwA9C11cd77DtTjLO7AtJ1V",
       redirectUri: "http://localhost:3000/",
@@ -2186,13 +2226,13 @@ class Root extends next_app__WEBPACK_IMPORTED_MODULE_2___default.a {
       onRedirectCallback: onRedirectCallback,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 67
+        lineNumber: 101
       },
       __self: this
     }, __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 76
+        lineNumber: 110
       },
       __self: this
     }))));
@@ -2200,7 +2240,7 @@ class Root extends next_app__WEBPACK_IMPORTED_MODULE_2___default.a {
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_utils__WEBPACK_IMPORTED_MODULE_6__["withApollo"])(Root));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_utils__WEBPACK_IMPORTED_MODULE_7__["withApollo"])(Root));
 
 /***/ }),
 
@@ -2461,6 +2501,17 @@ module.exports = require("next/router");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "styled-components":
+/*!************************************!*\
+  !*** external "styled-components" ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("styled-components");
 
 /***/ }),
 

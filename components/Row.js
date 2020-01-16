@@ -15,6 +15,7 @@ const Row = styled.div`
   &:first-child {
     border-top: 1px solid ${borderColor};
   }
+  justify-content: space-between;
 `;
 
 export default Row;

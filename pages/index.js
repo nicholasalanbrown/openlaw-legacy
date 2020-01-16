@@ -3,6 +3,7 @@ import Link from "next/link";
 import fetch from "isomorphic-unfetch";
 import styled from "styled-components";
 import { useQuery } from "@apollo/react-hooks";
+import moment from "moment";
 
 import { ContentContainer, Row } from "components";
 import { getProposals, PROPOSALS_QUERY } from "../queries";
@@ -32,7 +33,7 @@ const CreateButton = styled.a`
   }
 `;
 
-function Index({ proposals }) {
+function Index() {
   const { data, loading, error } = useQuery(PROPOSALS_QUERY);
 
   if (error) {
@@ -56,6 +57,9 @@ function Index({ proposals }) {
                 <Link href={`/p/${proposal.slug}`}>
                   <a>{proposal.title}</a>
                 </Link>
+                <div>
+                  Updated {moment.unix(proposal.updatedAt / 1000).fromNow()}
+                </div>
               </Row>
             ))}
         </div>
@@ -63,10 +67,5 @@ function Index({ proposals }) {
     </MainLayout>
   );
 }
-
-Index.getInitialProps = async function() {
-  const proposals = await getProposals();
-  return { proposals };
-};
 
 export default Index;

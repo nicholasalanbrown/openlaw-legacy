@@ -8,6 +8,7 @@ const PROPOSALS_QUERY = gql`
       summary
       legal
       slug
+      updatedAt
     }
   }
 `;
