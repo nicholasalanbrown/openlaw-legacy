@@ -99,7 +99,6 @@ function Header() {
     __self: this
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/",
-    prefetch: true,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 36
@@ -174,7 +173,7 @@ var Sections = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.wit
 var SectionLink = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].a.withConfig({
   displayName: "ProposalHeader__SectionLink",
   componentId: "sc-1o47sgl-1"
-})(["background:", ";color:", ";margin-right:16px;padding:8px;"], function (props) {
+})(["background:", ";color:", ";margin-right:16px;padding:8px;border-radius:2px;"], function (props) {
   return props.active ? '#0366d6' : 'none';
 }, function (props) {
   return props.active ? 'white' : '#0366d6';
@@ -188,23 +187,22 @@ function ProposalHeader(_ref) {
       currentBranch = _ref.currentBranch,
       sections = _ref.sections;
   var router = Object(next_router__WEBPACK_IMPORTED_MODULE_2__["useRouter"])();
-  console.log(router);
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 30
     },
     __self: this
   }, __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 31
     },
     __self: this
   }, title), __jsx("h2", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 32
     },
     __self: this
   }, description), __jsx("select", {
@@ -214,7 +212,7 @@ function ProposalHeader(_ref) {
     defaultValue: currentBranch,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 33
     },
     __self: this
   }, branches.map(function (branch) {
@@ -223,14 +221,14 @@ function ProposalHeader(_ref) {
       value: branch,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 40
+        lineNumber: 38
       },
       __self: this
     }, branch);
   })), __jsx(Sections, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 43
     },
     __self: this
   }, sections.map(function (section) {
@@ -240,14 +238,14 @@ function ProposalHeader(_ref) {
       passHref: true,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 47
+        lineNumber: 45
       },
       __self: this
     }, __jsx(SectionLink, {
       active: router.asPath === section.href,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 48
+        lineNumber: 46
       },
       __self: this
     }, section.label));

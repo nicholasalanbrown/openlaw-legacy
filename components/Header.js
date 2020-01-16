@@ -33,7 +33,7 @@ function Header() {
   } = useAuth();
   return (
     <Nav>
-      <Link href="/" prefetch>
+      <Link href="/">
         <a>Home</a>
       </Link>
       {!isLoading

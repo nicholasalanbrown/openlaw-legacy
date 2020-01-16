@@ -13,6 +13,7 @@ const SectionLink = styled.a`
   color: ${(props) => (props.active ? 'white' : '#0366d6')};
   margin-right: 16px;
   padding: 8px;
+  border-radius: 2px;
 `;
 
 function ProposalHeader({
@@ -24,9 +25,6 @@ function ProposalHeader({
   sections,
 }) {
   const router = useRouter();
-
-  console.log(router);
-
 
   return (
     <div>

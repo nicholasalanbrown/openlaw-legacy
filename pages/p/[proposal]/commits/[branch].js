@@ -30,7 +30,7 @@ function Commits({ query }) {
           sections={[
             {
               label: 'Content',
-              href: `/p/${query.proposal}`,
+              href: `/p/${query.proposal}${(query.branch && query.branch !== 'master') ? `/branch/${query.branch}` : ''}`,
             },
             {
               label: 'Commits',
