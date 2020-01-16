@@ -3,6 +3,12 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
+const Description = styled.h2`
+  color: #888888;
+  font-size: 24px;
+  font-weight: 300;
+`;
+
 const Sections = styled.div`
   display: flex;
   padding: 30px 0 10px 0;
@@ -14,6 +20,7 @@ const SectionLink = styled.a`
   margin-right: 16px;
   padding: 8px;
   border-radius: 2px;
+  pointer-events: ${(props) => props.active && 'none'};
 `;
 
 function ProposalHeader({
@@ -29,7 +36,7 @@ function ProposalHeader({
   return (
     <div>
       <h1>{title}</h1>
-      <h2>{description}</h2>
+      <Description>{description}</Description>
       <select
         onChange={(e) => onBranchSelect(e.target.value)}
         defaultValue={currentBranch}

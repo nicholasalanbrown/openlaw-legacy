@@ -144,6 +144,207 @@ function Header() {
 
 /***/ }),
 
+/***/ "./components/ProposalForm.js":
+/*!************************************!*\
+  !*** ./components/ProposalForm.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var _ContentContainer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ContentContainer */ "./components/ContentContainer.js");
+/* harmony import */ var _RIchTextEditor__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./RIchTextEditor */ "./components/RIchTextEditor.js");
+/* harmony import */ var _layouts_MainLayout__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../layouts/MainLayout */ "./layouts/MainLayout.js");
+/* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../mutations */ "./mutations/index.js");
+
+var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/components/ProposalForm.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
+
+
+
+
+
+
+
+var SubNav = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
+  displayName: "ProposalForm__SubNav",
+  componentId: "wxmutf-0"
+})(["display:flex;justify-content:space-between;align-items:center;height:100px;"]);
+var Title = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].h1.withConfig({
+  displayName: "ProposalForm__Title",
+  componentId: "wxmutf-1"
+})(["line-height:1;margin:0;"]);
+var CreateButton = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].button.withConfig({
+  displayName: "ProposalForm__CreateButton",
+  componentId: "wxmutf-2"
+})(["border:none;background:#372237;border-radius:2px;color:white;font-size:18px;padding:10px;&:hover{cursor:pointer;}"]);
+var Form = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].form.withConfig({
+  displayName: "ProposalForm__Form",
+  componentId: "wxmutf-3"
+})(["padding:40px 0;"]);
+var TitleInput = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].input.withConfig({
+  displayName: "ProposalForm__TitleInput",
+  componentId: "wxmutf-4"
+})(["font-size:18px;padding:12px 10px;width:100%;"]);
+var DescriptionInput = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].textarea.withConfig({
+  displayName: "ProposalForm__DescriptionInput",
+  componentId: "wxmutf-5"
+})(["font-size:18px;margin-top:30px;resize:none;padding:12px 10px;width:100%;"]);
+var SummaryInput = Object(styled_components__WEBPACK_IMPORTED_MODULE_3__["default"])(_RIchTextEditor__WEBPACK_IMPORTED_MODULE_6__["default"]).withConfig({
+  displayName: "ProposalForm__SummaryInput",
+  componentId: "wxmutf-6"
+})(["font-size:18px;margin-top:30px;"]);
+var LegalInput = Object(styled_components__WEBPACK_IMPORTED_MODULE_3__["default"])(_RIchTextEditor__WEBPACK_IMPORTED_MODULE_6__["default"]).withConfig({
+  displayName: "ProposalForm__LegalInput",
+  componentId: "wxmutf-7"
+})(["font-size:18px;margin-top:30px;"]);
+
+function ProposalForm(_ref) {
+  var formTitle = _ref.formTitle,
+      submitText = _ref.submitText,
+      initialDescription = _ref.initialDescription,
+      initialSummary = _ref.initialSummary,
+      initialLegal = _ref.initialLegal;
+  var router = Object(next_router__WEBPACK_IMPORTED_MODULE_2__["useRouter"])();
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(""),
+      title = _useState[0],
+      setTitle = _useState[1];
+
+  var _useState2 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(""),
+      description = _useState2[0],
+      setDescription = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(""),
+      summary = _useState3[0],
+      setSummary = _useState3[1];
+
+  var _useState4 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(""),
+      legal = _useState4[0],
+      setLegal = _useState4[1];
+
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4__["useMutation"])(_mutations__WEBPACK_IMPORTED_MODULE_8__["CREATE_PROPOSAL_MUTATION"], {
+    onCompleted: function onCompleted() {
+      router.push("/", "/", {
+        getInitialProps: true
+      });
+    }
+  }),
+      _useMutation2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useMutation, 2),
+      createProposal = _useMutation2[0],
+      data = _useMutation2[1].data;
+
+  var handleSubmit = function handleSubmit() {
+    createProposal({
+      variables: {
+        title: title,
+        description: description,
+        summary: summary,
+        legal: legal
+      }
+    });
+  };
+
+  return __jsx(_layouts_MainLayout__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 94
+    },
+    __self: this
+  }, __jsx(_ContentContainer__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 95
+    },
+    __self: this
+  }, __jsx(SubNav, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 96
+    },
+    __self: this
+  }, __jsx(Title, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 97
+    },
+    __self: this
+  }, formTitle), __jsx(CreateButton, {
+    onClick: function onClick() {
+      return handleSubmit();
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 98
+    },
+    __self: this
+  }, submitText)), __jsx(Form, {
+    onSubmit: function onSubmit() {
+      return handleSubmit();
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 102
+    },
+    __self: this
+  }, __jsx(TitleInput, {
+    placeholder: "Title",
+    onChange: function onChange(e) {
+      return setTitle(e.target.value);
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 103
+    },
+    __self: this
+  }), __jsx(DescriptionInput, {
+    placeholder: "Description",
+    value: description || initialDescription,
+    rows: 4,
+    onChange: function onChange(e) {
+      return setDescription(e.target.value);
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 107
+    },
+    __self: this
+  }), __jsx(SummaryInput, {
+    placeholder: "Summary",
+    initialValue: initialSummary,
+    value: summary || initialSummary,
+    onChange: setSummary,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 113
+    },
+    __self: this
+  }), __jsx(LegalInput, {
+    placeholder: "Legal",
+    initialValue: initialLegal,
+    value: legal,
+    onChange: setLegal,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 119
+    },
+    __self: this
+  }))));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (ProposalForm);
+
+/***/ }),
+
 /***/ "./components/ProposalHeader.js":
 /*!**************************************!*\
   !*** ./components/ProposalHeader.js ***!
@@ -166,17 +367,23 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+var Description = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].h2.withConfig({
+  displayName: "ProposalHeader__Description",
+  componentId: "sc-1o47sgl-0"
+})(["color:#888888;font-size:24px;font-weight:300;"]);
 var Sections = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
   displayName: "ProposalHeader__Sections",
-  componentId: "sc-1o47sgl-0"
+  componentId: "sc-1o47sgl-1"
 })(["display:flex;padding:30px 0 10px 0;"]);
 var SectionLink = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].a.withConfig({
   displayName: "ProposalHeader__SectionLink",
-  componentId: "sc-1o47sgl-1"
-})(["background:", ";color:", ";margin-right:16px;padding:8px;border-radius:2px;"], function (props) {
+  componentId: "sc-1o47sgl-2"
+})(["background:", ";color:", ";margin-right:16px;padding:8px;border-radius:2px;pointer-events:", ";"], function (props) {
   return props.active ? '#0366d6' : 'none';
 }, function (props) {
   return props.active ? 'white' : '#0366d6';
+}, function (props) {
+  return props.active && 'none';
 });
 
 function ProposalHeader(_ref) {
@@ -190,19 +397,19 @@ function ProposalHeader(_ref) {
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 37
     },
     __self: this
   }, __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 38
     },
     __self: this
-  }, title), __jsx("h2", {
+  }, title), __jsx(Description, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 39
     },
     __self: this
   }, description), __jsx("select", {
@@ -212,7 +419,7 @@ function ProposalHeader(_ref) {
     defaultValue: currentBranch,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 40
     },
     __self: this
   }, branches.map(function (branch) {
@@ -221,14 +428,14 @@ function ProposalHeader(_ref) {
       value: branch,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38
+        lineNumber: 45
       },
       __self: this
     }, branch);
   })), __jsx(Sections, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43
+      lineNumber: 50
     },
     __self: this
   }, sections.map(function (section) {
@@ -238,14 +445,14 @@ function ProposalHeader(_ref) {
       passHref: true,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45
+        lineNumber: 52
       },
       __self: this
     }, __jsx(SectionLink, {
       active: router.asPath === section.href,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 46
+        lineNumber: 53
       },
       __self: this
     }, section.label));
@@ -269,21 +476,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! isomorphic-unfetch */ "./node_modules/next/dist/build/polyfills/fetch/index.js");
-/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ */ "./components/index.js");
 /* harmony import */ var react_markdown__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-markdown */ "./node_modules/react-markdown/lib/react-markdown.js");
 /* harmony import */ var react_markdown__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_markdown__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var use_auth0_hooks__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! use-auth0-hooks */ "./node_modules/use-auth0-hooks/dist/index.js");
-/* harmony import */ var use_auth0_hooks__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(use_auth0_hooks__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./ */ "./components/index.js");
-/* harmony import */ var _layouts_MainLayout__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../layouts/MainLayout */ "./layouts/MainLayout.js");
-/* harmony import */ var _queries__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../queries */ "./queries/index.js");
+/* harmony import */ var _layouts_MainLayout__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../layouts/MainLayout */ "./layouts/MainLayout.js");
+/* harmony import */ var _queries__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../queries */ "./queries/index.js");
 
 var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/components/ProposalPage.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
@@ -295,18 +495,11 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
-
-
-
-
-
 function ProposalPage(_ref) {
-  var auth = _ref.auth,
-      query = _ref.query,
-      sections = _ref.sections,
-      currentSection = _ref.currentSection;
+  var query = _ref.query,
+      sections = _ref.sections;
 
-  var _useQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_8__["useQuery"])(_queries__WEBPACK_IMPORTED_MODULE_11__["PROPOSAL_BY_SLUG_QUERY"], {
+  var _useQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(_queries__WEBPACK_IMPORTED_MODULE_7__["PROPOSAL_BY_SLUG_QUERY"], {
     variables: {
       slug: query.proposal,
       branchName: query.branch
@@ -320,7 +513,7 @@ function ProposalPage(_ref) {
     return __jsx("p", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23
+        lineNumber: 16
       },
       __self: this
     }, "Loading...");
@@ -330,13 +523,13 @@ function ProposalPage(_ref) {
     return __jsx("p", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 28
+        lineNumber: 21
       },
       __self: this
     }, "Error:", ' ', _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(error));
   }
 
-  var router = Object(next_router__WEBPACK_IMPORTED_MODULE_6__["useRouter"])();
+  var router = Object(next_router__WEBPACK_IMPORTED_MODULE_2__["useRouter"])();
 
   var handleBranchSelect = function handleBranchSelect(selectedBranch) {
     if (selectedBranch !== query.branch) {
@@ -348,19 +541,19 @@ function ProposalPage(_ref) {
     }
   };
 
-  return __jsx(_layouts_MainLayout__WEBPACK_IMPORTED_MODULE_10__["default"], {
+  return __jsx(_layouts_MainLayout__WEBPACK_IMPORTED_MODULE_6__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49
+      lineNumber: 42
     },
     __self: this
-  }, __jsx(___WEBPACK_IMPORTED_MODULE_9__["ContentContainer"], {
+  }, __jsx(___WEBPACK_IMPORTED_MODULE_4__["ContentContainer"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50
+      lineNumber: 43
     },
     __self: this
-  }, __jsx(___WEBPACK_IMPORTED_MODULE_9__["ProposalHeader"], {
+  }, __jsx(___WEBPACK_IMPORTED_MODULE_4__["ProposalHeader"], {
     title: data.proposalBySlug.title,
     description: data.proposalBySlug.description,
     branches: data.proposalBySlug.branches,
@@ -369,21 +562,21 @@ function ProposalPage(_ref) {
     sections: sections,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51
+      lineNumber: 44
     },
     __self: this
   }), __jsx(react_markdown__WEBPACK_IMPORTED_MODULE_5___default.a, {
     source: data.proposalBySlug.summary,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59
+      lineNumber: 52
     },
     __self: this
   }), __jsx(react_markdown__WEBPACK_IMPORTED_MODULE_5___default.a, {
     source: data.proposalBySlug.legal,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 60
+      lineNumber: 53
     },
     __self: this
   })));
@@ -397,6 +590,88 @@ ProposalPage.getInitialProps = function (_ref2) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ProposalPage);
+
+/***/ }),
+
+/***/ "./components/RIchTextEditor.js":
+/*!**************************************!*\
+  !*** ./components/RIchTextEditor.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var slate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! slate */ "./node_modules/slate/dist/index.es.js");
+/* harmony import */ var slate_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! slate-react */ "./node_modules/slate-react/dist/index.es.js");
+/* harmony import */ var slate_history__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! slate-history */ "./node_modules/slate-history/dist/index.es.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/components/RIchTextEditor.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+var StyledEditable = Object(styled_components__WEBPACK_IMPORTED_MODULE_4__["default"])(slate_react__WEBPACK_IMPORTED_MODULE_2__["Editable"]).withConfig({
+  displayName: "RIchTextEditor__StyledEditable",
+  componentId: "xyai8j-0"
+})(["border:1px solid #ccc;margin-top:30px;padding:12px 8px;&:placeholder{color:#757575;opacity:1 !important;}"]);
+
+var RichTextEditor = function RichTextEditor(_ref) {
+  var placeholder = _ref.placeholder,
+      onChange = _ref.onChange,
+      initialValue = _ref.initialValue;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([{
+    children: [{
+      text: initialValue
+    }]
+  }]),
+      value = _useState[0],
+      setValue = _useState[1];
+
+  var serialize = function serialize(nodes) {
+    return nodes.map(function (n) {
+      return slate__WEBPACK_IMPORTED_MODULE_1__["Node"].string(n);
+    }).join("\n");
+  };
+
+  var handleChange = function handleChange(value) {
+    if (onChange) {
+      onChange(serialize(value));
+    }
+
+    setValue(value);
+  };
+
+  var editor = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(function () {
+    return Object(slate_history__WEBPACK_IMPORTED_MODULE_3__["withHistory"])(Object(slate_react__WEBPACK_IMPORTED_MODULE_2__["withReact"])(Object(slate__WEBPACK_IMPORTED_MODULE_1__["createEditor"])()));
+  }, []);
+  return __jsx(slate_react__WEBPACK_IMPORTED_MODULE_2__["Slate"], {
+    editor: editor,
+    value: value,
+    onChange: function onChange(value) {
+      return handleChange(value);
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 40
+    },
+    __self: this
+  }, __jsx(StyledEditable, {
+    placeholder: placeholder,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: this
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (RichTextEditor);
 
 /***/ }),
 
@@ -429,11 +704,12 @@ var StyledEditable = Object(styled_components__WEBPACK_IMPORTED_MODULE_4__["defa
 
 var RichTextEditor = function RichTextEditor(_ref) {
   var placeholder = _ref.placeholder,
-      onChange = _ref.onChange;
+      onChange = _ref.onChange,
+      initialValue = _ref.initialValue;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([{
     children: [{
-      text: ""
+      text: initialValue
     }]
   }]),
       value = _useState[0],
@@ -464,24 +740,19 @@ var RichTextEditor = function RichTextEditor(_ref) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41
+      lineNumber: 40
     },
     __self: this
   }, __jsx(StyledEditable, {
     placeholder: placeholder,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46
+      lineNumber: 45
     },
     __self: this
   }));
 };
 
-var initialValue = [{
-  children: [{
-    text: "This is editable plain text, just like a <textarea>!"
-  }]
-}];
 /* harmony default export */ __webpack_exports__["default"] = (RichTextEditor);
 
 /***/ }),
@@ -513,7 +784,7 @@ var Row = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConf
 /*!*****************************!*\
   !*** ./components/index.js ***!
   \*****************************/
-/*! exports provided: ContentContainer, Header, ProposalHeader, ProposalPage, RichTextEditor, Row */
+/*! exports provided: ContentContainer, Header, ProposalForm, ProposalHeader, ProposalPage, RichTextEditor, Row */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -524,17 +795,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Header */ "./components/Header.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Header", function() { return _Header__WEBPACK_IMPORTED_MODULE_1__["default"]; });
 
-/* harmony import */ var _ProposalHeader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProposalHeader */ "./components/ProposalHeader.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProposalHeader", function() { return _ProposalHeader__WEBPACK_IMPORTED_MODULE_2__["default"]; });
+/* harmony import */ var _ProposalForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProposalForm */ "./components/ProposalForm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProposalForm", function() { return _ProposalForm__WEBPACK_IMPORTED_MODULE_2__["default"]; });
 
-/* harmony import */ var _ProposalPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ProposalPage */ "./components/ProposalPage.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProposalPage", function() { return _ProposalPage__WEBPACK_IMPORTED_MODULE_3__["default"]; });
+/* harmony import */ var _ProposalHeader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ProposalHeader */ "./components/ProposalHeader.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProposalHeader", function() { return _ProposalHeader__WEBPACK_IMPORTED_MODULE_3__["default"]; });
 
-/* harmony import */ var _RichTextEditor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./RichTextEditor */ "./components/RichTextEditor.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RichTextEditor", function() { return _RichTextEditor__WEBPACK_IMPORTED_MODULE_4__["default"]; });
+/* harmony import */ var _ProposalPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ProposalPage */ "./components/ProposalPage.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProposalPage", function() { return _ProposalPage__WEBPACK_IMPORTED_MODULE_4__["default"]; });
 
-/* harmony import */ var _Row__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Row */ "./components/Row.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Row", function() { return _Row__WEBPACK_IMPORTED_MODULE_5__["default"]; });
+/* harmony import */ var _RichTextEditor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./RichTextEditor */ "./components/RichTextEditor.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RichTextEditor", function() { return _RichTextEditor__WEBPACK_IMPORTED_MODULE_5__["default"]; });
+
+/* harmony import */ var _Row__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Row */ "./components/Row.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Row", function() { return _Row__WEBPACK_IMPORTED_MODULE_6__["default"]; });
+
 
 
 
@@ -579,6 +854,52 @@ var MainLayout = function MainLayout(props) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (MainLayout);
+
+/***/ }),
+
+/***/ "./mutations/createProposal.mutation.js":
+/*!**********************************************!*\
+  !*** ./mutations/createProposal.mutation.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function _templateObject() {
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  mutation CreateProposal(\n    $title: String!\n    $description: String!\n    $summary: String\n    $legal: String\n  ) {\n    createProposal(\n      title: $title\n      description: $description\n      summary: $summary\n      legal: $legal\n    ) {\n      id\n      title\n      slug\n    }\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+
+var CREATE_PROPOSAL_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_1___default()(_templateObject());
+/* harmony default export */ __webpack_exports__["default"] = (CREATE_PROPOSAL_MUTATION);
+
+/***/ }),
+
+/***/ "./mutations/index.js":
+/*!****************************!*\
+  !*** ./mutations/index.js ***!
+  \****************************/
+/*! exports provided: CREATE_PROPOSAL_MUTATION */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createProposal_mutation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createProposal.mutation */ "./mutations/createProposal.mutation.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CREATE_PROPOSAL_MUTATION", function() { return _createProposal_mutation__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
 
 /***/ }),
 
@@ -1835,6 +2156,111 @@ function _createClass(Constructor, protoProps, staticProps) {
 }
 
 module.exports = _createClass;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/arrayWithHoles.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/arrayWithHoles.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _arrayWithHoles; });
+/* harmony import */ var _core_js_array_is_array__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/array/is-array */ "./node_modules/@babel/runtime-corejs2/core-js/array/is-array.js");
+/* harmony import */ var _core_js_array_is_array__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_array_is_array__WEBPACK_IMPORTED_MODULE_0__);
+
+function _arrayWithHoles(arr) {
+  if (_core_js_array_is_array__WEBPACK_IMPORTED_MODULE_0___default()(arr)) return arr;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/iterableToArrayLimit.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/iterableToArrayLimit.js ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _iterableToArrayLimit; });
+/* harmony import */ var _core_js_get_iterator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/get-iterator */ "./node_modules/@babel/runtime-corejs2/core-js/get-iterator.js");
+/* harmony import */ var _core_js_get_iterator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_get_iterator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _core_js_is_iterable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../core-js/is-iterable */ "./node_modules/@babel/runtime-corejs2/core-js/is-iterable.js");
+/* harmony import */ var _core_js_is_iterable__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_core_js_is_iterable__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function _iterableToArrayLimit(arr, i) {
+  if (!(_core_js_is_iterable__WEBPACK_IMPORTED_MODULE_1___default()(Object(arr)) || Object.prototype.toString.call(arr) === "[object Arguments]")) {
+    return;
+  }
+
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
+
+  try {
+    for (var _i = _core_js_get_iterator__WEBPACK_IMPORTED_MODULE_0___default()(arr), _s; !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/nonIterableRest.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/nonIterableRest.js ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _nonIterableRest; });
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _slicedToArray; });
+/* harmony import */ var _arrayWithHoles__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./arrayWithHoles */ "./node_modules/@babel/runtime-corejs2/helpers/esm/arrayWithHoles.js");
+/* harmony import */ var _iterableToArrayLimit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./iterableToArrayLimit */ "./node_modules/@babel/runtime-corejs2/helpers/esm/iterableToArrayLimit.js");
+/* harmony import */ var _nonIterableRest__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./nonIterableRest */ "./node_modules/@babel/runtime-corejs2/helpers/esm/nonIterableRest.js");
+
+
+
+function _slicedToArray(arr, i) {
+  return Object(_arrayWithHoles__WEBPACK_IMPORTED_MODULE_0__["default"])(arr) || Object(_iterableToArrayLimit__WEBPACK_IMPORTED_MODULE_1__["default"])(arr, i) || Object(_nonIterableRest__WEBPACK_IMPORTED_MODULE_2__["default"])();
+}
 
 /***/ }),
 
@@ -17343,20 +17769,20 @@ var assign=Object.assign.bind(Object);function g(){return assign;}Object.defineP
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fp%2F%5Bproposal%5D%2Fbranch%2F%5Bbranch%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Fbranch%2F%5Bbranch%5D.js!./":
-/*!**********************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fp%2F%5Bproposal%5D%2Fbranch%2F%5Bbranch%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Fbranch%2F%5Bbranch%5D.js ***!
-  \**********************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fp%2F%5Bproposal%5D%2Fbranch%2F%5Bbranch%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Fbranch%2F%5Bbranch%5D%2Findex.js!./":
+/*!******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fp%2F%5Bproposal%5D%2Fbranch%2F%5Bbranch%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Fbranch%2F%5Bbranch%5D%2Findex.js ***!
+  \******************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
     (window.__NEXT_P=window.__NEXT_P||[]).push(["/p/[proposal]/branch/[branch]", function() {
-      var mod = __webpack_require__(/*! ./pages/p/[proposal]/branch/[branch].js */ "./pages/p/[proposal]/branch/[branch].js")
+      var mod = __webpack_require__(/*! ./pages/p/[proposal]/branch/[branch]/index.js */ "./pages/p/[proposal]/branch/[branch]/index.js")
       if(true) {
-        module.hot.accept(/*! ./pages/p/[proposal]/branch/[branch].js */ "./pages/p/[proposal]/branch/[branch].js", function() {
+        module.hot.accept(/*! ./pages/p/[proposal]/branch/[branch]/index.js */ "./pages/p/[proposal]/branch/[branch]/index.js", function() {
           if(!next.router.components["/p/[proposal]/branch/[branch]"]) return
-          var updatedPage = __webpack_require__(/*! ./pages/p/[proposal]/branch/[branch].js */ "./pages/p/[proposal]/branch/[branch].js")
+          var updatedPage = __webpack_require__(/*! ./pages/p/[proposal]/branch/[branch]/index.js */ "./pages/p/[proposal]/branch/[branch]/index.js")
           next.router.update("/p/[proposal]/branch/[branch]", updatedPage)
         })
       }
@@ -42994,10 +43420,10 @@ if (hasSymbols()) {
 
 /***/ }),
 
-/***/ "./pages/p/[proposal]/branch/[branch].js":
-/*!***********************************************!*\
-  !*** ./pages/p/[proposal]/branch/[branch].js ***!
-  \***********************************************/
+/***/ "./pages/p/[proposal]/branch/[branch]/index.js":
+/*!*****************************************************!*\
+  !*** ./pages/p/[proposal]/branch/[branch]/index.js ***!
+  \*****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -43005,8 +43431,8 @@ if (hasSymbols()) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../components */ "./components/index.js");
-var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/pages/p/[proposal]/branch/[branch].js";
+/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../components */ "./components/index.js");
+var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/pages/p/[proposal]/branch/[branch]/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -43261,14 +43687,14 @@ var PROPOSALS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_1___default()(_templa
 
 /***/ }),
 
-/***/ 3:
-/*!**************************************************************************************************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2Fp%2F%5Bproposal%5D%2Fbranch%2F%5Bbranch%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Fbranch%2F%5Bbranch%5D.js ***!
-  \**************************************************************************************************************************************************************************************************************/
+/***/ 2:
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2Fp%2F%5Bproposal%5D%2Fbranch%2F%5Bbranch%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Fbranch%2F%5Bbranch%5D%2Findex.js ***!
+  \**********************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fp%2F%5Bproposal%5D%2Fbranch%2F%5Bbranch%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Fbranch%2F%5Bbranch%5D.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fp%2F%5Bproposal%5D%2Fbranch%2F%5Bbranch%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Fbranch%2F%5Bbranch%5D.js!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fp%2F%5Bproposal%5D%2Fbranch%2F%5Bbranch%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Fbranch%2F%5Bbranch%5D%2Findex.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fp%2F%5Bproposal%5D%2Fbranch%2F%5Bbranch%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Fbranch%2F%5Bbranch%5D%2Findex.js!./");
 
 
 /***/ }),
@@ -43284,5 +43710,5 @@ module.exports = dll_5f137288facb1107b491;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=[branch].js.map

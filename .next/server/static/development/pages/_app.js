@@ -2099,7 +2099,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 const GlobalStyles = styled_components__WEBPACK_IMPORTED_MODULE_6__["createGlobalStyle"]`
 
-  @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap');
 
   html, body {
     margin: 0;
@@ -2148,7 +2148,7 @@ const onRedirectCallback = appState => {
 
 
 const onAccessTokenError = (err, options) => {
-  console.error("Failed to retrieve access token: ", err);
+  console.error('Failed to retrieve access token: ', err);
 };
 /**
  * When signing in fails for some reason, we want to show it here.
@@ -2158,7 +2158,7 @@ const onAccessTokenError = (err, options) => {
 
 const onLoginError = err => {
   next_router__WEBPACK_IMPORTED_MODULE_3___default.a.push({
-    pathname: "/oops",
+    pathname: '/oops',
     query: {
       message: err.error_description || err.message
     }
@@ -2170,27 +2170,25 @@ const onLoginError = err => {
  */
 
 
-const onRedirecting = () => {
-  return __jsx("div", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 81
-    },
-    __self: undefined
-  }, __jsx("h1", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 82
-    },
-    __self: undefined
-  }, "Signing you in"), __jsx("p", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 83
-    },
-    __self: undefined
-  }, "In order to access this page you will need to sign in. Please wait while we redirect you to the login page..."));
-};
+const onRedirecting = () => __jsx("div", {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 80
+  },
+  __self: undefined
+}, __jsx("h1", {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 81
+  },
+  __self: undefined
+}, "Signing you in"), __jsx("p", {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 82
+  },
+  __self: undefined
+}, "In order to access this page you will need to sign in. Please wait while we redirect you to the login page..."));
 /**
  * Create a page which wraps the Auth0 provider.
  */
@@ -2207,13 +2205,13 @@ class Root extends next_app__WEBPACK_IMPORTED_MODULE_2___default.a {
       client: apollo,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 99
+        lineNumber: 97
       },
       __self: this
     }, __jsx(GlobalStyles, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 100
+        lineNumber: 98
       },
       __self: this
     }), __jsx(use_auth0_hooks__WEBPACK_IMPORTED_MODULE_4__["Auth0Provider"], {
@@ -2226,13 +2224,13 @@ class Root extends next_app__WEBPACK_IMPORTED_MODULE_2___default.a {
       onRedirectCallback: onRedirectCallback,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 101
+        lineNumber: 99
       },
       __self: this
     }, __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 110
+        lineNumber: 108
       },
       __self: this
     }))));

@@ -1,10 +1,5 @@
 import React from 'react';
-import fetch from 'isomorphic-unfetch';
-import Link from 'next/link';
-import styled from 'styled-components';
-import MeactMarkdown from 'react-markdown';
 import { useRouter } from 'next/router';
-import { withAuth, withLoginRequired } from 'use-auth0-hooks';
 import { useQuery } from '@apollo/react-hooks';
 
 import { ContentContainer, ProposalHeader } from 'components';
@@ -12,9 +7,7 @@ import ReactMarkdown from 'react-markdown';
 import MainLayout from '../layouts/MainLayout';
 import { PROPOSAL_BY_SLUG_QUERY } from '../queries';
 
-function ProposalPage({
-  auth, query, sections, currentSection,
-}) {
+function ProposalPage({ query, sections }) {
   const { loading, error, data } = useQuery(PROPOSAL_BY_SLUG_QUERY, {
     variables: { slug: query.proposal, branchName: query.branch },
   });
@@ -26,7 +19,7 @@ function ProposalPage({
   if (error) {
     return (
       <p>
-        Error:
+Error:
         {' '}
         {JSON.stringify(error)}
       </p>

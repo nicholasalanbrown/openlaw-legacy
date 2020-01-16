@@ -27283,7 +27283,7 @@ var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/pages/_app.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement;
 
 function _templateObject() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_6__["default"])(["\n\n  @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap');\n\n  html, body {\n    margin: 0;\n    padding: 0;\n  }\n\n  body {\n    font-family: 'Poppins', sans-serif;\n  }\n\n  * {\n    box-sizing: border-box;\n  }\n\n  input, textarea {\n    border: 1px solid #ccc;\n    outline: none;\n  }\n\n  a {\n    color: #0366d6;\n    font-weight: 600;\n    text-decoration: none;\n    &:hover {\n      text-decoration: underline;\n    }\n  }\n"]);
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_6__["default"])(["\n\n  @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap');\n\n  html, body {\n    margin: 0;\n    padding: 0;\n  }\n\n  body {\n    font-family: 'Poppins', sans-serif;\n  }\n\n  * {\n    box-sizing: border-box;\n  }\n\n  input, textarea {\n    border: 1px solid #ccc;\n    outline: none;\n  }\n\n  a {\n    color: #0366d6;\n    font-weight: 600;\n    text-decoration: none;\n    &:hover {\n      text-decoration: underline;\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -27319,7 +27319,7 @@ var onRedirectCallback = function onRedirectCallback(appState) {
 
 
 var onAccessTokenError = function onAccessTokenError(err, options) {
-  console.error("Failed to retrieve access token: ", err);
+  console.error('Failed to retrieve access token: ', err);
 };
 /**
  * When signing in fails for some reason, we want to show it here.
@@ -27329,7 +27329,7 @@ var onAccessTokenError = function onAccessTokenError(err, options) {
 
 var onLoginError = function onLoginError(err) {
   next_router__WEBPACK_IMPORTED_MODULE_9___default.a.push({
-    pathname: "/oops",
+    pathname: '/oops',
     query: {
       message: err.error_description || err.message
     }
@@ -27345,19 +27345,19 @@ var onRedirecting = function onRedirecting() {
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81
+      lineNumber: 80
     },
     __self: this
   }, __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82
+      lineNumber: 81
     },
     __self: this
   }, "Signing you in"), __jsx("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83
+      lineNumber: 82
     },
     __self: this
   }, "In order to access this page you will need to sign in. Please wait while we redirect you to the login page..."));
@@ -27389,13 +27389,13 @@ function (_App) {
         client: apollo,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 99
+          lineNumber: 97
         },
         __self: this
       }, __jsx(GlobalStyles, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 100
+          lineNumber: 98
         },
         __self: this
       }), __jsx(use_auth0_hooks__WEBPACK_IMPORTED_MODULE_10__["Auth0Provider"], {
@@ -27408,13 +27408,13 @@ function (_App) {
         onRedirectCallback: onRedirectCallback,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 101
+          lineNumber: 99
         },
         __self: this
       }, __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 110
+          lineNumber: 108
         },
         __self: this
       }))));

@@ -14,20 +14,18 @@ const StyledEditable = styled(Editable)`
   }
 `;
 
-const RichTextEditor = ({ placeholder, onChange }) => {
+const RichTextEditor = ({ placeholder, onChange, initialValue }) => {
   const [value, setValue] = useState([
     {
       children: [
         {
-          text: ""
+          text: initialValue
         }
       ]
     }
   ]);
 
-  const serialize = nodes => {
-    return nodes.map(n => Node.string(n)).join("\n");
-  };
+  const serialize = nodes => nodes.map(n => Node.string(n)).join("\n");
 
   const handleChange = value => {
     if (onChange) {
@@ -37,6 +35,7 @@ const RichTextEditor = ({ placeholder, onChange }) => {
   };
 
   const editor = useMemo(() => withHistory(withReact(createEditor())), []);
+
   return (
     <Slate
       editor={editor}
@@ -47,11 +46,5 @@ const RichTextEditor = ({ placeholder, onChange }) => {
     </Slate>
   );
 };
-
-const initialValue = [
-  {
-    children: [{ text: "This is editable plain text, just like a <textarea>!" }]
-  }
-];
 
 export default RichTextEditor;
