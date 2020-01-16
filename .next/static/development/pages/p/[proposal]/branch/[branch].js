@@ -367,17 +367,25 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+var TitleRow = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
+  displayName: "ProposalHeader__TitleRow",
+  componentId: "sc-1o47sgl-0"
+})(["display:flex;align-items:center;justify-content:space-between;"]);
+var Title = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].h1.withConfig({
+  displayName: "ProposalHeader__Title",
+  componentId: "sc-1o47sgl-1"
+})(["display:inline-block;"]);
 var Description = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].h2.withConfig({
   displayName: "ProposalHeader__Description",
-  componentId: "sc-1o47sgl-0"
+  componentId: "sc-1o47sgl-2"
 })(["color:#888888;font-size:24px;font-weight:300;"]);
 var Sections = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
   displayName: "ProposalHeader__Sections",
-  componentId: "sc-1o47sgl-1"
+  componentId: "sc-1o47sgl-3"
 })(["display:flex;padding:30px 0 10px 0;"]);
 var SectionLink = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].a.withConfig({
   displayName: "ProposalHeader__SectionLink",
-  componentId: "sc-1o47sgl-2"
+  componentId: "sc-1o47sgl-4"
 })(["background:", ";color:", ";margin-right:16px;padding:8px;border-radius:2px;pointer-events:", ";"], function (props) {
   return props.active ? '#0366d6' : 'none';
 }, function (props) {
@@ -397,19 +405,39 @@ function ProposalHeader(_ref) {
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37
+      lineNumber: 47
     },
     __self: this
-  }, __jsx("h1", {
+  }, __jsx(TitleRow, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 48
     },
     __self: this
-  }, title), __jsx(Description, {
+  }, __jsx(Title, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39
+      lineNumber: 49
+    },
+    __self: this
+  }, title), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: "".concat(router.asPath, "/edit"),
+    passHref: true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50
+    },
+    __self: this
+  }, __jsx("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51
+    },
+    __self: this
+  }, "Edit"))), __jsx(Description, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 54
     },
     __self: this
   }, description), __jsx("select", {
@@ -419,7 +447,7 @@ function ProposalHeader(_ref) {
     defaultValue: currentBranch,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40
+      lineNumber: 55
     },
     __self: this
   }, branches.map(function (branch) {
@@ -428,14 +456,14 @@ function ProposalHeader(_ref) {
       value: branch,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45
+        lineNumber: 60
       },
       __self: this
     }, branch);
   })), __jsx(Sections, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50
+      lineNumber: 65
     },
     __self: this
   }, sections.map(function (section) {
@@ -445,14 +473,14 @@ function ProposalHeader(_ref) {
       passHref: true,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 52
+        lineNumber: 67
       },
       __self: this
     }, __jsx(SectionLink, {
       active: router.asPath === section.href,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 53
+        lineNumber: 68
       },
       __self: this
     }, section.label));
@@ -17825,11 +17853,7 @@ var _url = __webpack_require__(/*! url */ "./node_modules/native-url/dist/index.
 
 var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
-
 var _router = _interopRequireDefault(__webpack_require__(/*! ./router */ "./node_modules/next/dist/client/router.js"));
-
-var _rewriteUrlForExport = __webpack_require__(/*! ../next-server/lib/router/rewrite-url-for-export */ "./node_modules/next/dist/next-server/lib/router/rewrite-url-for-export.js");
 
 var _utils = __webpack_require__(/*! ../next-server/lib/utils */ "./node_modules/next/dist/next-server/lib/utils.js");
 
@@ -17863,6 +17887,7 @@ function formatUrl(url) {
 var observer;
 var listeners = new _map["default"]();
 var IntersectionObserver = true ? window.IntersectionObserver : undefined;
+var prefetched = {};
 
 function getObserver() {
   // Return shared instance of IntersectionObserver if already created
@@ -17996,15 +18021,30 @@ function (_react$Component) {
       this.cleanUpListeners();
     }
   }, {
+    key: "getHref",
+    value: function getHref() {
+      var pathname = window.location.pathname;
+
+      var _this$formatUrls2 = this.formatUrls(this.props.href, this.props.as),
+          parsedHref = _this$formatUrls2.href;
+
+      return (0, _url.resolve)(pathname, parsedHref);
+    }
+  }, {
     key: "handleRef",
     value: function handleRef(ref) {
       var _this2 = this;
 
+      var isPrefetched = prefetched[this.getHref()];
+
       if (this.p && IntersectionObserver && ref && ref.tagName) {
         this.cleanUpListeners();
-        this.cleanUpListeners = listenToIntersections(ref, function () {
-          _this2.prefetch();
-        });
+
+        if (!isPrefetched) {
+          this.cleanUpListeners = listenToIntersections(ref, function () {
+            _this2.prefetch();
+          });
+        }
       }
     } // The function is memoized so that no extra lifecycles are needed
     // as per https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
@@ -18014,14 +18054,11 @@ function (_react$Component) {
     value: function prefetch() {
       if (!this.p || false) return; // Prefetch the JSON page if asked (only in the client)
 
-      var pathname = window.location.pathname;
-
-      var _this$formatUrls2 = this.formatUrls(this.props.href, this.props.as),
-          parsedHref = _this$formatUrls2.href;
-
-      var href = (0, _url.resolve)(pathname, parsedHref);
+      var href = this.getHref();
 
       _router["default"].prefetch(href);
+
+      prefetched[href] = true;
     }
   }, {
     key: "render",
@@ -18077,7 +18114,7 @@ function (_react$Component) {
       // "<page>/index.html" directly.
 
 
-      if (false) {}
+      if (false) { var rewriteUrlForNextExport; }
 
       return _react["default"].cloneElement(child, props);
     }
@@ -18086,22 +18123,23 @@ function (_react$Component) {
   return Link;
 }(_react.Component);
 
-Link.propTypes = void 0;
-
 if (true) {
   var warn = (0, _utils.execOnce)(console.error); // This module gets removed by webpack.IgnorePlugin
 
-  var exact = __webpack_require__(/*! prop-types-exact */ "./node_modules/prop-types-exact/build/index.js");
+  var PropTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+  var exact = __webpack_require__(/*! prop-types-exact */ "./node_modules/prop-types-exact/build/index.js"); // @ts-ignore the property is supported, when declaring it on the class it outputs an extra bit of code which is not needed.
+
 
   Link.propTypes = exact({
-    href: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].object]).isRequired,
-    as: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].object]),
-    prefetch: _propTypes["default"].bool,
-    replace: _propTypes["default"].bool,
-    shallow: _propTypes["default"].bool,
-    passHref: _propTypes["default"].bool,
-    scroll: _propTypes["default"].bool,
-    children: _propTypes["default"].oneOfType([_propTypes["default"].element, function (props, propName) {
+    href: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
+    as: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    prefetch: PropTypes.bool,
+    replace: PropTypes.bool,
+    shallow: PropTypes.bool,
+    passHref: PropTypes.bool,
+    scroll: PropTypes.bool,
+    children: PropTypes.oneOfType([PropTypes.element, function (props, propName) {
       var value = props[propName];
 
       if (typeof value === 'string') {
@@ -18443,48 +18481,6 @@ exports.RouterContext = React.createContext(null);
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/next-server/lib/router/rewrite-url-for-export.js":
-/*!*********************************************************************************!*\
-  !*** ./node_modules/next/dist/next-server/lib/router/rewrite-url-for-export.js ***!
-  \*********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _slicedToArray = __webpack_require__(/*! @babel/runtime-corejs2/helpers/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/slicedToArray.js");
-
-var _Object$defineProperty = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
-
-_Object$defineProperty(exports, "__esModule", {
-  value: true
-});
-
-function rewriteUrlForNextExport(url) {
-  var _url$split = url.split('#'),
-      _url$split2 = _slicedToArray(_url$split, 2),
-      pathname = _url$split2[0],
-      hash = _url$split2[1]; // tslint:disable-next-line
-
-
-  var _pathname$split = pathname.split('?'),
-      _pathname$split2 = _slicedToArray(_pathname$split, 2),
-      path = _pathname$split2[0],
-      qs = _pathname$split2[1];
-
-  path = path.replace(/\/$/, ''); // Append a trailing slash if this path does not have an extension
-
-  if (!/\.[^/]+\/?$/.test(path)) path += "/";
-  if (qs) path += '?' + qs;
-  if (hash) path += '#' + hash;
-  return path;
-}
-
-exports.rewriteUrlForNextExport = rewriteUrlForNextExport;
-
-/***/ }),
-
 /***/ "./node_modules/next/dist/next-server/lib/router/router.js":
 /*!*****************************************************************!*\
   !*** ./node_modules/next/dist/next-server/lib/router/router.js ***!
@@ -18499,9 +18495,9 @@ var _regeneratorRuntime = __webpack_require__(/*! @babel/runtime-corejs2/regener
 
 var _slicedToArray = __webpack_require__(/*! @babel/runtime-corejs2/helpers/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/slicedToArray.js");
 
-var _Promise = __webpack_require__(/*! @babel/runtime-corejs2/core-js/promise */ "./node_modules/@babel/runtime-corejs2/core-js/promise.js");
-
 var _Object$assign = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/assign */ "./node_modules/next/dist/build/polyfills/object-assign.js");
+
+var _Promise = __webpack_require__(/*! @babel/runtime-corejs2/core-js/promise */ "./node_modules/@babel/runtime-corejs2/core-js/promise.js");
 
 var _classCallCheck = __webpack_require__(/*! @babel/runtime-corejs2/helpers/classCallCheck */ "./node_modules/@babel/runtime-corejs2/helpers/classCallCheck.js");
 
@@ -18525,13 +18521,17 @@ var mitt_1 = __importDefault(__webpack_require__(/*! ../mitt */ "./node_modules/
 
 var utils_1 = __webpack_require__(/*! ../utils */ "./node_modules/next/dist/next-server/lib/utils.js");
 
-var rewrite_url_for_export_1 = __webpack_require__(/*! ./rewrite-url-for-export */ "./node_modules/next/dist/next-server/lib/router/rewrite-url-for-export.js");
-
 var is_dynamic_1 = __webpack_require__(/*! ./utils/is-dynamic */ "./node_modules/next/dist/next-server/lib/router/utils/is-dynamic.js");
 
 var route_matcher_1 = __webpack_require__(/*! ./utils/route-matcher */ "./node_modules/next/dist/next-server/lib/router/utils/route-matcher.js");
 
 var route_regex_1 = __webpack_require__(/*! ./utils/route-regex */ "./node_modules/next/dist/next-server/lib/router/utils/route-regex.js");
+
+function addBasePath(path) {
+  // @ts-ignore variable is always a string
+  var p = "";
+  return path.indexOf(p) !== 0 ? p + path : path;
+}
 
 function toRoute(path) {
   return path.replace(/\/$/, '') || '/';
@@ -18552,6 +18552,9 @@ function () {
         subscription = _ref.subscription;
 
     _classCallCheck(this, Router);
+
+    // Static Data Cache
+    this.sdc = {};
 
     this.onPopState = function (e) {
       if (!e.state) {
@@ -18599,6 +18602,26 @@ function () {
       }
 
       _this.replace(url, as, options);
+    };
+
+    this._getStaticData = function (asPath, _cachedData) {
+      var pathname = url_1.parse(asPath).pathname;
+      pathname = !pathname || pathname === '/' ? '/index' : pathname;
+      return  false ? undefined : fetch( // @ts-ignore __NEXT_DATA__
+      "/_next/data/".concat(__NEXT_DATA__.buildId).concat(pathname, ".json")).then(function (res) {
+        if (!res.ok) {
+          throw new Error("Failed to load static props");
+        }
+
+        return res.json();
+      }).then(function (data) {
+        _this.sdc[pathname] = data;
+        return data;
+      })["catch"](function (err) {
+        ;
+        err.code = 'PAGE_LOAD_ERROR';
+        throw err;
+      });
     }; // represents the current component key
 
 
@@ -18727,7 +18750,7 @@ function () {
         } // marking route changes as a navigation start entry
 
 
-        if (utils_1.SUPPORTS_PERFORMANCE_USER_TIMING) {
+        if (utils_1.ST) {
           performance.mark('routeChange');
         } // If url and as provided as an object representation,
         // we'll format them into the string version here.
@@ -18737,7 +18760,7 @@ function () {
         var as = typeof _as === 'object' ? utils_1.formatWithValidation(_as) : _as; // Add the ending slash to the paths. So, we can serve the
         // "<page>/index.html" directly for the SSR page.
 
-        if (false) {}
+        if (false) { var rewriteUrlForNextExport; }
 
         _this2.abortComponentLoad(as); // If the url change is only related to a hash change
         // We should not proceed. We should only change the state.
@@ -18750,7 +18773,7 @@ function () {
           _this2.asPath = as;
           Router.events.emit('hashChangeStart', as);
 
-          _this2.changeState(method, url, as);
+          _this2.changeState(method, url, addBasePath(as));
 
           _this2.scrollToHash(as);
 
@@ -18817,7 +18840,7 @@ function () {
 
           Router.events.emit('beforeHistoryChange', as);
 
-          _this2.changeState(method, url, as, options);
+          _this2.changeState(method, url, addBasePath(as), options);
 
           var hash = window.location.hash.substring(1);
 
@@ -18903,17 +18926,17 @@ function () {
           }
         }
 
-        return new _Promise(function (resolve, reject) {
-          // we provide AppTree later so this needs to be `any`
-          _this3.getInitialProps(Component, {
+        return _this3._getData(function () {
+          return Component.__N_SSG ? _this3._getStaticData(as) : _this3.getInitialProps(Component, // we provide AppTree later so this needs to be `any`
+          {
             pathname: pathname,
             query: query,
             asPath: as
-          }).then(function (props) {
-            routeInfo.props = props;
-            _this3.components[route] = routeInfo;
-            resolve(routeInfo);
-          }, reject);
+          });
+        }).then(function (props) {
+          routeInfo.props = props;
+          _this3.components[route] = routeInfo;
+          return routeInfo;
         });
       })["catch"](function (err) {
         return new _Promise(function (resolve) {
@@ -19074,7 +19097,10 @@ function () {
         } // Prefetch is not supported in development mode because it would trigger on-demand-entries
 
 
-        if (true) return; // @ts-ignore pathname is always defined
+        if (true) {
+          return;
+        } // @ts-ignore pathname is always defined
+
 
         var route = toRoute(pathname);
 
@@ -19125,88 +19151,45 @@ function () {
       }, null, this);
     }
   }, {
+    key: "_getData",
+    value: function _getData(fn) {
+      var _this5 = this;
+
+      var cancelled = false;
+
+      var cancel = function cancel() {
+        cancelled = true;
+      };
+
+      this.clc = cancel;
+      return fn().then(function (data) {
+        if (cancel === _this5.clc) {
+          _this5.clc = null;
+        }
+
+        if (cancelled) {
+          var err = new Error('Loading initial props cancelled');
+          err.cancelled = true;
+          throw err;
+        }
+
+        return data;
+      });
+    }
+  }, {
     key: "getInitialProps",
     value: function getInitialProps(Component, ctx) {
-      var cancelled, cancel, App, props, status, _url_1$parse4, pathname, AppTree, err;
+      var App = this.components['/_app'].Component;
 
-      return _regeneratorRuntime.async(function getInitialProps$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              cancelled = false;
+      var AppTree = this._wrapApp(App);
 
-              cancel = function cancel() {
-                cancelled = true;
-              };
-
-              this.clc = cancel;
-              App = this.components['/_app'].Component;
-
-              if (!Component.__NEXT_SPR) {
-                _context2.next = 12;
-                break;
-              }
-
-              // pathname should have leading slash
-              _url_1$parse4 = url_1.parse(ctx.asPath || ctx.pathname), pathname = _url_1$parse4.pathname;
-              pathname = !pathname || pathname === '/' ? '/index' : pathname;
-              _context2.next = 9;
-              return _regeneratorRuntime.awrap(fetch( // @ts-ignore __NEXT_DATA__
-              "/_next/data/".concat(__NEXT_DATA__.buildId).concat(pathname, ".json")).then(function (res) {
-                if (!res.ok) {
-                  status = res.status;
-                  throw new Error('failed to load prerender data');
-                }
-
-                return res.json();
-              })["catch"](function (err) {
-                console.error("Failed to load data", status, err);
-                window.location.href = pathname;
-                return new _Promise(function () {});
-              }));
-
-            case 9:
-              props = _context2.sent;
-              _context2.next = 17;
-              break;
-
-            case 12:
-              AppTree = this._wrapApp(App);
-              ctx.AppTree = AppTree;
-              _context2.next = 16;
-              return _regeneratorRuntime.awrap(utils_1.loadGetInitialProps(App, {
-                AppTree: AppTree,
-                Component: Component,
-                router: this,
-                ctx: ctx
-              }));
-
-            case 16:
-              props = _context2.sent;
-
-            case 17:
-              if (cancel === this.clc) {
-                this.clc = null;
-              }
-
-              if (!cancelled) {
-                _context2.next = 22;
-                break;
-              }
-
-              err = new Error('Loading initial props cancelled');
-              err.cancelled = true;
-              throw err;
-
-            case 22:
-              return _context2.abrupt("return", props);
-
-            case 23:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, null, this);
+      ctx.AppTree = AppTree;
+      return utils_1.loadGetInitialProps(App, {
+        AppTree: AppTree,
+        Component: Component,
+        router: this,
+        ctx: ctx
+      });
     }
   }, {
     key: "abortComponentLoad",
@@ -19227,7 +19210,9 @@ function () {
   }], [{
     key: "_rewriteUrlForNextExport",
     value: function _rewriteUrlForNextExport(url) {
-      return rewrite_url_for_export_1.rewriteUrlForNextExport(url);
+      if (false) { var rewriteUrlForNextExport; } else {
+        return url;
+      }
     }
   }]);
 
@@ -19436,7 +19421,7 @@ function isResSent(res) {
 exports.isResSent = isResSent;
 
 function loadGetInitialProps(App, ctx) {
-  var message, res, props, _message;
+  var _a, message, res, props, _message;
 
   return _regeneratorRuntime.async(function loadGetInitialProps$(_context) {
     while (1) {
@@ -19444,7 +19429,7 @@ function loadGetInitialProps(App, ctx) {
         case 0:
           if (false) {}
 
-          if (!(App.prototype && App.prototype.getInitialProps)) {
+          if (!((_a = App.prototype) === null || _a === void 0 ? void 0 : _a.getInitialProps)) {
             _context.next = 4;
             break;
           }
@@ -19536,8 +19521,8 @@ function formatWithValidation(url, options) {
 }
 
 exports.formatWithValidation = formatWithValidation;
-exports.SUPPORTS_PERFORMANCE = typeof performance !== 'undefined';
-exports.SUPPORTS_PERFORMANCE_USER_TIMING = exports.SUPPORTS_PERFORMANCE && typeof performance.mark === 'function' && typeof performance.measure === 'function';
+exports.SP = typeof performance !== 'undefined';
+exports.ST = exports.SP && typeof performance.mark === 'function' && typeof performance.measure === 'function';
 
 /***/ }),
 
@@ -43687,7 +43672,7 @@ var PROPOSALS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_1___default()(_templa
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!**********************************************************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fp%2F%5Bproposal%5D%2Fbranch%2F%5Bbranch%5D&absolutePagePath=%2FUsers%2Fnicholasbrown%2FSource%2Fopenlaw%2Fpages%2Fp%2F%5Bproposal%5D%2Fbranch%2F%5Bbranch%5D%2Findex.js ***!
   \**********************************************************************************************************************************************************************************************************************/
@@ -43710,5 +43695,5 @@ module.exports = dll_5f137288facb1107b491;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=[branch].js.map

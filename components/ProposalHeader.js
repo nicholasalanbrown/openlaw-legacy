@@ -3,6 +3,16 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
+const TitleRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const Title = styled.h1`
+  display: inline-block;
+`;
+
 const Description = styled.h2`
   color: #888888;
   font-size: 24px;
@@ -35,7 +45,12 @@ function ProposalHeader({
 
   return (
     <div>
-      <h1>{title}</h1>
+      <TitleRow>
+        <Title>{title}</Title>
+        <Link href={`${router.asPath}/edit`} passHref>
+          <a>Edit</a>
+        </Link>
+      </TitleRow>
       <Description>{description}</Description>
       <select
         onChange={(e) => onBranchSelect(e.target.value)}

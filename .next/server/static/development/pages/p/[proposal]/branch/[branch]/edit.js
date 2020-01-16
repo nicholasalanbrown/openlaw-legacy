@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -452,17 +452,25 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+const TitleRow = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withConfig({
+  displayName: "ProposalHeader__TitleRow",
+  componentId: "sc-1o47sgl-0"
+})(["display:flex;align-items:center;justify-content:space-between;"]);
+const Title = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.h1.withConfig({
+  displayName: "ProposalHeader__Title",
+  componentId: "sc-1o47sgl-1"
+})(["display:inline-block;"]);
 const Description = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.h2.withConfig({
   displayName: "ProposalHeader__Description",
-  componentId: "sc-1o47sgl-0"
+  componentId: "sc-1o47sgl-2"
 })(["color:#888888;font-size:24px;font-weight:300;"]);
 const Sections = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withConfig({
   displayName: "ProposalHeader__Sections",
-  componentId: "sc-1o47sgl-1"
+  componentId: "sc-1o47sgl-3"
 })(["display:flex;padding:30px 0 10px 0;"]);
 const SectionLink = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.a.withConfig({
   displayName: "ProposalHeader__SectionLink",
-  componentId: "sc-1o47sgl-2"
+  componentId: "sc-1o47sgl-4"
 })(["background:", ";color:", ";margin-right:16px;padding:8px;border-radius:2px;pointer-events:", ";"], props => props.active ? '#0366d6' : 'none', props => props.active ? 'white' : '#0366d6', props => props.active && 'none');
 
 function ProposalHeader({
@@ -477,19 +485,39 @@ function ProposalHeader({
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37
+      lineNumber: 47
     },
     __self: this
-  }, __jsx("h1", {
+  }, __jsx(TitleRow, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 48
     },
     __self: this
-  }, title), __jsx(Description, {
+  }, __jsx(Title, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39
+      lineNumber: 49
+    },
+    __self: this
+  }, title), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: `${router.asPath}/edit`,
+    passHref: true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50
+    },
+    __self: this
+  }, __jsx("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51
+    },
+    __self: this
+  }, "Edit"))), __jsx(Description, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 54
     },
     __self: this
   }, description), __jsx("select", {
@@ -497,7 +525,7 @@ function ProposalHeader({
     defaultValue: currentBranch,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40
+      lineNumber: 55
     },
     __self: this
   }, branches.map(branch => __jsx("option", {
@@ -505,13 +533,13 @@ function ProposalHeader({
     value: branch,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 60
     },
     __self: this
   }, branch))), __jsx(Sections, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50
+      lineNumber: 65
     },
     __self: this
   }, sections.map(section => __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -520,14 +548,14 @@ function ProposalHeader({
     passHref: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52
+      lineNumber: 67
     },
     __self: this
   }, __jsx(SectionLink, {
     active: router.asPath === section.href,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53
+      lineNumber: 68
     },
     __self: this
   }, section.label)))));
@@ -1270,11 +1298,7 @@ var _url = __webpack_require__(/*! url */ "url");
 
 var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "react"));
 
-var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "prop-types"));
-
 var _router = _interopRequireDefault(__webpack_require__(/*! ./router */ "./node_modules/next/dist/client/router.js"));
-
-var _rewriteUrlForExport = __webpack_require__(/*! ../next-server/lib/router/rewrite-url-for-export */ "./node_modules/next/dist/next-server/lib/router/rewrite-url-for-export.js");
 
 var _utils = __webpack_require__(/*! ../next-server/lib/utils */ "./node_modules/next/dist/next-server/lib/utils.js");
 
@@ -1308,6 +1332,7 @@ function formatUrl(url) {
 var observer;
 var listeners = new _map.default();
 var IntersectionObserver = false ? undefined : null;
+var prefetched = {};
 
 function getObserver() {
   // Return shared instance of IntersectionObserver if already created
@@ -1436,12 +1461,27 @@ class Link extends _react.Component {
     this.cleanUpListeners();
   }
 
+  getHref() {
+    var {
+      pathname
+    } = window.location;
+    var {
+      href: parsedHref
+    } = this.formatUrls(this.props.href, this.props.as);
+    return (0, _url.resolve)(pathname, parsedHref);
+  }
+
   handleRef(ref) {
+    var isPrefetched = prefetched[this.getHref()];
+
     if (this.p && IntersectionObserver && ref && ref.tagName) {
       this.cleanUpListeners();
-      this.cleanUpListeners = listenToIntersections(ref, () => {
-        this.prefetch();
-      });
+
+      if (!isPrefetched) {
+        this.cleanUpListeners = listenToIntersections(ref, () => {
+          this.prefetch();
+        });
+      }
     }
   } // The function is memoized so that no extra lifecycles are needed
   // as per https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
@@ -1450,15 +1490,11 @@ class Link extends _react.Component {
   prefetch() {
     if (!this.p || true) return; // Prefetch the JSON page if asked (only in the client)
 
-    var {
-      pathname
-    } = window.location;
-    var {
-      href: parsedHref
-    } = this.formatUrls(this.props.href, this.props.as);
-    var href = (0, _url.resolve)(pathname, parsedHref);
+    var href = this.getHref();
 
     _router.default.prefetch(href);
+
+    prefetched[href] = true;
   }
 
   render() {
@@ -1512,29 +1548,30 @@ class Link extends _react.Component {
     // "<page>/index.html" directly.
 
 
-    if (false) {}
+    if (false) { var rewriteUrlForNextExport; }
 
     return _react.default.cloneElement(child, props);
   }
 
 }
 
-Link.propTypes = void 0;
-
 if (true) {
   var warn = (0, _utils.execOnce)(console.error); // This module gets removed by webpack.IgnorePlugin
 
-  var exact = __webpack_require__(/*! prop-types-exact */ "prop-types-exact");
+  var PropTypes = __webpack_require__(/*! prop-types */ "prop-types");
+
+  var exact = __webpack_require__(/*! prop-types-exact */ "prop-types-exact"); // @ts-ignore the property is supported, when declaring it on the class it outputs an extra bit of code which is not needed.
+
 
   Link.propTypes = exact({
-    href: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]).isRequired,
-    as: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]),
-    prefetch: _propTypes.default.bool,
-    replace: _propTypes.default.bool,
-    shallow: _propTypes.default.bool,
-    passHref: _propTypes.default.bool,
-    scroll: _propTypes.default.bool,
-    children: _propTypes.default.oneOfType([_propTypes.default.element, (props, propName) => {
+    href: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
+    as: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    prefetch: PropTypes.bool,
+    replace: PropTypes.bool,
+    shallow: PropTypes.bool,
+    passHref: PropTypes.bool,
+    scroll: PropTypes.bool,
+    children: PropTypes.oneOfType([PropTypes.element, (props, propName) => {
       var value = props[propName];
 
       if (typeof value === 'string') {
@@ -1849,38 +1886,6 @@ exports.RouterContext = React.createContext(null);
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/next-server/lib/router/rewrite-url-for-export.js":
-/*!*********************************************************************************!*\
-  !*** ./node_modules/next/dist/next-server/lib/router/rewrite-url-for-export.js ***!
-  \*********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _Object$defineProperty = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
-
-_Object$defineProperty(exports, "__esModule", {
-  value: true
-});
-
-function rewriteUrlForNextExport(url) {
-  const [pathname, hash] = url.split('#'); // tslint:disable-next-line
-
-  let [path, qs] = pathname.split('?');
-  path = path.replace(/\/$/, ''); // Append a trailing slash if this path does not have an extension
-
-  if (!/\.[^/]+\/?$/.test(path)) path += `/`;
-  if (qs) path += '?' + qs;
-  if (hash) path += '#' + hash;
-  return path;
-}
-
-exports.rewriteUrlForNextExport = rewriteUrlForNextExport;
-
-/***/ }),
-
 /***/ "./node_modules/next/dist/next-server/lib/router/router.js":
 /*!*****************************************************************!*\
   !*** ./node_modules/next/dist/next-server/lib/router/router.js ***!
@@ -1891,9 +1896,9 @@ exports.rewriteUrlForNextExport = rewriteUrlForNextExport;
 "use strict";
 
 
-var _Promise = __webpack_require__(/*! @babel/runtime-corejs2/core-js/promise */ "./node_modules/@babel/runtime-corejs2/core-js/promise.js");
-
 var _Object$assign = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/assign */ "./node_modules/@babel/runtime-corejs2/core-js/object/assign.js");
+
+var _Promise = __webpack_require__(/*! @babel/runtime-corejs2/core-js/promise */ "./node_modules/@babel/runtime-corejs2/core-js/promise.js");
 
 var _Object$defineProperty = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
 
@@ -1913,13 +1918,17 @@ const mitt_1 = __importDefault(__webpack_require__(/*! ../mitt */ "./node_module
 
 const utils_1 = __webpack_require__(/*! ../utils */ "./node_modules/next/dist/next-server/lib/utils.js");
 
-const rewrite_url_for_export_1 = __webpack_require__(/*! ./rewrite-url-for-export */ "./node_modules/next/dist/next-server/lib/router/rewrite-url-for-export.js");
-
 const is_dynamic_1 = __webpack_require__(/*! ./utils/is-dynamic */ "./node_modules/next/dist/next-server/lib/router/utils/is-dynamic.js");
 
 const route_matcher_1 = __webpack_require__(/*! ./utils/route-matcher */ "./node_modules/next/dist/next-server/lib/router/utils/route-matcher.js");
 
 const route_regex_1 = __webpack_require__(/*! ./utils/route-regex */ "./node_modules/next/dist/next-server/lib/router/utils/route-regex.js");
+
+function addBasePath(path) {
+  // @ts-ignore variable is always a string
+  const p = "";
+  return path.indexOf(p) !== 0 ? p + path : path;
+}
 
 function toRoute(path) {
   return path.replace(/\/$/, '') || '/';
@@ -1935,6 +1944,9 @@ class Router {
     err,
     subscription
   }) {
+    // Static Data Cache
+    this.sdc = {};
+
     this.onPopState = e => {
       if (!e.state) {
         // We get state as undefined for two reasons.
@@ -1982,6 +1994,26 @@ class Router {
       }
 
       this.replace(url, as, options);
+    };
+
+    this._getStaticData = (asPath, _cachedData) => {
+      let pathname = url_1.parse(asPath).pathname;
+      pathname = !pathname || pathname === '/' ? '/index' : pathname;
+      return  false ? undefined : fetch( // @ts-ignore __NEXT_DATA__
+      `/_next/data/${__NEXT_DATA__.buildId}${pathname}.json`).then(res => {
+        if (!res.ok) {
+          throw new Error(`Failed to load static props`);
+        }
+
+        return res.json();
+      }).then(data => {
+        this.sdc[pathname] = data;
+        return data;
+      }).catch(err => {
+        ;
+        err.code = 'PAGE_LOAD_ERROR';
+        throw err;
+      });
     }; // represents the current component key
 
 
@@ -2025,7 +2057,9 @@ class Router {
 
 
   static _rewriteUrlForNextExport(url) {
-    return rewrite_url_for_export_1.rewriteUrlForNextExport(url);
+    if (false) {} else {
+      return url;
+    }
   }
 
   update(route, mod) {
@@ -2093,7 +2127,7 @@ class Router {
       } // marking route changes as a navigation start entry
 
 
-      if (utils_1.SUPPORTS_PERFORMANCE_USER_TIMING) {
+      if (utils_1.ST) {
         performance.mark('routeChange');
       } // If url and as provided as an object representation,
       // we'll format them into the string version here.
@@ -2114,7 +2148,7 @@ class Router {
       if (!options._h && this.onlyAHashChange(as)) {
         this.asPath = as;
         Router.events.emit('hashChangeStart', as);
-        this.changeState(method, url, as);
+        this.changeState(method, url, addBasePath(as));
         this.scrollToHash(as);
         Router.events.emit('hashChangeComplete', as);
         return resolve(true);
@@ -2182,7 +2216,7 @@ class Router {
         }
 
         Router.events.emit('beforeHistoryChange', as);
-        this.changeState(method, url, as, options);
+        this.changeState(method, url, addBasePath(as), options);
         const hash = window.location.hash.substring(1);
 
         if (true) {
@@ -2261,17 +2295,15 @@ class Router {
         }
       }
 
-      return new _Promise((resolve, reject) => {
-        // we provide AppTree later so this needs to be `any`
-        this.getInitialProps(Component, {
-          pathname,
-          query,
-          asPath: as
-        }).then(props => {
-          routeInfo.props = props;
-          this.components[route] = routeInfo;
-          resolve(routeInfo);
-        }, reject);
+      return this._getData(() => Component.__N_SSG ? this._getStaticData(as) : this.getInitialProps(Component, // we provide AppTree later so this needs to be `any`
+      {
+        pathname,
+        query,
+        asPath: as
+      })).then(props => {
+        routeInfo.props = props;
+        this.components[route] = routeInfo;
+        return routeInfo;
       });
     }).catch(err => {
       return new _Promise(resolve => {
@@ -2413,7 +2445,10 @@ class Router {
       } // Prefetch is not supported in development mode because it would trigger on-demand-entries
 
 
-      if (true) return; // @ts-ignore pathname is always defined
+      if (true) {
+        return;
+      } // @ts-ignore pathname is always defined
+
 
       const route = toRoute(pathname);
       this.pageLoader.prefetch(route).then(resolve, reject);
@@ -2442,7 +2477,7 @@ class Router {
     return Component;
   }
 
-  async getInitialProps(Component, ctx) {
+  _getData(fn) {
     let cancelled = false;
 
     const cancel = () => {
@@ -2450,54 +2485,35 @@ class Router {
     };
 
     this.clc = cancel;
+    return fn().then(data => {
+      if (cancel === this.clc) {
+        this.clc = null;
+      }
+
+      if (cancelled) {
+        const err = new Error('Loading initial props cancelled');
+        err.cancelled = true;
+        throw err;
+      }
+
+      return data;
+    });
+  }
+
+  getInitialProps(Component, ctx) {
     const {
       Component: App
     } = this.components['/_app'];
-    let props;
 
-    if (Component.__NEXT_SPR) {
-      let status; // pathname should have leading slash
+    const AppTree = this._wrapApp(App);
 
-      let {
-        pathname
-      } = url_1.parse(ctx.asPath || ctx.pathname);
-      pathname = !pathname || pathname === '/' ? '/index' : pathname;
-      props = await fetch( // @ts-ignore __NEXT_DATA__
-      `/_next/data/${__NEXT_DATA__.buildId}${pathname}.json`).then(res => {
-        if (!res.ok) {
-          status = res.status;
-          throw new Error('failed to load prerender data');
-        }
-
-        return res.json();
-      }).catch(err => {
-        console.error(`Failed to load data`, status, err);
-        window.location.href = pathname;
-        return new _Promise(() => {});
-      });
-    } else {
-      const AppTree = this._wrapApp(App);
-
-      ctx.AppTree = AppTree;
-      props = await utils_1.loadGetInitialProps(App, {
-        AppTree,
-        Component,
-        router: this,
-        ctx
-      });
-    }
-
-    if (cancel === this.clc) {
-      this.clc = null;
-    }
-
-    if (cancelled) {
-      const err = new Error('Loading initial props cancelled');
-      err.cancelled = true;
-      throw err;
-    }
-
-    return props;
+    ctx.AppTree = AppTree;
+    return utils_1.loadGetInitialProps(App, {
+      AppTree,
+      Component,
+      router: this,
+      ctx
+    });
   }
 
   abortComponentLoad(as) {
@@ -2712,8 +2728,10 @@ function isResSent(res) {
 exports.isResSent = isResSent;
 
 async function loadGetInitialProps(App, ctx) {
+  var _a;
+
   if (true) {
-    if (App.prototype && App.prototype.getInitialProps) {
+    if ((_a = App.prototype) === null || _a === void 0 ? void 0 : _a.getInitialProps) {
       const message = `"${getDisplayName(App)}.getInitialProps()" is defined as an instance method - visit https://err.sh/zeit/next.js/get-initial-props-as-an-instance-method for more information.`;
       throw new Error(message);
     }
@@ -2771,8 +2789,8 @@ function formatWithValidation(url, options) {
 }
 
 exports.formatWithValidation = formatWithValidation;
-exports.SUPPORTS_PERFORMANCE = typeof performance !== 'undefined';
-exports.SUPPORTS_PERFORMANCE_USER_TIMING = exports.SUPPORTS_PERFORMANCE && typeof performance.mark === 'function' && typeof performance.measure === 'function';
+exports.SP = typeof performance !== 'undefined';
+exports.ST = exports.SP && typeof performance.mark === 'function' && typeof performance.measure === 'function';
 
 /***/ }),
 
@@ -3232,7 +3250,7 @@ const PROPOSALS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default.a`
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!**********************************************************!*\
   !*** multi ./pages/p/[proposal]/branch/[branch]/edit.js ***!
   \**********************************************************/
