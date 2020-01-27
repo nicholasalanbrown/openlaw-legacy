@@ -21,14 +21,6 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/p/[proposal]/branch/[branch]": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/p/[proposal]/branch/[branch]/edit": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
     "/p/[proposal]/edit": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"

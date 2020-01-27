@@ -929,27 +929,63 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Header */ "./components/Header.js");
 var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/layouts/MainLayout.js";
-
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
-const MainLayout = props => __jsx("div", {
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 4
-  },
-  __self: undefined
-}, __jsx(_components_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 5
-  },
-  __self: undefined
-}), props.children);
+function MainLayout({
+  children
+}) {
+  return __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6
+    },
+    __self: this
+  }, children);
+}
 
 /* harmony default export */ __webpack_exports__["default"] = (MainLayout);
+
+/***/ }),
+
+/***/ "./mutations/commitToBranch.mutation.js":
+/*!**********************************************!*\
+  !*** ./mutations/commitToBranch.mutation.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
+
+const COMMIT_TO_BRANCH_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default.a`
+  mutation CommitToBranch(
+    $proposalId: String!
+    $branchName: String!
+    $title: String!
+    $description: String!
+    $summary: String!
+    $legal: String!
+    $message: String!
+  ) {
+    createProposal(
+        proposalId: $proposalId
+        branchName: $branchName
+        title: $title
+        description: $description
+        summary: $summary
+        legal: $legal
+        message: $message
+    ) {
+      id
+      title
+    }
+  }
+`;
+/* harmony default export */ __webpack_exports__["default"] = (COMMIT_TO_BRANCH_MUTATION);
 
 /***/ }),
 
@@ -992,13 +1028,17 @@ const CREATE_PROPOSAL_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_0___defaul
 /*!****************************!*\
   !*** ./mutations/index.js ***!
   \****************************/
-/*! exports provided: CREATE_PROPOSAL_MUTATION */
+/*! exports provided: COMMIT_TO_BRANCH, CREATE_PROPOSAL_MUTATION */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _createProposal_mutation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createProposal.mutation */ "./mutations/createProposal.mutation.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CREATE_PROPOSAL_MUTATION", function() { return _createProposal_mutation__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+/* harmony import */ var _commitToBranch_mutation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./commitToBranch.mutation */ "./mutations/commitToBranch.mutation.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "COMMIT_TO_BRANCH", function() { return _commitToBranch_mutation__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _createProposal_mutation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createProposal.mutation */ "./mutations/createProposal.mutation.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CREATE_PROPOSAL_MUTATION", function() { return _createProposal_mutation__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
 
 
 

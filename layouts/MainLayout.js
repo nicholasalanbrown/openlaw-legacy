@@ -1,10 +1,12 @@
-import Header from "../components/Header";
+import React from 'react';
 
-const MainLayout = props => (
-  <div>
-    <Header />
-    {props.children}
-  </div>
-);
+
+function MainLayout({ children }) {
+  return (
+    <div>
+      {children}
+    </div>
+  );
+}
 
 export default MainLayout;

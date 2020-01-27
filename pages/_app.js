@@ -1,9 +1,11 @@
+import React from 'react';
 import App from 'next/app';
 import Router from 'next/router';
 import { Auth0Provider } from 'use-auth0-hooks';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { createGlobalStyle } from 'styled-components';
 
+import { Header } from 'components';
 import { withApollo } from '../utils';
 
 const GlobalStyles = createGlobalStyle`
@@ -105,6 +107,7 @@ class Root extends App {
           onRedirecting={onRedirecting}
           onRedirectCallback={onRedirectCallback}
         >
+          <Header />
           <Component {...pageProps} />
         </Auth0Provider>
       </ApolloProvider>

@@ -1,5 +1,963 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/_app.js"],{
 
+/***/ "./components/ContentContainer.js":
+/*!****************************************!*\
+  !*** ./components/ContentContainer.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/components/ContentContainer.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+var Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
+  displayName: "ContentContainer__Wrapper",
+  componentId: "sc-89ib3d-0"
+})(["display:flex;flex-direction:column;align-items:center;padding:0 20px;"]);
+var Containter = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
+  displayName: "ContentContainer__Containter",
+  componentId: "sc-89ib3d-1"
+})(["font-size:18px;line-height:1.4;max-width:900px;width:100%;padding:0 0 160px;"]);
+
+function ContentContainer(_ref) {
+  var children = _ref.children;
+  return __jsx(Wrapper, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20
+    },
+    __self: this
+  }, __jsx(Containter, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21
+    },
+    __self: this
+  }, children));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (ContentContainer);
+
+/***/ }),
+
+/***/ "./components/Header.js":
+/*!******************************!*\
+  !*** ./components/Header.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var use_auth0_hooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! use-auth0-hooks */ "./node_modules/use-auth0-hooks/dist/index.js");
+/* harmony import */ var use_auth0_hooks__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(use_auth0_hooks__WEBPACK_IMPORTED_MODULE_4__);
+var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/components/Header.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+var Nav = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div.withConfig({
+  displayName: "Header__Nav",
+  componentId: "p12jyt-0"
+})(["border-bottom:1px solid #ccc;align-items:center;justify-content:space-between;display:flex;height:60px;padding:0 20px;width:100%;"]);
+var AccountButton = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].button.withConfig({
+  displayName: "Header__AccountButton",
+  componentId: "p12jyt-1"
+})(["background:none;border:none;box-shadow:none;font-size:18px;outline:none;&:hover{cursor:pointer;text-decoration:underline;}"]);
+
+function Header() {
+  var _useRouter = Object(next_router__WEBPACK_IMPORTED_MODULE_3__["useRouter"])(),
+      pathname = _useRouter.pathname,
+      query = _useRouter.query;
+
+  var _useAuth = Object(use_auth0_hooks__WEBPACK_IMPORTED_MODULE_4__["useAuth"])(),
+      isAuthenticated = _useAuth.isAuthenticated,
+      isLoading = _useAuth.isLoading,
+      login = _useAuth.login,
+      logout = _useAuth.logout;
+
+  return __jsx(Nav, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35
+    },
+    __self: this
+  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: "/",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36
+    },
+    __self: this
+  }, __jsx("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37
+    },
+    __self: this
+  }, "Home")), !isLoading && (isAuthenticated ? __jsx(AccountButton, {
+    onClick: function onClick() {
+      return logout({
+        returnTo: "http://localhost:3000/"
+      });
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41
+    },
+    __self: this
+  }, "Log out") : __jsx(AccountButton, {
+    onClick: function onClick() {
+      return login({
+        appState: {
+          returnTo: {
+            pathname: pathname,
+            query: query
+          }
+        }
+      });
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: this
+  }, "Log in")));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Header);
+
+/***/ }),
+
+/***/ "./components/ProposalForm.js":
+/*!************************************!*\
+  !*** ./components/ProposalForm.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var _ContentContainer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ContentContainer */ "./components/ContentContainer.js");
+/* harmony import */ var _RIchTextEditor__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./RIchTextEditor */ "./components/RIchTextEditor.js");
+/* harmony import */ var _layouts_MainLayout__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../layouts/MainLayout */ "./layouts/MainLayout.js");
+/* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../mutations */ "./mutations/index.js");
+
+var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/components/ProposalForm.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
+
+
+
+
+
+
+
+var SubNav = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
+  displayName: "ProposalForm__SubNav",
+  componentId: "wxmutf-0"
+})(["display:flex;justify-content:space-between;align-items:center;height:100px;"]);
+var Title = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].h1.withConfig({
+  displayName: "ProposalForm__Title",
+  componentId: "wxmutf-1"
+})(["line-height:1;margin:0;"]);
+var CreateButton = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].button.withConfig({
+  displayName: "ProposalForm__CreateButton",
+  componentId: "wxmutf-2"
+})(["border:none;background:#372237;border-radius:2px;color:white;font-size:18px;padding:10px;&:hover{cursor:pointer;}"]);
+var Form = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].form.withConfig({
+  displayName: "ProposalForm__Form",
+  componentId: "wxmutf-3"
+})(["padding:40px 0;"]);
+var TitleInput = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].input.withConfig({
+  displayName: "ProposalForm__TitleInput",
+  componentId: "wxmutf-4"
+})(["font-size:18px;padding:12px 10px;width:100%;"]);
+var DescriptionInput = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].textarea.withConfig({
+  displayName: "ProposalForm__DescriptionInput",
+  componentId: "wxmutf-5"
+})(["font-size:18px;margin-top:30px;resize:none;padding:12px 10px;width:100%;"]);
+var SummaryInput = Object(styled_components__WEBPACK_IMPORTED_MODULE_3__["default"])(_RIchTextEditor__WEBPACK_IMPORTED_MODULE_6__["default"]).withConfig({
+  displayName: "ProposalForm__SummaryInput",
+  componentId: "wxmutf-6"
+})(["font-size:18px;margin-top:30px;"]);
+var LegalInput = Object(styled_components__WEBPACK_IMPORTED_MODULE_3__["default"])(_RIchTextEditor__WEBPACK_IMPORTED_MODULE_6__["default"]).withConfig({
+  displayName: "ProposalForm__LegalInput",
+  componentId: "wxmutf-7"
+})(["font-size:18px;margin-top:30px;"]);
+
+function ProposalForm(_ref) {
+  var formTitle = _ref.formTitle,
+      submitText = _ref.submitText,
+      initialDescription = _ref.initialDescription,
+      initialSummary = _ref.initialSummary,
+      initialLegal = _ref.initialLegal;
+  var router = Object(next_router__WEBPACK_IMPORTED_MODULE_2__["useRouter"])();
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(""),
+      title = _useState[0],
+      setTitle = _useState[1];
+
+  var _useState2 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(""),
+      description = _useState2[0],
+      setDescription = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(""),
+      summary = _useState3[0],
+      setSummary = _useState3[1];
+
+  var _useState4 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(""),
+      legal = _useState4[0],
+      setLegal = _useState4[1];
+
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4__["useMutation"])(_mutations__WEBPACK_IMPORTED_MODULE_8__["CREATE_PROPOSAL_MUTATION"], {
+    onCompleted: function onCompleted() {
+      router.push("/", "/", {
+        getInitialProps: true
+      });
+    }
+  }),
+      _useMutation2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useMutation, 2),
+      createProposal = _useMutation2[0],
+      data = _useMutation2[1].data;
+
+  var handleSubmit = function handleSubmit() {
+    createProposal({
+      variables: {
+        title: title,
+        description: description,
+        summary: summary,
+        legal: legal
+      }
+    });
+  };
+
+  return __jsx(_layouts_MainLayout__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 94
+    },
+    __self: this
+  }, __jsx(_ContentContainer__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 95
+    },
+    __self: this
+  }, __jsx(SubNav, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 96
+    },
+    __self: this
+  }, __jsx(Title, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 97
+    },
+    __self: this
+  }, formTitle), __jsx(CreateButton, {
+    onClick: function onClick() {
+      return handleSubmit();
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 98
+    },
+    __self: this
+  }, submitText)), __jsx(Form, {
+    onSubmit: function onSubmit() {
+      return handleSubmit();
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 102
+    },
+    __self: this
+  }, __jsx(TitleInput, {
+    placeholder: "Title",
+    onChange: function onChange(e) {
+      return setTitle(e.target.value);
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 103
+    },
+    __self: this
+  }), __jsx(DescriptionInput, {
+    placeholder: "Description",
+    value: description || initialDescription,
+    rows: 4,
+    onChange: function onChange(e) {
+      return setDescription(e.target.value);
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 107
+    },
+    __self: this
+  }), __jsx(SummaryInput, {
+    placeholder: "Summary",
+    initialValue: initialSummary,
+    value: summary || initialSummary,
+    onChange: setSummary,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 113
+    },
+    __self: this
+  }), __jsx(LegalInput, {
+    placeholder: "Legal",
+    initialValue: initialLegal,
+    value: legal,
+    onChange: setLegal,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 119
+    },
+    __self: this
+  }))));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (ProposalForm);
+
+/***/ }),
+
+/***/ "./components/ProposalHeader.js":
+/*!**************************************!*\
+  !*** ./components/ProposalHeader.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/components/ProposalHeader.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+var TitleRow = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
+  displayName: "ProposalHeader__TitleRow",
+  componentId: "sc-1o47sgl-0"
+})(["display:flex;align-items:center;justify-content:space-between;"]);
+var Title = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].h1.withConfig({
+  displayName: "ProposalHeader__Title",
+  componentId: "sc-1o47sgl-1"
+})(["display:inline-block;"]);
+var Description = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].h2.withConfig({
+  displayName: "ProposalHeader__Description",
+  componentId: "sc-1o47sgl-2"
+})(["color:#888888;font-size:24px;font-weight:300;"]);
+var Sections = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
+  displayName: "ProposalHeader__Sections",
+  componentId: "sc-1o47sgl-3"
+})(["display:flex;padding:30px 0 10px 0;"]);
+var SectionLink = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].a.withConfig({
+  displayName: "ProposalHeader__SectionLink",
+  componentId: "sc-1o47sgl-4"
+})(["background:", ";color:", ";margin-right:16px;padding:8px;border-radius:2px;pointer-events:", ";"], function (props) {
+  return props.active ? '#0366d6' : 'none';
+}, function (props) {
+  return props.active ? 'white' : '#0366d6';
+}, function (props) {
+  return props.active && 'none';
+});
+
+function ProposalHeader(_ref) {
+  var title = _ref.title,
+      description = _ref.description,
+      branches = _ref.branches,
+      onBranchSelect = _ref.onBranchSelect,
+      currentBranch = _ref.currentBranch,
+      sections = _ref.sections;
+  var router = Object(next_router__WEBPACK_IMPORTED_MODULE_2__["useRouter"])();
+  return __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: this
+  }, __jsx(TitleRow, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48
+    },
+    __self: this
+  }, __jsx(Title, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49
+    },
+    __self: this
+  }, title), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: "".concat(router.asPath, "/edit"),
+    passHref: true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50
+    },
+    __self: this
+  }, __jsx("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51
+    },
+    __self: this
+  }, "Edit"))), __jsx(Description, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 54
+    },
+    __self: this
+  }, description), __jsx("select", {
+    onChange: function onChange(e) {
+      return onBranchSelect(e.target.value);
+    },
+    defaultValue: currentBranch,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55
+    },
+    __self: this
+  }, branches.map(function (branch) {
+    return __jsx("option", {
+      key: branch,
+      value: branch,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 60
+      },
+      __self: this
+    }, branch);
+  })), __jsx(Sections, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65
+    },
+    __self: this
+  }, sections.map(function (section) {
+    return __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      href: section.href,
+      key: section.label,
+      passHref: true,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 67
+      },
+      __self: this
+    }, __jsx(SectionLink, {
+      active: router.asPath === section.href,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 68
+      },
+      __self: this
+    }, section.label));
+  })));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (ProposalHeader);
+
+/***/ }),
+
+/***/ "./components/ProposalPage.js":
+/*!************************************!*\
+  !*** ./components/ProposalPage.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ */ "./components/index.js");
+/* harmony import */ var react_markdown__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-markdown */ "./node_modules/react-markdown/lib/react-markdown.js");
+/* harmony import */ var react_markdown__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_markdown__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _layouts_MainLayout__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../layouts/MainLayout */ "./layouts/MainLayout.js");
+/* harmony import */ var _queries__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../queries */ "./queries/index.js");
+
+var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/components/ProposalPage.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
+
+
+
+
+
+
+
+function ProposalPage(_ref) {
+  var query = _ref.query,
+      sections = _ref.sections;
+
+  var _useQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(_queries__WEBPACK_IMPORTED_MODULE_7__["PROPOSAL_BY_SLUG_QUERY"], {
+    variables: {
+      slug: query.proposal,
+      branchName: query.branch
+    }
+  }),
+      loading = _useQuery.loading,
+      error = _useQuery.error,
+      data = _useQuery.data;
+
+  if (loading) {
+    return __jsx("p", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 16
+      },
+      __self: this
+    }, "Loading...");
+  }
+
+  if (error) {
+    return __jsx("p", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 21
+      },
+      __self: this
+    }, "Error:", ' ', _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(error));
+  }
+
+  var router = Object(next_router__WEBPACK_IMPORTED_MODULE_2__["useRouter"])();
+
+  var handleBranchSelect = function handleBranchSelect(selectedBranch) {
+    if (selectedBranch !== query.branch) {
+      if (selectedBranch !== 'master') {
+        router.push("/p/".concat(query.proposal, "/branch/").concat(selectedBranch));
+      } else {
+        router.push("/p/".concat(query.proposal));
+      }
+    }
+  };
+
+  return __jsx(_layouts_MainLayout__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 42
+    },
+    __self: this
+  }, __jsx(___WEBPACK_IMPORTED_MODULE_4__["ContentContainer"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43
+    },
+    __self: this
+  }, __jsx(___WEBPACK_IMPORTED_MODULE_4__["ProposalHeader"], {
+    title: data.proposalBySlug.title,
+    description: data.proposalBySlug.description,
+    branches: data.proposalBySlug.branches,
+    onBranchSelect: handleBranchSelect,
+    currentBranch: query.branch || 'master',
+    sections: sections,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: this
+  }), __jsx(react_markdown__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    source: data.proposalBySlug.summary,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: this
+  }), __jsx(react_markdown__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    source: data.proposalBySlug.legal,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: this
+  })));
+}
+
+ProposalPage.getInitialProps = function (_ref2) {
+  var query = _ref2.query;
+  return {
+    query: query
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ProposalPage);
+
+/***/ }),
+
+/***/ "./components/RIchTextEditor.js":
+/*!**************************************!*\
+  !*** ./components/RIchTextEditor.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var slate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! slate */ "./node_modules/slate/dist/index.es.js");
+/* harmony import */ var slate_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! slate-react */ "./node_modules/slate-react/dist/index.es.js");
+/* harmony import */ var slate_history__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! slate-history */ "./node_modules/slate-history/dist/index.es.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/components/RIchTextEditor.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+var StyledEditable = Object(styled_components__WEBPACK_IMPORTED_MODULE_4__["default"])(slate_react__WEBPACK_IMPORTED_MODULE_2__["Editable"]).withConfig({
+  displayName: "RIchTextEditor__StyledEditable",
+  componentId: "xyai8j-0"
+})(["border:1px solid #ccc;margin-top:30px;padding:12px 8px;&:placeholder{color:#757575;opacity:1 !important;}"]);
+
+var RichTextEditor = function RichTextEditor(_ref) {
+  var placeholder = _ref.placeholder,
+      onChange = _ref.onChange,
+      initialValue = _ref.initialValue;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([{
+    children: [{
+      text: initialValue
+    }]
+  }]),
+      value = _useState[0],
+      setValue = _useState[1];
+
+  var serialize = function serialize(nodes) {
+    return nodes.map(function (n) {
+      return slate__WEBPACK_IMPORTED_MODULE_1__["Node"].string(n);
+    }).join("\n");
+  };
+
+  var handleChange = function handleChange(value) {
+    if (onChange) {
+      onChange(serialize(value));
+    }
+
+    setValue(value);
+  };
+
+  var editor = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(function () {
+    return Object(slate_history__WEBPACK_IMPORTED_MODULE_3__["withHistory"])(Object(slate_react__WEBPACK_IMPORTED_MODULE_2__["withReact"])(Object(slate__WEBPACK_IMPORTED_MODULE_1__["createEditor"])()));
+  }, []);
+  return __jsx(slate_react__WEBPACK_IMPORTED_MODULE_2__["Slate"], {
+    editor: editor,
+    value: value,
+    onChange: function onChange(value) {
+      return handleChange(value);
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 40
+    },
+    __self: this
+  }, __jsx(StyledEditable, {
+    placeholder: placeholder,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: this
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (RichTextEditor);
+
+/***/ }),
+
+/***/ "./components/RichTextEditor.js":
+/*!**************************************!*\
+  !*** ./components/RichTextEditor.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var slate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! slate */ "./node_modules/slate/dist/index.es.js");
+/* harmony import */ var slate_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! slate-react */ "./node_modules/slate-react/dist/index.es.js");
+/* harmony import */ var slate_history__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! slate-history */ "./node_modules/slate-history/dist/index.es.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/components/RichTextEditor.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+var StyledEditable = Object(styled_components__WEBPACK_IMPORTED_MODULE_4__["default"])(slate_react__WEBPACK_IMPORTED_MODULE_2__["Editable"]).withConfig({
+  displayName: "RichTextEditor__StyledEditable",
+  componentId: "qlh8hx-0"
+})(["border:1px solid #ccc;margin-top:30px;padding:12px 8px;&:placeholder{color:#757575;opacity:1 !important;}"]);
+
+var RichTextEditor = function RichTextEditor(_ref) {
+  var placeholder = _ref.placeholder,
+      onChange = _ref.onChange,
+      initialValue = _ref.initialValue;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([{
+    children: [{
+      text: initialValue
+    }]
+  }]),
+      value = _useState[0],
+      setValue = _useState[1];
+
+  var serialize = function serialize(nodes) {
+    return nodes.map(function (n) {
+      return slate__WEBPACK_IMPORTED_MODULE_1__["Node"].string(n);
+    }).join("\n");
+  };
+
+  var handleChange = function handleChange(value) {
+    if (onChange) {
+      onChange(serialize(value));
+    }
+
+    setValue(value);
+  };
+
+  var editor = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(function () {
+    return Object(slate_history__WEBPACK_IMPORTED_MODULE_3__["withHistory"])(Object(slate_react__WEBPACK_IMPORTED_MODULE_2__["withReact"])(Object(slate__WEBPACK_IMPORTED_MODULE_1__["createEditor"])()));
+  }, []);
+  return __jsx(slate_react__WEBPACK_IMPORTED_MODULE_2__["Slate"], {
+    editor: editor,
+    value: value,
+    onChange: function onChange(value) {
+      return handleChange(value);
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 40
+    },
+    __self: this
+  }, __jsx(StyledEditable, {
+    placeholder: placeholder,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: this
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (RichTextEditor);
+
+/***/ }),
+
+/***/ "./components/Row.js":
+/*!***************************!*\
+  !*** ./components/Row.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+
+
+var borderColor = "#e1e4e8";
+var Row = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
+  displayName: "Row",
+  componentId: "sc-3emxm7-0"
+})(["border-bottom:1px solid ", ";border-left:1px solid ", ";border-right:1px solid ", ";display:flex;align-items:center;padding:20px;width:1005;&:first-child{border-top:1px solid ", ";}justify-content:space-between;"], borderColor, borderColor, borderColor, borderColor);
+/* harmony default export */ __webpack_exports__["default"] = (Row);
+
+/***/ }),
+
+/***/ "./components/index.js":
+/*!*****************************!*\
+  !*** ./components/index.js ***!
+  \*****************************/
+/*! exports provided: ContentContainer, Header, ProposalForm, ProposalHeader, ProposalPage, RichTextEditor, Row */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ContentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ContentContainer */ "./components/ContentContainer.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ContentContainer", function() { return _ContentContainer__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Header */ "./components/Header.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Header", function() { return _Header__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+/* harmony import */ var _ProposalForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProposalForm */ "./components/ProposalForm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProposalForm", function() { return _ProposalForm__WEBPACK_IMPORTED_MODULE_2__["default"]; });
+
+/* harmony import */ var _ProposalHeader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ProposalHeader */ "./components/ProposalHeader.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProposalHeader", function() { return _ProposalHeader__WEBPACK_IMPORTED_MODULE_3__["default"]; });
+
+/* harmony import */ var _ProposalPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ProposalPage */ "./components/ProposalPage.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProposalPage", function() { return _ProposalPage__WEBPACK_IMPORTED_MODULE_4__["default"]; });
+
+/* harmony import */ var _RichTextEditor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./RichTextEditor */ "./components/RichTextEditor.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RichTextEditor", function() { return _RichTextEditor__WEBPACK_IMPORTED_MODULE_5__["default"]; });
+
+/* harmony import */ var _Row__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Row */ "./components/Row.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Row", function() { return _Row__WEBPACK_IMPORTED_MODULE_6__["default"]; });
+
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./layouts/MainLayout.js":
+/*!*******************************!*\
+  !*** ./layouts/MainLayout.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/layouts/MainLayout.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+function MainLayout(_ref) {
+  var children = _ref.children;
+  return __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6
+    },
+    __self: this
+  }, children);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (MainLayout);
+
+/***/ }),
+
+/***/ "./mutations/commitToBranch.mutation.js":
+/*!**********************************************!*\
+  !*** ./mutations/commitToBranch.mutation.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function _templateObject() {
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  mutation CommitToBranch(\n    $proposalId: String!\n    $branchName: String!\n    $title: String!\n    $description: String!\n    $summary: String!\n    $legal: String!\n    $message: String!\n  ) {\n    createProposal(\n        proposalId: $proposalId\n        branchName: $branchName\n        title: $title\n        description: $description\n        summary: $summary\n        legal: $legal\n        message: $message\n    ) {\n      id\n      title\n    }\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+
+var COMMIT_TO_BRANCH_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_1___default()(_templateObject());
+/* harmony default export */ __webpack_exports__["default"] = (COMMIT_TO_BRANCH_MUTATION);
+
+/***/ }),
+
+/***/ "./mutations/createProposal.mutation.js":
+/*!**********************************************!*\
+  !*** ./mutations/createProposal.mutation.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function _templateObject() {
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  mutation CreateProposal(\n    $title: String!\n    $description: String!\n    $summary: String\n    $legal: String\n  ) {\n    createProposal(\n      title: $title\n      description: $description\n      summary: $summary\n      legal: $legal\n    ) {\n      id\n      title\n      slug\n    }\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+
+var CREATE_PROPOSAL_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_1___default()(_templateObject());
+/* harmony default export */ __webpack_exports__["default"] = (CREATE_PROPOSAL_MUTATION);
+
+/***/ }),
+
+/***/ "./mutations/index.js":
+/*!****************************!*\
+  !*** ./mutations/index.js ***!
+  \****************************/
+/*! exports provided: COMMIT_TO_BRANCH, CREATE_PROPOSAL_MUTATION */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _commitToBranch_mutation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./commitToBranch.mutation */ "./mutations/commitToBranch.mutation.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "COMMIT_TO_BRANCH", function() { return _commitToBranch_mutation__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _createProposal_mutation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createProposal.mutation */ "./mutations/createProposal.mutation.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CREATE_PROPOSAL_MUTATION", function() { return _createProposal_mutation__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+/***/ }),
+
 /***/ "./node_modules/@apollo/react-common/lib/react-common.esm.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/@apollo/react-common/lib/react-common.esm.js ***!
@@ -1019,6 +1977,28 @@ module.exports = __webpack_require__(/*! core-js/library/fn/is-iterable */ "./no
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/json/stringify */ "./node_modules/core-js/library/fn/json/stringify.js");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/map.js":
+/*!************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/map.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/map */ "./node_modules/core-js/library/fn/map.js");
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/object/assign.js":
 /*!**********************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/core-js/object/assign.js ***!
@@ -1384,6 +2364,25 @@ module.exports = _createClass;
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/arrayWithHoles.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/arrayWithHoles.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _arrayWithHoles; });
+/* harmony import */ var _core_js_array_is_array__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/array/is-array */ "./node_modules/@babel/runtime-corejs2/core-js/array/is-array.js");
+/* harmony import */ var _core_js_array_is_array__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_array_is_array__WEBPACK_IMPORTED_MODULE_0__);
+
+function _arrayWithHoles(arr) {
+  if (_core_js_array_is_array__WEBPACK_IMPORTED_MODULE_0___default()(arr)) return arr;
+}
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js":
 /*!**********************************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js ***!
@@ -1545,6 +2544,70 @@ function _inherits(subClass, superClass) {
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/iterableToArrayLimit.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/iterableToArrayLimit.js ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _iterableToArrayLimit; });
+/* harmony import */ var _core_js_get_iterator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/get-iterator */ "./node_modules/@babel/runtime-corejs2/core-js/get-iterator.js");
+/* harmony import */ var _core_js_get_iterator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_get_iterator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _core_js_is_iterable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../core-js/is-iterable */ "./node_modules/@babel/runtime-corejs2/core-js/is-iterable.js");
+/* harmony import */ var _core_js_is_iterable__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_core_js_is_iterable__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function _iterableToArrayLimit(arr, i) {
+  if (!(_core_js_is_iterable__WEBPACK_IMPORTED_MODULE_1___default()(Object(arr)) || Object.prototype.toString.call(arr) === "[object Arguments]")) {
+    return;
+  }
+
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
+
+  try {
+    for (var _i = _core_js_get_iterator__WEBPACK_IMPORTED_MODULE_0___default()(arr), _s; !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/nonIterableRest.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/nonIterableRest.js ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _nonIterableRest; });
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+}
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js":
 /*!**************************************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js ***!
@@ -1589,6 +2652,28 @@ function _setPrototypeOf(o, p) {
   };
 
   return _setPrototypeOf(o, p);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _slicedToArray; });
+/* harmony import */ var _arrayWithHoles__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./arrayWithHoles */ "./node_modules/@babel/runtime-corejs2/helpers/esm/arrayWithHoles.js");
+/* harmony import */ var _iterableToArrayLimit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./iterableToArrayLimit */ "./node_modules/@babel/runtime-corejs2/helpers/esm/iterableToArrayLimit.js");
+/* harmony import */ var _nonIterableRest__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./nonIterableRest */ "./node_modules/@babel/runtime-corejs2/helpers/esm/nonIterableRest.js");
+
+
+
+function _slicedToArray(arr, i) {
+  return Object(_arrayWithHoles__WEBPACK_IMPORTED_MODULE_0__["default"])(arr) || Object(_iterableToArrayLimit__WEBPACK_IMPORTED_MODULE_1__["default"])(arr, i) || Object(_nonIterableRest__WEBPACK_IMPORTED_MODULE_2__["default"])();
 }
 
 /***/ }),
@@ -7389,6 +8474,274 @@ function stripSymbols(data) {
 
 /***/ }),
 
+/***/ "./node_modules/bail/index.js":
+/*!************************************!*\
+  !*** ./node_modules/bail/index.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = bail
+
+function bail(err) {
+  if (err) {
+    throw err
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/character-entities-legacy/index.json":
+/*!***********************************************************!*\
+  !*** ./node_modules/character-entities-legacy/index.json ***!
+  \***********************************************************/
+/*! exports provided: AElig, AMP, Aacute, Acirc, Agrave, Aring, Atilde, Auml, COPY, Ccedil, ETH, Eacute, Ecirc, Egrave, Euml, GT, Iacute, Icirc, Igrave, Iuml, LT, Ntilde, Oacute, Ocirc, Ograve, Oslash, Otilde, Ouml, QUOT, REG, THORN, Uacute, Ucirc, Ugrave, Uuml, Yacute, aacute, acirc, acute, aelig, agrave, amp, aring, atilde, auml, brvbar, ccedil, cedil, cent, copy, curren, deg, divide, eacute, ecirc, egrave, eth, euml, frac12, frac14, frac34, gt, iacute, icirc, iexcl, igrave, iquest, iuml, laquo, lt, macr, micro, middot, nbsp, not, ntilde, oacute, ocirc, ograve, ordf, ordm, oslash, otilde, ouml, para, plusmn, pound, quot, raquo, reg, sect, shy, sup1, sup2, sup3, szlig, thorn, times, uacute, ucirc, ugrave, uml, uuml, yacute, yen, yuml, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"AElig\":\"Æ\",\"AMP\":\"&\",\"Aacute\":\"Á\",\"Acirc\":\"Â\",\"Agrave\":\"À\",\"Aring\":\"Å\",\"Atilde\":\"Ã\",\"Auml\":\"Ä\",\"COPY\":\"©\",\"Ccedil\":\"Ç\",\"ETH\":\"Ð\",\"Eacute\":\"É\",\"Ecirc\":\"Ê\",\"Egrave\":\"È\",\"Euml\":\"Ë\",\"GT\":\">\",\"Iacute\":\"Í\",\"Icirc\":\"Î\",\"Igrave\":\"Ì\",\"Iuml\":\"Ï\",\"LT\":\"<\",\"Ntilde\":\"Ñ\",\"Oacute\":\"Ó\",\"Ocirc\":\"Ô\",\"Ograve\":\"Ò\",\"Oslash\":\"Ø\",\"Otilde\":\"Õ\",\"Ouml\":\"Ö\",\"QUOT\":\"\\\"\",\"REG\":\"®\",\"THORN\":\"Þ\",\"Uacute\":\"Ú\",\"Ucirc\":\"Û\",\"Ugrave\":\"Ù\",\"Uuml\":\"Ü\",\"Yacute\":\"Ý\",\"aacute\":\"á\",\"acirc\":\"â\",\"acute\":\"´\",\"aelig\":\"æ\",\"agrave\":\"à\",\"amp\":\"&\",\"aring\":\"å\",\"atilde\":\"ã\",\"auml\":\"ä\",\"brvbar\":\"¦\",\"ccedil\":\"ç\",\"cedil\":\"¸\",\"cent\":\"¢\",\"copy\":\"©\",\"curren\":\"¤\",\"deg\":\"°\",\"divide\":\"÷\",\"eacute\":\"é\",\"ecirc\":\"ê\",\"egrave\":\"è\",\"eth\":\"ð\",\"euml\":\"ë\",\"frac12\":\"½\",\"frac14\":\"¼\",\"frac34\":\"¾\",\"gt\":\">\",\"iacute\":\"í\",\"icirc\":\"î\",\"iexcl\":\"¡\",\"igrave\":\"ì\",\"iquest\":\"¿\",\"iuml\":\"ï\",\"laquo\":\"«\",\"lt\":\"<\",\"macr\":\"¯\",\"micro\":\"µ\",\"middot\":\"·\",\"nbsp\":\" \",\"not\":\"¬\",\"ntilde\":\"ñ\",\"oacute\":\"ó\",\"ocirc\":\"ô\",\"ograve\":\"ò\",\"ordf\":\"ª\",\"ordm\":\"º\",\"oslash\":\"ø\",\"otilde\":\"õ\",\"ouml\":\"ö\",\"para\":\"¶\",\"plusmn\":\"±\",\"pound\":\"£\",\"quot\":\"\\\"\",\"raquo\":\"»\",\"reg\":\"®\",\"sect\":\"§\",\"shy\":\"­\",\"sup1\":\"¹\",\"sup2\":\"²\",\"sup3\":\"³\",\"szlig\":\"ß\",\"thorn\":\"þ\",\"times\":\"×\",\"uacute\":\"ú\",\"ucirc\":\"û\",\"ugrave\":\"ù\",\"uml\":\"¨\",\"uuml\":\"ü\",\"yacute\":\"ý\",\"yen\":\"¥\",\"yuml\":\"ÿ\"}");
+
+/***/ }),
+
+/***/ "./node_modules/character-reference-invalid/index.json":
+/*!*************************************************************!*\
+  !*** ./node_modules/character-reference-invalid/index.json ***!
+  \*************************************************************/
+/*! exports provided: 0, 128, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 142, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 158, 159, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"0\":\"�\",\"128\":\"€\",\"130\":\"‚\",\"131\":\"ƒ\",\"132\":\"„\",\"133\":\"…\",\"134\":\"†\",\"135\":\"‡\",\"136\":\"ˆ\",\"137\":\"‰\",\"138\":\"Š\",\"139\":\"‹\",\"140\":\"Œ\",\"142\":\"Ž\",\"145\":\"‘\",\"146\":\"’\",\"147\":\"“\",\"148\":\"”\",\"149\":\"•\",\"150\":\"–\",\"151\":\"—\",\"152\":\"˜\",\"153\":\"™\",\"154\":\"š\",\"155\":\"›\",\"156\":\"œ\",\"158\":\"ž\",\"159\":\"Ÿ\"}");
+
+/***/ }),
+
+/***/ "./node_modules/collapse-white-space/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/collapse-white-space/index.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = collapse
+
+// `collapse(' \t\nbar \nbaz\t') // ' bar baz '`
+function collapse(value) {
+  return String(value).replace(/\s+/g, ' ')
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/compute-scroll-into-view/es/index.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/compute-scroll-into-view/es/index.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function isElement(el) {
+  return el != null && typeof el === 'object' && el.nodeType === 1;
+}
+
+function canOverflow(overflow, skipOverflowHiddenElements) {
+  if (skipOverflowHiddenElements && overflow === 'hidden') {
+    return false;
+  }
+
+  return overflow !== 'visible' && overflow !== 'clip';
+}
+
+function getFrameElement(el) {
+  if (!el.ownerDocument || !el.ownerDocument.defaultView) {
+    return null;
+  }
+
+  return el.ownerDocument.defaultView.frameElement;
+}
+
+function isHiddenByFrame(el) {
+  var frame = getFrameElement(el);
+
+  if (!frame) {
+    return false;
+  }
+
+  return frame.clientHeight < el.scrollHeight || frame.clientWidth < el.scrollWidth;
+}
+
+function isScrollable(el, skipOverflowHiddenElements) {
+  if (el.clientHeight < el.scrollHeight || el.clientWidth < el.scrollWidth) {
+    var style = getComputedStyle(el, null);
+    return canOverflow(style.overflowY, skipOverflowHiddenElements) || canOverflow(style.overflowX, skipOverflowHiddenElements) || isHiddenByFrame(el);
+  }
+
+  return false;
+}
+
+function alignNearest(scrollingEdgeStart, scrollingEdgeEnd, scrollingSize, scrollingBorderStart, scrollingBorderEnd, elementEdgeStart, elementEdgeEnd, elementSize) {
+  if (elementEdgeStart < scrollingEdgeStart && elementEdgeEnd > scrollingEdgeEnd || elementEdgeStart > scrollingEdgeStart && elementEdgeEnd < scrollingEdgeEnd) {
+    return 0;
+  }
+
+  if (elementEdgeStart <= scrollingEdgeStart && elementSize <= scrollingSize || elementEdgeEnd >= scrollingEdgeEnd && elementSize >= scrollingSize) {
+    return elementEdgeStart - scrollingEdgeStart - scrollingBorderStart;
+  }
+
+  if (elementEdgeEnd > scrollingEdgeEnd && elementSize < scrollingSize || elementEdgeStart < scrollingEdgeStart && elementSize > scrollingSize) {
+    return elementEdgeEnd - scrollingEdgeEnd + scrollingBorderEnd;
+  }
+
+  return 0;
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (function (target, options) {
+  var scrollMode = options.scrollMode,
+      block = options.block,
+      inline = options.inline,
+      boundary = options.boundary,
+      skipOverflowHiddenElements = options.skipOverflowHiddenElements;
+  var checkBoundary = typeof boundary === 'function' ? boundary : function (node) {
+    return node !== boundary;
+  };
+
+  if (!isElement(target)) {
+    throw new TypeError('Invalid target');
+  }
+
+  var scrollingElement = document.scrollingElement || document.documentElement;
+  var frames = [];
+  var cursor = target;
+
+  while (isElement(cursor) && checkBoundary(cursor)) {
+    cursor = cursor.parentNode;
+
+    if (cursor === scrollingElement) {
+      frames.push(cursor);
+      break;
+    }
+
+    if (cursor === document.body && isScrollable(cursor) && !isScrollable(document.documentElement)) {
+      continue;
+    }
+
+    if (isScrollable(cursor, skipOverflowHiddenElements)) {
+      frames.push(cursor);
+    }
+  }
+
+  var viewportWidth = window.visualViewport ? visualViewport.width : innerWidth;
+  var viewportHeight = window.visualViewport ? visualViewport.height : innerHeight;
+  var viewportX = window.scrollX || pageXOffset;
+  var viewportY = window.scrollY || pageYOffset;
+
+  var _target$getBoundingCl = target.getBoundingClientRect(),
+      targetHeight = _target$getBoundingCl.height,
+      targetWidth = _target$getBoundingCl.width,
+      targetTop = _target$getBoundingCl.top,
+      targetRight = _target$getBoundingCl.right,
+      targetBottom = _target$getBoundingCl.bottom,
+      targetLeft = _target$getBoundingCl.left;
+
+  var targetBlock = block === 'start' || block === 'nearest' ? targetTop : block === 'end' ? targetBottom : targetTop + targetHeight / 2;
+  var targetInline = inline === 'center' ? targetLeft + targetWidth / 2 : inline === 'end' ? targetRight : targetLeft;
+  var computations = [];
+
+  for (var index = 0; index < frames.length; index++) {
+    var frame = frames[index];
+
+    var _frame$getBoundingCli = frame.getBoundingClientRect(),
+        height = _frame$getBoundingCli.height,
+        width = _frame$getBoundingCli.width,
+        top = _frame$getBoundingCli.top,
+        right = _frame$getBoundingCli.right,
+        bottom = _frame$getBoundingCli.bottom,
+        left = _frame$getBoundingCli.left;
+
+    if (scrollMode === 'if-needed' && targetTop >= 0 && targetLeft >= 0 && targetBottom <= viewportHeight && targetRight <= viewportWidth && targetTop >= top && targetBottom <= bottom && targetLeft >= left && targetRight <= right) {
+      return computations;
+    }
+
+    var frameStyle = getComputedStyle(frame);
+    var borderLeft = parseInt(frameStyle.borderLeftWidth, 10);
+    var borderTop = parseInt(frameStyle.borderTopWidth, 10);
+    var borderRight = parseInt(frameStyle.borderRightWidth, 10);
+    var borderBottom = parseInt(frameStyle.borderBottomWidth, 10);
+    var blockScroll = 0;
+    var inlineScroll = 0;
+    var scrollbarWidth = 'offsetWidth' in frame ? frame.offsetWidth - frame.clientWidth - borderLeft - borderRight : 0;
+    var scrollbarHeight = 'offsetHeight' in frame ? frame.offsetHeight - frame.clientHeight - borderTop - borderBottom : 0;
+
+    if (scrollingElement === frame) {
+      if (block === 'start') {
+        blockScroll = targetBlock;
+      } else if (block === 'end') {
+        blockScroll = targetBlock - viewportHeight;
+      } else if (block === 'nearest') {
+        blockScroll = alignNearest(viewportY, viewportY + viewportHeight, viewportHeight, borderTop, borderBottom, viewportY + targetBlock, viewportY + targetBlock + targetHeight, targetHeight);
+      } else {
+        blockScroll = targetBlock - viewportHeight / 2;
+      }
+
+      if (inline === 'start') {
+        inlineScroll = targetInline;
+      } else if (inline === 'center') {
+        inlineScroll = targetInline - viewportWidth / 2;
+      } else if (inline === 'end') {
+        inlineScroll = targetInline - viewportWidth;
+      } else {
+        inlineScroll = alignNearest(viewportX, viewportX + viewportWidth, viewportWidth, borderLeft, borderRight, viewportX + targetInline, viewportX + targetInline + targetWidth, targetWidth);
+      }
+
+      blockScroll = Math.max(0, blockScroll + viewportY);
+      inlineScroll = Math.max(0, inlineScroll + viewportX);
+    } else {
+      if (block === 'start') {
+        blockScroll = targetBlock - top - borderTop;
+      } else if (block === 'end') {
+        blockScroll = targetBlock - bottom + borderBottom + scrollbarHeight;
+      } else if (block === 'nearest') {
+        blockScroll = alignNearest(top, bottom, height, borderTop, borderBottom + scrollbarHeight, targetBlock, targetBlock + targetHeight, targetHeight);
+      } else {
+        blockScroll = targetBlock - (top + height / 2) + scrollbarHeight / 2;
+      }
+
+      if (inline === 'start') {
+        inlineScroll = targetInline - left - borderLeft;
+      } else if (inline === 'center') {
+        inlineScroll = targetInline - (left + width / 2) + scrollbarWidth / 2;
+      } else if (inline === 'end') {
+        inlineScroll = targetInline - right + borderRight + scrollbarWidth;
+      } else {
+        inlineScroll = alignNearest(left, right, width, borderLeft, borderRight + scrollbarWidth, targetInline, targetInline + targetWidth, targetWidth);
+      }
+
+      var scrollLeft = frame.scrollLeft,
+          scrollTop = frame.scrollTop;
+      blockScroll = Math.max(0, Math.min(scrollTop + blockScroll, frame.scrollHeight - height + scrollbarHeight));
+      inlineScroll = Math.max(0, Math.min(scrollLeft + inlineScroll, frame.scrollWidth - width + scrollbarWidth));
+      targetBlock += scrollTop - blockScroll;
+      targetInline += scrollLeft - inlineScroll;
+    }
+
+    computations.push({
+      el: frame,
+      top: blockScroll,
+      left: inlineScroll
+    });
+  }
+
+  return computations;
+});
+
+/***/ }),
+
 /***/ "./node_modules/core-js/library/fn/array/from.js":
 /*!*******************************************************!*\
   !*** ./node_modules/core-js/library/fn/array/from.js ***!
@@ -7440,6 +8793,41 @@ module.exports = __webpack_require__(/*! ../modules/core.get-iterator */ "./node
 __webpack_require__(/*! ../modules/web.dom.iterable */ "./node_modules/core-js/library/modules/web.dom.iterable.js");
 __webpack_require__(/*! ../modules/es6.string.iterator */ "./node_modules/core-js/library/modules/es6.string.iterator.js");
 module.exports = __webpack_require__(/*! ../modules/core.is-iterable */ "./node_modules/core-js/library/modules/core.is-iterable.js");
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/fn/json/stringify.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js/library/fn/json/stringify.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var core = __webpack_require__(/*! ../../modules/_core */ "./node_modules/core-js/library/modules/_core.js");
+var $JSON = core.JSON || (core.JSON = { stringify: JSON.stringify });
+module.exports = function stringify(it) { // eslint-disable-line no-unused-vars
+  return $JSON.stringify.apply($JSON, arguments);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/fn/map.js":
+/*!************************************************!*\
+  !*** ./node_modules/core-js/library/fn/map.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! ../modules/es6.object.to-string */ "./node_modules/core-js/library/modules/es6.object.to-string.js");
+__webpack_require__(/*! ../modules/es6.string.iterator */ "./node_modules/core-js/library/modules/es6.string.iterator.js");
+__webpack_require__(/*! ../modules/web.dom.iterable */ "./node_modules/core-js/library/modules/web.dom.iterable.js");
+__webpack_require__(/*! ../modules/es6.map */ "./node_modules/core-js/library/modules/es6.map.js");
+__webpack_require__(/*! ../modules/es7.map.to-json */ "./node_modules/core-js/library/modules/es7.map.to-json.js");
+__webpack_require__(/*! ../modules/es7.map.of */ "./node_modules/core-js/library/modules/es7.map.of.js");
+__webpack_require__(/*! ../modules/es7.map.from */ "./node_modules/core-js/library/modules/es7.map.from.js");
+module.exports = __webpack_require__(/*! ../modules/_core */ "./node_modules/core-js/library/modules/_core.js").Map;
 
 
 /***/ }),
@@ -10273,6 +11661,37 @@ addToUnscopables('entries');
 
 /***/ }),
 
+/***/ "./node_modules/core-js/library/modules/es6.map.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js/library/modules/es6.map.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var strong = __webpack_require__(/*! ./_collection-strong */ "./node_modules/core-js/library/modules/_collection-strong.js");
+var validate = __webpack_require__(/*! ./_validate-collection */ "./node_modules/core-js/library/modules/_validate-collection.js");
+var MAP = 'Map';
+
+// 23.1 Map Objects
+module.exports = __webpack_require__(/*! ./_collection */ "./node_modules/core-js/library/modules/_collection.js")(MAP, function (get) {
+  return function Map() { return get(this, arguments.length > 0 ? arguments[0] : undefined); };
+}, {
+  // 23.1.3.6 Map.prototype.get(key)
+  get: function get(key) {
+    var entry = strong.getEntry(validate(this, MAP), key);
+    return entry && entry.v;
+  },
+  // 23.1.3.9 Map.prototype.set(key, value)
+  set: function set(key, value) {
+    return strong.def(validate(this, MAP), key === 0 ? 0 : key, value);
+  }
+}, strong, true);
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/library/modules/es6.object.assign.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/core-js/library/modules/es6.object.assign.js ***!
@@ -11176,6 +12595,47 @@ if (NATIVE_WEAK_MAP && IS_IE11) {
 
 /***/ }),
 
+/***/ "./node_modules/core-js/library/modules/es7.map.from.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/es7.map.from.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// https://tc39.github.io/proposal-setmap-offrom/#sec-map.from
+__webpack_require__(/*! ./_set-collection-from */ "./node_modules/core-js/library/modules/_set-collection-from.js")('Map');
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/es7.map.of.js":
+/*!************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/es7.map.of.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// https://tc39.github.io/proposal-setmap-offrom/#sec-map.of
+__webpack_require__(/*! ./_set-collection-of */ "./node_modules/core-js/library/modules/_set-collection-of.js")('Map');
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/es7.map.to-json.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/es7.map.to-json.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// https://github.com/DavidBruant/Map-Set.prototype.toJSON
+var $export = __webpack_require__(/*! ./_export */ "./node_modules/core-js/library/modules/_export.js");
+
+$export($export.P + $export.R, 'Map', { toJSON: __webpack_require__(/*! ./_collection-to-json */ "./node_modules/core-js/library/modules/_collection-to-json.js")('Map') });
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/library/modules/es7.promise.finally.js":
 /*!*********************************************************************!*\
   !*** ./node_modules/core-js/library/modules/es7.promise.finally.js ***!
@@ -11353,6 +12813,87 @@ for (var i = 0; i < DOMIterables.length; i++) {
 
 /***/ }),
 
+/***/ "./node_modules/debounce/index.js":
+/*!****************************************!*\
+  !*** ./node_modules/debounce/index.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * Returns a function, that, as long as it continues to be invoked, will not
+ * be triggered. The function will be called after it stops being called for
+ * N milliseconds. If `immediate` is passed, trigger the function on the
+ * leading edge, instead of the trailing. The function also has a property 'clear' 
+ * that is a function which will clear the timer to prevent previously scheduled executions. 
+ *
+ * @source underscore.js
+ * @see http://unscriptable.com/2009/03/20/debouncing-javascript-methods/
+ * @param {Function} function to wrap
+ * @param {Number} timeout in ms (`100`)
+ * @param {Boolean} whether to execute at the beginning (`false`)
+ * @api public
+ */
+function debounce(func, wait, immediate){
+  var timeout, args, context, timestamp, result;
+  if (null == wait) wait = 100;
+
+  function later() {
+    var last = Date.now() - timestamp;
+
+    if (last < wait && last >= 0) {
+      timeout = setTimeout(later, wait - last);
+    } else {
+      timeout = null;
+      if (!immediate) {
+        result = func.apply(context, args);
+        context = args = null;
+      }
+    }
+  };
+
+  var debounced = function(){
+    context = this;
+    args = arguments;
+    timestamp = Date.now();
+    var callNow = immediate && !timeout;
+    if (!timeout) timeout = setTimeout(later, wait);
+    if (callNow) {
+      result = func.apply(context, args);
+      context = args = null;
+    }
+
+    return result;
+  };
+
+  debounced.clear = function() {
+    if (timeout) {
+      clearTimeout(timeout);
+      timeout = null;
+    }
+  };
+  
+  debounced.flush = function() {
+    if (timeout) {
+      result = func.apply(context, args);
+      context = args = null;
+      
+      clearTimeout(timeout);
+      timeout = null;
+    }
+  };
+
+  return debounced;
+};
+
+// Adds compatibility for ES modules
+debounce.debounce = debounce;
+
+module.exports = debounce;
+
+
+/***/ }),
+
 /***/ "./node_modules/decode-uri-component/index.js":
 /*!****************************************************!*\
   !*** ./node_modules/decode-uri-component/index.js ***!
@@ -11459,6 +13000,246 @@ module.exports = function (encodedURI) {
 
 /***/ }),
 
+/***/ "./node_modules/direction/index.js":
+/*!*****************************************!*\
+  !*** ./node_modules/direction/index.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = direction
+
+var RTL = '\u0591-\u07FF\uFB1D-\uFDFD\uFE70-\uFEFC'
+var LTR =
+  'A-Za-z\u00C0-\u00D6\u00D8-\u00F6' +
+  '\u00F8-\u02B8\u0300-\u0590\u0800-\u1FFF\u200E\u2C00-\uFB1C' +
+  '\uFE00-\uFE6F\uFEFD-\uFFFF'
+
+var rtl = new RegExp('^[^' + LTR + ']*[' + RTL + ']')
+var ltr = new RegExp('^[^' + RTL + ']*[' + LTR + ']')
+
+function direction(value) {
+  value = String(value || '')
+
+  if (rtl.test(value)) {
+    return 'rtl'
+  }
+
+  if (ltr.test(value)) {
+    return 'ltr'
+  }
+
+  return 'neutral'
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/esrever/esrever.js":
+/*!*****************************************!*\
+  !*** ./node_modules/esrever/esrever.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(module, global) {var __WEBPACK_AMD_DEFINE_RESULT__;/*! https://mths.be/esrever v0.2.0 by @mathias */
+;(function(root) {
+
+	// Detect free variables `exports`
+	var freeExports =  true && exports;
+
+	// Detect free variable `module`
+	var freeModule =  true && module &&
+		module.exports == freeExports && module;
+
+	// Detect free variable `global`, from Node.js or Browserified code,
+	// and use it as `root`
+	var freeGlobal = typeof global == 'object' && global;
+	if (freeGlobal.global === freeGlobal || freeGlobal.window === freeGlobal) {
+		root = freeGlobal;
+	}
+
+	/*--------------------------------------------------------------------------*/
+
+	var regexSymbolWithCombiningMarks = /([\0-\u02FF\u0370-\u1AAF\u1B00-\u1DBF\u1E00-\u20CF\u2100-\uD7FF\uE000-\uFE1F\uFE30-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])([\u0300-\u036F\u1AB0-\u1AFF\u1DC0-\u1DFF\u20D0-\u20FF\uFE20-\uFE2F]+)/g;
+	var regexSurrogatePair = /([\uD800-\uDBFF])([\uDC00-\uDFFF])/g;
+
+	var reverse = function(string) {
+		// Step 1: deal with combining marks and astral symbols (surrogate pairs)
+		string = string
+			// Swap symbols with their combining marks so the combining marks go first
+			.replace(regexSymbolWithCombiningMarks, function($0, $1, $2) {
+				// Reverse the combining marks so they will end up in the same order
+				// later on (after another round of reversing)
+				return reverse($2) + $1;
+			})
+			// Swap high and low surrogates so the low surrogates go first
+			.replace(regexSurrogatePair, '$2$1');
+		// Step 2: reverse the code units in the string
+		var result = '';
+		var index = string.length;
+		while (index--) {
+			result += string.charAt(index);
+		}
+		return result;
+	};
+
+	/*--------------------------------------------------------------------------*/
+
+	var esrever = {
+		'version': '0.2.0',
+		'reverse': reverse
+	};
+
+	// Some AMD build optimizers, like r.js, check for specific condition patterns
+	// like the following:
+	if (
+		true
+	) {
+		!(__WEBPACK_AMD_DEFINE_RESULT__ = (function() {
+			return esrever;
+		}).call(exports, __webpack_require__, exports, module),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	}	else { var key; }
+
+}(this));
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module), __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
+/***/ "./node_modules/extend/index.js":
+/*!**************************************!*\
+  !*** ./node_modules/extend/index.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var hasOwn = Object.prototype.hasOwnProperty;
+var toStr = Object.prototype.toString;
+var defineProperty = Object.defineProperty;
+var gOPD = Object.getOwnPropertyDescriptor;
+
+var isArray = function isArray(arr) {
+	if (typeof Array.isArray === 'function') {
+		return Array.isArray(arr);
+	}
+
+	return toStr.call(arr) === '[object Array]';
+};
+
+var isPlainObject = function isPlainObject(obj) {
+	if (!obj || toStr.call(obj) !== '[object Object]') {
+		return false;
+	}
+
+	var hasOwnConstructor = hasOwn.call(obj, 'constructor');
+	var hasIsPrototypeOf = obj.constructor && obj.constructor.prototype && hasOwn.call(obj.constructor.prototype, 'isPrototypeOf');
+	// Not own constructor property must be Object
+	if (obj.constructor && !hasOwnConstructor && !hasIsPrototypeOf) {
+		return false;
+	}
+
+	// Own properties are enumerated firstly, so to speed up,
+	// if last one is own, then all properties are own.
+	var key;
+	for (key in obj) { /**/ }
+
+	return typeof key === 'undefined' || hasOwn.call(obj, key);
+};
+
+// If name is '__proto__', and Object.defineProperty is available, define __proto__ as an own property on target
+var setProperty = function setProperty(target, options) {
+	if (defineProperty && options.name === '__proto__') {
+		defineProperty(target, options.name, {
+			enumerable: true,
+			configurable: true,
+			value: options.newValue,
+			writable: true
+		});
+	} else {
+		target[options.name] = options.newValue;
+	}
+};
+
+// Return undefined instead of __proto__ if '__proto__' is not an own property
+var getProperty = function getProperty(obj, name) {
+	if (name === '__proto__') {
+		if (!hasOwn.call(obj, name)) {
+			return void 0;
+		} else if (gOPD) {
+			// In early versions of node, obj['__proto__'] is buggy when obj has
+			// __proto__ as an own property. Object.getOwnPropertyDescriptor() works.
+			return gOPD(obj, name).value;
+		}
+	}
+
+	return obj[name];
+};
+
+module.exports = function extend() {
+	var options, name, src, copy, copyIsArray, clone;
+	var target = arguments[0];
+	var i = 1;
+	var length = arguments.length;
+	var deep = false;
+
+	// Handle a deep copy situation
+	if (typeof target === 'boolean') {
+		deep = target;
+		target = arguments[1] || {};
+		// skip the boolean and the target
+		i = 2;
+	}
+	if (target == null || (typeof target !== 'object' && typeof target !== 'function')) {
+		target = {};
+	}
+
+	for (; i < length; ++i) {
+		options = arguments[i];
+		// Only deal with non-null/undefined values
+		if (options != null) {
+			// Extend the base object
+			for (name in options) {
+				src = getProperty(target, name);
+				copy = getProperty(options, name);
+
+				// Prevent never-ending loop
+				if (target !== copy) {
+					// Recurse if we're merging plain objects or arrays
+					if (deep && copy && (isPlainObject(copy) || (copyIsArray = isArray(copy)))) {
+						if (copyIsArray) {
+							copyIsArray = false;
+							clone = src && isArray(src) ? src : [];
+						} else {
+							clone = src && isPlainObject(src) ? src : {};
+						}
+
+						// Never move original objects, clone them
+						setProperty(target, { name: name, newValue: extend(deep, clone, copy) });
+
+					// Don't bring in undefined values
+					} else if (typeof copy !== 'undefined') {
+						setProperty(target, { name: name, newValue: copy });
+					}
+				}
+			}
+		}
+	}
+
+	// Return the modified object
+	return target;
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/fast-json-stable-stringify/index.js":
 /*!**********************************************************!*\
   !*** ./node_modules/fast-json-stable-stringify/index.js ***!
@@ -11526,6 +13307,576 @@ module.exports = function (data, opts) {
         return '{' + out + '}';
     })(data);
 };
+
+
+/***/ }),
+
+/***/ "./node_modules/function-bind/implementation.js":
+/*!******************************************************!*\
+  !*** ./node_modules/function-bind/implementation.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/* eslint no-invalid-this: 1 */
+
+var ERROR_MESSAGE = 'Function.prototype.bind called on incompatible ';
+var slice = Array.prototype.slice;
+var toStr = Object.prototype.toString;
+var funcType = '[object Function]';
+
+module.exports = function bind(that) {
+    var target = this;
+    if (typeof target !== 'function' || toStr.call(target) !== funcType) {
+        throw new TypeError(ERROR_MESSAGE + target);
+    }
+    var args = slice.call(arguments, 1);
+
+    var bound;
+    var binder = function () {
+        if (this instanceof bound) {
+            var result = target.apply(
+                this,
+                args.concat(slice.call(arguments))
+            );
+            if (Object(result) === result) {
+                return result;
+            }
+            return this;
+        } else {
+            return target.apply(
+                that,
+                args.concat(slice.call(arguments))
+            );
+        }
+    };
+
+    var boundLength = Math.max(0, target.length - args.length);
+    var boundArgs = [];
+    for (var i = 0; i < boundLength; i++) {
+        boundArgs.push('$' + i);
+    }
+
+    bound = Function('binder', 'return function (' + boundArgs.join(',') + '){ return binder.apply(this,arguments); }')(binder);
+
+    if (target.prototype) {
+        var Empty = function Empty() {};
+        Empty.prototype = target.prototype;
+        bound.prototype = new Empty();
+        Empty.prototype = null;
+    }
+
+    return bound;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/function-bind/index.js":
+/*!*********************************************!*\
+  !*** ./node_modules/function-bind/index.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var implementation = __webpack_require__(/*! ./implementation */ "./node_modules/function-bind/implementation.js");
+
+module.exports = Function.prototype.bind || implementation;
+
+
+/***/ }),
+
+/***/ "./node_modules/graphql-tag/src/index.js":
+/*!***********************************************!*\
+  !*** ./node_modules/graphql-tag/src/index.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var parser = __webpack_require__(/*! graphql/language/parser */ "./node_modules/graphql/language/parser.mjs");
+
+var parse = parser.parse;
+
+// Strip insignificant whitespace
+// Note that this could do a lot more, such as reorder fields etc.
+function normalize(string) {
+  return string.replace(/[\s,]+/g, ' ').trim();
+}
+
+// A map docString -> graphql document
+var docCache = {};
+
+// A map fragmentName -> [normalized source]
+var fragmentSourceMap = {};
+
+function cacheKeyFromLoc(loc) {
+  return normalize(loc.source.body.substring(loc.start, loc.end));
+}
+
+// For testing.
+function resetCaches() {
+  docCache = {};
+  fragmentSourceMap = {};
+}
+
+// Take a unstripped parsed document (query/mutation or even fragment), and
+// check all fragment definitions, checking for name->source uniqueness.
+// We also want to make sure only unique fragments exist in the document.
+var printFragmentWarnings = true;
+function processFragments(ast) {
+  var astFragmentMap = {};
+  var definitions = [];
+
+  for (var i = 0; i < ast.definitions.length; i++) {
+    var fragmentDefinition = ast.definitions[i];
+
+    if (fragmentDefinition.kind === 'FragmentDefinition') {
+      var fragmentName = fragmentDefinition.name.value;
+      var sourceKey = cacheKeyFromLoc(fragmentDefinition.loc);
+
+      // We know something about this fragment
+      if (fragmentSourceMap.hasOwnProperty(fragmentName) && !fragmentSourceMap[fragmentName][sourceKey]) {
+
+        // this is a problem because the app developer is trying to register another fragment with
+        // the same name as one previously registered. So, we tell them about it.
+        if (printFragmentWarnings) {
+          console.warn("Warning: fragment with name " + fragmentName + " already exists.\n"
+            + "graphql-tag enforces all fragment names across your application to be unique; read more about\n"
+            + "this in the docs: http://dev.apollodata.com/core/fragments.html#unique-names");
+        }
+
+        fragmentSourceMap[fragmentName][sourceKey] = true;
+
+      } else if (!fragmentSourceMap.hasOwnProperty(fragmentName)) {
+        fragmentSourceMap[fragmentName] = {};
+        fragmentSourceMap[fragmentName][sourceKey] = true;
+      }
+
+      if (!astFragmentMap[sourceKey]) {
+        astFragmentMap[sourceKey] = true;
+        definitions.push(fragmentDefinition);
+      }
+    } else {
+      definitions.push(fragmentDefinition);
+    }
+  }
+
+  ast.definitions = definitions;
+  return ast;
+}
+
+function disableFragmentWarnings() {
+  printFragmentWarnings = false;
+}
+
+function stripLoc(doc, removeLocAtThisLevel) {
+  var docType = Object.prototype.toString.call(doc);
+
+  if (docType === '[object Array]') {
+    return doc.map(function (d) {
+      return stripLoc(d, removeLocAtThisLevel);
+    });
+  }
+
+  if (docType !== '[object Object]') {
+    throw new Error('Unexpected input.');
+  }
+
+  // We don't want to remove the root loc field so we can use it
+  // for fragment substitution (see below)
+  if (removeLocAtThisLevel && doc.loc) {
+    delete doc.loc;
+  }
+
+  // https://github.com/apollographql/graphql-tag/issues/40
+  if (doc.loc) {
+    delete doc.loc.startToken;
+    delete doc.loc.endToken;
+  }
+
+  var keys = Object.keys(doc);
+  var key;
+  var value;
+  var valueType;
+
+  for (key in keys) {
+    if (keys.hasOwnProperty(key)) {
+      value = doc[keys[key]];
+      valueType = Object.prototype.toString.call(value);
+
+      if (valueType === '[object Object]' || valueType === '[object Array]') {
+        doc[keys[key]] = stripLoc(value, true);
+      }
+    }
+  }
+
+  return doc;
+}
+
+var experimentalFragmentVariables = false;
+function parseDocument(doc) {
+  var cacheKey = normalize(doc);
+
+  if (docCache[cacheKey]) {
+    return docCache[cacheKey];
+  }
+
+  var parsed = parse(doc, { experimentalFragmentVariables: experimentalFragmentVariables });
+  if (!parsed || parsed.kind !== 'Document') {
+    throw new Error('Not a valid GraphQL document.');
+  }
+
+  // check that all "new" fragments inside the documents are consistent with
+  // existing fragments of the same name
+  parsed = processFragments(parsed);
+  parsed = stripLoc(parsed, false);
+  docCache[cacheKey] = parsed;
+
+  return parsed;
+}
+
+function enableExperimentalFragmentVariables() {
+  experimentalFragmentVariables = true;
+}
+
+function disableExperimentalFragmentVariables() {
+  experimentalFragmentVariables = false;
+}
+
+// XXX This should eventually disallow arbitrary string interpolation, like Relay does
+function gql(/* arguments */) {
+  var args = Array.prototype.slice.call(arguments);
+
+  var literals = args[0];
+
+  // We always get literals[0] and then matching post literals for each arg given
+  var result = (typeof(literals) === "string") ? literals : literals[0];
+
+  for (var i = 1; i < args.length; i++) {
+    if (args[i] && args[i].kind && args[i].kind === 'Document') {
+      result += args[i].loc.source.body;
+    } else {
+      result += args[i];
+    }
+
+    result += literals[i];
+  }
+
+  return parseDocument(result);
+}
+
+// Support typescript, which isn't as nice as Babel about default exports
+gql.default = gql;
+gql.resetCaches = resetCaches;
+gql.disableFragmentWarnings = disableFragmentWarnings;
+gql.enableExperimentalFragmentVariables = enableExperimentalFragmentVariables;
+gql.disableExperimentalFragmentVariables = disableExperimentalFragmentVariables;
+
+module.exports = gql;
+
+
+/***/ }),
+
+/***/ "./node_modules/graphql/error/GraphQLError.mjs":
+/*!*****************************************************!*\
+  !*** ./node_modules/graphql/error/GraphQLError.mjs ***!
+  \*****************************************************/
+/*! exports provided: GraphQLError, printError */
+/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GraphQLError", function() { return GraphQLError; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "printError", function() { return printError; });
+/* harmony import */ var _jsutils_isObjectLike__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../jsutils/isObjectLike */ "./node_modules/graphql/jsutils/isObjectLike.mjs");
+/* harmony import */ var _language_location__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../language/location */ "./node_modules/graphql/language/location.mjs");
+/* harmony import */ var _language_printLocation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../language/printLocation */ "./node_modules/graphql/language/printLocation.mjs");
+
+
+
+/**
+ * A GraphQLError describes an Error found during the parse, validate, or
+ * execute phases of performing a GraphQL operation. In addition to a message
+ * and stack trace, it also includes information about the locations in a
+ * GraphQL document and/or execution result that correspond to the Error.
+ */
+
+function GraphQLError( // eslint-disable-line no-redeclare
+message, nodes, source, positions, path, originalError, extensions) {
+  // Compute list of blame nodes.
+  var _nodes = Array.isArray(nodes) ? nodes.length !== 0 ? nodes : undefined : nodes ? [nodes] : undefined; // Compute locations in the source for the given nodes/positions.
+
+
+  var _source = source;
+
+  if (!_source && _nodes) {
+    var node = _nodes[0];
+    _source = node && node.loc && node.loc.source;
+  }
+
+  var _positions = positions;
+
+  if (!_positions && _nodes) {
+    _positions = _nodes.reduce(function (list, node) {
+      if (node.loc) {
+        list.push(node.loc.start);
+      }
+
+      return list;
+    }, []);
+  }
+
+  if (_positions && _positions.length === 0) {
+    _positions = undefined;
+  }
+
+  var _locations;
+
+  if (positions && source) {
+    _locations = positions.map(function (pos) {
+      return Object(_language_location__WEBPACK_IMPORTED_MODULE_1__["getLocation"])(source, pos);
+    });
+  } else if (_nodes) {
+    _locations = _nodes.reduce(function (list, node) {
+      if (node.loc) {
+        list.push(Object(_language_location__WEBPACK_IMPORTED_MODULE_1__["getLocation"])(node.loc.source, node.loc.start));
+      }
+
+      return list;
+    }, []);
+  }
+
+  var _extensions = extensions;
+
+  if (_extensions == null && originalError != null) {
+    var originalExtensions = originalError.extensions;
+
+    if (Object(_jsutils_isObjectLike__WEBPACK_IMPORTED_MODULE_0__["default"])(originalExtensions)) {
+      _extensions = originalExtensions;
+    }
+  }
+
+  Object.defineProperties(this, {
+    message: {
+      value: message,
+      // By being enumerable, JSON.stringify will include `message` in the
+      // resulting output. This ensures that the simplest possible GraphQL
+      // service adheres to the spec.
+      enumerable: true,
+      writable: true
+    },
+    locations: {
+      // Coercing falsey values to undefined ensures they will not be included
+      // in JSON.stringify() when not provided.
+      value: _locations || undefined,
+      // By being enumerable, JSON.stringify will include `locations` in the
+      // resulting output. This ensures that the simplest possible GraphQL
+      // service adheres to the spec.
+      enumerable: Boolean(_locations)
+    },
+    path: {
+      // Coercing falsey values to undefined ensures they will not be included
+      // in JSON.stringify() when not provided.
+      value: path || undefined,
+      // By being enumerable, JSON.stringify will include `path` in the
+      // resulting output. This ensures that the simplest possible GraphQL
+      // service adheres to the spec.
+      enumerable: Boolean(path)
+    },
+    nodes: {
+      value: _nodes || undefined
+    },
+    source: {
+      value: _source || undefined
+    },
+    positions: {
+      value: _positions || undefined
+    },
+    originalError: {
+      value: originalError
+    },
+    extensions: {
+      // Coercing falsey values to undefined ensures they will not be included
+      // in JSON.stringify() when not provided.
+      value: _extensions || undefined,
+      // By being enumerable, JSON.stringify will include `path` in the
+      // resulting output. This ensures that the simplest possible GraphQL
+      // service adheres to the spec.
+      enumerable: Boolean(_extensions)
+    }
+  }); // Include (non-enumerable) stack trace.
+
+  if (originalError && originalError.stack) {
+    Object.defineProperty(this, 'stack', {
+      value: originalError.stack,
+      writable: true,
+      configurable: true
+    });
+  } else if (Error.captureStackTrace) {
+    Error.captureStackTrace(this, GraphQLError);
+  } else {
+    Object.defineProperty(this, 'stack', {
+      value: Error().stack,
+      writable: true,
+      configurable: true
+    });
+  }
+}
+GraphQLError.prototype = Object.create(Error.prototype, {
+  constructor: {
+    value: GraphQLError
+  },
+  name: {
+    value: 'GraphQLError'
+  },
+  toString: {
+    value: function toString() {
+      return printError(this);
+    }
+  }
+});
+/**
+ * Prints a GraphQLError to a string, representing useful location information
+ * about the error's position in the source.
+ */
+
+function printError(error) {
+  var output = error.message;
+
+  if (error.nodes) {
+    for (var _i2 = 0, _error$nodes2 = error.nodes; _i2 < _error$nodes2.length; _i2++) {
+      var node = _error$nodes2[_i2];
+
+      if (node.loc) {
+        output += '\n\n' + Object(_language_printLocation__WEBPACK_IMPORTED_MODULE_2__["printLocation"])(node.loc);
+      }
+    }
+  } else if (error.source && error.locations) {
+    for (var _i4 = 0, _error$locations2 = error.locations; _i4 < _error$locations2.length; _i4++) {
+      var location = _error$locations2[_i4];
+      output += '\n\n' + Object(_language_printLocation__WEBPACK_IMPORTED_MODULE_2__["printSourceLocation"])(error.source, location);
+    }
+  }
+
+  return output;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/graphql/error/syntaxError.mjs":
+/*!****************************************************!*\
+  !*** ./node_modules/graphql/error/syntaxError.mjs ***!
+  \****************************************************/
+/*! exports provided: syntaxError */
+/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "syntaxError", function() { return syntaxError; });
+/* harmony import */ var _GraphQLError__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GraphQLError */ "./node_modules/graphql/error/GraphQLError.mjs");
+
+/**
+ * Produces a GraphQLError representing a syntax error, containing useful
+ * descriptive information about the syntax error's position in the source.
+ */
+
+function syntaxError(source, position, description) {
+  return new _GraphQLError__WEBPACK_IMPORTED_MODULE_0__["GraphQLError"]("Syntax Error: ".concat(description), undefined, source, [position]);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/graphql/jsutils/defineToJSON.mjs":
+/*!*******************************************************!*\
+  !*** ./node_modules/graphql/jsutils/defineToJSON.mjs ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return defineToJSON; });
+/* harmony import */ var _nodejsCustomInspectSymbol__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./nodejsCustomInspectSymbol */ "./node_modules/graphql/jsutils/nodejsCustomInspectSymbol.mjs");
+
+/**
+ * The `defineToJSON()` function defines toJSON() and inspect() prototype
+ * methods, if no function provided they become aliases for toString().
+ */
+
+function defineToJSON(classObject) {
+  var fn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : classObject.prototype.toString;
+  classObject.prototype.toJSON = fn;
+  classObject.prototype.inspect = fn;
+
+  if (_nodejsCustomInspectSymbol__WEBPACK_IMPORTED_MODULE_0__["default"]) {
+    classObject.prototype[_nodejsCustomInspectSymbol__WEBPACK_IMPORTED_MODULE_0__["default"]] = fn;
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/graphql/jsutils/defineToStringTag.mjs":
+/*!************************************************************!*\
+  !*** ./node_modules/graphql/jsutils/defineToStringTag.mjs ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return defineToStringTag; });
+/**
+ * The `defineToStringTag()` function checks first to see if the runtime
+ * supports the `Symbol` class and then if the `Symbol.toStringTag` constant
+ * is defined as a `Symbol` instance. If both conditions are met, the
+ * Symbol.toStringTag property is defined as a getter that returns the
+ * supplied class constructor's name.
+ *
+ * @method defineToStringTag
+ *
+ * @param {Class<any>} classObject a class such as Object, String, Number but
+ * typically one of your own creation through the class keyword; `class A {}`,
+ * for example.
+ */
+function defineToStringTag(classObject) {
+  if (typeof Symbol === 'function' && Symbol.toStringTag) {
+    Object.defineProperty(classObject.prototype, Symbol.toStringTag, {
+      get: function get() {
+        return this.constructor.name;
+      }
+    });
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/graphql/jsutils/devAssert.mjs":
+/*!****************************************************!*\
+  !*** ./node_modules/graphql/jsutils/devAssert.mjs ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return devAssert; });
+function devAssert(condition, message) {
+  var booleanCondition = Boolean(condition);
+
+  if (!booleanCondition) {
+    throw new Error(message);
+  }
+}
 
 
 /***/ }),
@@ -11669,6 +14020,29 @@ function getObjectTag(object) {
 
 /***/ }),
 
+/***/ "./node_modules/graphql/jsutils/isObjectLike.mjs":
+/*!*******************************************************!*\
+  !*** ./node_modules/graphql/jsutils/isObjectLike.mjs ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return isObjectLike; });
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+/**
+ * Return true if `value` is object-like. A value is object-like if it's not
+ * `null` and has a `typeof` result of "object".
+ */
+function isObjectLike(value) {
+  return _typeof(value) == 'object' && value !== null;
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/graphql/jsutils/nodejsCustomInspectSymbol.mjs":
 /*!********************************************************************!*\
   !*** ./node_modules/graphql/jsutils/nodejsCustomInspectSymbol.mjs ***!
@@ -11790,6 +14164,2430 @@ function printBlockString(value) {
   }
 
   return '"""' + result.replace(/"""/g, '\\"""') + '"""';
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/graphql/language/directiveLocation.mjs":
+/*!*************************************************************!*\
+  !*** ./node_modules/graphql/language/directiveLocation.mjs ***!
+  \*************************************************************/
+/*! exports provided: DirectiveLocation */
+/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DirectiveLocation", function() { return DirectiveLocation; });
+/**
+ * The set of allowed directive location values.
+ */
+var DirectiveLocation = Object.freeze({
+  // Request Definitions
+  QUERY: 'QUERY',
+  MUTATION: 'MUTATION',
+  SUBSCRIPTION: 'SUBSCRIPTION',
+  FIELD: 'FIELD',
+  FRAGMENT_DEFINITION: 'FRAGMENT_DEFINITION',
+  FRAGMENT_SPREAD: 'FRAGMENT_SPREAD',
+  INLINE_FRAGMENT: 'INLINE_FRAGMENT',
+  VARIABLE_DEFINITION: 'VARIABLE_DEFINITION',
+  // Type System Definitions
+  SCHEMA: 'SCHEMA',
+  SCALAR: 'SCALAR',
+  OBJECT: 'OBJECT',
+  FIELD_DEFINITION: 'FIELD_DEFINITION',
+  ARGUMENT_DEFINITION: 'ARGUMENT_DEFINITION',
+  INTERFACE: 'INTERFACE',
+  UNION: 'UNION',
+  ENUM: 'ENUM',
+  ENUM_VALUE: 'ENUM_VALUE',
+  INPUT_OBJECT: 'INPUT_OBJECT',
+  INPUT_FIELD_DEFINITION: 'INPUT_FIELD_DEFINITION'
+});
+/**
+ * The enum type representing the directive location values.
+ */
+
+
+/***/ }),
+
+/***/ "./node_modules/graphql/language/kinds.mjs":
+/*!*************************************************!*\
+  !*** ./node_modules/graphql/language/kinds.mjs ***!
+  \*************************************************/
+/*! exports provided: Kind */
+/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Kind", function() { return Kind; });
+/**
+ * The set of allowed kind values for AST nodes.
+ */
+var Kind = Object.freeze({
+  // Name
+  NAME: 'Name',
+  // Document
+  DOCUMENT: 'Document',
+  OPERATION_DEFINITION: 'OperationDefinition',
+  VARIABLE_DEFINITION: 'VariableDefinition',
+  SELECTION_SET: 'SelectionSet',
+  FIELD: 'Field',
+  ARGUMENT: 'Argument',
+  // Fragments
+  FRAGMENT_SPREAD: 'FragmentSpread',
+  INLINE_FRAGMENT: 'InlineFragment',
+  FRAGMENT_DEFINITION: 'FragmentDefinition',
+  // Values
+  VARIABLE: 'Variable',
+  INT: 'IntValue',
+  FLOAT: 'FloatValue',
+  STRING: 'StringValue',
+  BOOLEAN: 'BooleanValue',
+  NULL: 'NullValue',
+  ENUM: 'EnumValue',
+  LIST: 'ListValue',
+  OBJECT: 'ObjectValue',
+  OBJECT_FIELD: 'ObjectField',
+  // Directives
+  DIRECTIVE: 'Directive',
+  // Types
+  NAMED_TYPE: 'NamedType',
+  LIST_TYPE: 'ListType',
+  NON_NULL_TYPE: 'NonNullType',
+  // Type System Definitions
+  SCHEMA_DEFINITION: 'SchemaDefinition',
+  OPERATION_TYPE_DEFINITION: 'OperationTypeDefinition',
+  // Type Definitions
+  SCALAR_TYPE_DEFINITION: 'ScalarTypeDefinition',
+  OBJECT_TYPE_DEFINITION: 'ObjectTypeDefinition',
+  FIELD_DEFINITION: 'FieldDefinition',
+  INPUT_VALUE_DEFINITION: 'InputValueDefinition',
+  INTERFACE_TYPE_DEFINITION: 'InterfaceTypeDefinition',
+  UNION_TYPE_DEFINITION: 'UnionTypeDefinition',
+  ENUM_TYPE_DEFINITION: 'EnumTypeDefinition',
+  ENUM_VALUE_DEFINITION: 'EnumValueDefinition',
+  INPUT_OBJECT_TYPE_DEFINITION: 'InputObjectTypeDefinition',
+  // Directive Definitions
+  DIRECTIVE_DEFINITION: 'DirectiveDefinition',
+  // Type System Extensions
+  SCHEMA_EXTENSION: 'SchemaExtension',
+  // Type Extensions
+  SCALAR_TYPE_EXTENSION: 'ScalarTypeExtension',
+  OBJECT_TYPE_EXTENSION: 'ObjectTypeExtension',
+  INTERFACE_TYPE_EXTENSION: 'InterfaceTypeExtension',
+  UNION_TYPE_EXTENSION: 'UnionTypeExtension',
+  ENUM_TYPE_EXTENSION: 'EnumTypeExtension',
+  INPUT_OBJECT_TYPE_EXTENSION: 'InputObjectTypeExtension'
+});
+/**
+ * The enum type representing the possible kind values of AST nodes.
+ */
+
+
+/***/ }),
+
+/***/ "./node_modules/graphql/language/lexer.mjs":
+/*!*************************************************!*\
+  !*** ./node_modules/graphql/language/lexer.mjs ***!
+  \*************************************************/
+/*! exports provided: createLexer, isPunctuatorToken */
+/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createLexer", function() { return createLexer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isPunctuatorToken", function() { return isPunctuatorToken; });
+/* harmony import */ var _jsutils_defineToJSON__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../jsutils/defineToJSON */ "./node_modules/graphql/jsutils/defineToJSON.mjs");
+/* harmony import */ var _error_syntaxError__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../error/syntaxError */ "./node_modules/graphql/error/syntaxError.mjs");
+/* harmony import */ var _blockString__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./blockString */ "./node_modules/graphql/language/blockString.mjs");
+/* harmony import */ var _tokenKind__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tokenKind */ "./node_modules/graphql/language/tokenKind.mjs");
+
+
+
+
+/**
+ * Given a Source object, this returns a Lexer for that source.
+ * A Lexer is a stateful stream generator in that every time
+ * it is advanced, it returns the next token in the Source. Assuming the
+ * source lexes, the final Token emitted by the lexer will be of kind
+ * EOF, after which the lexer will repeatedly return the same EOF token
+ * whenever called.
+ */
+
+function createLexer(source, options) {
+  var startOfFileToken = new Tok(_tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].SOF, 0, 0, 0, 0, null);
+  var lexer = {
+    source: source,
+    options: options,
+    lastToken: startOfFileToken,
+    token: startOfFileToken,
+    line: 1,
+    lineStart: 0,
+    advance: advanceLexer,
+    lookahead: lookahead
+  };
+  return lexer;
+}
+
+function advanceLexer() {
+  this.lastToken = this.token;
+  var token = this.token = this.lookahead();
+  return token;
+}
+
+function lookahead() {
+  var token = this.token;
+
+  if (token.kind !== _tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].EOF) {
+    do {
+      // Note: next is only mutable during parsing, so we cast to allow this.
+      token = token.next || (token.next = readToken(this, token));
+    } while (token.kind === _tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].COMMENT);
+  }
+
+  return token;
+}
+/**
+ * The return type of createLexer.
+ */
+
+
+// @internal
+function isPunctuatorToken(token) {
+  var kind = token.kind;
+  return kind === _tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].BANG || kind === _tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].DOLLAR || kind === _tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].AMP || kind === _tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].PAREN_L || kind === _tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].PAREN_R || kind === _tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].SPREAD || kind === _tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].COLON || kind === _tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].EQUALS || kind === _tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].AT || kind === _tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].BRACKET_L || kind === _tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].BRACKET_R || kind === _tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].BRACE_L || kind === _tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].PIPE || kind === _tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].BRACE_R;
+}
+/**
+ * Helper function for constructing the Token object.
+ */
+
+function Tok(kind, start, end, line, column, prev, value) {
+  this.kind = kind;
+  this.start = start;
+  this.end = end;
+  this.line = line;
+  this.column = column;
+  this.value = value;
+  this.prev = prev;
+  this.next = null;
+} // Print a simplified form when appearing in JSON/util.inspect.
+
+
+Object(_jsutils_defineToJSON__WEBPACK_IMPORTED_MODULE_0__["default"])(Tok, function () {
+  return {
+    kind: this.kind,
+    value: this.value,
+    line: this.line,
+    column: this.column
+  };
+});
+
+function printCharCode(code) {
+  return (// NaN/undefined represents access beyond the end of the file.
+    isNaN(code) ? _tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].EOF : // Trust JSON for ASCII.
+    code < 0x007f ? JSON.stringify(String.fromCharCode(code)) : // Otherwise print the escaped form.
+    "\"\\u".concat(('00' + code.toString(16).toUpperCase()).slice(-4), "\"")
+  );
+}
+/**
+ * Gets the next token from the source starting at the given position.
+ *
+ * This skips over whitespace until it finds the next lexable token, then lexes
+ * punctuators immediately or calls the appropriate helper function for more
+ * complicated tokens.
+ */
+
+
+function readToken(lexer, prev) {
+  var source = lexer.source;
+  var body = source.body;
+  var bodyLength = body.length;
+  var pos = positionAfterWhitespace(body, prev.end, lexer);
+  var line = lexer.line;
+  var col = 1 + pos - lexer.lineStart;
+
+  if (pos >= bodyLength) {
+    return new Tok(_tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].EOF, bodyLength, bodyLength, line, col, prev);
+  }
+
+  var code = body.charCodeAt(pos); // SourceCharacter
+
+  switch (code) {
+    // !
+    case 33:
+      return new Tok(_tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].BANG, pos, pos + 1, line, col, prev);
+    // #
+
+    case 35:
+      return readComment(source, pos, line, col, prev);
+    // $
+
+    case 36:
+      return new Tok(_tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].DOLLAR, pos, pos + 1, line, col, prev);
+    // &
+
+    case 38:
+      return new Tok(_tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].AMP, pos, pos + 1, line, col, prev);
+    // (
+
+    case 40:
+      return new Tok(_tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].PAREN_L, pos, pos + 1, line, col, prev);
+    // )
+
+    case 41:
+      return new Tok(_tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].PAREN_R, pos, pos + 1, line, col, prev);
+    // .
+
+    case 46:
+      if (body.charCodeAt(pos + 1) === 46 && body.charCodeAt(pos + 2) === 46) {
+        return new Tok(_tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].SPREAD, pos, pos + 3, line, col, prev);
+      }
+
+      break;
+    // :
+
+    case 58:
+      return new Tok(_tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].COLON, pos, pos + 1, line, col, prev);
+    // =
+
+    case 61:
+      return new Tok(_tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].EQUALS, pos, pos + 1, line, col, prev);
+    // @
+
+    case 64:
+      return new Tok(_tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].AT, pos, pos + 1, line, col, prev);
+    // [
+
+    case 91:
+      return new Tok(_tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].BRACKET_L, pos, pos + 1, line, col, prev);
+    // ]
+
+    case 93:
+      return new Tok(_tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].BRACKET_R, pos, pos + 1, line, col, prev);
+    // {
+
+    case 123:
+      return new Tok(_tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].BRACE_L, pos, pos + 1, line, col, prev);
+    // |
+
+    case 124:
+      return new Tok(_tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].PIPE, pos, pos + 1, line, col, prev);
+    // }
+
+    case 125:
+      return new Tok(_tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].BRACE_R, pos, pos + 1, line, col, prev);
+    // A-Z _ a-z
+
+    case 65:
+    case 66:
+    case 67:
+    case 68:
+    case 69:
+    case 70:
+    case 71:
+    case 72:
+    case 73:
+    case 74:
+    case 75:
+    case 76:
+    case 77:
+    case 78:
+    case 79:
+    case 80:
+    case 81:
+    case 82:
+    case 83:
+    case 84:
+    case 85:
+    case 86:
+    case 87:
+    case 88:
+    case 89:
+    case 90:
+    case 95:
+    case 97:
+    case 98:
+    case 99:
+    case 100:
+    case 101:
+    case 102:
+    case 103:
+    case 104:
+    case 105:
+    case 106:
+    case 107:
+    case 108:
+    case 109:
+    case 110:
+    case 111:
+    case 112:
+    case 113:
+    case 114:
+    case 115:
+    case 116:
+    case 117:
+    case 118:
+    case 119:
+    case 120:
+    case 121:
+    case 122:
+      return readName(source, pos, line, col, prev);
+    // - 0-9
+
+    case 45:
+    case 48:
+    case 49:
+    case 50:
+    case 51:
+    case 52:
+    case 53:
+    case 54:
+    case 55:
+    case 56:
+    case 57:
+      return readNumber(source, pos, code, line, col, prev);
+    // "
+
+    case 34:
+      if (body.charCodeAt(pos + 1) === 34 && body.charCodeAt(pos + 2) === 34) {
+        return readBlockString(source, pos, line, col, prev, lexer);
+      }
+
+      return readString(source, pos, line, col, prev);
+  }
+
+  throw Object(_error_syntaxError__WEBPACK_IMPORTED_MODULE_1__["syntaxError"])(source, pos, unexpectedCharacterMessage(code));
+}
+/**
+ * Report a message that an unexpected character was encountered.
+ */
+
+
+function unexpectedCharacterMessage(code) {
+  if (code < 0x0020 && code !== 0x0009 && code !== 0x000a && code !== 0x000d) {
+    return "Cannot contain the invalid character ".concat(printCharCode(code), ".");
+  }
+
+  if (code === 39) {
+    // '
+    return 'Unexpected single quote character (\'), did you mean to use a double quote (")?';
+  }
+
+  return "Cannot parse the unexpected character ".concat(printCharCode(code), ".");
+}
+/**
+ * Reads from body starting at startPosition until it finds a non-whitespace
+ * character, then returns the position of that character for lexing.
+ */
+
+
+function positionAfterWhitespace(body, startPosition, lexer) {
+  var bodyLength = body.length;
+  var position = startPosition;
+
+  while (position < bodyLength) {
+    var code = body.charCodeAt(position); // tab | space | comma | BOM
+
+    if (code === 9 || code === 32 || code === 44 || code === 0xfeff) {
+      ++position;
+    } else if (code === 10) {
+      // new line
+      ++position;
+      ++lexer.line;
+      lexer.lineStart = position;
+    } else if (code === 13) {
+      // carriage return
+      if (body.charCodeAt(position + 1) === 10) {
+        position += 2;
+      } else {
+        ++position;
+      }
+
+      ++lexer.line;
+      lexer.lineStart = position;
+    } else {
+      break;
+    }
+  }
+
+  return position;
+}
+/**
+ * Reads a comment token from the source file.
+ *
+ * #[\u0009\u0020-\uFFFF]*
+ */
+
+
+function readComment(source, start, line, col, prev) {
+  var body = source.body;
+  var code;
+  var position = start;
+
+  do {
+    code = body.charCodeAt(++position);
+  } while (!isNaN(code) && ( // SourceCharacter but not LineTerminator
+  code > 0x001f || code === 0x0009));
+
+  return new Tok(_tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].COMMENT, start, position, line, col, prev, body.slice(start + 1, position));
+}
+/**
+ * Reads a number token from the source file, either a float
+ * or an int depending on whether a decimal point appears.
+ *
+ * Int:   -?(0|[1-9][0-9]*)
+ * Float: -?(0|[1-9][0-9]*)(\.[0-9]+)?((E|e)(+|-)?[0-9]+)?
+ */
+
+
+function readNumber(source, start, firstCode, line, col, prev) {
+  var body = source.body;
+  var code = firstCode;
+  var position = start;
+  var isFloat = false;
+
+  if (code === 45) {
+    // -
+    code = body.charCodeAt(++position);
+  }
+
+  if (code === 48) {
+    // 0
+    code = body.charCodeAt(++position);
+
+    if (code >= 48 && code <= 57) {
+      throw Object(_error_syntaxError__WEBPACK_IMPORTED_MODULE_1__["syntaxError"])(source, position, "Invalid number, unexpected digit after 0: ".concat(printCharCode(code), "."));
+    }
+  } else {
+    position = readDigits(source, position, code);
+    code = body.charCodeAt(position);
+  }
+
+  if (code === 46) {
+    // .
+    isFloat = true;
+    code = body.charCodeAt(++position);
+    position = readDigits(source, position, code);
+    code = body.charCodeAt(position);
+  }
+
+  if (code === 69 || code === 101) {
+    // E e
+    isFloat = true;
+    code = body.charCodeAt(++position);
+
+    if (code === 43 || code === 45) {
+      // + -
+      code = body.charCodeAt(++position);
+    }
+
+    position = readDigits(source, position, code);
+    code = body.charCodeAt(position);
+  } // Numbers cannot be followed by . or e
+
+
+  if (code === 46 || code === 69 || code === 101) {
+    throw Object(_error_syntaxError__WEBPACK_IMPORTED_MODULE_1__["syntaxError"])(source, position, "Invalid number, expected digit but got: ".concat(printCharCode(code), "."));
+  }
+
+  return new Tok(isFloat ? _tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].FLOAT : _tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].INT, start, position, line, col, prev, body.slice(start, position));
+}
+/**
+ * Returns the new position in the source after reading digits.
+ */
+
+
+function readDigits(source, start, firstCode) {
+  var body = source.body;
+  var position = start;
+  var code = firstCode;
+
+  if (code >= 48 && code <= 57) {
+    // 0 - 9
+    do {
+      code = body.charCodeAt(++position);
+    } while (code >= 48 && code <= 57); // 0 - 9
+
+
+    return position;
+  }
+
+  throw Object(_error_syntaxError__WEBPACK_IMPORTED_MODULE_1__["syntaxError"])(source, position, "Invalid number, expected digit but got: ".concat(printCharCode(code), "."));
+}
+/**
+ * Reads a string token from the source file.
+ *
+ * "([^"\\\u000A\u000D]|(\\(u[0-9a-fA-F]{4}|["\\/bfnrt])))*"
+ */
+
+
+function readString(source, start, line, col, prev) {
+  var body = source.body;
+  var position = start + 1;
+  var chunkStart = position;
+  var code = 0;
+  var value = '';
+
+  while (position < body.length && !isNaN(code = body.charCodeAt(position)) && // not LineTerminator
+  code !== 0x000a && code !== 0x000d) {
+    // Closing Quote (")
+    if (code === 34) {
+      value += body.slice(chunkStart, position);
+      return new Tok(_tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].STRING, start, position + 1, line, col, prev, value);
+    } // SourceCharacter
+
+
+    if (code < 0x0020 && code !== 0x0009) {
+      throw Object(_error_syntaxError__WEBPACK_IMPORTED_MODULE_1__["syntaxError"])(source, position, "Invalid character within String: ".concat(printCharCode(code), "."));
+    }
+
+    ++position;
+
+    if (code === 92) {
+      // \
+      value += body.slice(chunkStart, position - 1);
+      code = body.charCodeAt(position);
+
+      switch (code) {
+        case 34:
+          value += '"';
+          break;
+
+        case 47:
+          value += '/';
+          break;
+
+        case 92:
+          value += '\\';
+          break;
+
+        case 98:
+          value += '\b';
+          break;
+
+        case 102:
+          value += '\f';
+          break;
+
+        case 110:
+          value += '\n';
+          break;
+
+        case 114:
+          value += '\r';
+          break;
+
+        case 116:
+          value += '\t';
+          break;
+
+        case 117:
+          {
+            // uXXXX
+            var charCode = uniCharCode(body.charCodeAt(position + 1), body.charCodeAt(position + 2), body.charCodeAt(position + 3), body.charCodeAt(position + 4));
+
+            if (charCode < 0) {
+              var invalidSequence = body.slice(position + 1, position + 5);
+              throw Object(_error_syntaxError__WEBPACK_IMPORTED_MODULE_1__["syntaxError"])(source, position, "Invalid character escape sequence: \\u".concat(invalidSequence, "."));
+            }
+
+            value += String.fromCharCode(charCode);
+            position += 4;
+            break;
+          }
+
+        default:
+          throw Object(_error_syntaxError__WEBPACK_IMPORTED_MODULE_1__["syntaxError"])(source, position, "Invalid character escape sequence: \\".concat(String.fromCharCode(code), "."));
+      }
+
+      ++position;
+      chunkStart = position;
+    }
+  }
+
+  throw Object(_error_syntaxError__WEBPACK_IMPORTED_MODULE_1__["syntaxError"])(source, position, 'Unterminated string.');
+}
+/**
+ * Reads a block string token from the source file.
+ *
+ * """("?"?(\\"""|\\(?!=""")|[^"\\]))*"""
+ */
+
+
+function readBlockString(source, start, line, col, prev, lexer) {
+  var body = source.body;
+  var position = start + 3;
+  var chunkStart = position;
+  var code = 0;
+  var rawValue = '';
+
+  while (position < body.length && !isNaN(code = body.charCodeAt(position))) {
+    // Closing Triple-Quote (""")
+    if (code === 34 && body.charCodeAt(position + 1) === 34 && body.charCodeAt(position + 2) === 34) {
+      rawValue += body.slice(chunkStart, position);
+      return new Tok(_tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].BLOCK_STRING, start, position + 3, line, col, prev, Object(_blockString__WEBPACK_IMPORTED_MODULE_2__["dedentBlockStringValue"])(rawValue));
+    } // SourceCharacter
+
+
+    if (code < 0x0020 && code !== 0x0009 && code !== 0x000a && code !== 0x000d) {
+      throw Object(_error_syntaxError__WEBPACK_IMPORTED_MODULE_1__["syntaxError"])(source, position, "Invalid character within String: ".concat(printCharCode(code), "."));
+    }
+
+    if (code === 10) {
+      // new line
+      ++position;
+      ++lexer.line;
+      lexer.lineStart = position;
+    } else if (code === 13) {
+      // carriage return
+      if (body.charCodeAt(position + 1) === 10) {
+        position += 2;
+      } else {
+        ++position;
+      }
+
+      ++lexer.line;
+      lexer.lineStart = position;
+    } else if ( // Escape Triple-Quote (\""")
+    code === 92 && body.charCodeAt(position + 1) === 34 && body.charCodeAt(position + 2) === 34 && body.charCodeAt(position + 3) === 34) {
+      rawValue += body.slice(chunkStart, position) + '"""';
+      position += 4;
+      chunkStart = position;
+    } else {
+      ++position;
+    }
+  }
+
+  throw Object(_error_syntaxError__WEBPACK_IMPORTED_MODULE_1__["syntaxError"])(source, position, 'Unterminated string.');
+}
+/**
+ * Converts four hexadecimal chars to the integer that the
+ * string represents. For example, uniCharCode('0','0','0','f')
+ * will return 15, and uniCharCode('0','0','f','f') returns 255.
+ *
+ * Returns a negative number on error, if a char was invalid.
+ *
+ * This is implemented by noting that char2hex() returns -1 on error,
+ * which means the result of ORing the char2hex() will also be negative.
+ */
+
+
+function uniCharCode(a, b, c, d) {
+  return char2hex(a) << 12 | char2hex(b) << 8 | char2hex(c) << 4 | char2hex(d);
+}
+/**
+ * Converts a hex character to its integer value.
+ * '0' becomes 0, '9' becomes 9
+ * 'A' becomes 10, 'F' becomes 15
+ * 'a' becomes 10, 'f' becomes 15
+ *
+ * Returns -1 on error.
+ */
+
+
+function char2hex(a) {
+  return a >= 48 && a <= 57 ? a - 48 // 0-9
+  : a >= 65 && a <= 70 ? a - 55 // A-F
+  : a >= 97 && a <= 102 ? a - 87 // a-f
+  : -1;
+}
+/**
+ * Reads an alphanumeric + underscore name from the source.
+ *
+ * [_A-Za-z][_0-9A-Za-z]*
+ */
+
+
+function readName(source, start, line, col, prev) {
+  var body = source.body;
+  var bodyLength = body.length;
+  var position = start + 1;
+  var code = 0;
+
+  while (position !== bodyLength && !isNaN(code = body.charCodeAt(position)) && (code === 95 || // _
+  code >= 48 && code <= 57 || // 0-9
+  code >= 65 && code <= 90 || // A-Z
+  code >= 97 && code <= 122) // a-z
+  ) {
+    ++position;
+  }
+
+  return new Tok(_tokenKind__WEBPACK_IMPORTED_MODULE_3__["TokenKind"].NAME, start, position, line, col, prev, body.slice(start, position));
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/graphql/language/location.mjs":
+/*!****************************************************!*\
+  !*** ./node_modules/graphql/language/location.mjs ***!
+  \****************************************************/
+/*! exports provided: getLocation */
+/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLocation", function() { return getLocation; });
+/**
+ * Represents a location in a Source.
+ */
+
+/**
+ * Takes a Source and a UTF-8 character offset, and returns the corresponding
+ * line and column as a SourceLocation.
+ */
+function getLocation(source, position) {
+  var lineRegexp = /\r\n|[\n\r]/g;
+  var line = 1;
+  var column = position + 1;
+  var match;
+
+  while ((match = lineRegexp.exec(source.body)) && match.index < position) {
+    line += 1;
+    column = position + 1 - (match.index + match[0].length);
+  }
+
+  return {
+    line: line,
+    column: column
+  };
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/graphql/language/parser.mjs":
+/*!**************************************************!*\
+  !*** ./node_modules/graphql/language/parser.mjs ***!
+  \**************************************************/
+/*! exports provided: parse, parseValue, parseType */
+/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parse", function() { return parse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parseValue", function() { return parseValue; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parseType", function() { return parseType; });
+/* harmony import */ var _jsutils_inspect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../jsutils/inspect */ "./node_modules/graphql/jsutils/inspect.mjs");
+/* harmony import */ var _jsutils_devAssert__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../jsutils/devAssert */ "./node_modules/graphql/jsutils/devAssert.mjs");
+/* harmony import */ var _jsutils_defineToJSON__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../jsutils/defineToJSON */ "./node_modules/graphql/jsutils/defineToJSON.mjs");
+/* harmony import */ var _error_syntaxError__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../error/syntaxError */ "./node_modules/graphql/error/syntaxError.mjs");
+/* harmony import */ var _kinds__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./kinds */ "./node_modules/graphql/language/kinds.mjs");
+/* harmony import */ var _source__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./source */ "./node_modules/graphql/language/source.mjs");
+/* harmony import */ var _lexer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./lexer */ "./node_modules/graphql/language/lexer.mjs");
+/* harmony import */ var _directiveLocation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./directiveLocation */ "./node_modules/graphql/language/directiveLocation.mjs");
+/* harmony import */ var _tokenKind__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./tokenKind */ "./node_modules/graphql/language/tokenKind.mjs");
+
+
+
+
+
+
+
+
+
+
+/**
+ * Given a GraphQL source, parses it into a Document.
+ * Throws GraphQLError if a syntax error is encountered.
+ */
+function parse(source, options) {
+  var parser = new Parser(source, options);
+  return parser.parseDocument();
+}
+/**
+ * Given a string containing a GraphQL value (ex. `[42]`), parse the AST for
+ * that value.
+ * Throws GraphQLError if a syntax error is encountered.
+ *
+ * This is useful within tools that operate upon GraphQL Values directly and
+ * in isolation of complete GraphQL documents.
+ *
+ * Consider providing the results to the utility function: valueFromAST().
+ */
+
+function parseValue(source, options) {
+  var parser = new Parser(source, options);
+  parser.expectToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].SOF);
+  var value = parser.parseValueLiteral(false);
+  parser.expectToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].EOF);
+  return value;
+}
+/**
+ * Given a string containing a GraphQL Type (ex. `[Int!]`), parse the AST for
+ * that type.
+ * Throws GraphQLError if a syntax error is encountered.
+ *
+ * This is useful within tools that operate upon GraphQL Types directly and
+ * in isolation of complete GraphQL documents.
+ *
+ * Consider providing the results to the utility function: typeFromAST().
+ */
+
+function parseType(source, options) {
+  var parser = new Parser(source, options);
+  parser.expectToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].SOF);
+  var type = parser.parseTypeReference();
+  parser.expectToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].EOF);
+  return type;
+}
+
+var Parser =
+/*#__PURE__*/
+function () {
+  function Parser(source, options) {
+    var sourceObj = typeof source === 'string' ? new _source__WEBPACK_IMPORTED_MODULE_5__["Source"](source) : source;
+    sourceObj instanceof _source__WEBPACK_IMPORTED_MODULE_5__["Source"] || Object(_jsutils_devAssert__WEBPACK_IMPORTED_MODULE_1__["default"])(0, "Must provide Source. Received: ".concat(Object(_jsutils_inspect__WEBPACK_IMPORTED_MODULE_0__["default"])(sourceObj)));
+    this._lexer = Object(_lexer__WEBPACK_IMPORTED_MODULE_6__["createLexer"])(sourceObj);
+    this._options = options || {};
+  }
+  /**
+   * Converts a name lex token into a name parse node.
+   */
+
+
+  var _proto = Parser.prototype;
+
+  _proto.parseName = function parseName() {
+    var token = this.expectToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].NAME);
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].NAME,
+      value: token.value,
+      loc: this.loc(token)
+    };
+  } // Implements the parsing rules in the Document section.
+
+  /**
+   * Document : Definition+
+   */
+  ;
+
+  _proto.parseDocument = function parseDocument() {
+    var start = this._lexer.token;
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].DOCUMENT,
+      definitions: this.many(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].SOF, this.parseDefinition, _tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].EOF),
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * Definition :
+   *   - ExecutableDefinition
+   *   - TypeSystemDefinition
+   *   - TypeSystemExtension
+   *
+   * ExecutableDefinition :
+   *   - OperationDefinition
+   *   - FragmentDefinition
+   */
+  ;
+
+  _proto.parseDefinition = function parseDefinition() {
+    if (this.peek(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].NAME)) {
+      switch (this._lexer.token.value) {
+        case 'query':
+        case 'mutation':
+        case 'subscription':
+          return this.parseOperationDefinition();
+
+        case 'fragment':
+          return this.parseFragmentDefinition();
+
+        case 'schema':
+        case 'scalar':
+        case 'type':
+        case 'interface':
+        case 'union':
+        case 'enum':
+        case 'input':
+        case 'directive':
+          return this.parseTypeSystemDefinition();
+
+        case 'extend':
+          return this.parseTypeSystemExtension();
+      }
+    } else if (this.peek(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BRACE_L)) {
+      return this.parseOperationDefinition();
+    } else if (this.peekDescription()) {
+      return this.parseTypeSystemDefinition();
+    }
+
+    throw this.unexpected();
+  } // Implements the parsing rules in the Operations section.
+
+  /**
+   * OperationDefinition :
+   *  - SelectionSet
+   *  - OperationType Name? VariableDefinitions? Directives? SelectionSet
+   */
+  ;
+
+  _proto.parseOperationDefinition = function parseOperationDefinition() {
+    var start = this._lexer.token;
+
+    if (this.peek(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BRACE_L)) {
+      return {
+        kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].OPERATION_DEFINITION,
+        operation: 'query',
+        name: undefined,
+        variableDefinitions: [],
+        directives: [],
+        selectionSet: this.parseSelectionSet(),
+        loc: this.loc(start)
+      };
+    }
+
+    var operation = this.parseOperationType();
+    var name;
+
+    if (this.peek(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].NAME)) {
+      name = this.parseName();
+    }
+
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].OPERATION_DEFINITION,
+      operation: operation,
+      name: name,
+      variableDefinitions: this.parseVariableDefinitions(),
+      directives: this.parseDirectives(false),
+      selectionSet: this.parseSelectionSet(),
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * OperationType : one of query mutation subscription
+   */
+  ;
+
+  _proto.parseOperationType = function parseOperationType() {
+    var operationToken = this.expectToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].NAME);
+
+    switch (operationToken.value) {
+      case 'query':
+        return 'query';
+
+      case 'mutation':
+        return 'mutation';
+
+      case 'subscription':
+        return 'subscription';
+    }
+
+    throw this.unexpected(operationToken);
+  }
+  /**
+   * VariableDefinitions : ( VariableDefinition+ )
+   */
+  ;
+
+  _proto.parseVariableDefinitions = function parseVariableDefinitions() {
+    return this.optionalMany(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].PAREN_L, this.parseVariableDefinition, _tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].PAREN_R);
+  }
+  /**
+   * VariableDefinition : Variable : Type DefaultValue? Directives[Const]?
+   */
+  ;
+
+  _proto.parseVariableDefinition = function parseVariableDefinition() {
+    var start = this._lexer.token;
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].VARIABLE_DEFINITION,
+      variable: this.parseVariable(),
+      type: (this.expectToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].COLON), this.parseTypeReference()),
+      defaultValue: this.expectOptionalToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].EQUALS) ? this.parseValueLiteral(true) : undefined,
+      directives: this.parseDirectives(true),
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * Variable : $ Name
+   */
+  ;
+
+  _proto.parseVariable = function parseVariable() {
+    var start = this._lexer.token;
+    this.expectToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].DOLLAR);
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].VARIABLE,
+      name: this.parseName(),
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * SelectionSet : { Selection+ }
+   */
+  ;
+
+  _proto.parseSelectionSet = function parseSelectionSet() {
+    var start = this._lexer.token;
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].SELECTION_SET,
+      selections: this.many(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BRACE_L, this.parseSelection, _tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BRACE_R),
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * Selection :
+   *   - Field
+   *   - FragmentSpread
+   *   - InlineFragment
+   */
+  ;
+
+  _proto.parseSelection = function parseSelection() {
+    return this.peek(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].SPREAD) ? this.parseFragment() : this.parseField();
+  }
+  /**
+   * Field : Alias? Name Arguments? Directives? SelectionSet?
+   *
+   * Alias : Name :
+   */
+  ;
+
+  _proto.parseField = function parseField() {
+    var start = this._lexer.token;
+    var nameOrAlias = this.parseName();
+    var alias;
+    var name;
+
+    if (this.expectOptionalToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].COLON)) {
+      alias = nameOrAlias;
+      name = this.parseName();
+    } else {
+      name = nameOrAlias;
+    }
+
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].FIELD,
+      alias: alias,
+      name: name,
+      arguments: this.parseArguments(false),
+      directives: this.parseDirectives(false),
+      selectionSet: this.peek(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BRACE_L) ? this.parseSelectionSet() : undefined,
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * Arguments[Const] : ( Argument[?Const]+ )
+   */
+  ;
+
+  _proto.parseArguments = function parseArguments(isConst) {
+    var item = isConst ? this.parseConstArgument : this.parseArgument;
+    return this.optionalMany(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].PAREN_L, item, _tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].PAREN_R);
+  }
+  /**
+   * Argument[Const] : Name : Value[?Const]
+   */
+  ;
+
+  _proto.parseArgument = function parseArgument() {
+    var start = this._lexer.token;
+    var name = this.parseName();
+    this.expectToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].COLON);
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].ARGUMENT,
+      name: name,
+      value: this.parseValueLiteral(false),
+      loc: this.loc(start)
+    };
+  };
+
+  _proto.parseConstArgument = function parseConstArgument() {
+    var start = this._lexer.token;
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].ARGUMENT,
+      name: this.parseName(),
+      value: (this.expectToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].COLON), this.parseValueLiteral(true)),
+      loc: this.loc(start)
+    };
+  } // Implements the parsing rules in the Fragments section.
+
+  /**
+   * Corresponds to both FragmentSpread and InlineFragment in the spec.
+   *
+   * FragmentSpread : ... FragmentName Directives?
+   *
+   * InlineFragment : ... TypeCondition? Directives? SelectionSet
+   */
+  ;
+
+  _proto.parseFragment = function parseFragment() {
+    var start = this._lexer.token;
+    this.expectToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].SPREAD);
+    var hasTypeCondition = this.expectOptionalKeyword('on');
+
+    if (!hasTypeCondition && this.peek(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].NAME)) {
+      return {
+        kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].FRAGMENT_SPREAD,
+        name: this.parseFragmentName(),
+        directives: this.parseDirectives(false),
+        loc: this.loc(start)
+      };
+    }
+
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].INLINE_FRAGMENT,
+      typeCondition: hasTypeCondition ? this.parseNamedType() : undefined,
+      directives: this.parseDirectives(false),
+      selectionSet: this.parseSelectionSet(),
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * FragmentDefinition :
+   *   - fragment FragmentName on TypeCondition Directives? SelectionSet
+   *
+   * TypeCondition : NamedType
+   */
+  ;
+
+  _proto.parseFragmentDefinition = function parseFragmentDefinition() {
+    var start = this._lexer.token;
+    this.expectKeyword('fragment'); // Experimental support for defining variables within fragments changes
+    // the grammar of FragmentDefinition:
+    //   - fragment FragmentName VariableDefinitions? on TypeCondition Directives? SelectionSet
+
+    if (this._options.experimentalFragmentVariables) {
+      return {
+        kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].FRAGMENT_DEFINITION,
+        name: this.parseFragmentName(),
+        variableDefinitions: this.parseVariableDefinitions(),
+        typeCondition: (this.expectKeyword('on'), this.parseNamedType()),
+        directives: this.parseDirectives(false),
+        selectionSet: this.parseSelectionSet(),
+        loc: this.loc(start)
+      };
+    }
+
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].FRAGMENT_DEFINITION,
+      name: this.parseFragmentName(),
+      typeCondition: (this.expectKeyword('on'), this.parseNamedType()),
+      directives: this.parseDirectives(false),
+      selectionSet: this.parseSelectionSet(),
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * FragmentName : Name but not `on`
+   */
+  ;
+
+  _proto.parseFragmentName = function parseFragmentName() {
+    if (this._lexer.token.value === 'on') {
+      throw this.unexpected();
+    }
+
+    return this.parseName();
+  } // Implements the parsing rules in the Values section.
+
+  /**
+   * Value[Const] :
+   *   - [~Const] Variable
+   *   - IntValue
+   *   - FloatValue
+   *   - StringValue
+   *   - BooleanValue
+   *   - NullValue
+   *   - EnumValue
+   *   - ListValue[?Const]
+   *   - ObjectValue[?Const]
+   *
+   * BooleanValue : one of `true` `false`
+   *
+   * NullValue : `null`
+   *
+   * EnumValue : Name but not `true`, `false` or `null`
+   */
+  ;
+
+  _proto.parseValueLiteral = function parseValueLiteral(isConst) {
+    var token = this._lexer.token;
+
+    switch (token.kind) {
+      case _tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BRACKET_L:
+        return this.parseList(isConst);
+
+      case _tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BRACE_L:
+        return this.parseObject(isConst);
+
+      case _tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].INT:
+        this._lexer.advance();
+
+        return {
+          kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].INT,
+          value: token.value,
+          loc: this.loc(token)
+        };
+
+      case _tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].FLOAT:
+        this._lexer.advance();
+
+        return {
+          kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].FLOAT,
+          value: token.value,
+          loc: this.loc(token)
+        };
+
+      case _tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].STRING:
+      case _tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BLOCK_STRING:
+        return this.parseStringLiteral();
+
+      case _tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].NAME:
+        if (token.value === 'true' || token.value === 'false') {
+          this._lexer.advance();
+
+          return {
+            kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].BOOLEAN,
+            value: token.value === 'true',
+            loc: this.loc(token)
+          };
+        } else if (token.value === 'null') {
+          this._lexer.advance();
+
+          return {
+            kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].NULL,
+            loc: this.loc(token)
+          };
+        }
+
+        this._lexer.advance();
+
+        return {
+          kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].ENUM,
+          value: token.value,
+          loc: this.loc(token)
+        };
+
+      case _tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].DOLLAR:
+        if (!isConst) {
+          return this.parseVariable();
+        }
+
+        break;
+    }
+
+    throw this.unexpected();
+  };
+
+  _proto.parseStringLiteral = function parseStringLiteral() {
+    var token = this._lexer.token;
+
+    this._lexer.advance();
+
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].STRING,
+      value: token.value,
+      block: token.kind === _tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BLOCK_STRING,
+      loc: this.loc(token)
+    };
+  }
+  /**
+   * ListValue[Const] :
+   *   - [ ]
+   *   - [ Value[?Const]+ ]
+   */
+  ;
+
+  _proto.parseList = function parseList(isConst) {
+    var _this = this;
+
+    var start = this._lexer.token;
+
+    var item = function item() {
+      return _this.parseValueLiteral(isConst);
+    };
+
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].LIST,
+      values: this.any(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BRACKET_L, item, _tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BRACKET_R),
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * ObjectValue[Const] :
+   *   - { }
+   *   - { ObjectField[?Const]+ }
+   */
+  ;
+
+  _proto.parseObject = function parseObject(isConst) {
+    var _this2 = this;
+
+    var start = this._lexer.token;
+
+    var item = function item() {
+      return _this2.parseObjectField(isConst);
+    };
+
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].OBJECT,
+      fields: this.any(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BRACE_L, item, _tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BRACE_R),
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * ObjectField[Const] : Name : Value[?Const]
+   */
+  ;
+
+  _proto.parseObjectField = function parseObjectField(isConst) {
+    var start = this._lexer.token;
+    var name = this.parseName();
+    this.expectToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].COLON);
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].OBJECT_FIELD,
+      name: name,
+      value: this.parseValueLiteral(isConst),
+      loc: this.loc(start)
+    };
+  } // Implements the parsing rules in the Directives section.
+
+  /**
+   * Directives[Const] : Directive[?Const]+
+   */
+  ;
+
+  _proto.parseDirectives = function parseDirectives(isConst) {
+    var directives = [];
+
+    while (this.peek(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].AT)) {
+      directives.push(this.parseDirective(isConst));
+    }
+
+    return directives;
+  }
+  /**
+   * Directive[Const] : @ Name Arguments[?Const]?
+   */
+  ;
+
+  _proto.parseDirective = function parseDirective(isConst) {
+    var start = this._lexer.token;
+    this.expectToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].AT);
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].DIRECTIVE,
+      name: this.parseName(),
+      arguments: this.parseArguments(isConst),
+      loc: this.loc(start)
+    };
+  } // Implements the parsing rules in the Types section.
+
+  /**
+   * Type :
+   *   - NamedType
+   *   - ListType
+   *   - NonNullType
+   */
+  ;
+
+  _proto.parseTypeReference = function parseTypeReference() {
+    var start = this._lexer.token;
+    var type;
+
+    if (this.expectOptionalToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BRACKET_L)) {
+      type = this.parseTypeReference();
+      this.expectToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BRACKET_R);
+      type = {
+        kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].LIST_TYPE,
+        type: type,
+        loc: this.loc(start)
+      };
+    } else {
+      type = this.parseNamedType();
+    }
+
+    if (this.expectOptionalToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BANG)) {
+      return {
+        kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].NON_NULL_TYPE,
+        type: type,
+        loc: this.loc(start)
+      };
+    }
+
+    return type;
+  }
+  /**
+   * NamedType : Name
+   */
+  ;
+
+  _proto.parseNamedType = function parseNamedType() {
+    var start = this._lexer.token;
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].NAMED_TYPE,
+      name: this.parseName(),
+      loc: this.loc(start)
+    };
+  } // Implements the parsing rules in the Type Definition section.
+
+  /**
+   * TypeSystemDefinition :
+   *   - SchemaDefinition
+   *   - TypeDefinition
+   *   - DirectiveDefinition
+   *
+   * TypeDefinition :
+   *   - ScalarTypeDefinition
+   *   - ObjectTypeDefinition
+   *   - InterfaceTypeDefinition
+   *   - UnionTypeDefinition
+   *   - EnumTypeDefinition
+   *   - InputObjectTypeDefinition
+   */
+  ;
+
+  _proto.parseTypeSystemDefinition = function parseTypeSystemDefinition() {
+    // Many definitions begin with a description and require a lookahead.
+    var keywordToken = this.peekDescription() ? this._lexer.lookahead() : this._lexer.token;
+
+    if (keywordToken.kind === _tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].NAME) {
+      switch (keywordToken.value) {
+        case 'schema':
+          return this.parseSchemaDefinition();
+
+        case 'scalar':
+          return this.parseScalarTypeDefinition();
+
+        case 'type':
+          return this.parseObjectTypeDefinition();
+
+        case 'interface':
+          return this.parseInterfaceTypeDefinition();
+
+        case 'union':
+          return this.parseUnionTypeDefinition();
+
+        case 'enum':
+          return this.parseEnumTypeDefinition();
+
+        case 'input':
+          return this.parseInputObjectTypeDefinition();
+
+        case 'directive':
+          return this.parseDirectiveDefinition();
+      }
+    }
+
+    throw this.unexpected(keywordToken);
+  };
+
+  _proto.peekDescription = function peekDescription() {
+    return this.peek(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].STRING) || this.peek(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BLOCK_STRING);
+  }
+  /**
+   * Description : StringValue
+   */
+  ;
+
+  _proto.parseDescription = function parseDescription() {
+    if (this.peekDescription()) {
+      return this.parseStringLiteral();
+    }
+  }
+  /**
+   * SchemaDefinition : schema Directives[Const]? { OperationTypeDefinition+ }
+   */
+  ;
+
+  _proto.parseSchemaDefinition = function parseSchemaDefinition() {
+    var start = this._lexer.token;
+    this.expectKeyword('schema');
+    var directives = this.parseDirectives(true);
+    var operationTypes = this.many(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BRACE_L, this.parseOperationTypeDefinition, _tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BRACE_R);
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].SCHEMA_DEFINITION,
+      directives: directives,
+      operationTypes: operationTypes,
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * OperationTypeDefinition : OperationType : NamedType
+   */
+  ;
+
+  _proto.parseOperationTypeDefinition = function parseOperationTypeDefinition() {
+    var start = this._lexer.token;
+    var operation = this.parseOperationType();
+    this.expectToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].COLON);
+    var type = this.parseNamedType();
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].OPERATION_TYPE_DEFINITION,
+      operation: operation,
+      type: type,
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * ScalarTypeDefinition : Description? scalar Name Directives[Const]?
+   */
+  ;
+
+  _proto.parseScalarTypeDefinition = function parseScalarTypeDefinition() {
+    var start = this._lexer.token;
+    var description = this.parseDescription();
+    this.expectKeyword('scalar');
+    var name = this.parseName();
+    var directives = this.parseDirectives(true);
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].SCALAR_TYPE_DEFINITION,
+      description: description,
+      name: name,
+      directives: directives,
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * ObjectTypeDefinition :
+   *   Description?
+   *   type Name ImplementsInterfaces? Directives[Const]? FieldsDefinition?
+   */
+  ;
+
+  _proto.parseObjectTypeDefinition = function parseObjectTypeDefinition() {
+    var start = this._lexer.token;
+    var description = this.parseDescription();
+    this.expectKeyword('type');
+    var name = this.parseName();
+    var interfaces = this.parseImplementsInterfaces();
+    var directives = this.parseDirectives(true);
+    var fields = this.parseFieldsDefinition();
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].OBJECT_TYPE_DEFINITION,
+      description: description,
+      name: name,
+      interfaces: interfaces,
+      directives: directives,
+      fields: fields,
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * ImplementsInterfaces :
+   *   - implements `&`? NamedType
+   *   - ImplementsInterfaces & NamedType
+   */
+  ;
+
+  _proto.parseImplementsInterfaces = function parseImplementsInterfaces() {
+    var types = [];
+
+    if (this.expectOptionalKeyword('implements')) {
+      // Optional leading ampersand
+      this.expectOptionalToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].AMP);
+
+      do {
+        types.push(this.parseNamedType());
+      } while (this.expectOptionalToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].AMP) || // Legacy support for the SDL?
+      this._options.allowLegacySDLImplementsInterfaces && this.peek(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].NAME));
+    }
+
+    return types;
+  }
+  /**
+   * FieldsDefinition : { FieldDefinition+ }
+   */
+  ;
+
+  _proto.parseFieldsDefinition = function parseFieldsDefinition() {
+    // Legacy support for the SDL?
+    if (this._options.allowLegacySDLEmptyFields && this.peek(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BRACE_L) && this._lexer.lookahead().kind === _tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BRACE_R) {
+      this._lexer.advance();
+
+      this._lexer.advance();
+
+      return [];
+    }
+
+    return this.optionalMany(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BRACE_L, this.parseFieldDefinition, _tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BRACE_R);
+  }
+  /**
+   * FieldDefinition :
+   *   - Description? Name ArgumentsDefinition? : Type Directives[Const]?
+   */
+  ;
+
+  _proto.parseFieldDefinition = function parseFieldDefinition() {
+    var start = this._lexer.token;
+    var description = this.parseDescription();
+    var name = this.parseName();
+    var args = this.parseArgumentDefs();
+    this.expectToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].COLON);
+    var type = this.parseTypeReference();
+    var directives = this.parseDirectives(true);
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].FIELD_DEFINITION,
+      description: description,
+      name: name,
+      arguments: args,
+      type: type,
+      directives: directives,
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * ArgumentsDefinition : ( InputValueDefinition+ )
+   */
+  ;
+
+  _proto.parseArgumentDefs = function parseArgumentDefs() {
+    return this.optionalMany(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].PAREN_L, this.parseInputValueDef, _tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].PAREN_R);
+  }
+  /**
+   * InputValueDefinition :
+   *   - Description? Name : Type DefaultValue? Directives[Const]?
+   */
+  ;
+
+  _proto.parseInputValueDef = function parseInputValueDef() {
+    var start = this._lexer.token;
+    var description = this.parseDescription();
+    var name = this.parseName();
+    this.expectToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].COLON);
+    var type = this.parseTypeReference();
+    var defaultValue;
+
+    if (this.expectOptionalToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].EQUALS)) {
+      defaultValue = this.parseValueLiteral(true);
+    }
+
+    var directives = this.parseDirectives(true);
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].INPUT_VALUE_DEFINITION,
+      description: description,
+      name: name,
+      type: type,
+      defaultValue: defaultValue,
+      directives: directives,
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * InterfaceTypeDefinition :
+   *   - Description? interface Name Directives[Const]? FieldsDefinition?
+   */
+  ;
+
+  _proto.parseInterfaceTypeDefinition = function parseInterfaceTypeDefinition() {
+    var start = this._lexer.token;
+    var description = this.parseDescription();
+    this.expectKeyword('interface');
+    var name = this.parseName();
+    var directives = this.parseDirectives(true);
+    var fields = this.parseFieldsDefinition();
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].INTERFACE_TYPE_DEFINITION,
+      description: description,
+      name: name,
+      directives: directives,
+      fields: fields,
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * UnionTypeDefinition :
+   *   - Description? union Name Directives[Const]? UnionMemberTypes?
+   */
+  ;
+
+  _proto.parseUnionTypeDefinition = function parseUnionTypeDefinition() {
+    var start = this._lexer.token;
+    var description = this.parseDescription();
+    this.expectKeyword('union');
+    var name = this.parseName();
+    var directives = this.parseDirectives(true);
+    var types = this.parseUnionMemberTypes();
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].UNION_TYPE_DEFINITION,
+      description: description,
+      name: name,
+      directives: directives,
+      types: types,
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * UnionMemberTypes :
+   *   - = `|`? NamedType
+   *   - UnionMemberTypes | NamedType
+   */
+  ;
+
+  _proto.parseUnionMemberTypes = function parseUnionMemberTypes() {
+    var types = [];
+
+    if (this.expectOptionalToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].EQUALS)) {
+      // Optional leading pipe
+      this.expectOptionalToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].PIPE);
+
+      do {
+        types.push(this.parseNamedType());
+      } while (this.expectOptionalToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].PIPE));
+    }
+
+    return types;
+  }
+  /**
+   * EnumTypeDefinition :
+   *   - Description? enum Name Directives[Const]? EnumValuesDefinition?
+   */
+  ;
+
+  _proto.parseEnumTypeDefinition = function parseEnumTypeDefinition() {
+    var start = this._lexer.token;
+    var description = this.parseDescription();
+    this.expectKeyword('enum');
+    var name = this.parseName();
+    var directives = this.parseDirectives(true);
+    var values = this.parseEnumValuesDefinition();
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].ENUM_TYPE_DEFINITION,
+      description: description,
+      name: name,
+      directives: directives,
+      values: values,
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * EnumValuesDefinition : { EnumValueDefinition+ }
+   */
+  ;
+
+  _proto.parseEnumValuesDefinition = function parseEnumValuesDefinition() {
+    return this.optionalMany(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BRACE_L, this.parseEnumValueDefinition, _tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BRACE_R);
+  }
+  /**
+   * EnumValueDefinition : Description? EnumValue Directives[Const]?
+   *
+   * EnumValue : Name
+   */
+  ;
+
+  _proto.parseEnumValueDefinition = function parseEnumValueDefinition() {
+    var start = this._lexer.token;
+    var description = this.parseDescription();
+    var name = this.parseName();
+    var directives = this.parseDirectives(true);
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].ENUM_VALUE_DEFINITION,
+      description: description,
+      name: name,
+      directives: directives,
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * InputObjectTypeDefinition :
+   *   - Description? input Name Directives[Const]? InputFieldsDefinition?
+   */
+  ;
+
+  _proto.parseInputObjectTypeDefinition = function parseInputObjectTypeDefinition() {
+    var start = this._lexer.token;
+    var description = this.parseDescription();
+    this.expectKeyword('input');
+    var name = this.parseName();
+    var directives = this.parseDirectives(true);
+    var fields = this.parseInputFieldsDefinition();
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].INPUT_OBJECT_TYPE_DEFINITION,
+      description: description,
+      name: name,
+      directives: directives,
+      fields: fields,
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * InputFieldsDefinition : { InputValueDefinition+ }
+   */
+  ;
+
+  _proto.parseInputFieldsDefinition = function parseInputFieldsDefinition() {
+    return this.optionalMany(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BRACE_L, this.parseInputValueDef, _tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BRACE_R);
+  }
+  /**
+   * TypeSystemExtension :
+   *   - SchemaExtension
+   *   - TypeExtension
+   *
+   * TypeExtension :
+   *   - ScalarTypeExtension
+   *   - ObjectTypeExtension
+   *   - InterfaceTypeExtension
+   *   - UnionTypeExtension
+   *   - EnumTypeExtension
+   *   - InputObjectTypeDefinition
+   */
+  ;
+
+  _proto.parseTypeSystemExtension = function parseTypeSystemExtension() {
+    var keywordToken = this._lexer.lookahead();
+
+    if (keywordToken.kind === _tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].NAME) {
+      switch (keywordToken.value) {
+        case 'schema':
+          return this.parseSchemaExtension();
+
+        case 'scalar':
+          return this.parseScalarTypeExtension();
+
+        case 'type':
+          return this.parseObjectTypeExtension();
+
+        case 'interface':
+          return this.parseInterfaceTypeExtension();
+
+        case 'union':
+          return this.parseUnionTypeExtension();
+
+        case 'enum':
+          return this.parseEnumTypeExtension();
+
+        case 'input':
+          return this.parseInputObjectTypeExtension();
+      }
+    }
+
+    throw this.unexpected(keywordToken);
+  }
+  /**
+   * SchemaExtension :
+   *  - extend schema Directives[Const]? { OperationTypeDefinition+ }
+   *  - extend schema Directives[Const]
+   */
+  ;
+
+  _proto.parseSchemaExtension = function parseSchemaExtension() {
+    var start = this._lexer.token;
+    this.expectKeyword('extend');
+    this.expectKeyword('schema');
+    var directives = this.parseDirectives(true);
+    var operationTypes = this.optionalMany(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BRACE_L, this.parseOperationTypeDefinition, _tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].BRACE_R);
+
+    if (directives.length === 0 && operationTypes.length === 0) {
+      throw this.unexpected();
+    }
+
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].SCHEMA_EXTENSION,
+      directives: directives,
+      operationTypes: operationTypes,
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * ScalarTypeExtension :
+   *   - extend scalar Name Directives[Const]
+   */
+  ;
+
+  _proto.parseScalarTypeExtension = function parseScalarTypeExtension() {
+    var start = this._lexer.token;
+    this.expectKeyword('extend');
+    this.expectKeyword('scalar');
+    var name = this.parseName();
+    var directives = this.parseDirectives(true);
+
+    if (directives.length === 0) {
+      throw this.unexpected();
+    }
+
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].SCALAR_TYPE_EXTENSION,
+      name: name,
+      directives: directives,
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * ObjectTypeExtension :
+   *  - extend type Name ImplementsInterfaces? Directives[Const]? FieldsDefinition
+   *  - extend type Name ImplementsInterfaces? Directives[Const]
+   *  - extend type Name ImplementsInterfaces
+   */
+  ;
+
+  _proto.parseObjectTypeExtension = function parseObjectTypeExtension() {
+    var start = this._lexer.token;
+    this.expectKeyword('extend');
+    this.expectKeyword('type');
+    var name = this.parseName();
+    var interfaces = this.parseImplementsInterfaces();
+    var directives = this.parseDirectives(true);
+    var fields = this.parseFieldsDefinition();
+
+    if (interfaces.length === 0 && directives.length === 0 && fields.length === 0) {
+      throw this.unexpected();
+    }
+
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].OBJECT_TYPE_EXTENSION,
+      name: name,
+      interfaces: interfaces,
+      directives: directives,
+      fields: fields,
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * InterfaceTypeExtension :
+   *   - extend interface Name Directives[Const]? FieldsDefinition
+   *   - extend interface Name Directives[Const]
+   */
+  ;
+
+  _proto.parseInterfaceTypeExtension = function parseInterfaceTypeExtension() {
+    var start = this._lexer.token;
+    this.expectKeyword('extend');
+    this.expectKeyword('interface');
+    var name = this.parseName();
+    var directives = this.parseDirectives(true);
+    var fields = this.parseFieldsDefinition();
+
+    if (directives.length === 0 && fields.length === 0) {
+      throw this.unexpected();
+    }
+
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].INTERFACE_TYPE_EXTENSION,
+      name: name,
+      directives: directives,
+      fields: fields,
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * UnionTypeExtension :
+   *   - extend union Name Directives[Const]? UnionMemberTypes
+   *   - extend union Name Directives[Const]
+   */
+  ;
+
+  _proto.parseUnionTypeExtension = function parseUnionTypeExtension() {
+    var start = this._lexer.token;
+    this.expectKeyword('extend');
+    this.expectKeyword('union');
+    var name = this.parseName();
+    var directives = this.parseDirectives(true);
+    var types = this.parseUnionMemberTypes();
+
+    if (directives.length === 0 && types.length === 0) {
+      throw this.unexpected();
+    }
+
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].UNION_TYPE_EXTENSION,
+      name: name,
+      directives: directives,
+      types: types,
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * EnumTypeExtension :
+   *   - extend enum Name Directives[Const]? EnumValuesDefinition
+   *   - extend enum Name Directives[Const]
+   */
+  ;
+
+  _proto.parseEnumTypeExtension = function parseEnumTypeExtension() {
+    var start = this._lexer.token;
+    this.expectKeyword('extend');
+    this.expectKeyword('enum');
+    var name = this.parseName();
+    var directives = this.parseDirectives(true);
+    var values = this.parseEnumValuesDefinition();
+
+    if (directives.length === 0 && values.length === 0) {
+      throw this.unexpected();
+    }
+
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].ENUM_TYPE_EXTENSION,
+      name: name,
+      directives: directives,
+      values: values,
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * InputObjectTypeExtension :
+   *   - extend input Name Directives[Const]? InputFieldsDefinition
+   *   - extend input Name Directives[Const]
+   */
+  ;
+
+  _proto.parseInputObjectTypeExtension = function parseInputObjectTypeExtension() {
+    var start = this._lexer.token;
+    this.expectKeyword('extend');
+    this.expectKeyword('input');
+    var name = this.parseName();
+    var directives = this.parseDirectives(true);
+    var fields = this.parseInputFieldsDefinition();
+
+    if (directives.length === 0 && fields.length === 0) {
+      throw this.unexpected();
+    }
+
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].INPUT_OBJECT_TYPE_EXTENSION,
+      name: name,
+      directives: directives,
+      fields: fields,
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * DirectiveDefinition :
+   *   - Description? directive @ Name ArgumentsDefinition? `repeatable`? on DirectiveLocations
+   */
+  ;
+
+  _proto.parseDirectiveDefinition = function parseDirectiveDefinition() {
+    var start = this._lexer.token;
+    var description = this.parseDescription();
+    this.expectKeyword('directive');
+    this.expectToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].AT);
+    var name = this.parseName();
+    var args = this.parseArgumentDefs();
+    var repeatable = this.expectOptionalKeyword('repeatable');
+    this.expectKeyword('on');
+    var locations = this.parseDirectiveLocations();
+    return {
+      kind: _kinds__WEBPACK_IMPORTED_MODULE_4__["Kind"].DIRECTIVE_DEFINITION,
+      description: description,
+      name: name,
+      arguments: args,
+      repeatable: repeatable,
+      locations: locations,
+      loc: this.loc(start)
+    };
+  }
+  /**
+   * DirectiveLocations :
+   *   - `|`? DirectiveLocation
+   *   - DirectiveLocations | DirectiveLocation
+   */
+  ;
+
+  _proto.parseDirectiveLocations = function parseDirectiveLocations() {
+    // Optional leading pipe
+    this.expectOptionalToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].PIPE);
+    var locations = [];
+
+    do {
+      locations.push(this.parseDirectiveLocation());
+    } while (this.expectOptionalToken(_tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].PIPE));
+
+    return locations;
+  }
+  /*
+   * DirectiveLocation :
+   *   - ExecutableDirectiveLocation
+   *   - TypeSystemDirectiveLocation
+   *
+   * ExecutableDirectiveLocation : one of
+   *   `QUERY`
+   *   `MUTATION`
+   *   `SUBSCRIPTION`
+   *   `FIELD`
+   *   `FRAGMENT_DEFINITION`
+   *   `FRAGMENT_SPREAD`
+   *   `INLINE_FRAGMENT`
+   *
+   * TypeSystemDirectiveLocation : one of
+   *   `SCHEMA`
+   *   `SCALAR`
+   *   `OBJECT`
+   *   `FIELD_DEFINITION`
+   *   `ARGUMENT_DEFINITION`
+   *   `INTERFACE`
+   *   `UNION`
+   *   `ENUM`
+   *   `ENUM_VALUE`
+   *   `INPUT_OBJECT`
+   *   `INPUT_FIELD_DEFINITION`
+   */
+  ;
+
+  _proto.parseDirectiveLocation = function parseDirectiveLocation() {
+    var start = this._lexer.token;
+    var name = this.parseName();
+
+    if (_directiveLocation__WEBPACK_IMPORTED_MODULE_7__["DirectiveLocation"][name.value] !== undefined) {
+      return name;
+    }
+
+    throw this.unexpected(start);
+  } // Core parsing utility functions
+
+  /**
+   * Returns a location object, used to identify the place in
+   * the source that created a given parsed object.
+   */
+  ;
+
+  _proto.loc = function loc(startToken) {
+    if (!this._options.noLocation) {
+      return new Loc(startToken, this._lexer.lastToken, this._lexer.source);
+    }
+  }
+  /**
+   * Determines if the next token is of a given kind
+   */
+  ;
+
+  _proto.peek = function peek(kind) {
+    return this._lexer.token.kind === kind;
+  }
+  /**
+   * If the next token is of the given kind, return that token after advancing
+   * the lexer. Otherwise, do not change the parser state and throw an error.
+   */
+  ;
+
+  _proto.expectToken = function expectToken(kind) {
+    var token = this._lexer.token;
+
+    if (token.kind === kind) {
+      this._lexer.advance();
+
+      return token;
+    }
+
+    throw Object(_error_syntaxError__WEBPACK_IMPORTED_MODULE_3__["syntaxError"])(this._lexer.source, token.start, "Expected ".concat(kind, ", found ").concat(getTokenDesc(token)));
+  }
+  /**
+   * If the next token is of the given kind, return that token after advancing
+   * the lexer. Otherwise, do not change the parser state and return undefined.
+   */
+  ;
+
+  _proto.expectOptionalToken = function expectOptionalToken(kind) {
+    var token = this._lexer.token;
+
+    if (token.kind === kind) {
+      this._lexer.advance();
+
+      return token;
+    }
+
+    return undefined;
+  }
+  /**
+   * If the next token is a given keyword, advance the lexer.
+   * Otherwise, do not change the parser state and throw an error.
+   */
+  ;
+
+  _proto.expectKeyword = function expectKeyword(value) {
+    var token = this._lexer.token;
+
+    if (token.kind === _tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].NAME && token.value === value) {
+      this._lexer.advance();
+    } else {
+      throw Object(_error_syntaxError__WEBPACK_IMPORTED_MODULE_3__["syntaxError"])(this._lexer.source, token.start, "Expected \"".concat(value, "\", found ").concat(getTokenDesc(token)));
+    }
+  }
+  /**
+   * If the next token is a given keyword, return "true" after advancing
+   * the lexer. Otherwise, do not change the parser state and return "false".
+   */
+  ;
+
+  _proto.expectOptionalKeyword = function expectOptionalKeyword(value) {
+    var token = this._lexer.token;
+
+    if (token.kind === _tokenKind__WEBPACK_IMPORTED_MODULE_8__["TokenKind"].NAME && token.value === value) {
+      this._lexer.advance();
+
+      return true;
+    }
+
+    return false;
+  }
+  /**
+   * Helper function for creating an error when an unexpected lexed token
+   * is encountered.
+   */
+  ;
+
+  _proto.unexpected = function unexpected(atToken) {
+    var token = atToken || this._lexer.token;
+    return Object(_error_syntaxError__WEBPACK_IMPORTED_MODULE_3__["syntaxError"])(this._lexer.source, token.start, "Unexpected ".concat(getTokenDesc(token)));
+  }
+  /**
+   * Returns a possibly empty list of parse nodes, determined by
+   * the parseFn. This list begins with a lex token of openKind
+   * and ends with a lex token of closeKind. Advances the parser
+   * to the next lex token after the closing token.
+   */
+  ;
+
+  _proto.any = function any(openKind, parseFn, closeKind) {
+    this.expectToken(openKind);
+    var nodes = [];
+
+    while (!this.expectOptionalToken(closeKind)) {
+      nodes.push(parseFn.call(this));
+    }
+
+    return nodes;
+  }
+  /**
+   * Returns a list of parse nodes, determined by the parseFn.
+   * It can be empty only if open token is missing otherwise it will always
+   * return non-empty list that begins with a lex token of openKind and ends
+   * with a lex token of closeKind. Advances the parser to the next lex token
+   * after the closing token.
+   */
+  ;
+
+  _proto.optionalMany = function optionalMany(openKind, parseFn, closeKind) {
+    if (this.expectOptionalToken(openKind)) {
+      var nodes = [];
+
+      do {
+        nodes.push(parseFn.call(this));
+      } while (!this.expectOptionalToken(closeKind));
+
+      return nodes;
+    }
+
+    return [];
+  }
+  /**
+   * Returns a non-empty list of parse nodes, determined by
+   * the parseFn. This list begins with a lex token of openKind
+   * and ends with a lex token of closeKind. Advances the parser
+   * to the next lex token after the closing token.
+   */
+  ;
+
+  _proto.many = function many(openKind, parseFn, closeKind) {
+    this.expectToken(openKind);
+    var nodes = [];
+
+    do {
+      nodes.push(parseFn.call(this));
+    } while (!this.expectOptionalToken(closeKind));
+
+    return nodes;
+  };
+
+  return Parser;
+}();
+
+function Loc(startToken, endToken, source) {
+  this.start = startToken.start;
+  this.end = endToken.end;
+  this.startToken = startToken;
+  this.endToken = endToken;
+  this.source = source;
+} // Print a simplified form when appearing in JSON/util.inspect.
+
+
+Object(_jsutils_defineToJSON__WEBPACK_IMPORTED_MODULE_2__["default"])(Loc, function () {
+  return {
+    start: this.start,
+    end: this.end
+  };
+});
+/**
+ * A helper function to describe a token as a string for debugging
+ */
+
+function getTokenDesc(token) {
+  var value = token.value;
+  return value ? "".concat(token.kind, " \"").concat(value, "\"") : token.kind;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/graphql/language/printLocation.mjs":
+/*!*********************************************************!*\
+  !*** ./node_modules/graphql/language/printLocation.mjs ***!
+  \*********************************************************/
+/*! exports provided: printLocation, printSourceLocation */
+/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "printLocation", function() { return printLocation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "printSourceLocation", function() { return printSourceLocation; });
+/* harmony import */ var _language_location__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../language/location */ "./node_modules/graphql/language/location.mjs");
+
+/**
+ * Render a helpful description of the location in the GraphQL Source document.
+ */
+
+function printLocation(location) {
+  return printSourceLocation(location.source, Object(_language_location__WEBPACK_IMPORTED_MODULE_0__["getLocation"])(location.source, location.start));
+}
+/**
+ * Render a helpful description of the location in the GraphQL Source document.
+ */
+
+function printSourceLocation(source, sourceLocation) {
+  var firstLineColumnOffset = source.locationOffset.column - 1;
+  var body = whitespace(firstLineColumnOffset) + source.body;
+  var lineIndex = sourceLocation.line - 1;
+  var lineOffset = source.locationOffset.line - 1;
+  var lineNum = sourceLocation.line + lineOffset;
+  var columnOffset = sourceLocation.line === 1 ? firstLineColumnOffset : 0;
+  var columnNum = sourceLocation.column + columnOffset;
+  var locationStr = "".concat(source.name, ":").concat(lineNum, ":").concat(columnNum, "\n");
+  var lines = body.split(/\r\n|[\n\r]/g);
+  var locationLine = lines[lineIndex]; // Special case for minified documents
+
+  if (locationLine.length > 120) {
+    var sublineIndex = Math.floor(columnNum / 80);
+    var sublineColumnNum = columnNum % 80;
+    var sublines = [];
+
+    for (var i = 0; i < locationLine.length; i += 80) {
+      sublines.push(locationLine.slice(i, i + 80));
+    }
+
+    return locationStr + printPrefixedLines([["".concat(lineNum), sublines[0]]].concat(sublines.slice(1, sublineIndex + 1).map(function (subline) {
+      return ['', subline];
+    }), [[' ', whitespace(sublineColumnNum - 1) + '^'], ['', sublines[sublineIndex + 1]]]));
+  }
+
+  return locationStr + printPrefixedLines([// Lines specified like this: ["prefix", "string"],
+  ["".concat(lineNum - 1), lines[lineIndex - 1]], ["".concat(lineNum), locationLine], ['', whitespace(columnNum - 1) + '^'], ["".concat(lineNum + 1), lines[lineIndex + 1]]]);
+}
+
+function printPrefixedLines(lines) {
+  var existingLines = lines.filter(function (_ref) {
+    var _ = _ref[0],
+        line = _ref[1];
+    return line !== undefined;
+  });
+  var padLen = Math.max.apply(Math, existingLines.map(function (_ref2) {
+    var prefix = _ref2[0];
+    return prefix.length;
+  }));
+  return existingLines.map(function (_ref3) {
+    var prefix = _ref3[0],
+        line = _ref3[1];
+    return lpad(padLen, prefix) + (line ? ' | ' + line : ' |');
+  }).join('\n');
+}
+
+function whitespace(len) {
+  return Array(len + 1).join(' ');
+}
+
+function lpad(len, str) {
+  return whitespace(len - str.length) + str;
 }
 
 
@@ -12107,6 +16905,90 @@ function isMultiline(string) {
 function hasMultilineItems(maybeArray) {
   return maybeArray && maybeArray.some(isMultiline);
 }
+
+
+/***/ }),
+
+/***/ "./node_modules/graphql/language/source.mjs":
+/*!**************************************************!*\
+  !*** ./node_modules/graphql/language/source.mjs ***!
+  \**************************************************/
+/*! exports provided: Source */
+/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Source", function() { return Source; });
+/* harmony import */ var _jsutils_devAssert__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../jsutils/devAssert */ "./node_modules/graphql/jsutils/devAssert.mjs");
+/* harmony import */ var _jsutils_defineToStringTag__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../jsutils/defineToStringTag */ "./node_modules/graphql/jsutils/defineToStringTag.mjs");
+
+
+
+/**
+ * A representation of source input to GraphQL.
+ * `name` and `locationOffset` are optional. They are useful for clients who
+ * store GraphQL documents in source files; for example, if the GraphQL input
+ * starts at line 40 in a file named Foo.graphql, it might be useful for name to
+ * be "Foo.graphql" and location to be `{ line: 40, column: 0 }`.
+ * line and column in locationOffset are 1-indexed
+ */
+var Source = function Source(body, name, locationOffset) {
+  this.body = body;
+  this.name = name || 'GraphQL request';
+  this.locationOffset = locationOffset || {
+    line: 1,
+    column: 1
+  };
+  this.locationOffset.line > 0 || Object(_jsutils_devAssert__WEBPACK_IMPORTED_MODULE_0__["default"])(0, 'line in locationOffset is 1-indexed and must be positive');
+  this.locationOffset.column > 0 || Object(_jsutils_devAssert__WEBPACK_IMPORTED_MODULE_0__["default"])(0, 'column in locationOffset is 1-indexed and must be positive');
+}; // Conditionally apply `[Symbol.toStringTag]` if `Symbol`s are supported
+
+Object(_jsutils_defineToStringTag__WEBPACK_IMPORTED_MODULE_1__["default"])(Source);
+
+
+/***/ }),
+
+/***/ "./node_modules/graphql/language/tokenKind.mjs":
+/*!*****************************************************!*\
+  !*** ./node_modules/graphql/language/tokenKind.mjs ***!
+  \*****************************************************/
+/*! exports provided: TokenKind */
+/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TokenKind", function() { return TokenKind; });
+/**
+ * An exported enum describing the different kinds of tokens that the
+ * lexer emits.
+ */
+var TokenKind = Object.freeze({
+  SOF: '<SOF>',
+  EOF: '<EOF>',
+  BANG: '!',
+  DOLLAR: '$',
+  AMP: '&',
+  PAREN_L: '(',
+  PAREN_R: ')',
+  SPREAD: '...',
+  COLON: ':',
+  EQUALS: '=',
+  AT: '@',
+  BRACKET_L: '[',
+  BRACKET_R: ']',
+  BRACE_L: '{',
+  PIPE: '|',
+  BRACE_R: '}',
+  NAME: 'Name',
+  INT: 'Int',
+  FLOAT: 'Float',
+  STRING: 'String',
+  BLOCK_STRING: 'BlockString',
+  COMMENT: 'Comment'
+});
+/**
+ * The enum type representing the token kinds values.
+ */
 
 
 /***/ }),
@@ -12553,6 +17435,2412 @@ function getVisitFn(visitor, kind, isLeaving) {
 
 /***/ }),
 
+/***/ "./node_modules/has/src/index.js":
+/*!***************************************!*\
+  !*** ./node_modules/has/src/index.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var bind = __webpack_require__(/*! function-bind */ "./node_modules/function-bind/index.js");
+
+module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
+
+
+/***/ }),
+
+/***/ "./node_modules/immer/dist/immer.module.js":
+/*!*************************************************!*\
+  !*** ./node_modules/immer/dist/immer.module.js ***!
+  \*************************************************/
+/*! exports provided: default, Immer, applyPatches, createDraft, finishDraft, immerable, isDraft, isDraftable, nothing, original, produce, produceWithPatches, setAutoFreeze, setUseProxies */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Immer", function() { return Immer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "applyPatches", function() { return applyPatches$1; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createDraft", function() { return createDraft; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "finishDraft", function() { return finishDraft; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "immerable", function() { return DRAFTABLE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isDraft", function() { return isDraft; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isDraftable", function() { return isDraftable; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "nothing", function() { return NOTHING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "original", function() { return original; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "produce", function() { return produce; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "produceWithPatches", function() { return produceWithPatches; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setAutoFreeze", function() { return setAutoFreeze; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setUseProxies", function() { return setUseProxies; });
+// Should be no imports here!
+var _a; // SOme things that should be evaluated before all else...
+
+
+var hasSymbol = typeof Symbol !== "undefined";
+var hasMap = typeof Map !== "undefined";
+var hasSet = typeof Set !== "undefined";
+/**
+ * The sentinel value returned by producers to replace the draft with undefined.
+ */
+
+var NOTHING = hasSymbol ? Symbol("immer-nothing") : (_a = {}, _a["immer-nothing"] = true, _a);
+/**
+ * To let Immer treat your class instances as plain immutable objects
+ * (albeit with a custom prototype), you must define either an instance property
+ * or a static property on each of your custom classes.
+ *
+ * Otherwise, your class instance will never be drafted, which means it won't be
+ * safe to mutate in a produce callback.
+ */
+
+var DRAFTABLE = hasSymbol ? Symbol("immer-draftable") : "__$immer_draftable";
+var DRAFT_STATE = hasSymbol ? Symbol("immer-state") : "__$immer_state";
+var iteratorSymbol = hasSymbol ? Symbol.iterator : "@@iterator";
+
+var extendStatics = function (d, b) {
+  extendStatics = Object.setPrototypeOf || {
+    __proto__: []
+  } instanceof Array && function (d, b) {
+    d.__proto__ = b;
+  } || function (d, b) {
+    for (var p in b) { if (b.hasOwnProperty(p)) { d[p] = b[p]; } }
+  };
+
+  return extendStatics(d, b);
+}; // Ugly hack to resolve #502 and inherit built in Map / Set
+
+
+function __extends(d, b) {
+  extendStatics(d, b);
+
+  function __() {
+    this.constructor = d;
+  }
+
+  d.prototype = ( // @ts-ignore
+  __.prototype = b.prototype, new __());
+}
+
+var Archtype;
+
+(function (Archtype) {
+  Archtype[Archtype["Object"] = 0] = "Object";
+  Archtype[Archtype["Array"] = 1] = "Array";
+  Archtype[Archtype["Map"] = 2] = "Map";
+  Archtype[Archtype["Set"] = 3] = "Set";
+})(Archtype || (Archtype = {}));
+
+var ProxyType;
+
+(function (ProxyType) {
+  ProxyType[ProxyType["ProxyObject"] = 0] = "ProxyObject";
+  ProxyType[ProxyType["ProxyArray"] = 1] = "ProxyArray";
+  ProxyType[ProxyType["ES5Object"] = 2] = "ES5Object";
+  ProxyType[ProxyType["ES5Array"] = 3] = "ES5Array";
+  ProxyType[ProxyType["Map"] = 4] = "Map";
+  ProxyType[ProxyType["Set"] = 5] = "Set";
+})(ProxyType || (ProxyType = {}));
+
+/** Returns true if the given value is an Immer draft */
+
+function isDraft(value) {
+  return !!value && !!value[DRAFT_STATE];
+}
+/** Returns true if the given value can be drafted by Immer */
+
+function isDraftable(value) {
+  if (!value) { return false; }
+  return isPlainObject(value) || Array.isArray(value) || !!value[DRAFTABLE] || !!value.constructor[DRAFTABLE] || isMap(value) || isSet(value);
+}
+function isPlainObject(value) {
+  if (!value || typeof value !== "object") { return false; }
+  var proto = Object.getPrototypeOf(value);
+  return !proto || proto === Object.prototype;
+}
+/** Get the underlying object that is represented by the given draft */
+
+function original(value) {
+  if (value && value[DRAFT_STATE]) {
+    return value[DRAFT_STATE].base;
+  } // otherwise return undefined
+
+}
+var ownKeys = typeof Reflect !== "undefined" && Reflect.ownKeys ? Reflect.ownKeys : typeof Object.getOwnPropertySymbols !== "undefined" ? function (obj) {
+  return Object.getOwnPropertyNames(obj).concat(Object.getOwnPropertySymbols(obj));
+} :
+/* istanbul ignore next */
+Object.getOwnPropertyNames;
+function each(obj, iter) {
+  if (getArchtype(obj) === Archtype.Object) {
+    ownKeys(obj).forEach(function (key) {
+      return iter(key, obj[key], obj);
+    });
+  } else {
+    obj.forEach(function (entry, index) {
+      return iter(index, entry, obj);
+    });
+  }
+}
+function isEnumerable(base, prop) {
+  var desc = Object.getOwnPropertyDescriptor(base, prop);
+  return desc && desc.enumerable ? true : false;
+}
+function getArchtype(thing) {
+  /* istanbul ignore next */
+  if (!thing) { die(); }
+
+  if (thing[DRAFT_STATE]) {
+    switch (thing[DRAFT_STATE].type) {
+      case ProxyType.ES5Object:
+      case ProxyType.ProxyObject:
+        return Archtype.Object;
+
+      case ProxyType.ES5Array:
+      case ProxyType.ProxyArray:
+        return Archtype.Array;
+
+      case ProxyType.Map:
+        return Archtype.Map;
+
+      case ProxyType.Set:
+        return Archtype.Set;
+    }
+  }
+
+  return Array.isArray(thing) ? Archtype.Array : isMap(thing) ? Archtype.Map : isSet(thing) ? Archtype.Set : Archtype.Object;
+}
+function has(thing, prop) {
+  return getArchtype(thing) === Archtype.Map ? thing.has(prop) : Object.prototype.hasOwnProperty.call(thing, prop);
+}
+function get(thing, prop) {
+  // @ts-ignore
+  return getArchtype(thing) === Archtype.Map ? thing.get(prop) : thing[prop];
+}
+function set(thing, propOrOldValue, value) {
+  switch (getArchtype(thing)) {
+    case Archtype.Map:
+      thing.set(propOrOldValue, value);
+      break;
+
+    case Archtype.Set:
+      thing.delete(propOrOldValue);
+      thing.add(value);
+      break;
+
+    default:
+      thing[propOrOldValue] = value;
+  }
+}
+function is(x, y) {
+  // From: https://github.com/facebook/fbjs/blob/c69904a511b900266935168223063dd8772dfc40/packages/fbjs/src/core/shallowEqual.js
+  if (x === y) {
+    return x !== 0 || 1 / x === 1 / y;
+  } else {
+    return x !== x && y !== y;
+  }
+}
+function isMap(target) {
+  return hasMap && target instanceof Map;
+}
+function isSet(target) {
+  return hasSet && target instanceof Set;
+}
+function latest(state) {
+  return state.copy || state.base;
+}
+function shallowCopy(base, invokeGetters) {
+  if (invokeGetters === void 0) {
+    invokeGetters = false;
+  }
+
+  if (Array.isArray(base)) { return base.slice(); }
+  var clone = Object.create(Object.getPrototypeOf(base));
+  ownKeys(base).forEach(function (key) {
+    if (key === DRAFT_STATE) {
+      return; // Never copy over draft state.
+    }
+
+    var desc = Object.getOwnPropertyDescriptor(base, key);
+    var value = desc.value;
+
+    if (desc.get) {
+      if (!invokeGetters) {
+        throw new Error("Immer drafts cannot have computed properties");
+      }
+
+      value = desc.get.call(base);
+    }
+
+    if (desc.enumerable) {
+      clone[key] = value;
+    } else {
+      Object.defineProperty(clone, key, {
+        value: value,
+        writable: true,
+        configurable: true
+      });
+    }
+  });
+  return clone;
+}
+function freeze(obj, deep) {
+  if (!isDraftable(obj) || isDraft(obj) || Object.isFrozen(obj)) { return; }
+  var type = getArchtype(obj);
+
+  if (type === Archtype.Set) {
+    obj.add = obj.clear = obj.delete = dontMutateFrozenCollections;
+  } else if (type === Archtype.Map) {
+    obj.set = obj.clear = obj.delete = dontMutateFrozenCollections;
+  }
+
+  Object.freeze(obj);
+  if (deep) { each(obj, function (_, value) {
+    return freeze(value, true);
+  }); }
+}
+
+function dontMutateFrozenCollections() {
+  throw new Error("This object has been frozen and should not be mutated");
+}
+
+function createHiddenProperty(target, prop, value) {
+  Object.defineProperty(target, prop, {
+    value: value,
+    enumerable: false,
+    writable: true
+  });
+}
+/* istanbul ignore next */
+
+function die() {
+  throw new Error("Illegal state, please file a bug");
+}
+
+/** Each scope represents a `produce` call. */
+
+var ImmerScope =
+/** @class */
+function () {
+  function ImmerScope(parent, immer) {
+    this.drafts = [];
+    this.parent = parent;
+    this.immer = immer; // Whenever the modified draft contains a draft from another scope, we
+    // need to prevent auto-freezing so the unowned draft can be finalized.
+
+    this.canAutoFreeze = true;
+  }
+
+  ImmerScope.prototype.usePatches = function (patchListener) {
+    if (patchListener) {
+      this.patches = [];
+      this.inversePatches = [];
+      this.patchListener = patchListener;
+    }
+  };
+
+  ImmerScope.prototype.revoke = function () {
+    this.leave();
+    this.drafts.forEach(revoke); // @ts-ignore
+
+    this.drafts = null;
+  };
+
+  ImmerScope.prototype.leave = function () {
+    if (this === ImmerScope.current) {
+      ImmerScope.current = this.parent;
+    }
+  };
+
+  ImmerScope.enter = function (immer) {
+    var scope = new ImmerScope(ImmerScope.current, immer);
+    ImmerScope.current = scope;
+    return scope;
+  };
+
+  return ImmerScope;
+}();
+
+function revoke(draft) {
+  var state = draft[DRAFT_STATE];
+  if (state.type === ProxyType.ProxyObject || state.type === ProxyType.ProxyArray) { state.revoke(); }else { state.revoked = true; }
+}
+
+function processResult(immer, result, scope) {
+  var baseDraft = scope.drafts[0];
+  var isReplaced = result !== undefined && result !== baseDraft;
+  immer.willFinalize(scope, result, isReplaced);
+
+  if (isReplaced) {
+    if (baseDraft[DRAFT_STATE].modified) {
+      scope.revoke();
+      throw new Error("An immer producer returned a new value *and* modified its draft. Either return a new value *or* modify the draft."); // prettier-ignore
+    }
+
+    if (isDraftable(result)) {
+      // Finalize the result in case it contains (or is) a subset of the draft.
+      result = finalize(immer, result, scope);
+      maybeFreeze(immer, result);
+    }
+
+    if (scope.patches) {
+      scope.patches.push({
+        op: "replace",
+        path: [],
+        value: result
+      });
+      scope.inversePatches.push({
+        op: "replace",
+        path: [],
+        value: baseDraft[DRAFT_STATE].base
+      });
+    }
+  } else {
+    // Finalize the base draft.
+    result = finalize(immer, baseDraft, scope, []);
+  }
+
+  scope.revoke();
+
+  if (scope.patches) {
+    scope.patchListener(scope.patches, scope.inversePatches);
+  }
+
+  return result !== NOTHING ? result : undefined;
+}
+
+function finalize(immer, draft, scope, path) {
+  var state = draft[DRAFT_STATE];
+
+  if (!state) {
+    if (Object.isFrozen(draft)) { return draft; }
+    return finalizeTree(immer, draft, scope);
+  } // Never finalize drafts owned by another scope.
+
+
+  if (state.scope !== scope) {
+    return draft;
+  }
+
+  if (!state.modified) {
+    maybeFreeze(immer, state.base, true);
+    return state.base;
+  }
+
+  if (!state.finalized) {
+    state.finalized = true;
+    finalizeTree(immer, state.draft, scope, path); // We cannot really delete anything inside of a Set. We can only replace the whole Set.
+
+    if (immer.onDelete && state.type !== ProxyType.Set) {
+      // The `assigned` object is unreliable with ES5 drafts.
+      if (immer.useProxies) {
+        var assigned = state.assigned;
+        each(assigned, function (prop, exists) {
+          if (!exists) { immer.onDelete(state, prop); }
+        });
+      } else {
+        var base = state.base,
+            copy_1 = state.copy;
+        each(base, function (prop) {
+          if (!has(copy_1, prop)) { immer.onDelete(state, prop); }
+        });
+      }
+    }
+
+    if (immer.onCopy) {
+      immer.onCopy(state);
+    } // At this point, all descendants of `state.copy` have been finalized,
+    // so we can be sure that `scope.canAutoFreeze` is accurate.
+
+
+    if (immer.autoFreeze && scope.canAutoFreeze) {
+      freeze(state.copy, false);
+    }
+
+    if (path && scope.patches) {
+      generatePatches(state, path, scope.patches, scope.inversePatches);
+    }
+  }
+
+  return state.copy;
+}
+
+function finalizeTree(immer, root, scope, rootPath) {
+  var state = root[DRAFT_STATE];
+
+  if (state) {
+    if (state.type === ProxyType.ES5Object || state.type === ProxyType.ES5Array) {
+      // Create the final copy, with added keys and without deleted keys.
+      state.copy = shallowCopy(state.draft, true);
+    }
+
+    root = state.copy;
+  }
+
+  each(root, function (key, value) {
+    return finalizeProperty(immer, scope, root, state, root, key, value, rootPath);
+  });
+  return root;
+}
+
+function finalizeProperty(immer, scope, root, rootState, parentValue, prop, childValue, rootPath) {
+  if (childValue === parentValue) {
+    throw Error("Immer forbids circular references");
+  } // In the `finalizeTree` method, only the `root` object may be a draft.
+
+
+  var isDraftProp = !!rootState && parentValue === root;
+  var isSetMember = isSet(parentValue);
+
+  if (isDraft(childValue)) {
+    var path = rootPath && isDraftProp && !isSetMember && // Set objects are atomic since they have no keys.
+    !has(rootState.assigned, prop) // Skip deep patches for assigned keys.
+    ? rootPath.concat(prop) : undefined; // Drafts owned by `scope` are finalized here.
+
+    childValue = finalize(immer, childValue, scope, path);
+    set(parentValue, prop, childValue); // Drafts from another scope must prevent auto-freezing.
+
+    if (isDraft(childValue)) {
+      scope.canAutoFreeze = false;
+    }
+  } // Unchanged draft properties are ignored.
+  else if (isDraftProp && is(childValue, get(rootState.base, prop))) {
+      return;
+    } // Search new objects for unfinalized drafts. Frozen objects should never contain drafts.
+    // TODO: the recursion over here looks weird, shouldn't non-draft stuff have it's own recursion?
+    // especially the passing on of root and rootState doesn't make sense...
+    else if (isDraftable(childValue) && !Object.isFrozen(childValue)) {
+        each(childValue, function (key, grandChild) {
+          return finalizeProperty(immer, scope, root, rootState, childValue, key, grandChild, rootPath);
+        });
+        maybeFreeze(immer, childValue);
+      }
+
+  if (isDraftProp && immer.onAssign && !isSetMember) {
+    immer.onAssign(rootState, prop, childValue);
+  }
+}
+
+function maybeFreeze(immer, value, deep) {
+  if (deep === void 0) {
+    deep = false;
+  }
+
+  if (immer.autoFreeze && !isDraft(value)) {
+    freeze(value, deep);
+  }
+}
+
+/**
+ * Returns a new draft of the `base` object.
+ *
+ * The second argument is the parent draft-state (used internally).
+ */
+
+function createProxy(base, parent) {
+  var isArray = Array.isArray(base);
+  var state = {
+    type: isArray ? ProxyType.ProxyArray : ProxyType.ProxyObject,
+    // Track which produce call this is associated with.
+    scope: parent ? parent.scope : ImmerScope.current,
+    // True for both shallow and deep changes.
+    modified: false,
+    // Used during finalization.
+    finalized: false,
+    // Track which properties have been assigned (true) or deleted (false).
+    assigned: {},
+    // The parent draft state.
+    parent: parent,
+    // The base state.
+    base: base,
+    // The base proxy.
+    draft: null,
+    // Any property proxies.
+    drafts: {},
+    // The base copy with any updated values.
+    copy: null,
+    // Called by the `produce` function.
+    revoke: null,
+    isManual: false
+  }; // the traps must target something, a bit like the 'real' base.
+  // but also, we need to be able to determine from the target what the relevant state is
+  // (to avoid creating traps per instance to capture the state in closure,
+  // and to avoid creating weird hidden properties as well)
+  // So the trick is to use 'state' as the actual 'target'! (and make sure we intercept everything)
+  // Note that in the case of an array, we put the state in an array to have better Reflect defaults ootb
+
+  var target = state;
+  var traps = objectTraps;
+
+  if (isArray) {
+    target = [state];
+    traps = arrayTraps;
+  } // TODO: optimization: might be faster, cheaper if we created a non-revocable proxy
+  // and administrate revoking ourselves
+
+
+  var _a = Proxy.revocable(target, traps),
+      revoke = _a.revoke,
+      proxy = _a.proxy;
+
+  state.draft = proxy;
+  state.revoke = revoke;
+  return proxy;
+}
+/**
+ * Object drafts
+ */
+
+var objectTraps = {
+  get: function (state, prop) {
+    if (prop === DRAFT_STATE) { return state; }
+    var drafts = state.drafts; // Check for existing draft in unmodified state.
+
+    if (!state.modified && has(drafts, prop)) {
+      return drafts[prop];
+    }
+
+    var value = latest(state)[prop];
+
+    if (state.finalized || !isDraftable(value)) {
+      return value;
+    } // Check for existing draft in modified state.
+
+
+    if (state.modified) {
+      // Assigned values are never drafted. This catches any drafts we created, too.
+      if (value !== peek(state.base, prop)) { return value; } // Store drafts on the copy (when one exists).
+      // @ts-ignore
+
+      drafts = state.copy;
+    }
+
+    return drafts[prop] = state.scope.immer.createProxy(value, state);
+  },
+  has: function (state, prop) {
+    return prop in latest(state);
+  },
+  ownKeys: function (state) {
+    return Reflect.ownKeys(latest(state));
+  },
+  set: function (state, prop
+  /* strictly not, but helps TS */
+  , value) {
+    if (!state.modified) {
+      var baseValue = peek(state.base, prop); // Optimize based on value's truthiness. Truthy values are guaranteed to
+      // never be undefined, so we can avoid the `in` operator. Lastly, truthy
+      // values may be drafts, but falsy values are never drafts.
+
+      var isUnchanged = value ? is(baseValue, value) || value === state.drafts[prop] : is(baseValue, value) && prop in state.base;
+      if (isUnchanged) { return true; }
+      prepareCopy(state);
+      markChanged(state);
+    }
+
+    state.assigned[prop] = true; // @ts-ignore
+
+    state.copy[prop] = value;
+    return true;
+  },
+  deleteProperty: function (state, prop) {
+    // The `undefined` check is a fast path for pre-existing keys.
+    if (peek(state.base, prop) !== undefined || prop in state.base) {
+      state.assigned[prop] = false;
+      prepareCopy(state);
+      markChanged(state);
+    } else if (state.assigned[prop]) {
+      // if an originally not assigned property was deleted
+      delete state.assigned[prop];
+    } // @ts-ignore
+
+
+    if (state.copy) { delete state.copy[prop]; }
+    return true;
+  },
+  // Note: We never coerce `desc.value` into an Immer draft, because we can't make
+  // the same guarantee in ES5 mode.
+  getOwnPropertyDescriptor: function (state, prop) {
+    var owner = latest(state);
+    var desc = Reflect.getOwnPropertyDescriptor(owner, prop);
+
+    if (desc) {
+      desc.writable = true;
+      desc.configurable = state.type !== ProxyType.ProxyArray || prop !== "length";
+    }
+
+    return desc;
+  },
+  defineProperty: function () {
+    throw new Error("Object.defineProperty() cannot be used on an Immer draft"); // prettier-ignore
+  },
+  getPrototypeOf: function (state) {
+    return Object.getPrototypeOf(state.base);
+  },
+  setPrototypeOf: function () {
+    throw new Error("Object.setPrototypeOf() cannot be used on an Immer draft"); // prettier-ignore
+  }
+};
+/**
+ * Array drafts
+ */
+
+var arrayTraps = {};
+each(objectTraps, function (key, fn) {
+  // @ts-ignore
+  arrayTraps[key] = function () {
+    arguments[0] = arguments[0][0];
+    return fn.apply(this, arguments);
+  };
+});
+
+arrayTraps.deleteProperty = function (state, prop) {
+  if (isNaN(parseInt(prop))) {
+    throw new Error("Immer only supports deleting array indices"); // prettier-ignore
+  }
+
+  return objectTraps.deleteProperty.call(this, state[0], prop);
+};
+
+arrayTraps.set = function (state, prop, value) {
+  if (prop !== "length" && isNaN(parseInt(prop))) {
+    throw new Error("Immer only supports setting array indices and the 'length' property"); // prettier-ignore
+  }
+
+  return objectTraps.set.call(this, state[0], prop, value, state[0]);
+};
+/**
+ * Map drafts
+ */
+// Access a property without creating an Immer draft.
+
+
+function peek(draft, prop) {
+  var state = draft[DRAFT_STATE];
+  var desc = Reflect.getOwnPropertyDescriptor(state ? latest(state) : draft, prop);
+  return desc && desc.value;
+}
+
+function markChanged(state) {
+  if (!state.modified) {
+    state.modified = true;
+
+    if (state.type === ProxyType.ProxyObject || state.type === ProxyType.ProxyArray) {
+      var copy_1 = state.copy = shallowCopy(state.base);
+      each(state.drafts, function (key, value) {
+        // @ts-ignore
+        copy_1[key] = value;
+      });
+      state.drafts = undefined;
+    }
+
+    if (state.parent) {
+      markChanged(state.parent);
+    }
+  }
+}
+
+function prepareCopy(state) {
+  if (!state.copy) {
+    state.copy = shallowCopy(state.base);
+  }
+}
+
+function willFinalizeES5(scope, result, isReplaced) {
+  scope.drafts.forEach(function (draft) {
+    draft[DRAFT_STATE].finalizing = true;
+  });
+
+  if (!isReplaced) {
+    if (scope.patches) {
+      markChangesRecursively(scope.drafts[0]);
+    } // This is faster when we don't care about which attributes changed.
+
+
+    markChangesSweep(scope.drafts);
+  } // When a child draft is returned, look for changes.
+  else if (isDraft(result) && result[DRAFT_STATE].scope === scope) {
+      markChangesSweep(scope.drafts);
+    }
+}
+function createES5Proxy(base, parent) {
+  var isArray = Array.isArray(base);
+  var draft = clonePotentialDraft(base);
+  each(draft, function (prop) {
+    proxyProperty(draft, prop, isArray || isEnumerable(base, prop));
+  });
+  var state = {
+    type: isArray ? ProxyType.ES5Array : ProxyType.ES5Object,
+    scope: parent ? parent.scope : ImmerScope.current,
+    modified: false,
+    finalizing: false,
+    finalized: false,
+    assigned: {},
+    parent: parent,
+    base: base,
+    draft: draft,
+    copy: null,
+    revoked: false,
+    isManual: false
+  };
+  createHiddenProperty(draft, DRAFT_STATE, state);
+  return draft;
+} // Access a property without creating an Immer draft.
+
+function peek$1(draft, prop) {
+  var state = draft[DRAFT_STATE];
+
+  if (state && !state.finalizing) {
+    state.finalizing = true;
+    var value = draft[prop];
+    state.finalizing = false;
+    return value;
+  }
+
+  return draft[prop];
+}
+
+function get$1(state, prop) {
+  assertUnrevoked(state);
+  var value = peek$1(latest(state), prop);
+  if (state.finalizing) { return value; } // Create a draft if the value is unmodified.
+
+  if (value === peek$1(state.base, prop) && isDraftable(value)) {
+    prepareCopy$1(state); // @ts-ignore
+
+    return state.copy[prop] = state.scope.immer.createProxy(value, state);
+  }
+
+  return value;
+}
+
+function set$1(state, prop, value) {
+  assertUnrevoked(state);
+  state.assigned[prop] = true;
+
+  if (!state.modified) {
+    if (is(value, peek$1(latest(state), prop))) { return; }
+    markChangedES5(state);
+    prepareCopy$1(state);
+  } // @ts-ignore
+
+
+  state.copy[prop] = value;
+}
+
+function markChangedES5(state) {
+  if (!state.modified) {
+    state.modified = true;
+    if (state.parent) { markChangedES5(state.parent); }
+  }
+}
+
+function prepareCopy$1(state) {
+  if (!state.copy) { state.copy = clonePotentialDraft(state.base); }
+}
+
+function clonePotentialDraft(base) {
+  var state = base && base[DRAFT_STATE];
+
+  if (state) {
+    state.finalizing = true;
+    var draft = shallowCopy(state.draft, true);
+    state.finalizing = false;
+    return draft;
+  }
+
+  return shallowCopy(base);
+} // property descriptors are recycled to make sure we don't create a get and set closure per property,
+// but share them all instead
+
+
+var descriptors = {};
+
+function proxyProperty(draft, prop, enumerable) {
+  var desc = descriptors[prop];
+
+  if (desc) {
+    desc.enumerable = enumerable;
+  } else {
+    descriptors[prop] = desc = {
+      configurable: true,
+      enumerable: enumerable,
+      get: function () {
+        return get$1(this[DRAFT_STATE], prop);
+      },
+      set: function (value) {
+        set$1(this[DRAFT_STATE], prop, value);
+      }
+    };
+  }
+
+  Object.defineProperty(draft, prop, desc);
+}
+
+function assertUnrevoked(state) {
+  if (state.revoked === true) { throw new Error("Cannot use a proxy that has been revoked. Did you pass an object from inside an immer function to an async process? " + JSON.stringify(latest(state))); }
+} // This looks expensive, but only proxies are visited, and only objects without known changes are scanned.
+
+function markChangesSweep(drafts) {
+  // The natural order of drafts in the `scope` array is based on when they
+  // were accessed. By processing drafts in reverse natural order, we have a
+  // better chance of processing leaf nodes first. When a leaf node is known to
+  // have changed, we can avoid any traversal of its ancestor nodes.
+  for (var i = drafts.length - 1; i >= 0; i--) {
+    var state = drafts[i][DRAFT_STATE];
+
+    if (!state.modified) {
+      switch (state.type) {
+        case ProxyType.ES5Array:
+          if (hasArrayChanges(state)) { markChangedES5(state); }
+          break;
+
+        case ProxyType.ES5Object:
+          if (hasObjectChanges(state)) { markChangedES5(state); }
+          break;
+      }
+    }
+  }
+}
+
+function markChangesRecursively(object) {
+  if (!object || typeof object !== "object") { return; }
+  var state = object[DRAFT_STATE];
+  if (!state) { return; }
+  var base = state.base,
+      draft = state.draft,
+      assigned = state.assigned,
+      type = state.type;
+
+  if (type === ProxyType.ES5Object) {
+    // Look for added keys.
+    // TODO: looks quite duplicate to hasObjectChanges,
+    // probably there is a faster way to detect changes, as sweep + recurse seems to do some
+    // unnecessary work.
+    // also: probably we can store the information we detect here, to speed up tree finalization!
+    each(draft, function (key) {
+      if (key === DRAFT_STATE) { return; } // The `undefined` check is a fast path for pre-existing keys.
+
+      if (base[key] === undefined && !has(base, key)) {
+        assigned[key] = true;
+        markChangedES5(state);
+      } else if (!assigned[key]) {
+        // Only untouched properties trigger recursion.
+        markChangesRecursively(draft[key]);
+      }
+    }); // Look for removed keys.
+
+    each(base, function (key) {
+      // The `undefined` check is a fast path for pre-existing keys.
+      if (draft[key] === undefined && !has(draft, key)) {
+        assigned[key] = false;
+        markChangedES5(state);
+      }
+    });
+  } else if (type === ProxyType.ES5Array && hasArrayChanges(state)) {
+    markChangedES5(state);
+    assigned.length = true;
+
+    if (draft.length < base.length) {
+      for (var i = draft.length; i < base.length; i++) { assigned[i] = false; }
+    } else {
+      for (var i = base.length; i < draft.length; i++) { assigned[i] = true; }
+    }
+
+    for (var i = 0; i < draft.length; i++) {
+      // Only untouched indices trigger recursion.
+      if (assigned[i] === undefined) { markChangesRecursively(draft[i]); }
+    }
+  }
+}
+
+function hasObjectChanges(state) {
+  var base = state.base,
+      draft = state.draft; // Search for added keys and changed keys. Start at the back, because
+  // non-numeric keys are ordered by time of definition on the object.
+
+  var keys = Object.keys(draft);
+
+  for (var i = keys.length - 1; i >= 0; i--) {
+    var key = keys[i];
+    var baseValue = base[key]; // The `undefined` check is a fast path for pre-existing keys.
+
+    if (baseValue === undefined && !has(base, key)) {
+      return true;
+    } // Once a base key is deleted, future changes go undetected, because its
+    // descriptor is erased. This branch detects any missed changes.
+    else {
+        var value = draft[key];
+        var state_1 = value && value[DRAFT_STATE];
+
+        if (state_1 ? state_1.base !== baseValue : !is(value, baseValue)) {
+          return true;
+        }
+      }
+  } // At this point, no keys were added or changed.
+  // Compare key count to determine if keys were deleted.
+
+
+  return keys.length !== Object.keys(base).length;
+}
+
+function hasArrayChanges(state) {
+  var draft = state.draft;
+  if (draft.length !== state.base.length) { return true; } // See #116
+  // If we first shorten the length, our array interceptors will be removed.
+  // If after that new items are added, result in the same original length,
+  // those last items will have no intercepting property.
+  // So if there is no own descriptor on the last position, we know that items were removed and added
+  // N.B.: splice, unshift, etc only shift values around, but not prop descriptors, so we only have to check
+  // the last one
+
+  var descriptor = Object.getOwnPropertyDescriptor(draft, draft.length - 1); // descriptor can be null, but only for newly created sparse arrays, eg. new Array(10)
+
+  if (descriptor && !descriptor.get) { return true; } // For all other cases, we don't have to compare, as they would have been picked up by the index setters
+
+  return false;
+}
+
+var DraftMap = function (_super) {
+  if (!_super) {
+    /* istanbul ignore next */
+    throw new Error("Map is not polyfilled");
+  }
+
+  __extends(DraftMap, _super); // Create class manually, cause #502
+
+
+  function DraftMap(target, parent) {
+    this[DRAFT_STATE] = {
+      type: ProxyType.Map,
+      parent: parent,
+      scope: parent ? parent.scope : ImmerScope.current,
+      modified: false,
+      finalized: false,
+      copy: undefined,
+      assigned: undefined,
+      base: target,
+      draft: this,
+      isManual: false,
+      revoked: false
+    };
+    return this;
+  }
+
+  var p = DraftMap.prototype; // TODO: smaller build size if we create a util for Object.defineProperty
+
+  Object.defineProperty(p, "size", {
+    get: function () {
+      return latest(this[DRAFT_STATE]).size;
+    },
+    enumerable: true,
+    configurable: true
+  });
+
+  p.has = function (key) {
+    return latest(this[DRAFT_STATE]).has(key);
+  };
+
+  p.set = function (key, value) {
+    var state = this[DRAFT_STATE];
+    assertUnrevoked(state);
+
+    if (latest(state).get(key) !== value) {
+      prepareCopy$2(state);
+      state.scope.immer.markChanged(state);
+      state.assigned.set(key, true);
+      state.copy.set(key, value);
+      state.assigned.set(key, true);
+    }
+
+    return this;
+  };
+
+  p.delete = function (key) {
+    if (!this.has(key)) {
+      return false;
+    }
+
+    var state = this[DRAFT_STATE];
+    assertUnrevoked(state);
+    prepareCopy$2(state);
+    state.scope.immer.markChanged(state);
+    state.assigned.set(key, false);
+    state.copy.delete(key);
+    return true;
+  };
+
+  p.clear = function () {
+    var state = this[DRAFT_STATE];
+    assertUnrevoked(state);
+    prepareCopy$2(state);
+    state.scope.immer.markChanged(state);
+    state.assigned = new Map();
+
+    for (var _i = 0, _a = latest(state).keys(); _i < _a.length; _i++) {
+      var key = _a[_i];
+      state.assigned.set(key, false);
+    }
+
+    return state.copy.clear();
+  };
+
+  p.forEach = function (cb, thisArg) {
+    var _this = this;
+
+    var state = this[DRAFT_STATE];
+    latest(state).forEach(function (_value, key, _map) {
+      cb.call(thisArg, _this.get(key), key, _this);
+    });
+  };
+
+  p.get = function (key) {
+    var state = this[DRAFT_STATE];
+    assertUnrevoked(state);
+    var value = latest(state).get(key);
+
+    if (state.finalized || !isDraftable(value)) {
+      return value;
+    }
+
+    if (value !== state.base.get(key)) {
+      return value; // either already drafted or reassigned
+    } // despite what it looks, this creates a draft only once, see above condition
+
+
+    var draft = state.scope.immer.createProxy(value, state);
+    prepareCopy$2(state);
+    state.copy.set(key, draft);
+    return draft;
+  };
+
+  p.keys = function () {
+    return latest(this[DRAFT_STATE]).keys();
+  };
+
+  p.values = function () {
+    var _a;
+
+    var _this = this;
+
+    var iterator = this.keys();
+    return _a = {}, _a[iteratorSymbol] = function () {
+      return _this.values();
+    }, _a.next = function () {
+      var r = iterator.next();
+      /* istanbul ignore next */
+
+      if (r.done) { return r; }
+
+      var value = _this.get(r.value);
+
+      return {
+        done: false,
+        value: value
+      };
+    }, _a;
+  };
+
+  p.entries = function () {
+    var _a;
+
+    var _this = this;
+
+    var iterator = this.keys();
+    return _a = {}, _a[iteratorSymbol] = function () {
+      return _this.entries();
+    }, _a.next = function () {
+      var r = iterator.next();
+      /* istanbul ignore next */
+
+      if (r.done) { return r; }
+
+      var value = _this.get(r.value);
+
+      return {
+        done: false,
+        value: [r.value, value]
+      };
+    }, _a;
+  };
+
+  p[iteratorSymbol] = function () {
+    return this.entries();
+  };
+
+  return DraftMap;
+}(Map);
+
+function proxyMap(target, parent) {
+  // @ts-ignore
+  return new DraftMap(target, parent);
+}
+
+function prepareCopy$2(state) {
+  if (!state.copy) {
+    state.assigned = new Map();
+    state.copy = new Map(state.base);
+  }
+}
+
+var DraftSet = function (_super) {
+  if (!_super) {
+    /* istanbul ignore next */
+    throw new Error("Set is not polyfilled");
+  }
+
+  __extends(DraftSet, _super); // Create class manually, cause #502
+
+
+  function DraftSet(target, parent) {
+    this[DRAFT_STATE] = {
+      type: ProxyType.Set,
+      parent: parent,
+      scope: parent ? parent.scope : ImmerScope.current,
+      modified: false,
+      finalized: false,
+      copy: undefined,
+      base: target,
+      draft: this,
+      drafts: new Map(),
+      revoked: false,
+      isManual: false
+    };
+    return this;
+  }
+
+  var p = DraftSet.prototype;
+  Object.defineProperty(p, "size", {
+    get: function () {
+      return latest(this[DRAFT_STATE]).size;
+    },
+    enumerable: true,
+    configurable: true
+  });
+
+  p.has = function (value) {
+    var state = this[DRAFT_STATE];
+    assertUnrevoked(state); // bit of trickery here, to be able to recognize both the value, and the draft of its value
+
+    if (!state.copy) {
+      return state.base.has(value);
+    }
+
+    if (state.copy.has(value)) { return true; }
+    if (state.drafts.has(value) && state.copy.has(state.drafts.get(value))) { return true; }
+    return false;
+  };
+
+  p.add = function (value) {
+    var state = this[DRAFT_STATE];
+    assertUnrevoked(state);
+
+    if (state.copy) {
+      state.copy.add(value);
+    } else if (!state.base.has(value)) {
+      prepareCopy$3(state);
+      state.scope.immer.markChanged(state);
+      state.copy.add(value);
+    }
+
+    return this;
+  };
+
+  p.delete = function (value) {
+    if (!this.has(value)) {
+      return false;
+    }
+
+    var state = this[DRAFT_STATE];
+    assertUnrevoked(state);
+    prepareCopy$3(state);
+    state.scope.immer.markChanged(state);
+    return state.copy.delete(value) || (state.drafts.has(value) ? state.copy.delete(state.drafts.get(value)) :
+    /* istanbul ignore next */
+    false);
+  };
+
+  p.clear = function () {
+    var state = this[DRAFT_STATE];
+    assertUnrevoked(state);
+    prepareCopy$3(state);
+    state.scope.immer.markChanged(state);
+    return state.copy.clear();
+  };
+
+  p.values = function () {
+    var state = this[DRAFT_STATE];
+    assertUnrevoked(state);
+    prepareCopy$3(state);
+    return state.copy.values();
+  };
+
+  p.entries = function entries() {
+    var state = this[DRAFT_STATE];
+    assertUnrevoked(state);
+    prepareCopy$3(state);
+    return state.copy.entries();
+  };
+
+  p.keys = function () {
+    return this.values();
+  };
+
+  p[iteratorSymbol] = function () {
+    return this.values();
+  };
+
+  p.forEach = function forEach(cb, thisArg) {
+    var iterator = this.values();
+    var result = iterator.next();
+
+    while (!result.done) {
+      cb.call(thisArg, result.value, result.value, this);
+      result = iterator.next();
+    }
+  };
+
+  return DraftSet;
+}(Set);
+
+function proxySet(target, parent) {
+  // @ts-ignore
+  return new DraftSet(target, parent);
+}
+
+function prepareCopy$3(state) {
+  if (!state.copy) {
+    // create drafts for all entries to preserve insertion order
+    state.copy = new Set();
+    state.base.forEach(function (value) {
+      if (isDraftable(value)) {
+        var draft = state.scope.immer.createProxy(value, state);
+        state.drafts.set(value, draft);
+        state.copy.add(draft);
+      } else {
+        state.copy.add(value);
+      }
+    });
+  }
+}
+
+function generatePatches(state, basePath, patches, inversePatches) {
+  switch (state.type) {
+    case ProxyType.ProxyObject:
+    case ProxyType.ES5Object:
+    case ProxyType.Map:
+      return generatePatchesFromAssigned(state, basePath, patches, inversePatches);
+
+    case ProxyType.ES5Array:
+    case ProxyType.ProxyArray:
+      return generateArrayPatches(state, basePath, patches, inversePatches);
+
+    case ProxyType.Set:
+      return generateSetPatches(state, basePath, patches, inversePatches);
+  }
+}
+
+function generateArrayPatches(state, basePath, patches, inversePatches) {
+  var _a, _b;
+
+  var base = state.base,
+      assigned = state.assigned,
+      copy = state.copy;
+  /* istanbul ignore next */
+
+  if (!copy) { die(); } // Reduce complexity by ensuring `base` is never longer.
+
+  if (copy.length < base.length) {
+    _a = [copy, base], base = _a[0], copy = _a[1];
+    _b = [inversePatches, patches], patches = _b[0], inversePatches = _b[1];
+  }
+
+  var delta = copy.length - base.length; // Find the first replaced index.
+
+  var start = 0;
+
+  while (base[start] === copy[start] && start < base.length) {
+    ++start;
+  } // Find the last replaced index. Search from the end to optimize splice patches.
+
+
+  var end = base.length;
+
+  while (end > start && base[end - 1] === copy[end + delta - 1]) {
+    --end;
+  } // Process replaced indices.
+
+
+  for (var i = start; i < end; ++i) {
+    if (assigned[i] && copy[i] !== base[i]) {
+      var path = basePath.concat([i]);
+      patches.push({
+        op: "replace",
+        path: path,
+        value: copy[i]
+      });
+      inversePatches.push({
+        op: "replace",
+        path: path,
+        value: base[i]
+      });
+    }
+  }
+
+  var replaceCount = patches.length; // Process added indices.
+
+  for (var i = end + delta - 1; i >= end; --i) {
+    var path = basePath.concat([i]);
+    patches[replaceCount + i - end] = {
+      op: "add",
+      path: path,
+      value: copy[i]
+    };
+    inversePatches.push({
+      op: "remove",
+      path: path
+    });
+  }
+} // This is used for both Map objects and normal objects.
+
+
+function generatePatchesFromAssigned(state, basePath, patches, inversePatches) {
+  var base = state.base,
+      copy = state.copy;
+  each(state.assigned, function (key, assignedValue) {
+    var origValue = get(base, key);
+    var value = get(copy, key);
+    var op = !assignedValue ? "remove" : has(base, key) ? "replace" : "add";
+    if (origValue === value && op === "replace") { return; }
+    var path = basePath.concat(key);
+    patches.push(op === "remove" ? {
+      op: op,
+      path: path
+    } : {
+      op: op,
+      path: path,
+      value: value
+    });
+    inversePatches.push(op === "add" ? {
+      op: "remove",
+      path: path
+    } : op === "remove" ? {
+      op: "add",
+      path: path,
+      value: origValue
+    } : {
+      op: "replace",
+      path: path,
+      value: origValue
+    });
+  });
+}
+
+function generateSetPatches(state, basePath, patches, inversePatches) {
+  var base = state.base,
+      copy = state.copy;
+  var i = 0;
+  base.forEach(function (value) {
+    if (!copy.has(value)) {
+      var path = basePath.concat([i]);
+      patches.push({
+        op: "remove",
+        path: path,
+        value: value
+      });
+      inversePatches.unshift({
+        op: "add",
+        path: path,
+        value: value
+      });
+    }
+
+    i++;
+  });
+  i = 0;
+  copy.forEach(function (value) {
+    if (!base.has(value)) {
+      var path = basePath.concat([i]);
+      patches.push({
+        op: "add",
+        path: path,
+        value: value
+      });
+      inversePatches.unshift({
+        op: "remove",
+        path: path,
+        value: value
+      });
+    }
+
+    i++;
+  });
+}
+
+function applyPatches(draft, patches) {
+  patches.forEach(function (patch) {
+    var path = patch.path,
+        op = patch.op;
+    /* istanbul ignore next */
+
+    if (!path.length) { die(); }
+    var base = draft;
+
+    for (var i = 0; i < path.length - 1; i++) {
+      base = get(base, path[i]);
+      if (!base || typeof base !== "object") { throw new Error("Cannot apply patch, path doesn't resolve: " + path.join("/")); } // prettier-ignore
+    }
+
+    var type = getArchtype(base);
+    var value = deepClonePatchValue(patch.value); // used to clone patch to ensure original patch is not modified, see #411
+
+    var key = path[path.length - 1];
+
+    switch (op) {
+      case "replace":
+        switch (type) {
+          case Archtype.Map:
+            return base.set(key, value);
+
+          /* istanbul ignore next */
+
+          case Archtype.Set:
+            throw new Error('Sets cannot have "replace" patches.');
+
+          default:
+            // if value is an object, then it's assigned by reference
+            // in the following add or remove ops, the value field inside the patch will also be modifyed
+            // so we use value from the cloned patch
+            // @ts-ignore
+            return base[key] = value;
+        }
+
+      case "add":
+        switch (type) {
+          case Archtype.Array:
+            return base.splice(key, 0, value);
+
+          case Archtype.Map:
+            return base.set(key, value);
+
+          case Archtype.Set:
+            return base.add(value);
+
+          default:
+            return base[key] = value;
+        }
+
+      case "remove":
+        switch (type) {
+          case Archtype.Array:
+            return base.splice(key, 1);
+
+          case Archtype.Map:
+            return base.delete(key);
+
+          case Archtype.Set:
+            return base.delete(patch.value);
+
+          default:
+            return delete base[key];
+        }
+
+      default:
+        throw new Error("Unsupported patch operation: " + op);
+    }
+  });
+  return draft;
+}
+
+function deepClonePatchValue(obj) {
+  if (!obj || typeof obj !== "object") { return obj; }
+  if (Array.isArray(obj)) { return obj.map(deepClonePatchValue); }
+  if (isMap(obj)) { return new Map(Array.from(obj.entries()).map(function (_a) {
+    var k = _a[0],
+        v = _a[1];
+    return [k, deepClonePatchValue(v)];
+  })); } // Not needed: if (isSet(obj)) return new Set(Array.from(obj.values()).map(deepClone))
+
+  var cloned = Object.create(Object.getPrototypeOf(obj));
+
+  for (var key in obj) { cloned[key] = deepClonePatchValue(obj[key]); }
+
+  return cloned;
+}
+
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at http://www.apache.org/licenses/LICENSE-2.0
+
+THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
+
+See the Apache Version 2.0 License for specific language governing permissions
+and limitations under the License.
+***************************************************************************** */
+
+function __spreadArrays() {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+}
+
+/* istanbul ignore next */
+
+function verifyMinified() {}
+
+var configDefaults = {
+  useProxies: typeof Proxy !== "undefined" && typeof Proxy.revocable !== "undefined" && typeof Reflect !== "undefined",
+  autoFreeze: typeof process !== "undefined" ? "development" !== "production" :
+  /* istanbul ignore next */
+  verifyMinified.name === "verifyMinified",
+  onAssign: null,
+  onDelete: null,
+  onCopy: null
+};
+
+var Immer =
+/** @class */
+function () {
+  function Immer(config) {
+    var _this = this;
+
+    this.useProxies = false;
+    this.autoFreeze = false;
+    each(configDefaults, function (key, value) {
+      var _a, _b; // @ts-ignore
+
+
+      _this[key] = (_b = (_a = config) === null || _a === void 0 ? void 0 : _a[key], _b !== null && _b !== void 0 ? _b : value);
+    });
+    this.setUseProxies(this.useProxies);
+    this.produce = this.produce.bind(this);
+    this.produceWithPatches = this.produceWithPatches.bind(this);
+  }
+  /**
+   * The `produce` function takes a value and a "recipe function" (whose
+   * return value often depends on the base state). The recipe function is
+   * free to mutate its first argument however it wants. All mutations are
+   * only ever applied to a __copy__ of the base state.
+   *
+   * Pass only a function to create a "curried producer" which relieves you
+   * from passing the recipe function every time.
+   *
+   * Only plain objects and arrays are made mutable. All other objects are
+   * considered uncopyable.
+   *
+   * Note: This function is __bound__ to its `Immer` instance.
+   *
+   * @param {any} base - the initial state
+   * @param {Function} producer - function that receives a proxy of the base state as first argument and which can be freely modified
+   * @param {Function} patchListener - optional function that will be called with all the patches produced here
+   * @returns {any} a new state, or the initial state if nothing was modified
+   */
+
+
+  Immer.prototype.produce = function (base, recipe, patchListener) {
+    var _this = this; // curried invocation
+
+
+    if (typeof base === "function" && typeof recipe !== "function") {
+      var defaultBase_1 = recipe;
+      recipe = base;
+      var self_1 = this;
+      return function curriedProduce(base) {
+        var arguments$1 = arguments;
+
+        var _this = this;
+
+        if (base === void 0) {
+          base = defaultBase_1;
+        }
+
+        var args = [];
+
+        for (var _i = 1; _i < arguments.length; _i++) {
+          args[_i - 1] = arguments$1[_i];
+        }
+
+        return self_1.produce(base, function (draft) {
+          return recipe.call.apply(recipe, __spreadArrays([_this, draft], args));
+        }); // prettier-ignore
+      };
+    } // prettier-ignore
+
+
+    {
+      if (typeof recipe !== "function") {
+        throw new Error("The first or second argument to `produce` must be a function");
+      }
+
+      if (patchListener !== undefined && typeof patchListener !== "function") {
+        throw new Error("The third argument to `produce` must be a function or undefined");
+      }
+    }
+    var result; // Only plain objects, arrays, and "immerable classes" are drafted.
+
+    if (isDraftable(base)) {
+      var scope_1 = ImmerScope.enter(this);
+      var proxy = this.createProxy(base, undefined);
+      var hasError = true;
+
+      try {
+        result = recipe(proxy);
+        hasError = false;
+      } finally {
+        // finally instead of catch + rethrow better preserves original stack
+        if (hasError) { scope_1.revoke(); }else { scope_1.leave(); }
+      }
+
+      if (typeof Promise !== "undefined" && result instanceof Promise) {
+        return result.then(function (result) {
+          scope_1.usePatches(patchListener);
+          return processResult(_this, result, scope_1);
+        }, function (error) {
+          scope_1.revoke();
+          throw error;
+        });
+      }
+
+      scope_1.usePatches(patchListener);
+      return processResult(this, result, scope_1);
+    } else {
+      result = recipe(base);
+      if (result === NOTHING) { return undefined; }
+      if (result === undefined) { result = base; }
+      maybeFreeze(this, result, true);
+      return result;
+    }
+  };
+
+  Immer.prototype.produceWithPatches = function (arg1, arg2, arg3) {
+    var _this = this;
+
+    if (typeof arg1 === "function") {
+      return function (state) {
+        var arguments$1 = arguments;
+
+        var args = [];
+
+        for (var _i = 1; _i < arguments.length; _i++) {
+          args[_i - 1] = arguments$1[_i];
+        }
+
+        return _this.produceWithPatches(state, function (draft) {
+          return arg1.apply(void 0, __spreadArrays([draft], args));
+        });
+      };
+    } // non-curried form
+
+    /* istanbul ignore next */
+
+
+    if (arg3) { die(); }
+    var patches, inversePatches;
+    var nextState = this.produce(arg1, arg2, function (p, ip) {
+      patches = p;
+      inversePatches = ip;
+    });
+    return [nextState, patches, inversePatches];
+  };
+
+  Immer.prototype.createDraft = function (base) {
+    if (!isDraftable(base)) {
+      throw new Error("First argument to `createDraft` must be a plain object, an array, or an immerable object"); // prettier-ignore
+    }
+
+    var scope = ImmerScope.enter(this);
+    var proxy = this.createProxy(base, undefined);
+    proxy[DRAFT_STATE].isManual = true;
+    scope.leave();
+    return proxy;
+  };
+
+  Immer.prototype.finishDraft = function (draft, patchListener) {
+    var state = draft && draft[DRAFT_STATE];
+
+    if (!state || !state.isManual) {
+      throw new Error("First argument to `finishDraft` must be a draft returned by `createDraft`"); // prettier-ignore
+    }
+
+    if (state.finalized) {
+      throw new Error("The given draft is already finalized"); // prettier-ignore
+    }
+
+    var scope = state.scope;
+    scope.usePatches(patchListener);
+    return processResult(this, undefined, scope);
+  };
+  /**
+   * Pass true to automatically freeze all copies created by Immer.
+   *
+   * By default, auto-freezing is disabled in production.
+   */
+
+
+  Immer.prototype.setAutoFreeze = function (value) {
+    this.autoFreeze = value;
+  };
+  /**
+   * Pass true to use the ES2015 `Proxy` class when creating drafts, which is
+   * always faster than using ES5 proxies.
+   *
+   * By default, feature detection is used, so calling this is rarely necessary.
+   */
+
+
+  Immer.prototype.setUseProxies = function (value) {
+    this.useProxies = value;
+  };
+
+  Immer.prototype.applyPatches = function (base, patches) {
+    // If a patch replaces the entire state, take that replacement as base
+    // before applying patches
+    var i;
+
+    for (i = patches.length - 1; i >= 0; i--) {
+      var patch = patches[i];
+
+      if (patch.path.length === 0 && patch.op === "replace") {
+        base = patch.value;
+        break;
+      }
+    }
+
+    if (isDraft(base)) {
+      // N.B: never hits if some patch a replacement, patches are never drafts
+      return applyPatches(base, patches);
+    } // Otherwise, produce a copy of the base state.
+
+
+    return this.produce(base, function (draft) {
+      return applyPatches(draft, patches.slice(i + 1));
+    });
+  };
+
+  Immer.prototype.createProxy = function (value, parent) {
+    // precondition: createProxy should be guarded by isDraftable, so we know we can safely draft
+    var draft = isMap(value) ? proxyMap(value, parent) : isSet(value) ? proxySet(value, parent) : this.useProxies ? createProxy(value, parent) : createES5Proxy(value, parent);
+    var scope = parent ? parent.scope : ImmerScope.current;
+    scope.drafts.push(draft);
+    return draft;
+  };
+
+  Immer.prototype.willFinalize = function (scope, thing, isReplaced) {
+    if (!this.useProxies) { willFinalizeES5(scope, thing, isReplaced); }
+  };
+
+  Immer.prototype.markChanged = function (state) {
+    if (this.useProxies) {
+      markChanged(state);
+    } else {
+      markChangedES5(state);
+    }
+  };
+
+  return Immer;
+}();
+
+var immer = new Immer();
+/**
+ * The `produce` function takes a value and a "recipe function" (whose
+ * return value often depends on the base state). The recipe function is
+ * free to mutate its first argument however it wants. All mutations are
+ * only ever applied to a __copy__ of the base state.
+ *
+ * Pass only a function to create a "curried producer" which relieves you
+ * from passing the recipe function every time.
+ *
+ * Only plain objects and arrays are made mutable. All other objects are
+ * considered uncopyable.
+ *
+ * Note: This function is __bound__ to its `Immer` instance.
+ *
+ * @param {any} base - the initial state
+ * @param {Function} producer - function that receives a proxy of the base state as first argument and which can be freely modified
+ * @param {Function} patchListener - optional function that will be called with all the patches produced here
+ * @returns {any} a new state, or the initial state if nothing was modified
+ */
+
+var produce = immer.produce;
+/**
+ * Like `produce`, but `produceWithPatches` always returns a tuple
+ * [nextState, patches, inversePatches] (instead of just the next state)
+ */
+
+var produceWithPatches = immer.produceWithPatches.bind(immer);
+/**
+ * Pass true to automatically freeze all copies created by Immer.
+ *
+ * By default, auto-freezing is disabled in production.
+ */
+
+var setAutoFreeze = immer.setAutoFreeze.bind(immer);
+/**
+ * Pass true to use the ES2015 `Proxy` class when creating drafts, which is
+ * always faster than using ES5 proxies.
+ *
+ * By default, feature detection is used, so calling this is rarely necessary.
+ */
+
+var setUseProxies = immer.setUseProxies.bind(immer);
+/**
+ * Apply an array of Immer patches to the first argument.
+ *
+ * This function is a producer, which means copy-on-write is in effect.
+ */
+
+var applyPatches$1 = immer.applyPatches.bind(immer);
+/**
+ * Create an Immer draft from the given base state, which may be a draft itself.
+ * The draft can be modified until you finalize it with the `finishDraft` function.
+ */
+
+var createDraft = immer.createDraft.bind(immer);
+/**
+ * Finalize an Immer draft from a `createDraft` call, returning the base state
+ * (if no changes were made) or a modified copy. The draft must *not* be
+ * mutated afterwards.
+ *
+ * Pass a function as the 2nd argument to generate Immer patches based on the
+ * changes that were made.
+ */
+
+var finishDraft = immer.finishDraft.bind(immer);
+
+/* harmony default export */ __webpack_exports__["default"] = (produce);
+
+//# sourceMappingURL=immer.module.js.map
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../process/browser.js */ "./node_modules/process/browser.js")))
+
+/***/ }),
+
+/***/ "./node_modules/inherits/inherits_browser.js":
+/*!***************************************************!*\
+  !*** ./node_modules/inherits/inherits_browser.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+if (typeof Object.create === 'function') {
+  // implementation from standard node.js 'util' module
+  module.exports = function inherits(ctor, superCtor) {
+    if (superCtor) {
+      ctor.super_ = superCtor
+      ctor.prototype = Object.create(superCtor.prototype, {
+        constructor: {
+          value: ctor,
+          enumerable: false,
+          writable: true,
+          configurable: true
+        }
+      })
+    }
+  };
+} else {
+  // old school shim for old browsers
+  module.exports = function inherits(ctor, superCtor) {
+    if (superCtor) {
+      ctor.super_ = superCtor
+      var TempCtor = function () {}
+      TempCtor.prototype = superCtor.prototype
+      ctor.prototype = new TempCtor()
+      ctor.prototype.constructor = ctor
+    }
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/is-alphabetical/index.js":
+/*!***********************************************!*\
+  !*** ./node_modules/is-alphabetical/index.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = alphabetical
+
+// Check if the given character code, or the character code at the first
+// character, is alphabetical.
+function alphabetical(character) {
+  var code = typeof character === 'string' ? character.charCodeAt(0) : character
+
+  return (
+    (code >= 97 && code <= 122) /* a-z */ ||
+    (code >= 65 && code <= 90) /* A-Z */
+  )
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/is-alphanumerical/index.js":
+/*!*************************************************!*\
+  !*** ./node_modules/is-alphanumerical/index.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var alphabetical = __webpack_require__(/*! is-alphabetical */ "./node_modules/is-alphabetical/index.js")
+var decimal = __webpack_require__(/*! is-decimal */ "./node_modules/is-decimal/index.js")
+
+module.exports = alphanumerical
+
+// Check if the given character code, or the character code at the first
+// character, is alphanumerical.
+function alphanumerical(character) {
+  return alphabetical(character) || decimal(character)
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/is-buffer/index.js":
+/*!*****************************************!*\
+  !*** ./node_modules/is-buffer/index.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/*!
+ * Determine if an object is a Buffer
+ *
+ * @author   Feross Aboukhadijeh <https://feross.org>
+ * @license  MIT
+ */
+
+// The _isBuffer check is for Safari 5-7 support, because it's missing
+// Object.prototype.constructor. Remove this eventually
+module.exports = function (obj) {
+  return obj != null && (isBuffer(obj) || isSlowBuffer(obj) || !!obj._isBuffer)
+}
+
+function isBuffer (obj) {
+  return !!obj.constructor && typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
+}
+
+// For Node v0.10 support. Remove this eventually.
+function isSlowBuffer (obj) {
+  return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/is-decimal/index.js":
+/*!******************************************!*\
+  !*** ./node_modules/is-decimal/index.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = decimal
+
+// Check if the given character code, or the character code at the first
+// character, is decimal.
+function decimal(character) {
+  var code = typeof character === 'string' ? character.charCodeAt(0) : character
+
+  return code >= 48 && code <= 57 /* 0-9 */
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/is-hexadecimal/index.js":
+/*!**********************************************!*\
+  !*** ./node_modules/is-hexadecimal/index.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = hexadecimal
+
+// Check if the given character code, or the character code at the first
+// character, is hexadecimal.
+function hexadecimal(character) {
+  var code = typeof character === 'string' ? character.charCodeAt(0) : character
+
+  return (
+    (code >= 97 /* a */ && code <= 102) /* z */ ||
+    (code >= 65 /* A */ && code <= 70) /* Z */ ||
+    (code >= 48 /* A */ && code <= 57) /* Z */
+  )
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/is-hotkey/lib/index.js":
+/*!*********************************************!*\
+  !*** ./node_modules/is-hotkey/lib/index.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+/**
+ * Constants.
+ */
+
+var IS_MAC = typeof window != 'undefined' && /Mac|iPod|iPhone|iPad/.test(window.navigator.platform);
+
+var MODIFIERS = {
+  alt: 'altKey',
+  control: 'ctrlKey',
+  meta: 'metaKey',
+  shift: 'shiftKey'
+};
+
+var ALIASES = {
+  add: '+',
+  break: 'pause',
+  cmd: 'meta',
+  command: 'meta',
+  ctl: 'control',
+  ctrl: 'control',
+  del: 'delete',
+  down: 'arrowdown',
+  esc: 'escape',
+  ins: 'insert',
+  left: 'arrowleft',
+  mod: IS_MAC ? 'meta' : 'control',
+  opt: 'alt',
+  option: 'alt',
+  return: 'enter',
+  right: 'arrowright',
+  space: ' ',
+  spacebar: ' ',
+  up: 'arrowup',
+  win: 'meta',
+  windows: 'meta'
+};
+
+var CODES = {
+  backspace: 8,
+  tab: 9,
+  enter: 13,
+  shift: 16,
+  control: 17,
+  alt: 18,
+  pause: 19,
+  capslock: 20,
+  escape: 27,
+  ' ': 32,
+  pageup: 33,
+  pagedown: 34,
+  end: 35,
+  home: 36,
+  arrowleft: 37,
+  arrowup: 38,
+  arrowright: 39,
+  arrowdown: 40,
+  insert: 45,
+  delete: 46,
+  meta: 91,
+  numlock: 144,
+  scrolllock: 145,
+  ';': 186,
+  '=': 187,
+  ',': 188,
+  '-': 189,
+  '.': 190,
+  '/': 191,
+  '`': 192,
+  '[': 219,
+  '\\': 220,
+  ']': 221,
+  '\'': 222
+};
+
+for (var f = 1; f < 20; f++) {
+  CODES['f' + f] = 111 + f;
+}
+
+/**
+ * Is hotkey?
+ */
+
+function isHotkey(hotkey, options, event) {
+  if (options && !('byKey' in options)) {
+    event = options;
+    options = null;
+  }
+
+  if (!Array.isArray(hotkey)) {
+    hotkey = [hotkey];
+  }
+
+  var array = hotkey.map(function (string) {
+    return parseHotkey(string, options);
+  });
+  var check = function check(e) {
+    return array.some(function (object) {
+      return compareHotkey(object, e);
+    });
+  };
+  var ret = event == null ? check : check(event);
+  return ret;
+}
+
+function isCodeHotkey(hotkey, event) {
+  return isHotkey(hotkey, event);
+}
+
+function isKeyHotkey(hotkey, event) {
+  return isHotkey(hotkey, { byKey: true }, event);
+}
+
+/**
+ * Parse.
+ */
+
+function parseHotkey(hotkey, options) {
+  var byKey = options && options.byKey;
+  var ret = {};
+
+  // Special case to handle the `+` key since we use it as a separator.
+  hotkey = hotkey.replace('++', '+add');
+  var values = hotkey.split('+');
+  var length = values.length;
+
+  // Ensure that all the modifiers are set to false unless the hotkey has them.
+
+  for (var k in MODIFIERS) {
+    ret[MODIFIERS[k]] = false;
+  }
+
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
+
+  try {
+    for (var _iterator = values[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var value = _step.value;
+
+      var optional = value.endsWith('?') && value.length > 1;
+
+      if (optional) {
+        value = value.slice(0, -1);
+      }
+
+      var name = toKeyName(value);
+      var modifier = MODIFIERS[name];
+
+      if (length === 1 || !modifier) {
+        if (byKey) {
+          ret.key = name;
+        } else {
+          ret.which = toKeyCode(value);
+        }
+      }
+
+      if (modifier) {
+        ret[modifier] = optional ? null : true;
+      }
+    }
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator.return) {
+        _iterator.return();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
+  }
+
+  return ret;
+}
+
+/**
+ * Compare.
+ */
+
+function compareHotkey(object, event) {
+  for (var key in object) {
+    var expected = object[key];
+    var actual = void 0;
+
+    if (expected == null) {
+      continue;
+    }
+
+    if (key === 'key' && event.key != null) {
+      actual = event.key.toLowerCase();
+    } else if (key === 'which') {
+      actual = expected === 91 && event.which === 93 ? 91 : event.which;
+    } else {
+      actual = event[key];
+    }
+
+    if (actual == null && expected === false) {
+      continue;
+    }
+
+    if (actual !== expected) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+/**
+ * Utils.
+ */
+
+function toKeyCode(name) {
+  name = toKeyName(name);
+  var code = CODES[name] || name.toUpperCase().charCodeAt(0);
+  return code;
+}
+
+function toKeyName(name) {
+  name = name.toLowerCase();
+  name = ALIASES[name] || name;
+  return name;
+}
+
+/**
+ * Export.
+ */
+
+exports.default = isHotkey;
+exports.isHotkey = isHotkey;
+exports.isCodeHotkey = isCodeHotkey;
+exports.isKeyHotkey = isKeyHotkey;
+exports.parseHotkey = parseHotkey;
+exports.compareHotkey = compareHotkey;
+exports.toKeyCode = toKeyCode;
+exports.toKeyName = toKeyName;
+
+/***/ }),
+
+/***/ "./node_modules/is-plain-obj/index.js":
+/*!********************************************!*\
+  !*** ./node_modules/is-plain-obj/index.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var toString = Object.prototype.toString;
+
+module.exports = function (x) {
+	var prototype;
+	return toString.call(x) === '[object Object]' && (prototype = Object.getPrototypeOf(x), prototype === null || prototype === Object.getPrototypeOf({}));
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/is-plain-object/index.js":
+/*!***********************************************!*\
+  !*** ./node_modules/is-plain-object/index.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return isPlainObject; });
+/* harmony import */ var isobject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! isobject */ "./node_modules/is-plain-object/node_modules/isobject/index.js");
+/*!
+ * is-plain-object <https://github.com/jonschlinkert/is-plain-object>
+ *
+ * Copyright (c) 2014-2017, Jon Schlinkert.
+ * Released under the MIT License.
+ */
+
+
+
+function isObjectObject(o) {
+  return Object(isobject__WEBPACK_IMPORTED_MODULE_0__["default"])(o) === true
+    && Object.prototype.toString.call(o) === '[object Object]';
+}
+
+function isPlainObject(o) {
+  var ctor,prot;
+
+  if (isObjectObject(o) === false) return false;
+
+  // If has modified constructor
+  ctor = o.constructor;
+  if (typeof ctor !== 'function') return false;
+
+  // If has modified prototype
+  prot = ctor.prototype;
+  if (isObjectObject(prot) === false) return false;
+
+  // If constructor does not have an Object-specific method
+  if (prot.hasOwnProperty('isPrototypeOf') === false) {
+    return false;
+  }
+
+  // Most likely a plain Object
+  return true;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/is-plain-object/node_modules/isobject/index.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/is-plain-object/node_modules/isobject/index.js ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return isObject; });
+/*!
+ * isobject <https://github.com/jonschlinkert/isobject>
+ *
+ * Copyright (c) 2014-2017, Jon Schlinkert.
+ * Released under the MIT License.
+ */
+
+function isObject(val) {
+  return val != null && typeof val === 'object' && Array.isArray(val) === false;
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/is-what/dist/index.esm.js":
 /*!************************************************!*\
   !*** ./node_modules/is-what/dist/index.esm.js ***!
@@ -12809,6 +20097,159 @@ function isType(payload, type) {
 }
 
 
+
+
+/***/ }),
+
+/***/ "./node_modules/is-whitespace-character/index.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/is-whitespace-character/index.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = whitespace
+
+var fromCode = String.fromCharCode
+var re = /\s/
+
+// Check if the given character code, or the character code at the first
+// character, is a whitespace character.
+function whitespace(character) {
+  return re.test(
+    typeof character === 'number' ? fromCode(character) : character.charAt(0)
+  )
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/is-word-character/index.js":
+/*!*************************************************!*\
+  !*** ./node_modules/is-word-character/index.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = wordCharacter
+
+var fromCode = String.fromCharCode
+var re = /\w/
+
+// Check if the given character code, or the character code at the first
+// character, is a word character.
+function wordCharacter(character) {
+  return re.test(
+    typeof character === 'number' ? fromCode(character) : character.charAt(0)
+  )
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/markdown-escapes/index.js":
+/*!************************************************!*\
+  !*** ./node_modules/markdown-escapes/index.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = escapes
+
+var defaults = [
+  '\\',
+  '`',
+  '*',
+  '{',
+  '}',
+  '[',
+  ']',
+  '(',
+  ')',
+  '#',
+  '+',
+  '-',
+  '.',
+  '!',
+  '_',
+  '>'
+]
+
+var gfm = defaults.concat(['~', '|'])
+
+var commonmark = gfm.concat([
+  '\n',
+  '"',
+  '$',
+  '%',
+  '&',
+  "'",
+  ',',
+  '/',
+  ':',
+  ';',
+  '<',
+  '=',
+  '?',
+  '@',
+  '^'
+])
+
+escapes.default = defaults
+escapes.gfm = gfm
+escapes.commonmark = commonmark
+
+// Get markdown escapes.
+function escapes(options) {
+  var settings = options || {}
+
+  if (settings.commonmark) {
+    return commonmark
+  }
+
+  return settings.gfm ? gfm : defaults
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/mdast-add-list-metadata/index.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/mdast-add-list-metadata/index.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var visitWithParents = __webpack_require__(/*! unist-util-visit-parents */ "./node_modules/unist-util-visit-parents/index.js");
+
+function addListMetadata() {
+  return function (ast) {
+    visitWithParents(ast, 'list', function (listNode, parents) {
+      var depth = 0, i, n;
+      for (i = 0, n = parents.length; i < n; i++) {
+        if (parents[i].type === 'list') depth += 1;
+      }
+      for (i = 0, n = listNode.children.length; i < n; i++) {
+        var child = listNode.children[i];
+        child.index = i;
+        child.ordered = listNode.ordered;
+      }
+      listNode.depth = depth;
+    });
+    return ast;
+  };
+}
+
+module.exports = addListMetadata;
 
 
 /***/ }),
@@ -13287,6 +20728,18 @@ module.exports = (__webpack_require__(/*! dll-reference dll_5f137288facb1107b491
 
 /***/ }),
 
+/***/ "./node_modules/next/dist/build/polyfills/object.assign/index.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/next/dist/build/polyfills/object.assign/index.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+var assign=Object.assign.bind(Object);function g(){return assign;}Object.defineProperties(g(),{implementation:{get:g},shim:{value:g},getPolyfill:{value:g}});module.exports=g();
+
+/***/ }),
+
 /***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F_app&absolutePagePath=private-next-pages%2F_app.js!./":
 /*!*********************************************************************************************************************************************!*\
   !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F_app&absolutePagePath=private-next-pages%2F_app.js ***!
@@ -13307,6 +20760,342 @@ module.exports = (__webpack_require__(/*! dll-reference dll_5f137288facb1107b491
       return mod
     }]);
   
+
+/***/ }),
+
+/***/ "./node_modules/next/dist/client/link.js":
+/*!***********************************************!*\
+  !*** ./node_modules/next/dist/client/link.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _classCallCheck = __webpack_require__(/*! @babel/runtime-corejs2/helpers/classCallCheck */ "./node_modules/@babel/runtime-corejs2/helpers/classCallCheck.js");
+
+var _createClass = __webpack_require__(/*! @babel/runtime-corejs2/helpers/createClass */ "./node_modules/@babel/runtime-corejs2/helpers/createClass.js");
+
+var _possibleConstructorReturn = __webpack_require__(/*! @babel/runtime-corejs2/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime-corejs2/helpers/possibleConstructorReturn.js");
+
+var _getPrototypeOf = __webpack_require__(/*! @babel/runtime-corejs2/helpers/getPrototypeOf */ "./node_modules/@babel/runtime-corejs2/helpers/getPrototypeOf.js");
+
+var _inherits = __webpack_require__(/*! @babel/runtime-corejs2/helpers/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/inherits.js");
+
+var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireWildcard */ "./node_modules/@babel/runtime-corejs2/helpers/interopRequireWildcard.js");
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireDefault */ "./node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault.js");
+
+exports.__esModule = true;
+exports["default"] = void 0;
+
+var _map = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/map */ "./node_modules/@babel/runtime-corejs2/core-js/map.js"));
+
+var _url = __webpack_require__(/*! url */ "./node_modules/native-url/dist/index.js");
+
+var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _router = _interopRequireDefault(__webpack_require__(/*! ./router */ "./node_modules/next/dist/client/router.js"));
+
+var _utils = __webpack_require__(/*! ../next-server/lib/utils */ "./node_modules/next/dist/next-server/lib/utils.js");
+
+function isLocal(href) {
+  var url = (0, _url.parse)(href, false, true);
+  var origin = (0, _url.parse)((0, _utils.getLocationOrigin)(), false, true);
+  return !url.host || url.protocol === origin.protocol && url.host === origin.host;
+}
+
+function memoizedFormatUrl(formatFunc) {
+  var lastHref = null;
+  var lastAs = null;
+  var lastResult = null;
+  return function (href, as) {
+    if (lastResult && href === lastHref && as === lastAs) {
+      return lastResult;
+    }
+
+    var result = formatFunc(href, as);
+    lastHref = href;
+    lastAs = as;
+    lastResult = result;
+    return result;
+  };
+}
+
+function formatUrl(url) {
+  return url && typeof url === 'object' ? (0, _utils.formatWithValidation)(url) : url;
+}
+
+var observer;
+var listeners = new _map["default"]();
+var IntersectionObserver = true ? window.IntersectionObserver : undefined;
+var prefetched = {};
+
+function getObserver() {
+  // Return shared instance of IntersectionObserver if already created
+  if (observer) {
+    return observer;
+  } // Only create shared IntersectionObserver if supported in browser
+
+
+  if (!IntersectionObserver) {
+    return undefined;
+  }
+
+  return observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!listeners.has(entry.target)) {
+        return;
+      }
+
+      var cb = listeners.get(entry.target);
+
+      if (entry.isIntersecting || entry.intersectionRatio > 0) {
+        observer.unobserve(entry.target);
+        listeners["delete"](entry.target);
+        cb();
+      }
+    });
+  }, {
+    rootMargin: '200px'
+  });
+}
+
+var listenToIntersections = function listenToIntersections(el, cb) {
+  var observer = getObserver();
+
+  if (!observer) {
+    return function () {};
+  }
+
+  observer.observe(el);
+  listeners.set(el, cb);
+  return function () {
+    try {
+      observer.unobserve(el);
+    } catch (err) {
+      console.error(err);
+    }
+
+    listeners["delete"](el);
+  };
+};
+
+var Link =
+/*#__PURE__*/
+function (_react$Component) {
+  _inherits(Link, _react$Component);
+
+  function Link(props) {
+    var _this;
+
+    _classCallCheck(this, Link);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Link).call(this, props));
+    _this.p = void 0;
+
+    _this.cleanUpListeners = function () {};
+
+    _this.formatUrls = memoizedFormatUrl(function (href, asHref) {
+      return {
+        href: formatUrl(href),
+        as: asHref ? formatUrl(asHref) : asHref
+      };
+    });
+
+    _this.linkClicked = function (e) {
+      // @ts-ignore target exists on currentTarget
+      var _e$currentTarget = e.currentTarget,
+          nodeName = _e$currentTarget.nodeName,
+          target = _e$currentTarget.target;
+
+      if (nodeName === 'A' && (target && target !== '_self' || e.metaKey || e.ctrlKey || e.shiftKey || e.nativeEvent && e.nativeEvent.which === 2)) {
+        // ignore click for new tab / new window behavior
+        return;
+      }
+
+      var _this$formatUrls = _this.formatUrls(_this.props.href, _this.props.as),
+          href = _this$formatUrls.href,
+          as = _this$formatUrls.as;
+
+      if (!isLocal(href)) {
+        // ignore click if it's outside our scope (e.g. https://google.com)
+        return;
+      }
+
+      var pathname = window.location.pathname;
+      href = (0, _url.resolve)(pathname, href);
+      as = as ? (0, _url.resolve)(pathname, as) : href;
+      e.preventDefault(); //  avoid scroll for urls with anchor refs
+
+      var scroll = _this.props.scroll;
+
+      if (scroll == null) {
+        scroll = as.indexOf('#') < 0;
+      } // replace state instead of push if prop is present
+
+
+      _router["default"][_this.props.replace ? 'replace' : 'push'](href, as, {
+        shallow: _this.props.shallow
+      }).then(function (success) {
+        if (!success) return;
+
+        if (scroll) {
+          window.scrollTo(0, 0);
+          document.body.focus();
+        }
+      });
+    };
+
+    if (true) {
+      if (props.prefetch) {
+        console.warn('Next.js auto-prefetches automatically based on viewport. The prefetch attribute is no longer needed. More: https://err.sh/zeit/next.js/prefetch-true-deprecated');
+      }
+    }
+
+    _this.p = props.prefetch !== false;
+    return _this;
+  }
+
+  _createClass(Link, [{
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.cleanUpListeners();
+    }
+  }, {
+    key: "getHref",
+    value: function getHref() {
+      var pathname = window.location.pathname;
+
+      var _this$formatUrls2 = this.formatUrls(this.props.href, this.props.as),
+          parsedHref = _this$formatUrls2.href;
+
+      return (0, _url.resolve)(pathname, parsedHref);
+    }
+  }, {
+    key: "handleRef",
+    value: function handleRef(ref) {
+      var _this2 = this;
+
+      var isPrefetched = prefetched[this.getHref()];
+
+      if (this.p && IntersectionObserver && ref && ref.tagName) {
+        this.cleanUpListeners();
+
+        if (!isPrefetched) {
+          this.cleanUpListeners = listenToIntersections(ref, function () {
+            _this2.prefetch();
+          });
+        }
+      }
+    } // The function is memoized so that no extra lifecycles are needed
+    // as per https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
+
+  }, {
+    key: "prefetch",
+    value: function prefetch() {
+      if (!this.p || false) return; // Prefetch the JSON page if asked (only in the client)
+
+      var href = this.getHref();
+
+      _router["default"].prefetch(href);
+
+      prefetched[href] = true;
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      var children = this.props.children;
+
+      var _this$formatUrls3 = this.formatUrls(this.props.href, this.props.as),
+          href = _this$formatUrls3.href,
+          as = _this$formatUrls3.as; // Deprecated. Warning shown by propType check. If the children provided is a string (<Link>example</Link>) we wrap it in an <a> tag
+
+
+      if (typeof children === 'string') {
+        children = _react["default"].createElement("a", null, children);
+      } // This will return the first child, if multiple are provided it will throw an error
+
+
+      var child = _react.Children.only(children);
+
+      var props = {
+        ref: function ref(el) {
+          _this3.handleRef(el);
+
+          if (child && typeof child === 'object' && child.ref) {
+            if (typeof child.ref === 'function') child.ref(el);else if (typeof child.ref === 'object') {
+              child.ref.current = el;
+            }
+          }
+        },
+        onMouseEnter: function onMouseEnter(e) {
+          if (child.props && typeof child.props.onMouseEnter === 'function') {
+            child.props.onMouseEnter(e);
+          }
+
+          _this3.prefetch();
+        },
+        onClick: function onClick(e) {
+          if (child.props && typeof child.props.onClick === 'function') {
+            child.props.onClick(e);
+          }
+
+          if (!e.defaultPrevented) {
+            _this3.linkClicked(e);
+          }
+        }
+      }; // If child is an <a> tag and doesn't have a href attribute, or if the 'passHref' property is
+      // defined, we specify the current 'href', so that repetition is not needed by the user
+
+      if (this.props.passHref || child.type === 'a' && !('href' in child.props)) {
+        props.href = as || href;
+      } // Add the ending slash to the paths. So, we can serve the
+      // "<page>/index.html" directly.
+
+
+      if (false) { var rewriteUrlForNextExport; }
+
+      return _react["default"].cloneElement(child, props);
+    }
+  }]);
+
+  return Link;
+}(_react.Component);
+
+if (true) {
+  var warn = (0, _utils.execOnce)(console.error); // This module gets removed by webpack.IgnorePlugin
+
+  var PropTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+  var exact = __webpack_require__(/*! prop-types-exact */ "./node_modules/prop-types-exact/build/index.js"); // @ts-ignore the property is supported, when declaring it on the class it outputs an extra bit of code which is not needed.
+
+
+  Link.propTypes = exact({
+    href: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
+    as: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    prefetch: PropTypes.bool,
+    replace: PropTypes.bool,
+    shallow: PropTypes.bool,
+    passHref: PropTypes.bool,
+    scroll: PropTypes.bool,
+    children: PropTypes.oneOfType([PropTypes.element, function (props, propName) {
+      var value = props[propName];
+
+      if (typeof value === 'string') {
+        warn("Warning: You're using a string directly inside <Link>. This usage has been deprecated. Please add an <a> tag as child of <Link>");
+      }
+
+      return null;
+    }]).isRequired
+  });
+}
+
+var _default = Link;
+exports["default"] = _default;
 
 /***/ }),
 
@@ -15270,6 +23059,18 @@ function createUrl(router) {
 
 /***/ }),
 
+/***/ "./node_modules/next/link.js":
+/*!***********************************!*\
+  !*** ./node_modules/next/link.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! ./dist/client/link */ "./node_modules/next/dist/client/link.js")
+
+
+/***/ }),
+
 /***/ "./node_modules/next/node_modules/react-is/cjs/react-is.development.js":
 /*!*****************************************************************************!*\
   !*** ./node_modules/next/node_modules/react-is/cjs/react-is.development.js ***!
@@ -16030,6 +23831,824 @@ function wrap(originalFunction, options) {
 
 /***/ }),
 
+/***/ "./node_modules/parse-entities/decode-entity.browser.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/parse-entities/decode-entity.browser.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/* eslint-env browser */
+
+var el
+
+var semicolon = 59 //  ';'
+
+module.exports = decodeEntity
+
+function decodeEntity(characters) {
+  var entity = '&' + characters + ';'
+  var char
+
+  el = el || document.createElement('i')
+  el.innerHTML = entity
+  char = el.textContent
+
+  // Some entities do not require the closing semicolon (`&not` - for instance),
+  // which leads to situations where parsing the assumed entity of &notit; will
+  // result in the string `¬it;`.  When we encounter a trailing semicolon after
+  // parsing and the entity to decode was not a semicolon (`&semi;`), we can
+  // assume that the matching was incomplete
+  if (char.charCodeAt(char.length - 1) === semicolon && characters !== 'semi') {
+    return false
+  }
+
+  // If the decoded string is equal to the input, the entity was not valid
+  return char === entity ? false : char
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/parse-entities/index.js":
+/*!**********************************************!*\
+  !*** ./node_modules/parse-entities/index.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var legacy = __webpack_require__(/*! character-entities-legacy */ "./node_modules/character-entities-legacy/index.json")
+var invalid = __webpack_require__(/*! character-reference-invalid */ "./node_modules/character-reference-invalid/index.json")
+var decimal = __webpack_require__(/*! is-decimal */ "./node_modules/is-decimal/index.js")
+var hexadecimal = __webpack_require__(/*! is-hexadecimal */ "./node_modules/is-hexadecimal/index.js")
+var alphanumerical = __webpack_require__(/*! is-alphanumerical */ "./node_modules/is-alphanumerical/index.js")
+var decodeEntity = __webpack_require__(/*! ./decode-entity */ "./node_modules/parse-entities/decode-entity.browser.js")
+
+module.exports = parseEntities
+
+var own = {}.hasOwnProperty
+var fromCharCode = String.fromCharCode
+var noop = Function.prototype
+
+// Default settings.
+var defaults = {
+  warning: null,
+  reference: null,
+  text: null,
+  warningContext: null,
+  referenceContext: null,
+  textContext: null,
+  position: {},
+  additional: null,
+  attribute: false,
+  nonTerminated: true
+}
+
+// Characters.
+var tab = 9 // '\t'
+var lineFeed = 10 // '\n'
+var formFeed = 12 //  '\f'
+var space = 32 // ' '
+var ampersand = 38 //  '&'
+var semicolon = 59 //  ';'
+var lessThan = 60 //  '<'
+var equalsTo = 61 //  '='
+var numberSign = 35 //  '#'
+var uppercaseX = 88 //  'X'
+var lowercaseX = 120 //  'x'
+var replacementCharacter = 65533 // '�'
+
+// Reference types.
+var name = 'named'
+var hexa = 'hexadecimal'
+var deci = 'decimal'
+
+// Map of bases.
+var bases = {}
+
+bases[hexa] = 16
+bases[deci] = 10
+
+// Map of types to tests.
+// Each type of character reference accepts different characters.
+// This test is used to detect whether a reference has ended (as the semicolon
+// is not strictly needed).
+var tests = {}
+
+tests[name] = alphanumerical
+tests[deci] = decimal
+tests[hexa] = hexadecimal
+
+// Warning types.
+var namedNotTerminated = 1
+var numericNotTerminated = 2
+var namedEmpty = 3
+var numericEmpty = 4
+var namedUnknown = 5
+var numericDisallowed = 6
+var numericProhibited = 7
+
+// Warning messages.
+var messages = {}
+
+messages[namedNotTerminated] =
+  'Named character references must be terminated by a semicolon'
+messages[numericNotTerminated] =
+  'Numeric character references must be terminated by a semicolon'
+messages[namedEmpty] = 'Named character references cannot be empty'
+messages[numericEmpty] = 'Numeric character references cannot be empty'
+messages[namedUnknown] = 'Named character references must be known'
+messages[numericDisallowed] =
+  'Numeric character references cannot be disallowed'
+messages[numericProhibited] =
+  'Numeric character references cannot be outside the permissible Unicode range'
+
+// Wrap to ensure clean parameters are given to `parse`.
+function parseEntities(value, options) {
+  var settings = {}
+  var option
+  var key
+
+  if (!options) {
+    options = {}
+  }
+
+  for (key in defaults) {
+    option = options[key]
+    settings[key] =
+      option === null || option === undefined ? defaults[key] : option
+  }
+
+  if (settings.position.indent || settings.position.start) {
+    settings.indent = settings.position.indent || []
+    settings.position = settings.position.start
+  }
+
+  return parse(value, settings)
+}
+
+// Parse entities.
+// eslint-disable-next-line complexity
+function parse(value, settings) {
+  var additional = settings.additional
+  var nonTerminated = settings.nonTerminated
+  var handleText = settings.text
+  var handleReference = settings.reference
+  var handleWarning = settings.warning
+  var textContext = settings.textContext
+  var referenceContext = settings.referenceContext
+  var warningContext = settings.warningContext
+  var pos = settings.position
+  var indent = settings.indent || []
+  var length = value.length
+  var index = 0
+  var lines = -1
+  var column = pos.column || 1
+  var line = pos.line || 1
+  var queue = ''
+  var result = []
+  var entityCharacters
+  var namedEntity
+  var terminated
+  var characters
+  var character
+  var reference
+  var following
+  var warning
+  var reason
+  var output
+  var entity
+  var begin
+  var start
+  var type
+  var test
+  var prev
+  var next
+  var diff
+  var end
+
+  if (typeof additional === 'string') {
+    additional = additional.charCodeAt(0)
+  }
+
+  // Cache the current point.
+  prev = now()
+
+  // Wrap `handleWarning`.
+  warning = handleWarning ? parseError : noop
+
+  // Ensure the algorithm walks over the first character and the end (inclusive).
+  index--
+  length++
+
+  while (++index < length) {
+    // If the previous character was a newline.
+    if (character === lineFeed) {
+      column = indent[lines] || 1
+    }
+
+    character = value.charCodeAt(index)
+
+    if (character === ampersand) {
+      following = value.charCodeAt(index + 1)
+
+      // The behaviour depends on the identity of the next character.
+      if (
+        following === tab ||
+        following === lineFeed ||
+        following === formFeed ||
+        following === space ||
+        following === ampersand ||
+        following === lessThan ||
+        following !== following ||
+        (additional && following === additional)
+      ) {
+        // Not a character reference.
+        // No characters are consumed, and nothing is returned.
+        // This is not an error, either.
+        queue += fromCharCode(character)
+        column++
+
+        continue
+      }
+
+      start = index + 1
+      begin = start
+      end = start
+
+      if (following === numberSign) {
+        // Numerical entity.
+        end = ++begin
+
+        // The behaviour further depends on the next character.
+        following = value.charCodeAt(end)
+
+        if (following === uppercaseX || following === lowercaseX) {
+          // ASCII hex digits.
+          type = hexa
+          end = ++begin
+        } else {
+          // ASCII digits.
+          type = deci
+        }
+      } else {
+        // Named entity.
+        type = name
+      }
+
+      entityCharacters = ''
+      entity = ''
+      characters = ''
+      test = tests[type]
+      end--
+
+      while (++end < length) {
+        following = value.charCodeAt(end)
+
+        if (!test(following)) {
+          break
+        }
+
+        characters += fromCharCode(following)
+
+        // Check if we can match a legacy named reference.
+        // If so, we cache that as the last viable named reference.
+        // This ensures we do not need to walk backwards later.
+        if (type === name && own.call(legacy, characters)) {
+          entityCharacters = characters
+          entity = legacy[characters]
+        }
+      }
+
+      terminated = value.charCodeAt(end) === semicolon
+
+      if (terminated) {
+        end++
+
+        namedEntity = type === name ? decodeEntity(characters) : false
+
+        if (namedEntity) {
+          entityCharacters = characters
+          entity = namedEntity
+        }
+      }
+
+      diff = 1 + end - start
+
+      if (!terminated && !nonTerminated) {
+        // Empty.
+      } else if (!characters) {
+        // An empty (possible) entity is valid, unless it’s numeric (thus an
+        // ampersand followed by an octothorp).
+        if (type !== name) {
+          warning(numericEmpty, diff)
+        }
+      } else if (type === name) {
+        // An ampersand followed by anything unknown, and not terminated, is
+        // invalid.
+        if (terminated && !entity) {
+          warning(namedUnknown, 1)
+        } else {
+          // If theres something after an entity name which is not known, cap
+          // the reference.
+          if (entityCharacters !== characters) {
+            end = begin + entityCharacters.length
+            diff = 1 + end - begin
+            terminated = false
+          }
+
+          // If the reference is not terminated, warn.
+          if (!terminated) {
+            reason = entityCharacters ? namedNotTerminated : namedEmpty
+
+            if (settings.attribute) {
+              following = value.charCodeAt(end)
+
+              if (following === equalsTo) {
+                warning(reason, diff)
+                entity = null
+              } else if (alphanumerical(following)) {
+                entity = null
+              } else {
+                warning(reason, diff)
+              }
+            } else {
+              warning(reason, diff)
+            }
+          }
+        }
+
+        reference = entity
+      } else {
+        if (!terminated) {
+          // All non-terminated numeric entities are not rendered, and trigger a
+          // warning.
+          warning(numericNotTerminated, diff)
+        }
+
+        // When terminated and number, parse as either hexadecimal or decimal.
+        reference = parseInt(characters, bases[type])
+
+        // Trigger a warning when the parsed number is prohibited, and replace
+        // with replacement character.
+        if (prohibited(reference)) {
+          warning(numericProhibited, diff)
+          reference = fromCharCode(replacementCharacter)
+        } else if (reference in invalid) {
+          // Trigger a warning when the parsed number is disallowed, and replace
+          // by an alternative.
+          warning(numericDisallowed, diff)
+          reference = invalid[reference]
+        } else {
+          // Parse the number.
+          output = ''
+
+          // Trigger a warning when the parsed number should not be used.
+          if (disallowed(reference)) {
+            warning(numericDisallowed, diff)
+          }
+
+          // Stringify the number.
+          if (reference > 0xffff) {
+            reference -= 0x10000
+            output += fromCharCode((reference >>> (10 & 0x3ff)) | 0xd800)
+            reference = 0xdc00 | (reference & 0x3ff)
+          }
+
+          reference = output + fromCharCode(reference)
+        }
+      }
+
+      // Found it!
+      // First eat the queued characters as normal text, then eat an entity.
+      if (reference) {
+        flush()
+
+        prev = now()
+        index = end - 1
+        column += end - start + 1
+        result.push(reference)
+        next = now()
+        next.offset++
+
+        if (handleReference) {
+          handleReference.call(
+            referenceContext,
+            reference,
+            {start: prev, end: next},
+            value.slice(start - 1, end)
+          )
+        }
+
+        prev = next
+      } else {
+        // If we could not find a reference, queue the checked characters (as
+        // normal characters), and move the pointer to their end.
+        // This is possible because we can be certain neither newlines nor
+        // ampersands are included.
+        characters = value.slice(start - 1, end)
+        queue += characters
+        column += characters.length
+        index = end - 1
+      }
+    } else {
+      // Handle anything other than an ampersand, including newlines and EOF.
+      if (
+        character === 10 // Line feed
+      ) {
+        line++
+        lines++
+        column = 0
+      }
+
+      if (character === character) {
+        queue += fromCharCode(character)
+        column++
+      } else {
+        flush()
+      }
+    }
+  }
+
+  // Return the reduced nodes, and any possible warnings.
+  return result.join('')
+
+  // Get current position.
+  function now() {
+    return {
+      line: line,
+      column: column,
+      offset: index + (pos.offset || 0)
+    }
+  }
+
+  // “Throw” a parse-error: a warning.
+  function parseError(code, offset) {
+    var position = now()
+
+    position.column += offset
+    position.offset += offset
+
+    handleWarning.call(warningContext, messages[code], position, code)
+  }
+
+  // Flush `queue` (normal text).
+  // Macro invoked before each entity and at the end of `value`.
+  // Does nothing when `queue` is empty.
+  function flush() {
+    if (queue) {
+      result.push(queue)
+
+      if (handleText) {
+        handleText.call(textContext, queue, {start: prev, end: now()})
+      }
+
+      queue = ''
+    }
+  }
+}
+
+// Check if `character` is outside the permissible unicode range.
+function prohibited(code) {
+  return (code >= 0xd800 && code <= 0xdfff) || code > 0x10ffff
+}
+
+// Check if `character` is disallowed.
+function disallowed(code) {
+  return (
+    (code >= 0x0001 && code <= 0x0008) ||
+    code === 0x000b ||
+    (code >= 0x000d && code <= 0x001f) ||
+    (code >= 0x007f && code <= 0x009f) ||
+    (code >= 0xfdd0 && code <= 0xfdef) ||
+    (code & 0xffff) === 0xffff ||
+    (code & 0xffff) === 0xfffe
+  )
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/path-browserify/index.js":
+/*!***********************************************!*\
+  !*** ./node_modules/path-browserify/index.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(process) {// .dirname, .basename, and .extname methods are extracted from Node.js v8.11.1,
+// backported and transplited with Babel, with backwards-compat fixes
+
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+// resolves . and .. elements in a path array with directory names there
+// must be no slashes, empty elements, or device names (c:\) in the array
+// (so also no leading and trailing slashes - it does not distinguish
+// relative and absolute paths)
+function normalizeArray(parts, allowAboveRoot) {
+  // if the path tries to go above the root, `up` ends up > 0
+  var up = 0;
+  for (var i = parts.length - 1; i >= 0; i--) {
+    var last = parts[i];
+    if (last === '.') {
+      parts.splice(i, 1);
+    } else if (last === '..') {
+      parts.splice(i, 1);
+      up++;
+    } else if (up) {
+      parts.splice(i, 1);
+      up--;
+    }
+  }
+
+  // if the path is allowed to go above the root, restore leading ..s
+  if (allowAboveRoot) {
+    for (; up--; up) {
+      parts.unshift('..');
+    }
+  }
+
+  return parts;
+}
+
+// path.resolve([from ...], to)
+// posix version
+exports.resolve = function() {
+  var resolvedPath = '',
+      resolvedAbsolute = false;
+
+  for (var i = arguments.length - 1; i >= -1 && !resolvedAbsolute; i--) {
+    var path = (i >= 0) ? arguments[i] : process.cwd();
+
+    // Skip empty and invalid entries
+    if (typeof path !== 'string') {
+      throw new TypeError('Arguments to path.resolve must be strings');
+    } else if (!path) {
+      continue;
+    }
+
+    resolvedPath = path + '/' + resolvedPath;
+    resolvedAbsolute = path.charAt(0) === '/';
+  }
+
+  // At this point the path should be resolved to a full absolute path, but
+  // handle relative paths to be safe (might happen when process.cwd() fails)
+
+  // Normalize the path
+  resolvedPath = normalizeArray(filter(resolvedPath.split('/'), function(p) {
+    return !!p;
+  }), !resolvedAbsolute).join('/');
+
+  return ((resolvedAbsolute ? '/' : '') + resolvedPath) || '.';
+};
+
+// path.normalize(path)
+// posix version
+exports.normalize = function(path) {
+  var isAbsolute = exports.isAbsolute(path),
+      trailingSlash = substr(path, -1) === '/';
+
+  // Normalize the path
+  path = normalizeArray(filter(path.split('/'), function(p) {
+    return !!p;
+  }), !isAbsolute).join('/');
+
+  if (!path && !isAbsolute) {
+    path = '.';
+  }
+  if (path && trailingSlash) {
+    path += '/';
+  }
+
+  return (isAbsolute ? '/' : '') + path;
+};
+
+// posix version
+exports.isAbsolute = function(path) {
+  return path.charAt(0) === '/';
+};
+
+// posix version
+exports.join = function() {
+  var paths = Array.prototype.slice.call(arguments, 0);
+  return exports.normalize(filter(paths, function(p, index) {
+    if (typeof p !== 'string') {
+      throw new TypeError('Arguments to path.join must be strings');
+    }
+    return p;
+  }).join('/'));
+};
+
+
+// path.relative(from, to)
+// posix version
+exports.relative = function(from, to) {
+  from = exports.resolve(from).substr(1);
+  to = exports.resolve(to).substr(1);
+
+  function trim(arr) {
+    var start = 0;
+    for (; start < arr.length; start++) {
+      if (arr[start] !== '') break;
+    }
+
+    var end = arr.length - 1;
+    for (; end >= 0; end--) {
+      if (arr[end] !== '') break;
+    }
+
+    if (start > end) return [];
+    return arr.slice(start, end - start + 1);
+  }
+
+  var fromParts = trim(from.split('/'));
+  var toParts = trim(to.split('/'));
+
+  var length = Math.min(fromParts.length, toParts.length);
+  var samePartsLength = length;
+  for (var i = 0; i < length; i++) {
+    if (fromParts[i] !== toParts[i]) {
+      samePartsLength = i;
+      break;
+    }
+  }
+
+  var outputParts = [];
+  for (var i = samePartsLength; i < fromParts.length; i++) {
+    outputParts.push('..');
+  }
+
+  outputParts = outputParts.concat(toParts.slice(samePartsLength));
+
+  return outputParts.join('/');
+};
+
+exports.sep = '/';
+exports.delimiter = ':';
+
+exports.dirname = function (path) {
+  if (typeof path !== 'string') path = path + '';
+  if (path.length === 0) return '.';
+  var code = path.charCodeAt(0);
+  var hasRoot = code === 47 /*/*/;
+  var end = -1;
+  var matchedSlash = true;
+  for (var i = path.length - 1; i >= 1; --i) {
+    code = path.charCodeAt(i);
+    if (code === 47 /*/*/) {
+        if (!matchedSlash) {
+          end = i;
+          break;
+        }
+      } else {
+      // We saw the first non-path separator
+      matchedSlash = false;
+    }
+  }
+
+  if (end === -1) return hasRoot ? '/' : '.';
+  if (hasRoot && end === 1) {
+    // return '//';
+    // Backwards-compat fix:
+    return '/';
+  }
+  return path.slice(0, end);
+};
+
+function basename(path) {
+  if (typeof path !== 'string') path = path + '';
+
+  var start = 0;
+  var end = -1;
+  var matchedSlash = true;
+  var i;
+
+  for (i = path.length - 1; i >= 0; --i) {
+    if (path.charCodeAt(i) === 47 /*/*/) {
+        // If we reached a path separator that was not part of a set of path
+        // separators at the end of the string, stop now
+        if (!matchedSlash) {
+          start = i + 1;
+          break;
+        }
+      } else if (end === -1) {
+      // We saw the first non-path separator, mark this as the end of our
+      // path component
+      matchedSlash = false;
+      end = i + 1;
+    }
+  }
+
+  if (end === -1) return '';
+  return path.slice(start, end);
+}
+
+// Uses a mixed approach for backwards-compatibility, as ext behavior changed
+// in new Node.js versions, so only basename() above is backported here
+exports.basename = function (path, ext) {
+  var f = basename(path);
+  if (ext && f.substr(-1 * ext.length) === ext) {
+    f = f.substr(0, f.length - ext.length);
+  }
+  return f;
+};
+
+exports.extname = function (path) {
+  if (typeof path !== 'string') path = path + '';
+  var startDot = -1;
+  var startPart = 0;
+  var end = -1;
+  var matchedSlash = true;
+  // Track the state of characters (if any) we see before our first dot and
+  // after any path separator we find
+  var preDotState = 0;
+  for (var i = path.length - 1; i >= 0; --i) {
+    var code = path.charCodeAt(i);
+    if (code === 47 /*/*/) {
+        // If we reached a path separator that was not part of a set of path
+        // separators at the end of the string, stop now
+        if (!matchedSlash) {
+          startPart = i + 1;
+          break;
+        }
+        continue;
+      }
+    if (end === -1) {
+      // We saw the first non-path separator, mark this as the end of our
+      // extension
+      matchedSlash = false;
+      end = i + 1;
+    }
+    if (code === 46 /*.*/) {
+        // If this is our first dot, mark it as the start of our extension
+        if (startDot === -1)
+          startDot = i;
+        else if (preDotState !== 1)
+          preDotState = 1;
+    } else if (startDot !== -1) {
+      // We saw a non-dot and non-path separator before our dot, so we should
+      // have a good chance at having a non-empty extension
+      preDotState = -1;
+    }
+  }
+
+  if (startDot === -1 || end === -1 ||
+      // We saw a non-dot character immediately before the dot
+      preDotState === 0 ||
+      // The (right-most) trimmed path component is exactly '..'
+      preDotState === 1 && startDot === end - 1 && startDot === startPart + 1) {
+    return '';
+  }
+  return path.slice(startDot, end);
+};
+
+function filter (xs, f) {
+    if (xs.filter) return xs.filter(f);
+    var res = [];
+    for (var i = 0; i < xs.length; i++) {
+        if (f(xs[i], i, xs)) res.push(xs[i]);
+    }
+    return res;
+}
+
+// String.prototype.substr - negative index don't work in IE8
+var substr = 'ab'.substr(-1) === 'b'
+    ? function (str, start, len) { return str.substr(start, len) }
+    : function (str, start, len) {
+        if (start < 0) start = str.length + start;
+        return str.substr(start, len);
+    }
+;
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../process/browser.js */ "./node_modules/process/browser.js")))
+
+/***/ }),
+
 /***/ "./node_modules/process/browser.js":
 /*!*****************************************!*\
   !*** ./node_modules/process/browser.js ***!
@@ -16222,6 +24841,95 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
+
+/***/ }),
+
+/***/ "./node_modules/prop-types-exact/build/helpers/isPlainObject.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/prop-types-exact/build/helpers/isPlainObject.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports['default'] = isPlainObject;
+function isPlainObject(x) {
+  return x && (typeof x === 'undefined' ? 'undefined' : _typeof(x)) === 'object' && !Array.isArray(x);
+}
+module.exports = exports['default'];
+//# sourceMappingURL=isPlainObject.js.map
+
+/***/ }),
+
+/***/ "./node_modules/prop-types-exact/build/index.js":
+/*!******************************************************!*\
+  !*** ./node_modules/prop-types-exact/build/index.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports['default'] = forbidExtraProps;
+
+var _object = __webpack_require__(/*! object.assign */ "./node_modules/next/dist/build/polyfills/object.assign/index.js");
+
+var _object2 = _interopRequireDefault(_object);
+
+var _has = __webpack_require__(/*! has */ "./node_modules/has/src/index.js");
+
+var _has2 = _interopRequireDefault(_has);
+
+var _isPlainObject = __webpack_require__(/*! ./helpers/isPlainObject */ "./node_modules/prop-types-exact/build/helpers/isPlainObject.js");
+
+var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var zeroWidthSpace = '\u200B';
+var specialProperty = 'prop-types-exact: ' + zeroWidthSpace;
+var semaphore = typeof Symbol === 'function' && typeof Symbol['for'] === 'function' ? Symbol['for'](specialProperty) : /* istanbul ignore next */specialProperty;
+
+function brand(fn) {
+  return (0, _object2['default'])(fn, _defineProperty({}, specialProperty, semaphore));
+}
+
+function isBranded(value) {
+  return value && value[specialProperty] === semaphore;
+}
+
+function forbidExtraProps(propTypes) {
+  if (!(0, _isPlainObject2['default'])(propTypes)) {
+    throw new TypeError('given propTypes must be an object');
+  }
+  if ((0, _has2['default'])(propTypes, specialProperty) && !isBranded(propTypes[specialProperty])) {
+    throw new TypeError('Against all odds, you created a propType for a prop that uses both the zero-width space and our custom string - which, sadly, conflicts with `prop-types-exact`');
+  }
+
+  return (0, _object2['default'])({}, propTypes, _defineProperty({}, specialProperty, brand(function () {
+    function forbidUnknownProps(props, _, componentName) {
+      var unknownProps = Object.keys(props).filter(function (prop) {
+        return !(0, _has2['default'])(propTypes, prop);
+      });
+      if (unknownProps.length > 0) {
+        return new TypeError(String(componentName) + ': unknown props found: ' + String(unknownProps.join(', ')));
+      }
+      return null;
+    }
+
+    return forbidUnknownProps;
+  }())));
+}
+module.exports = exports['default'];
+//# sourceMappingURL=index.js.map
 
 /***/ }),
 
@@ -21717,6 +30425,17 @@ module.exports = server_browser;
 
 /***/ }),
 
+/***/ "./node_modules/react-dom/index.js":
+/*!***********************************************************************************************!*\
+  !*** delegated ./node_modules/react-dom/index.js from dll-reference dll_5f137288facb1107b491 ***!
+  \***********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(/*! dll-reference dll_5f137288facb1107b491 */ "dll-reference dll_5f137288facb1107b491"))("./node_modules/react-dom/index.js");
+
+/***/ }),
+
 /***/ "./node_modules/react-dom/server.browser.js":
 /*!**************************************************!*\
   !*** ./node_modules/react-dom/server.browser.js ***!
@@ -21996,6 +30715,886 @@ if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/react-is.development.js */ "./node_modules/react-is/cjs/react-is.development.js");
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/react-markdown/lib/ast-to-react.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/react-markdown/lib/ast-to-react.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var xtend = __webpack_require__(/*! xtend */ "./node_modules/xtend/immutable.js");
+
+var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.js");
+
+var defaultNodePosition = {
+  start: {
+    line: 1,
+    column: 1,
+    offset: 0
+  },
+  end: {
+    line: 1,
+    column: 1,
+    offset: 0
+  }
+};
+
+function astToReact(node, options) {
+  var parent = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+  var index = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
+  var renderer = options.renderers[node.type]; // nodes generated by plugins may not have position data
+  // much of the code after this point will attempt to access properties of the node.position
+  // this will set the node position to the parent node's position to prevent errors
+
+  if (node.position === undefined) {
+    node.position = parent.node && parent.node.position || defaultNodePosition;
+  }
+
+  var pos = node.position.start;
+  var key = [node.type, pos.line, pos.column, index].join('-');
+
+  if (!ReactIs.isValidElementType(renderer)) {
+    throw new Error("Renderer for type `".concat(node.type, "` not defined or is not renderable"));
+  }
+
+  var nodeProps = getNodeProps(node, key, options, renderer, parent, index);
+  return React.createElement(renderer, nodeProps, nodeProps.children || resolveChildren() || undefined);
+
+  function resolveChildren() {
+    return node.children && node.children.map(function (childNode, i) {
+      return astToReact(childNode, options, {
+        node: node,
+        props: nodeProps
+      }, i);
+    });
+  }
+} // eslint-disable-next-line max-params, complexity
+
+
+function getNodeProps(node, key, opts, renderer, parent, index) {
+  var props = {
+    key: key
+  };
+  var isTagRenderer = typeof renderer === 'string'; // `sourcePos` is true if the user wants source information (line/column info from markdown source)
+
+  if (opts.sourcePos && node.position) {
+    props['data-sourcepos'] = flattenPosition(node.position);
+  }
+
+  if (opts.rawSourcePos && !isTagRenderer) {
+    props.sourcePosition = node.position;
+  } // If `includeNodeIndex` is true, pass node index info to all non-tag renderers
+
+
+  if (opts.includeNodeIndex && parent.node && parent.node.children && !isTagRenderer) {
+    props.index = parent.node.children.indexOf(node);
+    props.parentChildCount = parent.node.children.length;
+  }
+
+  var ref = node.identifier !== null && node.identifier !== undefined ? opts.definitions[node.identifier] || {} : null;
+
+  switch (node.type) {
+    case 'root':
+      assignDefined(props, {
+        className: opts.className
+      });
+      break;
+
+    case 'text':
+      props.nodeKey = key;
+      props.children = node.value;
+      break;
+
+    case 'heading':
+      props.level = node.depth;
+      break;
+
+    case 'list':
+      props.start = node.start;
+      props.ordered = node.ordered;
+      props.tight = !node.loose;
+      props.depth = node.depth;
+      break;
+
+    case 'listItem':
+      props.checked = node.checked;
+      props.tight = !node.loose;
+      props.ordered = node.ordered;
+      props.index = node.index;
+      props.children = getListItemChildren(node, parent).map(function (childNode, i) {
+        return astToReact(childNode, opts, {
+          node: node,
+          props: props
+        }, i);
+      });
+      break;
+
+    case 'definition':
+      assignDefined(props, {
+        identifier: node.identifier,
+        title: node.title,
+        url: node.url
+      });
+      break;
+
+    case 'code':
+      assignDefined(props, {
+        language: node.lang && node.lang.split(/\s/, 1)[0]
+      });
+      break;
+
+    case 'inlineCode':
+      props.children = node.value;
+      props.inline = true;
+      break;
+
+    case 'link':
+      assignDefined(props, {
+        title: node.title || undefined,
+        target: typeof opts.linkTarget === 'function' ? opts.linkTarget(node.url, node.children, node.title) : opts.linkTarget,
+        href: opts.transformLinkUri ? opts.transformLinkUri(node.url, node.children, node.title) : node.url
+      });
+      break;
+
+    case 'image':
+      assignDefined(props, {
+        alt: node.alt || undefined,
+        title: node.title || undefined,
+        src: opts.transformImageUri ? opts.transformImageUri(node.url, node.children, node.title, node.alt) : node.url
+      });
+      break;
+
+    case 'linkReference':
+      assignDefined(props, xtend(ref, {
+        href: opts.transformLinkUri ? opts.transformLinkUri(ref.href) : ref.href
+      }));
+      break;
+
+    case 'imageReference':
+      assignDefined(props, {
+        src: opts.transformImageUri && ref.href ? opts.transformImageUri(ref.href, node.children, ref.title, node.alt) : ref.href,
+        title: ref.title || undefined,
+        alt: node.alt || undefined
+      });
+      break;
+
+    case 'table':
+    case 'tableHead':
+    case 'tableBody':
+      props.columnAlignment = node.align;
+      break;
+
+    case 'tableRow':
+      props.isHeader = parent.node.type === 'tableHead';
+      props.columnAlignment = parent.props.columnAlignment;
+      break;
+
+    case 'tableCell':
+      assignDefined(props, {
+        isHeader: parent.props.isHeader,
+        align: parent.props.columnAlignment[index]
+      });
+      break;
+
+    case 'virtualHtml':
+      props.tag = node.tag;
+      break;
+
+    case 'html':
+      // @todo find a better way than this
+      props.isBlock = node.position.start.line !== node.position.end.line;
+      props.escapeHtml = opts.escapeHtml;
+      props.skipHtml = opts.skipHtml;
+      break;
+
+    case 'parsedHtml':
+      {
+        var parsedChildren;
+
+        if (node.children) {
+          parsedChildren = node.children.map(function (child, i) {
+            return astToReact(child, opts, {
+              node: node,
+              props: props
+            }, i);
+          });
+        }
+
+        props.escapeHtml = opts.escapeHtml;
+        props.skipHtml = opts.skipHtml;
+        props.element = mergeNodeChildren(node, parsedChildren);
+        break;
+      }
+
+    default:
+      assignDefined(props, xtend(node, {
+        type: undefined,
+        position: undefined,
+        children: undefined
+      }));
+  }
+
+  if (!isTagRenderer && node.value) {
+    props.value = node.value;
+  }
+
+  return props;
+}
+
+function assignDefined(target, attrs) {
+  for (var key in attrs) {
+    if (typeof attrs[key] !== 'undefined') {
+      target[key] = attrs[key];
+    }
+  }
+}
+
+function mergeNodeChildren(node, parsedChildren) {
+  var el = node.element;
+
+  if (Array.isArray(el)) {
+    var Fragment = React.Fragment || 'div';
+    return React.createElement(Fragment, null, el);
+  }
+
+  if (el.props.children || parsedChildren) {
+    var children = React.Children.toArray(el.props.children).concat(parsedChildren);
+    return React.cloneElement(el, null, children);
+  }
+
+  return React.cloneElement(el, null);
+}
+
+function flattenPosition(pos) {
+  return [pos.start.line, ':', pos.start.column, '-', pos.end.line, ':', pos.end.column].map(String).join('');
+}
+
+function getListItemChildren(node, parent) {
+  if (node.loose) {
+    return node.children;
+  }
+
+  if (parent.node && node.index > 0 && parent.node.children[node.index - 1].loose) {
+    return node.children;
+  }
+
+  return unwrapParagraphs(node);
+}
+
+function unwrapParagraphs(node) {
+  return node.children.reduce(function (array, child) {
+    return array.concat(child.type === 'paragraph' ? child.children || [] : [child]);
+  }, []);
+}
+
+module.exports = astToReact;
+
+/***/ }),
+
+/***/ "./node_modules/react-markdown/lib/get-definitions.js":
+/*!************************************************************!*\
+  !*** ./node_modules/react-markdown/lib/get-definitions.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function getDefinitions(node) {
+  var defs = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  return (node.children || []).reduce(function (definitions, child) {
+    if (child.type === 'definition') {
+      definitions[child.identifier] = {
+        href: child.url,
+        title: child.title
+      };
+    }
+
+    return getDefinitions(child, definitions);
+  }, defs);
+};
+
+/***/ }),
+
+/***/ "./node_modules/react-markdown/lib/plugins/disallow-node.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/react-markdown/lib/plugins/disallow-node.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var visit = __webpack_require__(/*! unist-util-visit */ "./node_modules/unist-util-visit/index.js");
+
+exports.ofType = function (types, mode) {
+  return function (node) {
+    types.forEach(function (type) {
+      return visit(node, type, disallow, true);
+    });
+    return node;
+  };
+
+  function disallow(node, index, parent) {
+    if (parent) {
+      untangle(node, index, parent, mode);
+    }
+  }
+};
+
+exports.ifNotMatch = function (allowNode, mode) {
+  return function (node) {
+    visit(node, disallow, true);
+    return node;
+  };
+
+  function disallow(node, index, parent) {
+    if (parent && !allowNode(node, index, parent)) {
+      untangle(node, index, parent, mode);
+    }
+  }
+};
+
+function untangle(node, index, parent, mode) {
+  if (mode === 'remove') {
+    parent.children.splice(index, 1);
+  } else if (mode === 'unwrap') {
+    var args = [index, 1];
+
+    if (node.children) {
+      args = args.concat(node.children);
+    }
+
+    Array.prototype.splice.apply(parent.children, args);
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-markdown/lib/plugins/naive-html.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/react-markdown/lib/plugins/naive-html.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Naive, simple plugin to match inline nodes without attributes
+ * This allows say <strong>foo</strong>, but not <strong class="very">foo</strong>
+ * For proper HTML support, you'll want a different plugin
+ **/
+var visit = __webpack_require__(/*! unist-util-visit */ "./node_modules/unist-util-visit/index.js");
+
+var type = 'virtualHtml';
+var selfClosingRe = /^<(area|base|br|col|embed|hr|img|input|keygen|link|meta|param|source|track|wbr)\s*\/?>$/i;
+var simpleTagRe = /^<(\/?)([a-z]+)\s*>$/;
+
+module.exports = function (tree) {
+  var open;
+  var currentParent;
+  visit(tree, 'html', function (node, index, parent) {
+    if (currentParent !== parent) {
+      open = [];
+      currentParent = parent;
+    }
+
+    var selfClosing = getSelfClosing(node);
+
+    if (selfClosing) {
+      parent.children.splice(index, 1, {
+        type: type,
+        tag: selfClosing,
+        position: node.position
+      });
+      return true;
+    }
+
+    var current = getSimpleTag(node, parent);
+
+    if (!current) {
+      return true;
+    }
+
+    var matching = findAndPull(open, current.tag);
+
+    if (matching) {
+      parent.children.splice(index, 0, virtual(current, matching, parent));
+    } else if (!current.opening) {
+      open.push(current);
+    }
+
+    return true;
+  }, true // Iterate in reverse
+  );
+  return tree;
+};
+
+function findAndPull(open, matchingTag) {
+  var i = open.length;
+
+  while (i--) {
+    if (open[i].tag === matchingTag) {
+      return open.splice(i, 1)[0];
+    }
+  }
+
+  return false;
+}
+
+function getSimpleTag(node, parent) {
+  var match = node.value.match(simpleTagRe);
+  return match ? {
+    tag: match[2],
+    opening: !match[1],
+    node: node
+  } : false;
+}
+
+function getSelfClosing(node) {
+  var match = node.value.match(selfClosingRe);
+  return match ? match[1] : false;
+}
+
+function virtual(fromNode, toNode, parent) {
+  var fromIndex = parent.children.indexOf(fromNode.node);
+  var toIndex = parent.children.indexOf(toNode.node);
+  var extracted = parent.children.splice(fromIndex, toIndex - fromIndex + 1);
+  var children = extracted.slice(1, -1);
+  return {
+    type: type,
+    children: children,
+    tag: fromNode.tag,
+    position: {
+      start: fromNode.node.position.start,
+      end: toNode.node.position.end,
+      indent: []
+    }
+  };
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-markdown/lib/react-markdown.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/react-markdown/lib/react-markdown.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+var xtend = __webpack_require__(/*! xtend */ "./node_modules/xtend/immutable.js");
+
+var unified = __webpack_require__(/*! unified */ "./node_modules/unified/index.js");
+
+var parse = __webpack_require__(/*! remark-parse */ "./node_modules/remark-parse/index.js");
+
+var PropTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var addListMetadata = __webpack_require__(/*! mdast-add-list-metadata */ "./node_modules/mdast-add-list-metadata/index.js");
+
+var naiveHtml = __webpack_require__(/*! ./plugins/naive-html */ "./node_modules/react-markdown/lib/plugins/naive-html.js");
+
+var disallowNode = __webpack_require__(/*! ./plugins/disallow-node */ "./node_modules/react-markdown/lib/plugins/disallow-node.js");
+
+var astToReact = __webpack_require__(/*! ./ast-to-react */ "./node_modules/react-markdown/lib/ast-to-react.js");
+
+var wrapTableRows = __webpack_require__(/*! ./wrap-table-rows */ "./node_modules/react-markdown/lib/wrap-table-rows.js");
+
+var getDefinitions = __webpack_require__(/*! ./get-definitions */ "./node_modules/react-markdown/lib/get-definitions.js");
+
+var uriTransformer = __webpack_require__(/*! ./uri-transformer */ "./node_modules/react-markdown/lib/uri-transformer.js");
+
+var defaultRenderers = __webpack_require__(/*! ./renderers */ "./node_modules/react-markdown/lib/renderers.js");
+
+var symbols = __webpack_require__(/*! ./symbols */ "./node_modules/react-markdown/lib/symbols.js");
+
+var allTypes = Object.keys(defaultRenderers);
+
+var ReactMarkdown = function ReactMarkdown(props) {
+  var src = props.source || props.children || '';
+  var parserOptions = props.parserOptions;
+
+  if (props.allowedTypes && props.disallowedTypes) {
+    throw new Error('Only one of `allowedTypes` and `disallowedTypes` should be defined');
+  }
+
+  var renderers = xtend(defaultRenderers, props.renderers);
+  var plugins = [[parse, parserOptions]].concat(props.plugins || []);
+  var parser = plugins.reduce(applyParserPlugin, unified());
+  var rawAst = parser.parse(src);
+  var renderProps = xtend(props, {
+    renderers: renderers,
+    definitions: getDefinitions(rawAst)
+  });
+  var astPlugins = determineAstPlugins(props); // eslint-disable-next-line no-sync
+
+  var transformedAst = parser.runSync(rawAst);
+  var ast = astPlugins.reduce(function (node, plugin) {
+    return plugin(node, renderProps);
+  }, transformedAst);
+  return astToReact(ast, renderProps);
+};
+
+function applyParserPlugin(parser, plugin) {
+  return Array.isArray(plugin) ? parser.use.apply(parser, _toConsumableArray(plugin)) : parser.use(plugin);
+}
+
+function determineAstPlugins(props) {
+  var plugins = [wrapTableRows, addListMetadata()];
+  var disallowedTypes = props.disallowedTypes;
+
+  if (props.allowedTypes) {
+    disallowedTypes = allTypes.filter(function (type) {
+      return type !== 'root' && props.allowedTypes.indexOf(type) === -1;
+    });
+  }
+
+  var removalMethod = props.unwrapDisallowed ? 'unwrap' : 'remove';
+
+  if (disallowedTypes && disallowedTypes.length > 0) {
+    plugins.push(disallowNode.ofType(disallowedTypes, removalMethod));
+  }
+
+  if (props.allowNode) {
+    plugins.push(disallowNode.ifNotMatch(props.allowNode, removalMethod));
+  }
+
+  var renderHtml = !props.escapeHtml && !props.skipHtml;
+  var hasHtmlParser = (props.astPlugins || []).some(function (item) {
+    var plugin = Array.isArray(item) ? item[0] : item;
+    return plugin.identity === symbols.HtmlParser;
+  });
+
+  if (renderHtml && !hasHtmlParser) {
+    plugins.push(naiveHtml);
+  }
+
+  return props.astPlugins ? plugins.concat(props.astPlugins) : plugins;
+}
+
+ReactMarkdown.defaultProps = {
+  renderers: {},
+  escapeHtml: true,
+  skipHtml: false,
+  sourcePos: false,
+  rawSourcePos: false,
+  transformLinkUri: uriTransformer,
+  astPlugins: [],
+  plugins: [],
+  parserOptions: {}
+};
+ReactMarkdown.propTypes = {
+  className: PropTypes.string,
+  source: PropTypes.string,
+  children: PropTypes.string,
+  sourcePos: PropTypes.bool,
+  rawSourcePos: PropTypes.bool,
+  escapeHtml: PropTypes.bool,
+  skipHtml: PropTypes.bool,
+  allowNode: PropTypes.func,
+  allowedTypes: PropTypes.arrayOf(PropTypes.oneOf(allTypes)),
+  disallowedTypes: PropTypes.arrayOf(PropTypes.oneOf(allTypes)),
+  transformLinkUri: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+  linkTarget: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  transformImageUri: PropTypes.func,
+  astPlugins: PropTypes.arrayOf(PropTypes.func),
+  unwrapDisallowed: PropTypes.bool,
+  renderers: PropTypes.object,
+  plugins: PropTypes.array,
+  parserOptions: PropTypes.object
+};
+ReactMarkdown.types = allTypes;
+ReactMarkdown.renderers = defaultRenderers;
+ReactMarkdown.uriTransformer = uriTransformer;
+module.exports = ReactMarkdown;
+
+/***/ }),
+
+/***/ "./node_modules/react-markdown/lib/renderers.js":
+/*!******************************************************!*\
+  !*** ./node_modules/react-markdown/lib/renderers.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* eslint-disable react/prop-types, react/no-multi-comp */
+
+
+var xtend = __webpack_require__(/*! xtend */ "./node_modules/xtend/immutable.js");
+
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var supportsStringRender = parseInt((React.version || '16').slice(0, 2), 10) >= 16;
+var createElement = React.createElement;
+module.exports = {
+  break: 'br',
+  paragraph: 'p',
+  emphasis: 'em',
+  strong: 'strong',
+  thematicBreak: 'hr',
+  blockquote: 'blockquote',
+  delete: 'del',
+  link: 'a',
+  image: 'img',
+  linkReference: 'a',
+  imageReference: 'img',
+  table: SimpleRenderer.bind(null, 'table'),
+  tableHead: SimpleRenderer.bind(null, 'thead'),
+  tableBody: SimpleRenderer.bind(null, 'tbody'),
+  tableRow: SimpleRenderer.bind(null, 'tr'),
+  tableCell: TableCell,
+  root: Root,
+  text: TextRenderer,
+  list: List,
+  listItem: ListItem,
+  definition: NullRenderer,
+  heading: Heading,
+  inlineCode: InlineCode,
+  code: CodeBlock,
+  html: Html,
+  virtualHtml: VirtualHtml,
+  parsedHtml: ParsedHtml
+};
+
+function TextRenderer(props) {
+  return supportsStringRender ? props.children : createElement('span', null, props.children);
+}
+
+function Root(props) {
+  var useFragment = !props.className;
+  var root = useFragment ? React.Fragment || 'div' : 'div';
+  return createElement(root, useFragment ? null : props, props.children);
+}
+
+function SimpleRenderer(tag, props) {
+  return createElement(tag, getCoreProps(props), props.children);
+}
+
+function TableCell(props) {
+  var style = props.align ? {
+    textAlign: props.align
+  } : undefined;
+  var coreProps = getCoreProps(props);
+  return createElement(props.isHeader ? 'th' : 'td', style ? xtend({
+    style: style
+  }, coreProps) : coreProps, props.children);
+}
+
+function Heading(props) {
+  return createElement("h".concat(props.level), getCoreProps(props), props.children);
+}
+
+function List(props) {
+  var attrs = getCoreProps(props);
+
+  if (props.start !== null && props.start !== 1 && props.start !== undefined) {
+    attrs.start = props.start.toString();
+  }
+
+  return createElement(props.ordered ? 'ol' : 'ul', attrs, props.children);
+}
+
+function ListItem(props) {
+  var checkbox = null;
+
+  if (props.checked !== null && props.checked !== undefined) {
+    var checked = props.checked;
+    checkbox = createElement('input', {
+      type: 'checkbox',
+      checked: checked,
+      readOnly: true
+    });
+  }
+
+  return createElement('li', getCoreProps(props), checkbox, props.children);
+}
+
+function CodeBlock(props) {
+  var className = props.language && "language-".concat(props.language);
+  var code = createElement('code', className ? {
+    className: className
+  } : null, props.value);
+  return createElement('pre', getCoreProps(props), code);
+}
+
+function InlineCode(props) {
+  return createElement('code', getCoreProps(props), props.children);
+}
+
+function Html(props) {
+  if (props.skipHtml) {
+    return null;
+  }
+
+  var tag = props.isBlock ? 'div' : 'span';
+
+  if (props.escapeHtml) {
+    var comp = React.Fragment || tag;
+    return createElement(comp, null, props.value);
+  }
+
+  var nodeProps = {
+    dangerouslySetInnerHTML: {
+      __html: props.value
+    }
+  };
+  return createElement(tag, nodeProps);
+}
+
+function ParsedHtml(props) {
+  return props['data-sourcepos'] ? React.cloneElement(props.element, {
+    'data-sourcepos': props['data-sourcepos']
+  }) : props.element;
+}
+
+function VirtualHtml(props) {
+  return createElement(props.tag, getCoreProps(props), props.children);
+}
+
+function NullRenderer() {
+  return null;
+}
+
+function getCoreProps(props) {
+  return props['data-sourcepos'] ? {
+    'data-sourcepos': props['data-sourcepos']
+  } : {};
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-markdown/lib/symbols.js":
+/*!****************************************************!*\
+  !*** ./node_modules/react-markdown/lib/symbols.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var HtmlParser = '__RMD_HTML_PARSER__';
+exports.HtmlParser = typeof Symbol === 'undefined' ? HtmlParser : Symbol(HtmlParser);
+
+/***/ }),
+
+/***/ "./node_modules/react-markdown/lib/uri-transformer.js":
+/*!************************************************************!*\
+  !*** ./node_modules/react-markdown/lib/uri-transformer.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var protocols = ['http', 'https', 'mailto', 'tel'];
+
+module.exports = function uriTransformer(uri) {
+  var url = (uri || '').trim();
+  var first = url.charAt(0);
+
+  if (first === '#' || first === '/') {
+    return url;
+  }
+
+  var colon = url.indexOf(':');
+
+  if (colon === -1) {
+    return url;
+  }
+
+  var length = protocols.length;
+  var index = -1;
+
+  while (++index < length) {
+    var protocol = protocols[index];
+
+    if (colon === protocol.length && url.slice(0, protocol.length).toLowerCase() === protocol) {
+      return url;
+    }
+  }
+
+  index = url.indexOf('?');
+
+  if (index !== -1 && colon > index) {
+    return url;
+  }
+
+  index = url.indexOf('#');
+
+  if (index !== -1 && colon > index) {
+    return url;
+  } // eslint-disable-next-line no-script-url
+
+
+  return 'javascript:void(0)';
+};
+
+/***/ }),
+
+/***/ "./node_modules/react-markdown/lib/wrap-table-rows.js":
+/*!************************************************************!*\
+  !*** ./node_modules/react-markdown/lib/wrap-table-rows.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var visit = __webpack_require__(/*! unist-util-visit */ "./node_modules/unist-util-visit/index.js");
+
+module.exports = function (node) {
+  visit(node, 'table', wrap);
+  return node;
+};
+
+function wrap(table) {
+  var children = table.children;
+  table.children = [{
+    type: 'tableHead',
+    align: table.align,
+    children: [children[0]],
+    position: children[0].position
+  }];
+
+  if (children.length > 1) {
+    table.children.push({
+      type: 'tableBody',
+      align: table.align,
+      children: children.slice(1),
+      position: {
+        start: children[1].position.start,
+        end: children[children.length - 1].position.end
+      }
+    });
+  }
+}
 
 /***/ }),
 
@@ -22747,6 +32346,5443 @@ try {
 
 /***/ }),
 
+/***/ "./node_modules/remark-parse/index.js":
+/*!********************************************!*\
+  !*** ./node_modules/remark-parse/index.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var unherit = __webpack_require__(/*! unherit */ "./node_modules/unherit/index.js");
+var xtend = __webpack_require__(/*! xtend */ "./node_modules/xtend/immutable.js");
+var Parser = __webpack_require__(/*! ./lib/parser.js */ "./node_modules/remark-parse/lib/parser.js");
+
+module.exports = parse;
+parse.Parser = Parser;
+
+function parse(options) {
+  var Local = unherit(Parser);
+  Local.prototype.options = xtend(Local.prototype.options, this.data('settings'), options);
+  this.Parser = Local;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/block-elements.json":
+/*!***********************************************************!*\
+  !*** ./node_modules/remark-parse/lib/block-elements.json ***!
+  \***********************************************************/
+/*! exports provided: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("[\"address\",\"article\",\"aside\",\"base\",\"basefont\",\"blockquote\",\"body\",\"caption\",\"center\",\"col\",\"colgroup\",\"dd\",\"details\",\"dialog\",\"dir\",\"div\",\"dl\",\"dt\",\"fieldset\",\"figcaption\",\"figure\",\"footer\",\"form\",\"frame\",\"frameset\",\"h1\",\"h2\",\"h3\",\"h4\",\"h5\",\"h6\",\"head\",\"header\",\"hgroup\",\"hr\",\"html\",\"iframe\",\"legend\",\"li\",\"link\",\"main\",\"menu\",\"menuitem\",\"meta\",\"nav\",\"noframes\",\"ol\",\"optgroup\",\"option\",\"p\",\"param\",\"pre\",\"section\",\"source\",\"title\",\"summary\",\"table\",\"tbody\",\"td\",\"tfoot\",\"th\",\"thead\",\"title\",\"tr\",\"track\",\"ul\"]");
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/decode.js":
+/*!*************************************************!*\
+  !*** ./node_modules/remark-parse/lib/decode.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var xtend = __webpack_require__(/*! xtend */ "./node_modules/xtend/immutable.js");
+var entities = __webpack_require__(/*! parse-entities */ "./node_modules/parse-entities/index.js");
+
+module.exports = factory;
+
+/* Factory to create an entity decoder. */
+function factory(ctx) {
+  decoder.raw = decodeRaw;
+
+  return decoder;
+
+  /* Normalize `position` to add an `indent`. */
+  function normalize(position) {
+    var offsets = ctx.offset;
+    var line = position.line;
+    var result = [];
+
+    while (++line) {
+      if (!(line in offsets)) {
+        break;
+      }
+
+      result.push((offsets[line] || 0) + 1);
+    }
+
+    return {
+      start: position,
+      indent: result
+    };
+  }
+
+  /* Handle a warning.
+   * See https://github.com/wooorm/parse-entities
+   * for the warnings. */
+  function handleWarning(reason, position, code) {
+    if (code === 3) {
+      return;
+    }
+
+    ctx.file.message(reason, position);
+  }
+
+  /* Decode `value` (at `position`) into text-nodes. */
+  function decoder(value, position, handler) {
+    entities(value, {
+      position: normalize(position),
+      warning: handleWarning,
+      text: handler,
+      reference: handler,
+      textContext: ctx,
+      referenceContext: ctx
+    });
+  }
+
+  /* Decode `value` (at `position`) into a string. */
+  function decodeRaw(value, position, options) {
+    return entities(value, xtend(options, {
+      position: normalize(position),
+      warning: handleWarning
+    }));
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/defaults.js":
+/*!***************************************************!*\
+  !*** ./node_modules/remark-parse/lib/defaults.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = {
+  position: true,
+  gfm: true,
+  commonmark: false,
+  footnotes: false,
+  pedantic: false,
+  blocks: __webpack_require__(/*! ./block-elements.json */ "./node_modules/remark-parse/lib/block-elements.json")
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/locate/break.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/remark-parse/lib/locate/break.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = locate;
+
+function locate(value, fromIndex) {
+  var index = value.indexOf('\n', fromIndex);
+
+  while (index > fromIndex) {
+    if (value.charAt(index - 1) !== ' ') {
+      break;
+    }
+
+    index--;
+  }
+
+  return index;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/locate/code-inline.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/remark-parse/lib/locate/code-inline.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = locate;
+
+function locate(value, fromIndex) {
+  return value.indexOf('`', fromIndex);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/locate/delete.js":
+/*!********************************************************!*\
+  !*** ./node_modules/remark-parse/lib/locate/delete.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = locate;
+
+function locate(value, fromIndex) {
+  return value.indexOf('~~', fromIndex);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/locate/emphasis.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/remark-parse/lib/locate/emphasis.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = locate;
+
+function locate(value, fromIndex) {
+  var asterisk = value.indexOf('*', fromIndex);
+  var underscore = value.indexOf('_', fromIndex);
+
+  if (underscore === -1) {
+    return asterisk;
+  }
+
+  if (asterisk === -1) {
+    return underscore;
+  }
+
+  return underscore < asterisk ? underscore : asterisk;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/locate/escape.js":
+/*!********************************************************!*\
+  !*** ./node_modules/remark-parse/lib/locate/escape.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = locate;
+
+function locate(value, fromIndex) {
+  return value.indexOf('\\', fromIndex);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/locate/link.js":
+/*!******************************************************!*\
+  !*** ./node_modules/remark-parse/lib/locate/link.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = locate;
+
+function locate(value, fromIndex) {
+  var link = value.indexOf('[', fromIndex);
+  var image = value.indexOf('![', fromIndex);
+
+  if (image === -1) {
+    return link;
+  }
+
+  /* Link can never be `-1` if an image is found, so we don’t need
+   * to check for that :) */
+  return link < image ? link : image;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/locate/strong.js":
+/*!********************************************************!*\
+  !*** ./node_modules/remark-parse/lib/locate/strong.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = locate;
+
+function locate(value, fromIndex) {
+  var asterisk = value.indexOf('**', fromIndex);
+  var underscore = value.indexOf('__', fromIndex);
+
+  if (underscore === -1) {
+    return asterisk;
+  }
+
+  if (asterisk === -1) {
+    return underscore;
+  }
+
+  return underscore < asterisk ? underscore : asterisk;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/locate/tag.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/remark-parse/lib/locate/tag.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = locate;
+
+function locate(value, fromIndex) {
+  return value.indexOf('<', fromIndex);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/locate/url.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/remark-parse/lib/locate/url.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = locate;
+
+var PROTOCOLS = ['https://', 'http://', 'mailto:'];
+
+function locate(value, fromIndex) {
+  var length = PROTOCOLS.length;
+  var index = -1;
+  var min = -1;
+  var position;
+
+  if (!this.options.gfm) {
+    return -1;
+  }
+
+  while (++index < length) {
+    position = value.indexOf(PROTOCOLS[index], fromIndex);
+
+    if (position !== -1 && (position < min || min === -1)) {
+      min = position;
+    }
+  }
+
+  return min;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/parse.js":
+/*!************************************************!*\
+  !*** ./node_modules/remark-parse/lib/parse.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var xtend = __webpack_require__(/*! xtend */ "./node_modules/xtend/immutable.js");
+var removePosition = __webpack_require__(/*! unist-util-remove-position */ "./node_modules/unist-util-remove-position/index.js");
+
+module.exports = parse;
+
+var C_NEWLINE = '\n';
+var EXPRESSION_LINE_BREAKS = /\r\n|\r/g;
+
+/* Parse the bound file. */
+function parse() {
+  var self = this;
+  var value = String(self.file);
+  var start = {line: 1, column: 1, offset: 0};
+  var content = xtend(start);
+  var node;
+
+  /* Clean non-unix newlines: `\r\n` and `\r` are all
+   * changed to `\n`.  This should not affect positional
+   * information. */
+  value = value.replace(EXPRESSION_LINE_BREAKS, C_NEWLINE);
+
+  if (value.charCodeAt(0) === 0xFEFF) {
+    value = value.slice(1);
+
+    content.column++;
+    content.offset++;
+  }
+
+  node = {
+    type: 'root',
+    children: self.tokenizeBlock(value, content),
+    position: {
+      start: start,
+      end: self.eof || xtend(start)
+    }
+  };
+
+  if (!self.options.position) {
+    removePosition(node, true);
+  }
+
+  return node;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/parser.js":
+/*!*************************************************!*\
+  !*** ./node_modules/remark-parse/lib/parser.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var xtend = __webpack_require__(/*! xtend */ "./node_modules/xtend/immutable.js");
+var toggle = __webpack_require__(/*! state-toggle */ "./node_modules/state-toggle/index.js");
+var vfileLocation = __webpack_require__(/*! vfile-location */ "./node_modules/vfile-location/index.js");
+var unescape = __webpack_require__(/*! ./unescape */ "./node_modules/remark-parse/lib/unescape.js");
+var decode = __webpack_require__(/*! ./decode */ "./node_modules/remark-parse/lib/decode.js");
+var tokenizer = __webpack_require__(/*! ./tokenizer */ "./node_modules/remark-parse/lib/tokenizer.js");
+
+module.exports = Parser;
+
+function Parser(doc, file) {
+  this.file = file;
+  this.offset = {};
+  this.options = xtend(this.options);
+  this.setOptions({});
+
+  this.inList = false;
+  this.inBlock = false;
+  this.inLink = false;
+  this.atStart = true;
+
+  this.toOffset = vfileLocation(file).toOffset;
+  this.unescape = unescape(this, 'escape');
+  this.decode = decode(this);
+}
+
+var proto = Parser.prototype;
+
+/* Expose core. */
+proto.setOptions = __webpack_require__(/*! ./set-options */ "./node_modules/remark-parse/lib/set-options.js");
+proto.parse = __webpack_require__(/*! ./parse */ "./node_modules/remark-parse/lib/parse.js");
+
+/* Expose `defaults`. */
+proto.options = __webpack_require__(/*! ./defaults */ "./node_modules/remark-parse/lib/defaults.js");
+
+/* Enter and exit helpers. */
+proto.exitStart = toggle('atStart', true);
+proto.enterList = toggle('inList', false);
+proto.enterLink = toggle('inLink', false);
+proto.enterBlock = toggle('inBlock', false);
+
+/* Nodes that can interupt a paragraph:
+ *
+ * ```markdown
+ * A paragraph, followed by a thematic break.
+ * ___
+ * ```
+ *
+ * In the above example, the thematic break “interupts”
+ * the paragraph. */
+proto.interruptParagraph = [
+  ['thematicBreak'],
+  ['atxHeading'],
+  ['fencedCode'],
+  ['blockquote'],
+  ['html'],
+  ['setextHeading', {commonmark: false}],
+  ['definition', {commonmark: false}],
+  ['footnote', {commonmark: false}]
+];
+
+/* Nodes that can interupt a list:
+ *
+ * ```markdown
+ * - One
+ * ___
+ * ```
+ *
+ * In the above example, the thematic break “interupts”
+ * the list. */
+proto.interruptList = [
+  ['atxHeading', {pedantic: false}],
+  ['fencedCode', {pedantic: false}],
+  ['thematicBreak', {pedantic: false}],
+  ['definition', {commonmark: false}],
+  ['footnote', {commonmark: false}]
+];
+
+/* Nodes that can interupt a blockquote:
+ *
+ * ```markdown
+ * > A paragraph.
+ * ___
+ * ```
+ *
+ * In the above example, the thematic break “interupts”
+ * the blockquote. */
+proto.interruptBlockquote = [
+  ['indentedCode', {commonmark: true}],
+  ['fencedCode', {commonmark: true}],
+  ['atxHeading', {commonmark: true}],
+  ['setextHeading', {commonmark: true}],
+  ['thematicBreak', {commonmark: true}],
+  ['html', {commonmark: true}],
+  ['list', {commonmark: true}],
+  ['definition', {commonmark: false}],
+  ['footnote', {commonmark: false}]
+];
+
+/* Handlers. */
+proto.blockTokenizers = {
+  newline: __webpack_require__(/*! ./tokenize/newline */ "./node_modules/remark-parse/lib/tokenize/newline.js"),
+  indentedCode: __webpack_require__(/*! ./tokenize/code-indented */ "./node_modules/remark-parse/lib/tokenize/code-indented.js"),
+  fencedCode: __webpack_require__(/*! ./tokenize/code-fenced */ "./node_modules/remark-parse/lib/tokenize/code-fenced.js"),
+  blockquote: __webpack_require__(/*! ./tokenize/blockquote */ "./node_modules/remark-parse/lib/tokenize/blockquote.js"),
+  atxHeading: __webpack_require__(/*! ./tokenize/heading-atx */ "./node_modules/remark-parse/lib/tokenize/heading-atx.js"),
+  thematicBreak: __webpack_require__(/*! ./tokenize/thematic-break */ "./node_modules/remark-parse/lib/tokenize/thematic-break.js"),
+  list: __webpack_require__(/*! ./tokenize/list */ "./node_modules/remark-parse/lib/tokenize/list.js"),
+  setextHeading: __webpack_require__(/*! ./tokenize/heading-setext */ "./node_modules/remark-parse/lib/tokenize/heading-setext.js"),
+  html: __webpack_require__(/*! ./tokenize/html-block */ "./node_modules/remark-parse/lib/tokenize/html-block.js"),
+  footnote: __webpack_require__(/*! ./tokenize/footnote-definition */ "./node_modules/remark-parse/lib/tokenize/footnote-definition.js"),
+  definition: __webpack_require__(/*! ./tokenize/definition */ "./node_modules/remark-parse/lib/tokenize/definition.js"),
+  table: __webpack_require__(/*! ./tokenize/table */ "./node_modules/remark-parse/lib/tokenize/table.js"),
+  paragraph: __webpack_require__(/*! ./tokenize/paragraph */ "./node_modules/remark-parse/lib/tokenize/paragraph.js")
+};
+
+proto.inlineTokenizers = {
+  escape: __webpack_require__(/*! ./tokenize/escape */ "./node_modules/remark-parse/lib/tokenize/escape.js"),
+  autoLink: __webpack_require__(/*! ./tokenize/auto-link */ "./node_modules/remark-parse/lib/tokenize/auto-link.js"),
+  url: __webpack_require__(/*! ./tokenize/url */ "./node_modules/remark-parse/lib/tokenize/url.js"),
+  html: __webpack_require__(/*! ./tokenize/html-inline */ "./node_modules/remark-parse/lib/tokenize/html-inline.js"),
+  link: __webpack_require__(/*! ./tokenize/link */ "./node_modules/remark-parse/lib/tokenize/link.js"),
+  reference: __webpack_require__(/*! ./tokenize/reference */ "./node_modules/remark-parse/lib/tokenize/reference.js"),
+  strong: __webpack_require__(/*! ./tokenize/strong */ "./node_modules/remark-parse/lib/tokenize/strong.js"),
+  emphasis: __webpack_require__(/*! ./tokenize/emphasis */ "./node_modules/remark-parse/lib/tokenize/emphasis.js"),
+  deletion: __webpack_require__(/*! ./tokenize/delete */ "./node_modules/remark-parse/lib/tokenize/delete.js"),
+  code: __webpack_require__(/*! ./tokenize/code-inline */ "./node_modules/remark-parse/lib/tokenize/code-inline.js"),
+  break: __webpack_require__(/*! ./tokenize/break */ "./node_modules/remark-parse/lib/tokenize/break.js"),
+  text: __webpack_require__(/*! ./tokenize/text */ "./node_modules/remark-parse/lib/tokenize/text.js")
+};
+
+/* Expose precedence. */
+proto.blockMethods = keys(proto.blockTokenizers);
+proto.inlineMethods = keys(proto.inlineTokenizers);
+
+/* Tokenizers. */
+proto.tokenizeBlock = tokenizer('block');
+proto.tokenizeInline = tokenizer('inline');
+proto.tokenizeFactory = tokenizer;
+
+/* Get all keys in `value`. */
+function keys(value) {
+  var result = [];
+  var key;
+
+  for (key in value) {
+    result.push(key);
+  }
+
+  return result;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/set-options.js":
+/*!******************************************************!*\
+  !*** ./node_modules/remark-parse/lib/set-options.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var xtend = __webpack_require__(/*! xtend */ "./node_modules/xtend/immutable.js");
+var escapes = __webpack_require__(/*! markdown-escapes */ "./node_modules/markdown-escapes/index.js");
+var defaults = __webpack_require__(/*! ./defaults */ "./node_modules/remark-parse/lib/defaults.js");
+
+module.exports = setOptions;
+
+function setOptions(options) {
+  var self = this;
+  var current = self.options;
+  var key;
+  var value;
+
+  if (options == null) {
+    options = {};
+  } else if (typeof options === 'object') {
+    options = xtend(options);
+  } else {
+    throw new Error(
+      'Invalid value `' + options + '` ' +
+      'for setting `options`'
+    );
+  }
+
+  for (key in defaults) {
+    value = options[key];
+
+    if (value == null) {
+      value = current[key];
+    }
+
+    if (
+      (key !== 'blocks' && typeof value !== 'boolean') ||
+      (key === 'blocks' && typeof value !== 'object')
+    ) {
+      throw new Error('Invalid value `' + value + '` for setting `options.' + key + '`');
+    }
+
+    options[key] = value;
+  }
+
+  self.options = options;
+  self.escape = escapes(options);
+
+  return self;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/tokenize/auto-link.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/remark-parse/lib/tokenize/auto-link.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var whitespace = __webpack_require__(/*! is-whitespace-character */ "./node_modules/is-whitespace-character/index.js");
+var decode = __webpack_require__(/*! parse-entities */ "./node_modules/parse-entities/index.js");
+var locate = __webpack_require__(/*! ../locate/tag */ "./node_modules/remark-parse/lib/locate/tag.js");
+
+module.exports = autoLink;
+autoLink.locator = locate;
+autoLink.notInLink = true;
+
+var C_LT = '<';
+var C_GT = '>';
+var C_AT_SIGN = '@';
+var C_SLASH = '/';
+var MAILTO = 'mailto:';
+var MAILTO_LENGTH = MAILTO.length;
+
+/* Tokenise a link. */
+function autoLink(eat, value, silent) {
+  var self;
+  var subvalue;
+  var length;
+  var index;
+  var queue;
+  var character;
+  var hasAtCharacter;
+  var link;
+  var now;
+  var content;
+  var tokenizers;
+  var exit;
+
+  if (value.charAt(0) !== C_LT) {
+    return;
+  }
+
+  self = this;
+  subvalue = '';
+  length = value.length;
+  index = 0;
+  queue = '';
+  hasAtCharacter = false;
+  link = '';
+
+  index++;
+  subvalue = C_LT;
+
+  while (index < length) {
+    character = value.charAt(index);
+
+    if (
+      whitespace(character) ||
+      character === C_GT ||
+      character === C_AT_SIGN ||
+      (character === ':' && value.charAt(index + 1) === C_SLASH)
+    ) {
+      break;
+    }
+
+    queue += character;
+    index++;
+  }
+
+  if (!queue) {
+    return;
+  }
+
+  link += queue;
+  queue = '';
+
+  character = value.charAt(index);
+  link += character;
+  index++;
+
+  if (character === C_AT_SIGN) {
+    hasAtCharacter = true;
+  } else {
+    if (
+      character !== ':' ||
+      value.charAt(index + 1) !== C_SLASH
+    ) {
+      return;
+    }
+
+    link += C_SLASH;
+    index++;
+  }
+
+  while (index < length) {
+    character = value.charAt(index);
+
+    if (whitespace(character) || character === C_GT) {
+      break;
+    }
+
+    queue += character;
+    index++;
+  }
+
+  character = value.charAt(index);
+
+  if (!queue || character !== C_GT) {
+    return;
+  }
+
+  /* istanbul ignore if - never used (yet) */
+  if (silent) {
+    return true;
+  }
+
+  link += queue;
+  content = link;
+  subvalue += link + character;
+  now = eat.now();
+  now.column++;
+  now.offset++;
+
+  if (hasAtCharacter) {
+    if (link.slice(0, MAILTO_LENGTH).toLowerCase() === MAILTO) {
+      content = content.substr(MAILTO_LENGTH);
+      now.column += MAILTO_LENGTH;
+      now.offset += MAILTO_LENGTH;
+    } else {
+      link = MAILTO + link;
+    }
+  }
+
+  /* Temporarily remove all tokenizers except text in autolinks. */
+  tokenizers = self.inlineTokenizers;
+  self.inlineTokenizers = {text: tokenizers.text};
+
+  exit = self.enterLink();
+
+  content = self.tokenizeInline(content, now);
+
+  self.inlineTokenizers = tokenizers;
+  exit();
+
+  return eat(subvalue)({
+    type: 'link',
+    title: null,
+    url: decode(link, {nonTerminated: false}),
+    children: content
+  });
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/tokenize/blockquote.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/remark-parse/lib/tokenize/blockquote.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var trim = __webpack_require__(/*! trim */ "./node_modules/trim/index.js");
+var interrupt = __webpack_require__(/*! ../util/interrupt */ "./node_modules/remark-parse/lib/util/interrupt.js");
+
+module.exports = blockquote;
+
+var C_NEWLINE = '\n';
+var C_TAB = '\t';
+var C_SPACE = ' ';
+var C_GT = '>';
+
+/* Tokenise a blockquote. */
+function blockquote(eat, value, silent) {
+  var self = this;
+  var offsets = self.offset;
+  var tokenizers = self.blockTokenizers;
+  var interruptors = self.interruptBlockquote;
+  var now = eat.now();
+  var currentLine = now.line;
+  var length = value.length;
+  var values = [];
+  var contents = [];
+  var indents = [];
+  var add;
+  var index = 0;
+  var character;
+  var rest;
+  var nextIndex;
+  var content;
+  var line;
+  var startIndex;
+  var prefixed;
+  var exit;
+
+  while (index < length) {
+    character = value.charAt(index);
+
+    if (character !== C_SPACE && character !== C_TAB) {
+      break;
+    }
+
+    index++;
+  }
+
+  if (value.charAt(index) !== C_GT) {
+    return;
+  }
+
+  if (silent) {
+    return true;
+  }
+
+  index = 0;
+
+  while (index < length) {
+    nextIndex = value.indexOf(C_NEWLINE, index);
+    startIndex = index;
+    prefixed = false;
+
+    if (nextIndex === -1) {
+      nextIndex = length;
+    }
+
+    while (index < length) {
+      character = value.charAt(index);
+
+      if (character !== C_SPACE && character !== C_TAB) {
+        break;
+      }
+
+      index++;
+    }
+
+    if (value.charAt(index) === C_GT) {
+      index++;
+      prefixed = true;
+
+      if (value.charAt(index) === C_SPACE) {
+        index++;
+      }
+    } else {
+      index = startIndex;
+    }
+
+    content = value.slice(index, nextIndex);
+
+    if (!prefixed && !trim(content)) {
+      index = startIndex;
+      break;
+    }
+
+    if (!prefixed) {
+      rest = value.slice(index);
+
+      /* Check if the following code contains a possible
+       * block. */
+      if (interrupt(interruptors, tokenizers, self, [eat, rest, true])) {
+        break;
+      }
+    }
+
+    line = startIndex === index ? content : value.slice(startIndex, nextIndex);
+
+    indents.push(index - startIndex);
+    values.push(line);
+    contents.push(content);
+
+    index = nextIndex + 1;
+  }
+
+  index = -1;
+  length = indents.length;
+  add = eat(values.join(C_NEWLINE));
+
+  while (++index < length) {
+    offsets[currentLine] = (offsets[currentLine] || 0) + indents[index];
+    currentLine++;
+  }
+
+  exit = self.enterBlock();
+  contents = self.tokenizeBlock(contents.join(C_NEWLINE), now);
+  exit();
+
+  return add({
+    type: 'blockquote',
+    children: contents
+  });
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/tokenize/break.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/remark-parse/lib/tokenize/break.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var locate = __webpack_require__(/*! ../locate/break */ "./node_modules/remark-parse/lib/locate/break.js");
+
+module.exports = hardBreak;
+hardBreak.locator = locate;
+
+var MIN_BREAK_LENGTH = 2;
+
+function hardBreak(eat, value, silent) {
+  var length = value.length;
+  var index = -1;
+  var queue = '';
+  var character;
+
+  while (++index < length) {
+    character = value.charAt(index);
+
+    if (character === '\n') {
+      if (index < MIN_BREAK_LENGTH) {
+        return;
+      }
+
+      /* istanbul ignore if - never used (yet) */
+      if (silent) {
+        return true;
+      }
+
+      queue += character;
+
+      return eat(queue)({type: 'break'});
+    }
+
+    if (character !== ' ') {
+      return;
+    }
+
+    queue += character;
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/tokenize/code-fenced.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/remark-parse/lib/tokenize/code-fenced.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var trim = __webpack_require__(/*! trim-trailing-lines */ "./node_modules/trim-trailing-lines/index.js");
+
+module.exports = fencedCode;
+
+var C_NEWLINE = '\n';
+var C_TAB = '\t';
+var C_SPACE = ' ';
+var C_TILDE = '~';
+var C_TICK = '`';
+
+var MIN_FENCE_COUNT = 3;
+var CODE_INDENT_COUNT = 4;
+
+function fencedCode(eat, value, silent) {
+  var self = this;
+  var settings = self.options;
+  var length = value.length + 1;
+  var index = 0;
+  var subvalue = '';
+  var fenceCount;
+  var marker;
+  var character;
+  var flag;
+  var queue;
+  var content;
+  var exdentedContent;
+  var closing;
+  var exdentedClosing;
+  var indent;
+  var now;
+
+  if (!settings.gfm) {
+    return;
+  }
+
+  /* Eat initial spacing. */
+  while (index < length) {
+    character = value.charAt(index);
+
+    if (character !== C_SPACE && character !== C_TAB) {
+      break;
+    }
+
+    subvalue += character;
+    index++;
+  }
+
+  indent = index;
+
+  /* Eat the fence. */
+  character = value.charAt(index);
+
+  if (character !== C_TILDE && character !== C_TICK) {
+    return;
+  }
+
+  index++;
+  marker = character;
+  fenceCount = 1;
+  subvalue += character;
+
+  while (index < length) {
+    character = value.charAt(index);
+
+    if (character !== marker) {
+      break;
+    }
+
+    subvalue += character;
+    fenceCount++;
+    index++;
+  }
+
+  if (fenceCount < MIN_FENCE_COUNT) {
+    return;
+  }
+
+  /* Eat spacing before flag. */
+  while (index < length) {
+    character = value.charAt(index);
+
+    if (character !== C_SPACE && character !== C_TAB) {
+      break;
+    }
+
+    subvalue += character;
+    index++;
+  }
+
+  /* Eat flag. */
+  flag = '';
+  queue = '';
+
+  while (index < length) {
+    character = value.charAt(index);
+
+    if (
+      character === C_NEWLINE ||
+      character === C_TILDE ||
+      character === C_TICK
+    ) {
+      break;
+    }
+
+    if (character === C_SPACE || character === C_TAB) {
+      queue += character;
+    } else {
+      flag += queue + character;
+      queue = '';
+    }
+
+    index++;
+  }
+
+  character = value.charAt(index);
+
+  if (character && character !== C_NEWLINE) {
+    return;
+  }
+
+  if (silent) {
+    return true;
+  }
+
+  now = eat.now();
+  now.column += subvalue.length;
+  now.offset += subvalue.length;
+
+  subvalue += flag;
+  flag = self.decode.raw(self.unescape(flag), now);
+
+  if (queue) {
+    subvalue += queue;
+  }
+
+  queue = '';
+  closing = '';
+  exdentedClosing = '';
+  content = '';
+  exdentedContent = '';
+
+  /* Eat content. */
+  while (index < length) {
+    character = value.charAt(index);
+    content += closing;
+    exdentedContent += exdentedClosing;
+    closing = '';
+    exdentedClosing = '';
+
+    if (character !== C_NEWLINE) {
+      content += character;
+      exdentedClosing += character;
+      index++;
+      continue;
+    }
+
+    /* Add the newline to `subvalue` if its the first
+     * character.  Otherwise, add it to the `closing`
+     * queue. */
+    if (content) {
+      closing += character;
+      exdentedClosing += character;
+    } else {
+      subvalue += character;
+    }
+
+    queue = '';
+    index++;
+
+    while (index < length) {
+      character = value.charAt(index);
+
+      if (character !== C_SPACE) {
+        break;
+      }
+
+      queue += character;
+      index++;
+    }
+
+    closing += queue;
+    exdentedClosing += queue.slice(indent);
+
+    if (queue.length >= CODE_INDENT_COUNT) {
+      continue;
+    }
+
+    queue = '';
+
+    while (index < length) {
+      character = value.charAt(index);
+
+      if (character !== marker) {
+        break;
+      }
+
+      queue += character;
+      index++;
+    }
+
+    closing += queue;
+    exdentedClosing += queue;
+
+    if (queue.length < fenceCount) {
+      continue;
+    }
+
+    queue = '';
+
+    while (index < length) {
+      character = value.charAt(index);
+
+      if (character !== C_SPACE && character !== C_TAB) {
+        break;
+      }
+
+      closing += character;
+      exdentedClosing += character;
+      index++;
+    }
+
+    if (!character || character === C_NEWLINE) {
+      break;
+    }
+  }
+
+  subvalue += content + closing;
+
+  return eat(subvalue)({
+    type: 'code',
+    lang: flag || null,
+    value: trim(exdentedContent)
+  });
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/tokenize/code-indented.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/remark-parse/lib/tokenize/code-indented.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var repeat = __webpack_require__(/*! repeat-string */ "./node_modules/repeat-string/index.js");
+var trim = __webpack_require__(/*! trim-trailing-lines */ "./node_modules/trim-trailing-lines/index.js");
+
+module.exports = indentedCode;
+
+var C_NEWLINE = '\n';
+var C_TAB = '\t';
+var C_SPACE = ' ';
+
+var CODE_INDENT_COUNT = 4;
+var CODE_INDENT = repeat(C_SPACE, CODE_INDENT_COUNT);
+
+/* Tokenise indented code. */
+function indentedCode(eat, value, silent) {
+  var index = -1;
+  var length = value.length;
+  var subvalue = '';
+  var content = '';
+  var subvalueQueue = '';
+  var contentQueue = '';
+  var character;
+  var blankQueue;
+  var indent;
+
+  while (++index < length) {
+    character = value.charAt(index);
+
+    if (indent) {
+      indent = false;
+
+      subvalue += subvalueQueue;
+      content += contentQueue;
+      subvalueQueue = '';
+      contentQueue = '';
+
+      if (character === C_NEWLINE) {
+        subvalueQueue = character;
+        contentQueue = character;
+      } else {
+        subvalue += character;
+        content += character;
+
+        while (++index < length) {
+          character = value.charAt(index);
+
+          if (!character || character === C_NEWLINE) {
+            contentQueue = character;
+            subvalueQueue = character;
+            break;
+          }
+
+          subvalue += character;
+          content += character;
+        }
+      }
+    } else if (
+      character === C_SPACE &&
+      value.charAt(index + 1) === character &&
+      value.charAt(index + 2) === character &&
+      value.charAt(index + 3) === character
+    ) {
+      subvalueQueue += CODE_INDENT;
+      index += 3;
+      indent = true;
+    } else if (character === C_TAB) {
+      subvalueQueue += character;
+      indent = true;
+    } else {
+      blankQueue = '';
+
+      while (character === C_TAB || character === C_SPACE) {
+        blankQueue += character;
+        character = value.charAt(++index);
+      }
+
+      if (character !== C_NEWLINE) {
+        break;
+      }
+
+      subvalueQueue += blankQueue + character;
+      contentQueue += character;
+    }
+  }
+
+  if (content) {
+    if (silent) {
+      return true;
+    }
+
+    return eat(subvalue)({
+      type: 'code',
+      lang: null,
+      value: trim(content)
+    });
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/tokenize/code-inline.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/remark-parse/lib/tokenize/code-inline.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var whitespace = __webpack_require__(/*! is-whitespace-character */ "./node_modules/is-whitespace-character/index.js");
+var locate = __webpack_require__(/*! ../locate/code-inline */ "./node_modules/remark-parse/lib/locate/code-inline.js");
+
+module.exports = inlineCode;
+inlineCode.locator = locate;
+
+var C_TICK = '`';
+
+/* Tokenise inline code. */
+function inlineCode(eat, value, silent) {
+  var length = value.length;
+  var index = 0;
+  var queue = '';
+  var tickQueue = '';
+  var contentQueue;
+  var subqueue;
+  var count;
+  var openingCount;
+  var subvalue;
+  var character;
+  var found;
+  var next;
+
+  while (index < length) {
+    if (value.charAt(index) !== C_TICK) {
+      break;
+    }
+
+    queue += C_TICK;
+    index++;
+  }
+
+  if (!queue) {
+    return;
+  }
+
+  subvalue = queue;
+  openingCount = index;
+  queue = '';
+  next = value.charAt(index);
+  count = 0;
+
+  while (index < length) {
+    character = next;
+    next = value.charAt(index + 1);
+
+    if (character === C_TICK) {
+      count++;
+      tickQueue += character;
+    } else {
+      count = 0;
+      queue += character;
+    }
+
+    if (count && next !== C_TICK) {
+      if (count === openingCount) {
+        subvalue += queue + tickQueue;
+        found = true;
+        break;
+      }
+
+      queue += tickQueue;
+      tickQueue = '';
+    }
+
+    index++;
+  }
+
+  if (!found) {
+    if (openingCount % 2 !== 0) {
+      return;
+    }
+
+    queue = '';
+  }
+
+  /* istanbul ignore if - never used (yet) */
+  if (silent) {
+    return true;
+  }
+
+  contentQueue = '';
+  subqueue = '';
+  length = queue.length;
+  index = -1;
+
+  while (++index < length) {
+    character = queue.charAt(index);
+
+    if (whitespace(character)) {
+      subqueue += character;
+      continue;
+    }
+
+    if (subqueue) {
+      if (contentQueue) {
+        contentQueue += subqueue;
+      }
+
+      subqueue = '';
+    }
+
+    contentQueue += character;
+  }
+
+  return eat(subvalue)({
+    type: 'inlineCode',
+    value: contentQueue
+  });
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/tokenize/definition.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/remark-parse/lib/tokenize/definition.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var whitespace = __webpack_require__(/*! is-whitespace-character */ "./node_modules/is-whitespace-character/index.js");
+var normalize = __webpack_require__(/*! ../util/normalize */ "./node_modules/remark-parse/lib/util/normalize.js");
+
+module.exports = definition;
+definition.notInList = true;
+definition.notInBlock = true;
+
+var C_DOUBLE_QUOTE = '"';
+var C_SINGLE_QUOTE = '\'';
+var C_BACKSLASH = '\\';
+var C_NEWLINE = '\n';
+var C_TAB = '\t';
+var C_SPACE = ' ';
+var C_BRACKET_OPEN = '[';
+var C_BRACKET_CLOSE = ']';
+var C_PAREN_OPEN = '(';
+var C_PAREN_CLOSE = ')';
+var C_COLON = ':';
+var C_LT = '<';
+var C_GT = '>';
+
+function definition(eat, value, silent) {
+  var self = this;
+  var commonmark = self.options.commonmark;
+  var index = 0;
+  var length = value.length;
+  var subvalue = '';
+  var beforeURL;
+  var beforeTitle;
+  var queue;
+  var character;
+  var test;
+  var identifier;
+  var url;
+  var title;
+
+  while (index < length) {
+    character = value.charAt(index);
+
+    if (character !== C_SPACE && character !== C_TAB) {
+      break;
+    }
+
+    subvalue += character;
+    index++;
+  }
+
+  character = value.charAt(index);
+
+  if (character !== C_BRACKET_OPEN) {
+    return;
+  }
+
+  index++;
+  subvalue += character;
+  queue = '';
+
+  while (index < length) {
+    character = value.charAt(index);
+
+    if (character === C_BRACKET_CLOSE) {
+      break;
+    } else if (character === C_BACKSLASH) {
+      queue += character;
+      index++;
+      character = value.charAt(index);
+    }
+
+    queue += character;
+    index++;
+  }
+
+  if (
+    !queue ||
+    value.charAt(index) !== C_BRACKET_CLOSE ||
+    value.charAt(index + 1) !== C_COLON
+  ) {
+    return;
+  }
+
+  identifier = queue;
+  subvalue += queue + C_BRACKET_CLOSE + C_COLON;
+  index = subvalue.length;
+  queue = '';
+
+  while (index < length) {
+    character = value.charAt(index);
+
+    if (
+      character !== C_TAB &&
+      character !== C_SPACE &&
+      character !== C_NEWLINE
+    ) {
+      break;
+    }
+
+    subvalue += character;
+    index++;
+  }
+
+  character = value.charAt(index);
+  queue = '';
+  beforeURL = subvalue;
+
+  if (character === C_LT) {
+    index++;
+
+    while (index < length) {
+      character = value.charAt(index);
+
+      if (!isEnclosedURLCharacter(character)) {
+        break;
+      }
+
+      queue += character;
+      index++;
+    }
+
+    character = value.charAt(index);
+
+    if (character === isEnclosedURLCharacter.delimiter) {
+      subvalue += C_LT + queue + character;
+      index++;
+    } else {
+      if (commonmark) {
+        return;
+      }
+
+      index -= queue.length + 1;
+      queue = '';
+    }
+  }
+
+  if (!queue) {
+    while (index < length) {
+      character = value.charAt(index);
+
+      if (!isUnclosedURLCharacter(character)) {
+        break;
+      }
+
+      queue += character;
+      index++;
+    }
+
+    subvalue += queue;
+  }
+
+  if (!queue) {
+    return;
+  }
+
+  url = queue;
+  queue = '';
+
+  while (index < length) {
+    character = value.charAt(index);
+
+    if (
+      character !== C_TAB &&
+      character !== C_SPACE &&
+      character !== C_NEWLINE
+    ) {
+      break;
+    }
+
+    queue += character;
+    index++;
+  }
+
+  character = value.charAt(index);
+  test = null;
+
+  if (character === C_DOUBLE_QUOTE) {
+    test = C_DOUBLE_QUOTE;
+  } else if (character === C_SINGLE_QUOTE) {
+    test = C_SINGLE_QUOTE;
+  } else if (character === C_PAREN_OPEN) {
+    test = C_PAREN_CLOSE;
+  }
+
+  if (!test) {
+    queue = '';
+    index = subvalue.length;
+  } else if (queue) {
+    subvalue += queue + character;
+    index = subvalue.length;
+    queue = '';
+
+    while (index < length) {
+      character = value.charAt(index);
+
+      if (character === test) {
+        break;
+      }
+
+      if (character === C_NEWLINE) {
+        index++;
+        character = value.charAt(index);
+
+        if (character === C_NEWLINE || character === test) {
+          return;
+        }
+
+        queue += C_NEWLINE;
+      }
+
+      queue += character;
+      index++;
+    }
+
+    character = value.charAt(index);
+
+    if (character !== test) {
+      return;
+    }
+
+    beforeTitle = subvalue;
+    subvalue += queue + character;
+    index++;
+    title = queue;
+    queue = '';
+  } else {
+    return;
+  }
+
+  while (index < length) {
+    character = value.charAt(index);
+
+    if (character !== C_TAB && character !== C_SPACE) {
+      break;
+    }
+
+    subvalue += character;
+    index++;
+  }
+
+  character = value.charAt(index);
+
+  if (!character || character === C_NEWLINE) {
+    if (silent) {
+      return true;
+    }
+
+    beforeURL = eat(beforeURL).test().end;
+    url = self.decode.raw(self.unescape(url), beforeURL, {nonTerminated: false});
+
+    if (title) {
+      beforeTitle = eat(beforeTitle).test().end;
+      title = self.decode.raw(self.unescape(title), beforeTitle);
+    }
+
+    return eat(subvalue)({
+      type: 'definition',
+      identifier: normalize(identifier),
+      title: title || null,
+      url: url
+    });
+  }
+}
+
+/* Check if `character` can be inside an enclosed URI. */
+function isEnclosedURLCharacter(character) {
+  return character !== C_GT &&
+    character !== C_BRACKET_OPEN &&
+    character !== C_BRACKET_CLOSE;
+}
+
+isEnclosedURLCharacter.delimiter = C_GT;
+
+/* Check if `character` can be inside an unclosed URI. */
+function isUnclosedURLCharacter(character) {
+  return character !== C_BRACKET_OPEN &&
+    character !== C_BRACKET_CLOSE &&
+    !whitespace(character);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/tokenize/delete.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/remark-parse/lib/tokenize/delete.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var whitespace = __webpack_require__(/*! is-whitespace-character */ "./node_modules/is-whitespace-character/index.js");
+var locate = __webpack_require__(/*! ../locate/delete */ "./node_modules/remark-parse/lib/locate/delete.js");
+
+module.exports = strikethrough;
+strikethrough.locator = locate;
+
+var C_TILDE = '~';
+var DOUBLE = '~~';
+
+function strikethrough(eat, value, silent) {
+  var self = this;
+  var character = '';
+  var previous = '';
+  var preceding = '';
+  var subvalue = '';
+  var index;
+  var length;
+  var now;
+
+  if (
+    !self.options.gfm ||
+    value.charAt(0) !== C_TILDE ||
+    value.charAt(1) !== C_TILDE ||
+    whitespace(value.charAt(2))
+  ) {
+    return;
+  }
+
+  index = 1;
+  length = value.length;
+  now = eat.now();
+  now.column += 2;
+  now.offset += 2;
+
+  while (++index < length) {
+    character = value.charAt(index);
+
+    if (
+      character === C_TILDE &&
+      previous === C_TILDE &&
+      (!preceding || !whitespace(preceding))
+    ) {
+      /* istanbul ignore if - never used (yet) */
+      if (silent) {
+        return true;
+      }
+
+      return eat(DOUBLE + subvalue + DOUBLE)({
+        type: 'delete',
+        children: self.tokenizeInline(subvalue, now)
+      });
+    }
+
+    subvalue += previous;
+    preceding = previous;
+    previous = character;
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/tokenize/emphasis.js":
+/*!************************************************************!*\
+  !*** ./node_modules/remark-parse/lib/tokenize/emphasis.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var trim = __webpack_require__(/*! trim */ "./node_modules/trim/index.js");
+var word = __webpack_require__(/*! is-word-character */ "./node_modules/is-word-character/index.js");
+var whitespace = __webpack_require__(/*! is-whitespace-character */ "./node_modules/is-whitespace-character/index.js");
+var locate = __webpack_require__(/*! ../locate/emphasis */ "./node_modules/remark-parse/lib/locate/emphasis.js");
+
+module.exports = emphasis;
+emphasis.locator = locate;
+
+var C_ASTERISK = '*';
+var C_UNDERSCORE = '_';
+
+function emphasis(eat, value, silent) {
+  var self = this;
+  var index = 0;
+  var character = value.charAt(index);
+  var now;
+  var pedantic;
+  var marker;
+  var queue;
+  var subvalue;
+  var length;
+  var prev;
+
+  if (character !== C_ASTERISK && character !== C_UNDERSCORE) {
+    return;
+  }
+
+  pedantic = self.options.pedantic;
+  subvalue = character;
+  marker = character;
+  length = value.length;
+  index++;
+  queue = '';
+  character = '';
+
+  if (pedantic && whitespace(value.charAt(index))) {
+    return;
+  }
+
+  while (index < length) {
+    prev = character;
+    character = value.charAt(index);
+
+    if (character === marker && (!pedantic || !whitespace(prev))) {
+      character = value.charAt(++index);
+
+      if (character !== marker) {
+        if (!trim(queue) || prev === marker) {
+          return;
+        }
+
+        if (!pedantic && marker === C_UNDERSCORE && word(character)) {
+          queue += marker;
+          continue;
+        }
+
+        /* istanbul ignore if - never used (yet) */
+        if (silent) {
+          return true;
+        }
+
+        now = eat.now();
+        now.column++;
+        now.offset++;
+
+        return eat(subvalue + queue + marker)({
+          type: 'emphasis',
+          children: self.tokenizeInline(queue, now)
+        });
+      }
+
+      queue += marker;
+    }
+
+    if (!pedantic && character === '\\') {
+      queue += character;
+      character = value.charAt(++index);
+    }
+
+    queue += character;
+    index++;
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/tokenize/escape.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/remark-parse/lib/tokenize/escape.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var locate = __webpack_require__(/*! ../locate/escape */ "./node_modules/remark-parse/lib/locate/escape.js");
+
+module.exports = escape;
+escape.locator = locate;
+
+function escape(eat, value, silent) {
+  var self = this;
+  var character;
+  var node;
+
+  if (value.charAt(0) === '\\') {
+    character = value.charAt(1);
+
+    if (self.escape.indexOf(character) !== -1) {
+      /* istanbul ignore if - never used (yet) */
+      if (silent) {
+        return true;
+      }
+
+      if (character === '\n') {
+        node = {type: 'break'};
+      } else {
+        node = {
+          type: 'text',
+          value: character
+        };
+      }
+
+      return eat('\\' + character)(node);
+    }
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/tokenize/footnote-definition.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/remark-parse/lib/tokenize/footnote-definition.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var whitespace = __webpack_require__(/*! is-whitespace-character */ "./node_modules/is-whitespace-character/index.js");
+var normalize = __webpack_require__(/*! ../util/normalize */ "./node_modules/remark-parse/lib/util/normalize.js");
+
+module.exports = footnoteDefinition;
+footnoteDefinition.notInList = true;
+footnoteDefinition.notInBlock = true;
+
+var C_BACKSLASH = '\\';
+var C_NEWLINE = '\n';
+var C_TAB = '\t';
+var C_SPACE = ' ';
+var C_BRACKET_OPEN = '[';
+var C_BRACKET_CLOSE = ']';
+var C_CARET = '^';
+var C_COLON = ':';
+
+var EXPRESSION_INITIAL_TAB = /^( {4}|\t)?/gm;
+
+function footnoteDefinition(eat, value, silent) {
+  var self = this;
+  var offsets = self.offset;
+  var index;
+  var length;
+  var subvalue;
+  var now;
+  var currentLine;
+  var content;
+  var queue;
+  var subqueue;
+  var character;
+  var identifier;
+  var add;
+  var exit;
+
+  if (!self.options.footnotes) {
+    return;
+  }
+
+  index = 0;
+  length = value.length;
+  subvalue = '';
+  now = eat.now();
+  currentLine = now.line;
+
+  while (index < length) {
+    character = value.charAt(index);
+
+    if (!whitespace(character)) {
+      break;
+    }
+
+    subvalue += character;
+    index++;
+  }
+
+  if (
+    value.charAt(index) !== C_BRACKET_OPEN ||
+    value.charAt(index + 1) !== C_CARET
+  ) {
+    return;
+  }
+
+  subvalue += C_BRACKET_OPEN + C_CARET;
+  index = subvalue.length;
+  queue = '';
+
+  while (index < length) {
+    character = value.charAt(index);
+
+    if (character === C_BRACKET_CLOSE) {
+      break;
+    } else if (character === C_BACKSLASH) {
+      queue += character;
+      index++;
+      character = value.charAt(index);
+    }
+
+    queue += character;
+    index++;
+  }
+
+  if (
+    !queue ||
+    value.charAt(index) !== C_BRACKET_CLOSE ||
+    value.charAt(index + 1) !== C_COLON
+  ) {
+    return;
+  }
+
+  if (silent) {
+    return true;
+  }
+
+  identifier = normalize(queue);
+  subvalue += queue + C_BRACKET_CLOSE + C_COLON;
+  index = subvalue.length;
+
+  while (index < length) {
+    character = value.charAt(index);
+
+    if (character !== C_TAB && character !== C_SPACE) {
+      break;
+    }
+
+    subvalue += character;
+    index++;
+  }
+
+  now.column += subvalue.length;
+  now.offset += subvalue.length;
+  queue = '';
+  content = '';
+  subqueue = '';
+
+  while (index < length) {
+    character = value.charAt(index);
+
+    if (character === C_NEWLINE) {
+      subqueue = character;
+      index++;
+
+      while (index < length) {
+        character = value.charAt(index);
+
+        if (character !== C_NEWLINE) {
+          break;
+        }
+
+        subqueue += character;
+        index++;
+      }
+
+      queue += subqueue;
+      subqueue = '';
+
+      while (index < length) {
+        character = value.charAt(index);
+
+        if (character !== C_SPACE) {
+          break;
+        }
+
+        subqueue += character;
+        index++;
+      }
+
+      if (subqueue.length === 0) {
+        break;
+      }
+
+      queue += subqueue;
+    }
+
+    if (queue) {
+      content += queue;
+      queue = '';
+    }
+
+    content += character;
+    index++;
+  }
+
+  subvalue += content;
+
+  content = content.replace(EXPRESSION_INITIAL_TAB, function (line) {
+    offsets[currentLine] = (offsets[currentLine] || 0) + line.length;
+    currentLine++;
+
+    return '';
+  });
+
+  add = eat(subvalue);
+
+  exit = self.enterBlock();
+  content = self.tokenizeBlock(content, now);
+  exit();
+
+  return add({
+    type: 'footnoteDefinition',
+    identifier: identifier,
+    children: content
+  });
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/tokenize/heading-atx.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/remark-parse/lib/tokenize/heading-atx.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = atxHeading;
+
+var C_NEWLINE = '\n';
+var C_TAB = '\t';
+var C_SPACE = ' ';
+var C_HASH = '#';
+
+var MAX_ATX_COUNT = 6;
+
+function atxHeading(eat, value, silent) {
+  var self = this;
+  var settings = self.options;
+  var length = value.length + 1;
+  var index = -1;
+  var now = eat.now();
+  var subvalue = '';
+  var content = '';
+  var character;
+  var queue;
+  var depth;
+
+  /* Eat initial spacing. */
+  while (++index < length) {
+    character = value.charAt(index);
+
+    if (character !== C_SPACE && character !== C_TAB) {
+      index--;
+      break;
+    }
+
+    subvalue += character;
+  }
+
+  /* Eat hashes. */
+  depth = 0;
+
+  while (++index <= length) {
+    character = value.charAt(index);
+
+    if (character !== C_HASH) {
+      index--;
+      break;
+    }
+
+    subvalue += character;
+    depth++;
+  }
+
+  if (depth > MAX_ATX_COUNT) {
+    return;
+  }
+
+  if (
+    !depth ||
+    (!settings.pedantic && value.charAt(index + 1) === C_HASH)
+  ) {
+    return;
+  }
+
+  length = value.length + 1;
+
+  /* Eat intermediate white-space. */
+  queue = '';
+
+  while (++index < length) {
+    character = value.charAt(index);
+
+    if (character !== C_SPACE && character !== C_TAB) {
+      index--;
+      break;
+    }
+
+    queue += character;
+  }
+
+  /* Exit when not in pedantic mode without spacing. */
+  if (
+    !settings.pedantic &&
+    queue.length === 0 &&
+    character &&
+    character !== C_NEWLINE
+  ) {
+    return;
+  }
+
+  if (silent) {
+    return true;
+  }
+
+  /* Eat content. */
+  subvalue += queue;
+  queue = '';
+  content = '';
+
+  while (++index < length) {
+    character = value.charAt(index);
+
+    if (!character || character === C_NEWLINE) {
+      break;
+    }
+
+    if (
+      character !== C_SPACE &&
+      character !== C_TAB &&
+      character !== C_HASH
+    ) {
+      content += queue + character;
+      queue = '';
+      continue;
+    }
+
+    while (character === C_SPACE || character === C_TAB) {
+      queue += character;
+      character = value.charAt(++index);
+    }
+
+    while (character === C_HASH) {
+      queue += character;
+      character = value.charAt(++index);
+    }
+
+    while (character === C_SPACE || character === C_TAB) {
+      queue += character;
+      character = value.charAt(++index);
+    }
+
+    index--;
+  }
+
+  now.column += subvalue.length;
+  now.offset += subvalue.length;
+  subvalue += content + queue;
+
+  return eat(subvalue)({
+    type: 'heading',
+    depth: depth,
+    children: self.tokenizeInline(content, now)
+  });
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/tokenize/heading-setext.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/remark-parse/lib/tokenize/heading-setext.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = setextHeading;
+
+var C_NEWLINE = '\n';
+var C_TAB = '\t';
+var C_SPACE = ' ';
+var C_EQUALS = '=';
+var C_DASH = '-';
+
+var MAX_HEADING_INDENT = 3;
+
+/* Map of characters which can be used to mark setext
+ * headers, mapping to their corresponding depth. */
+var SETEXT_MARKERS = {};
+
+SETEXT_MARKERS[C_EQUALS] = 1;
+SETEXT_MARKERS[C_DASH] = 2;
+
+function setextHeading(eat, value, silent) {
+  var self = this;
+  var now = eat.now();
+  var length = value.length;
+  var index = -1;
+  var subvalue = '';
+  var content;
+  var queue;
+  var character;
+  var marker;
+  var depth;
+
+  /* Eat initial indentation. */
+  while (++index < length) {
+    character = value.charAt(index);
+
+    if (character !== C_SPACE || index >= MAX_HEADING_INDENT) {
+      index--;
+      break;
+    }
+
+    subvalue += character;
+  }
+
+  /* Eat content. */
+  content = '';
+  queue = '';
+
+  while (++index < length) {
+    character = value.charAt(index);
+
+    if (character === C_NEWLINE) {
+      index--;
+      break;
+    }
+
+    if (character === C_SPACE || character === C_TAB) {
+      queue += character;
+    } else {
+      content += queue + character;
+      queue = '';
+    }
+  }
+
+  now.column += subvalue.length;
+  now.offset += subvalue.length;
+  subvalue += content + queue;
+
+  /* Ensure the content is followed by a newline and a
+   * valid marker. */
+  character = value.charAt(++index);
+  marker = value.charAt(++index);
+
+  if (character !== C_NEWLINE || !SETEXT_MARKERS[marker]) {
+    return;
+  }
+
+  subvalue += character;
+
+  /* Eat Setext-line. */
+  queue = marker;
+  depth = SETEXT_MARKERS[marker];
+
+  while (++index < length) {
+    character = value.charAt(index);
+
+    if (character !== marker) {
+      if (character !== C_NEWLINE) {
+        return;
+      }
+
+      index--;
+      break;
+    }
+
+    queue += character;
+  }
+
+  if (silent) {
+    return true;
+  }
+
+  return eat(subvalue + queue)({
+    type: 'heading',
+    depth: depth,
+    children: self.tokenizeInline(content, now)
+  });
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/tokenize/html-block.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/remark-parse/lib/tokenize/html-block.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var openCloseTag = __webpack_require__(/*! ../util/html */ "./node_modules/remark-parse/lib/util/html.js").openCloseTag;
+
+module.exports = blockHTML;
+
+var C_TAB = '\t';
+var C_SPACE = ' ';
+var C_NEWLINE = '\n';
+var C_LT = '<';
+
+function blockHTML(eat, value, silent) {
+  var self = this;
+  var blocks = self.options.blocks;
+  var length = value.length;
+  var index = 0;
+  var next;
+  var line;
+  var offset;
+  var character;
+  var count;
+  var sequence;
+  var subvalue;
+
+  var sequences = [
+    [/^<(script|pre|style)(?=(\s|>|$))/i, /<\/(script|pre|style)>/i, true],
+    [/^<!--/, /-->/, true],
+    [/^<\?/, /\?>/, true],
+    [/^<![A-Za-z]/, />/, true],
+    [/^<!\[CDATA\[/, /\]\]>/, true],
+    [new RegExp('^</?(' + blocks.join('|') + ')(?=(\\s|/?>|$))', 'i'), /^$/, true],
+    [new RegExp(openCloseTag.source + '\\s*$'), /^$/, false]
+  ];
+
+  /* Eat initial spacing. */
+  while (index < length) {
+    character = value.charAt(index);
+
+    if (character !== C_TAB && character !== C_SPACE) {
+      break;
+    }
+
+    index++;
+  }
+
+  if (value.charAt(index) !== C_LT) {
+    return;
+  }
+
+  next = value.indexOf(C_NEWLINE, index + 1);
+  next = next === -1 ? length : next;
+  line = value.slice(index, next);
+  offset = -1;
+  count = sequences.length;
+
+  while (++offset < count) {
+    if (sequences[offset][0].test(line)) {
+      sequence = sequences[offset];
+      break;
+    }
+  }
+
+  if (!sequence) {
+    return;
+  }
+
+  if (silent) {
+    return sequence[2];
+  }
+
+  index = next;
+
+  if (!sequence[1].test(line)) {
+    while (index < length) {
+      next = value.indexOf(C_NEWLINE, index + 1);
+      next = next === -1 ? length : next;
+      line = value.slice(index + 1, next);
+
+      if (sequence[1].test(line)) {
+        if (line) {
+          index = next;
+        }
+
+        break;
+      }
+
+      index = next;
+    }
+  }
+
+  subvalue = value.slice(0, index);
+
+  return eat(subvalue)({type: 'html', value: subvalue});
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/tokenize/html-inline.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/remark-parse/lib/tokenize/html-inline.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var alphabetical = __webpack_require__(/*! is-alphabetical */ "./node_modules/is-alphabetical/index.js");
+var locate = __webpack_require__(/*! ../locate/tag */ "./node_modules/remark-parse/lib/locate/tag.js");
+var tag = __webpack_require__(/*! ../util/html */ "./node_modules/remark-parse/lib/util/html.js").tag;
+
+module.exports = inlineHTML;
+inlineHTML.locator = locate;
+
+var EXPRESSION_HTML_LINK_OPEN = /^<a /i;
+var EXPRESSION_HTML_LINK_CLOSE = /^<\/a>/i;
+
+function inlineHTML(eat, value, silent) {
+  var self = this;
+  var length = value.length;
+  var character;
+  var subvalue;
+
+  if (value.charAt(0) !== '<' || length < 3) {
+    return;
+  }
+
+  character = value.charAt(1);
+
+  if (
+    !alphabetical(character) &&
+    character !== '?' &&
+    character !== '!' &&
+    character !== '/'
+  ) {
+    return;
+  }
+
+  subvalue = value.match(tag);
+
+  if (!subvalue) {
+    return;
+  }
+
+  /* istanbul ignore if - not used yet. */
+  if (silent) {
+    return true;
+  }
+
+  subvalue = subvalue[0];
+
+  if (!self.inLink && EXPRESSION_HTML_LINK_OPEN.test(subvalue)) {
+    self.inLink = true;
+  } else if (self.inLink && EXPRESSION_HTML_LINK_CLOSE.test(subvalue)) {
+    self.inLink = false;
+  }
+
+  return eat(subvalue)({type: 'html', value: subvalue});
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/tokenize/link.js":
+/*!********************************************************!*\
+  !*** ./node_modules/remark-parse/lib/tokenize/link.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var whitespace = __webpack_require__(/*! is-whitespace-character */ "./node_modules/is-whitespace-character/index.js");
+var locate = __webpack_require__(/*! ../locate/link */ "./node_modules/remark-parse/lib/locate/link.js");
+
+module.exports = link;
+link.locator = locate;
+
+var own = {}.hasOwnProperty;
+
+var C_BACKSLASH = '\\';
+var C_BRACKET_OPEN = '[';
+var C_BRACKET_CLOSE = ']';
+var C_PAREN_OPEN = '(';
+var C_PAREN_CLOSE = ')';
+var C_LT = '<';
+var C_GT = '>';
+var C_TICK = '`';
+var C_DOUBLE_QUOTE = '"';
+var C_SINGLE_QUOTE = '\'';
+
+/* Map of characters, which can be used to mark link
+ * and image titles. */
+var LINK_MARKERS = {};
+
+LINK_MARKERS[C_DOUBLE_QUOTE] = C_DOUBLE_QUOTE;
+LINK_MARKERS[C_SINGLE_QUOTE] = C_SINGLE_QUOTE;
+
+/* Map of characters, which can be used to mark link
+ * and image titles in commonmark-mode. */
+var COMMONMARK_LINK_MARKERS = {};
+
+COMMONMARK_LINK_MARKERS[C_DOUBLE_QUOTE] = C_DOUBLE_QUOTE;
+COMMONMARK_LINK_MARKERS[C_SINGLE_QUOTE] = C_SINGLE_QUOTE;
+COMMONMARK_LINK_MARKERS[C_PAREN_OPEN] = C_PAREN_CLOSE;
+
+function link(eat, value, silent) {
+  var self = this;
+  var subvalue = '';
+  var index = 0;
+  var character = value.charAt(0);
+  var pedantic = self.options.pedantic;
+  var commonmark = self.options.commonmark;
+  var gfm = self.options.gfm;
+  var closed;
+  var count;
+  var opening;
+  var beforeURL;
+  var beforeTitle;
+  var subqueue;
+  var hasMarker;
+  var markers;
+  var isImage;
+  var content;
+  var marker;
+  var length;
+  var title;
+  var depth;
+  var queue;
+  var url;
+  var now;
+  var exit;
+  var node;
+
+  /* Detect whether this is an image. */
+  if (character === '!') {
+    isImage = true;
+    subvalue = character;
+    character = value.charAt(++index);
+  }
+
+  /* Eat the opening. */
+  if (character !== C_BRACKET_OPEN) {
+    return;
+  }
+
+  /* Exit when this is a link and we’re already inside
+   * a link. */
+  if (!isImage && self.inLink) {
+    return;
+  }
+
+  subvalue += character;
+  queue = '';
+  index++;
+
+  /* Eat the content. */
+  length = value.length;
+  now = eat.now();
+  depth = 0;
+
+  now.column += index;
+  now.offset += index;
+
+  while (index < length) {
+    character = value.charAt(index);
+    subqueue = character;
+
+    if (character === C_TICK) {
+      /* Inline-code in link content. */
+      count = 1;
+
+      while (value.charAt(index + 1) === C_TICK) {
+        subqueue += character;
+        index++;
+        count++;
+      }
+
+      if (!opening) {
+        opening = count;
+      } else if (count >= opening) {
+        opening = 0;
+      }
+    } else if (character === C_BACKSLASH) {
+      /* Allow brackets to be escaped. */
+      index++;
+      subqueue += value.charAt(index);
+    /* In GFM mode, brackets in code still count.
+     * In all other modes, they don’t.  This empty
+     * block prevents the next statements are
+     * entered. */
+    } else if ((!opening || gfm) && character === C_BRACKET_OPEN) {
+      depth++;
+    } else if ((!opening || gfm) && character === C_BRACKET_CLOSE) {
+      if (depth) {
+        depth--;
+      } else {
+        /* Allow white-space between content and
+         * url in GFM mode. */
+        if (!pedantic) {
+          while (index < length) {
+            character = value.charAt(index + 1);
+
+            if (!whitespace(character)) {
+              break;
+            }
+
+            subqueue += character;
+            index++;
+          }
+        }
+
+        if (value.charAt(index + 1) !== C_PAREN_OPEN) {
+          return;
+        }
+
+        subqueue += C_PAREN_OPEN;
+        closed = true;
+        index++;
+
+        break;
+      }
+    }
+
+    queue += subqueue;
+    subqueue = '';
+    index++;
+  }
+
+  /* Eat the content closing. */
+  if (!closed) {
+    return;
+  }
+
+  content = queue;
+  subvalue += queue + subqueue;
+  index++;
+
+  /* Eat white-space. */
+  while (index < length) {
+    character = value.charAt(index);
+
+    if (!whitespace(character)) {
+      break;
+    }
+
+    subvalue += character;
+    index++;
+  }
+
+  /* Eat the URL. */
+  character = value.charAt(index);
+  markers = commonmark ? COMMONMARK_LINK_MARKERS : LINK_MARKERS;
+  queue = '';
+  beforeURL = subvalue;
+
+  if (character === C_LT) {
+    index++;
+    beforeURL += C_LT;
+
+    while (index < length) {
+      character = value.charAt(index);
+
+      if (character === C_GT) {
+        break;
+      }
+
+      if (commonmark && character === '\n') {
+        return;
+      }
+
+      queue += character;
+      index++;
+    }
+
+    if (value.charAt(index) !== C_GT) {
+      return;
+    }
+
+    subvalue += C_LT + queue + C_GT;
+    url = queue;
+    index++;
+  } else {
+    character = null;
+    subqueue = '';
+
+    while (index < length) {
+      character = value.charAt(index);
+
+      if (subqueue && own.call(markers, character)) {
+        break;
+      }
+
+      if (whitespace(character)) {
+        if (!pedantic) {
+          break;
+        }
+
+        subqueue += character;
+      } else {
+        if (character === C_PAREN_OPEN) {
+          depth++;
+        } else if (character === C_PAREN_CLOSE) {
+          if (depth === 0) {
+            break;
+          }
+
+          depth--;
+        }
+
+        queue += subqueue;
+        subqueue = '';
+
+        if (character === C_BACKSLASH) {
+          queue += C_BACKSLASH;
+          character = value.charAt(++index);
+        }
+
+        queue += character;
+      }
+
+      index++;
+    }
+
+    subvalue += queue;
+    url = queue;
+    index = subvalue.length;
+  }
+
+  /* Eat white-space. */
+  queue = '';
+
+  while (index < length) {
+    character = value.charAt(index);
+
+    if (!whitespace(character)) {
+      break;
+    }
+
+    queue += character;
+    index++;
+  }
+
+  character = value.charAt(index);
+  subvalue += queue;
+
+  /* Eat the title. */
+  if (queue && own.call(markers, character)) {
+    index++;
+    subvalue += character;
+    queue = '';
+    marker = markers[character];
+    beforeTitle = subvalue;
+
+    /* In commonmark-mode, things are pretty easy: the
+     * marker cannot occur inside the title.
+     *
+     * Non-commonmark does, however, support nested
+     * delimiters. */
+    if (commonmark) {
+      while (index < length) {
+        character = value.charAt(index);
+
+        if (character === marker) {
+          break;
+        }
+
+        if (character === C_BACKSLASH) {
+          queue += C_BACKSLASH;
+          character = value.charAt(++index);
+        }
+
+        index++;
+        queue += character;
+      }
+
+      character = value.charAt(index);
+
+      if (character !== marker) {
+        return;
+      }
+
+      title = queue;
+      subvalue += queue + character;
+      index++;
+
+      while (index < length) {
+        character = value.charAt(index);
+
+        if (!whitespace(character)) {
+          break;
+        }
+
+        subvalue += character;
+        index++;
+      }
+    } else {
+      subqueue = '';
+
+      while (index < length) {
+        character = value.charAt(index);
+
+        if (character === marker) {
+          if (hasMarker) {
+            queue += marker + subqueue;
+            subqueue = '';
+          }
+
+          hasMarker = true;
+        } else if (!hasMarker) {
+          queue += character;
+        } else if (character === C_PAREN_CLOSE) {
+          subvalue += queue + marker + subqueue;
+          title = queue;
+          break;
+        } else if (whitespace(character)) {
+          subqueue += character;
+        } else {
+          queue += marker + subqueue + character;
+          subqueue = '';
+          hasMarker = false;
+        }
+
+        index++;
+      }
+    }
+  }
+
+  if (value.charAt(index) !== C_PAREN_CLOSE) {
+    return;
+  }
+
+  /* istanbul ignore if - never used (yet) */
+  if (silent) {
+    return true;
+  }
+
+  subvalue += C_PAREN_CLOSE;
+
+  url = self.decode.raw(self.unescape(url), eat(beforeURL).test().end, {nonTerminated: false});
+
+  if (title) {
+    beforeTitle = eat(beforeTitle).test().end;
+    title = self.decode.raw(self.unescape(title), beforeTitle);
+  }
+
+  node = {
+    type: isImage ? 'image' : 'link',
+    title: title || null,
+    url: url
+  };
+
+  if (isImage) {
+    node.alt = self.decode.raw(self.unescape(content), now) || null;
+  } else {
+    exit = self.enterLink();
+    node.children = self.tokenizeInline(content, now);
+    exit();
+  }
+
+  return eat(subvalue)(node);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/tokenize/list.js":
+/*!********************************************************!*\
+  !*** ./node_modules/remark-parse/lib/tokenize/list.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/* eslint-disable max-params */
+
+var trim = __webpack_require__(/*! trim */ "./node_modules/trim/index.js");
+var repeat = __webpack_require__(/*! repeat-string */ "./node_modules/repeat-string/index.js");
+var decimal = __webpack_require__(/*! is-decimal */ "./node_modules/is-decimal/index.js");
+var getIndent = __webpack_require__(/*! ../util/get-indentation */ "./node_modules/remark-parse/lib/util/get-indentation.js");
+var removeIndent = __webpack_require__(/*! ../util/remove-indentation */ "./node_modules/remark-parse/lib/util/remove-indentation.js");
+var interrupt = __webpack_require__(/*! ../util/interrupt */ "./node_modules/remark-parse/lib/util/interrupt.js");
+
+module.exports = list;
+
+var C_ASTERISK = '*';
+var C_UNDERSCORE = '_';
+var C_PLUS = '+';
+var C_DASH = '-';
+var C_DOT = '.';
+var C_SPACE = ' ';
+var C_NEWLINE = '\n';
+var C_TAB = '\t';
+var C_PAREN_CLOSE = ')';
+var C_X_LOWER = 'x';
+
+var TAB_SIZE = 4;
+var EXPRESSION_LOOSE_LIST_ITEM = /\n\n(?!\s*$)/;
+var EXPRESSION_TASK_ITEM = /^\[([ \t]|x|X)][ \t]/;
+var EXPRESSION_BULLET = /^([ \t]*)([*+-]|\d+[.)])( {1,4}(?! )| |\t|$|(?=\n))([^\n]*)/;
+var EXPRESSION_PEDANTIC_BULLET = /^([ \t]*)([*+-]|\d+[.)])([ \t]+)/;
+var EXPRESSION_INITIAL_INDENT = /^( {1,4}|\t)?/gm;
+
+/* Map of characters which can be used to mark
+ * list-items. */
+var LIST_UNORDERED_MARKERS = {};
+
+LIST_UNORDERED_MARKERS[C_ASTERISK] = true;
+LIST_UNORDERED_MARKERS[C_PLUS] = true;
+LIST_UNORDERED_MARKERS[C_DASH] = true;
+
+/* Map of characters which can be used to mark
+ * list-items after a digit. */
+var LIST_ORDERED_MARKERS = {};
+
+LIST_ORDERED_MARKERS[C_DOT] = true;
+
+/* Map of characters which can be used to mark
+ * list-items after a digit. */
+var LIST_ORDERED_COMMONMARK_MARKERS = {};
+
+LIST_ORDERED_COMMONMARK_MARKERS[C_DOT] = true;
+LIST_ORDERED_COMMONMARK_MARKERS[C_PAREN_CLOSE] = true;
+
+function list(eat, value, silent) {
+  var self = this;
+  var commonmark = self.options.commonmark;
+  var pedantic = self.options.pedantic;
+  var tokenizers = self.blockTokenizers;
+  var interuptors = self.interruptList;
+  var markers;
+  var index = 0;
+  var length = value.length;
+  var start = null;
+  var size = 0;
+  var queue;
+  var ordered;
+  var character;
+  var marker;
+  var nextIndex;
+  var startIndex;
+  var prefixed;
+  var currentMarker;
+  var content;
+  var line;
+  var prevEmpty;
+  var empty;
+  var items;
+  var allLines;
+  var emptyLines;
+  var item;
+  var enterTop;
+  var exitBlockquote;
+  var isLoose;
+  var node;
+  var now;
+  var end;
+  var indented;
+
+  while (index < length) {
+    character = value.charAt(index);
+
+    if (character === C_TAB) {
+      size += TAB_SIZE - (size % TAB_SIZE);
+    } else if (character === C_SPACE) {
+      size++;
+    } else {
+      break;
+    }
+
+    index++;
+  }
+
+  if (size >= TAB_SIZE) {
+    return;
+  }
+
+  character = value.charAt(index);
+
+  markers = commonmark ?
+    LIST_ORDERED_COMMONMARK_MARKERS :
+    LIST_ORDERED_MARKERS;
+
+  if (LIST_UNORDERED_MARKERS[character] === true) {
+    marker = character;
+    ordered = false;
+  } else {
+    ordered = true;
+    queue = '';
+
+    while (index < length) {
+      character = value.charAt(index);
+
+      if (!decimal(character)) {
+        break;
+      }
+
+      queue += character;
+      index++;
+    }
+
+    character = value.charAt(index);
+
+    if (!queue || markers[character] !== true) {
+      return;
+    }
+
+    start = parseInt(queue, 10);
+    marker = character;
+  }
+
+  character = value.charAt(++index);
+
+  if (character !== C_SPACE && character !== C_TAB) {
+    return;
+  }
+
+  if (silent) {
+    return true;
+  }
+
+  index = 0;
+  items = [];
+  allLines = [];
+  emptyLines = [];
+
+  while (index < length) {
+    nextIndex = value.indexOf(C_NEWLINE, index);
+    startIndex = index;
+    prefixed = false;
+    indented = false;
+
+    if (nextIndex === -1) {
+      nextIndex = length;
+    }
+
+    end = index + TAB_SIZE;
+    size = 0;
+
+    while (index < length) {
+      character = value.charAt(index);
+
+      if (character === C_TAB) {
+        size += TAB_SIZE - (size % TAB_SIZE);
+      } else if (character === C_SPACE) {
+        size++;
+      } else {
+        break;
+      }
+
+      index++;
+    }
+
+    if (size >= TAB_SIZE) {
+      indented = true;
+    }
+
+    if (item && size >= item.indent) {
+      indented = true;
+    }
+
+    character = value.charAt(index);
+    currentMarker = null;
+
+    if (!indented) {
+      if (LIST_UNORDERED_MARKERS[character] === true) {
+        currentMarker = character;
+        index++;
+        size++;
+      } else {
+        queue = '';
+
+        while (index < length) {
+          character = value.charAt(index);
+
+          if (!decimal(character)) {
+            break;
+          }
+
+          queue += character;
+          index++;
+        }
+
+        character = value.charAt(index);
+        index++;
+
+        if (queue && markers[character] === true) {
+          currentMarker = character;
+          size += queue.length + 1;
+        }
+      }
+
+      if (currentMarker) {
+        character = value.charAt(index);
+
+        if (character === C_TAB) {
+          size += TAB_SIZE - (size % TAB_SIZE);
+          index++;
+        } else if (character === C_SPACE) {
+          end = index + TAB_SIZE;
+
+          while (index < end) {
+            if (value.charAt(index) !== C_SPACE) {
+              break;
+            }
+
+            index++;
+            size++;
+          }
+
+          if (index === end && value.charAt(index) === C_SPACE) {
+            index -= TAB_SIZE - 1;
+            size -= TAB_SIZE - 1;
+          }
+        } else if (character !== C_NEWLINE && character !== '') {
+          currentMarker = null;
+        }
+      }
+    }
+
+    if (currentMarker) {
+      if (!pedantic && marker !== currentMarker) {
+        break;
+      }
+
+      prefixed = true;
+    } else {
+      if (!commonmark && !indented && value.charAt(startIndex) === C_SPACE) {
+        indented = true;
+      } else if (commonmark && item) {
+        indented = size >= item.indent || size > TAB_SIZE;
+      }
+
+      prefixed = false;
+      index = startIndex;
+    }
+
+    line = value.slice(startIndex, nextIndex);
+    content = startIndex === index ? line : value.slice(index, nextIndex);
+
+    if (
+      currentMarker === C_ASTERISK ||
+      currentMarker === C_UNDERSCORE ||
+      currentMarker === C_DASH
+    ) {
+      if (tokenizers.thematicBreak.call(self, eat, line, true)) {
+        break;
+      }
+    }
+
+    prevEmpty = empty;
+    empty = !trim(content).length;
+
+    if (indented && item) {
+      item.value = item.value.concat(emptyLines, line);
+      allLines = allLines.concat(emptyLines, line);
+      emptyLines = [];
+    } else if (prefixed) {
+      if (emptyLines.length !== 0) {
+        item.value.push('');
+        item.trail = emptyLines.concat();
+      }
+
+      item = {
+        value: [line],
+        indent: size,
+        trail: []
+      };
+
+      items.push(item);
+      allLines = allLines.concat(emptyLines, line);
+      emptyLines = [];
+    } else if (empty) {
+      if (prevEmpty) {
+        break;
+      }
+
+      emptyLines.push(line);
+    } else {
+      if (prevEmpty) {
+        break;
+      }
+
+      if (interrupt(interuptors, tokenizers, self, [eat, line, true])) {
+        break;
+      }
+
+      item.value = item.value.concat(emptyLines, line);
+      allLines = allLines.concat(emptyLines, line);
+      emptyLines = [];
+    }
+
+    index = nextIndex + 1;
+  }
+
+  node = eat(allLines.join(C_NEWLINE)).reset({
+    type: 'list',
+    ordered: ordered,
+    start: start,
+    loose: null,
+    children: []
+  });
+
+  enterTop = self.enterList();
+  exitBlockquote = self.enterBlock();
+  isLoose = false;
+  index = -1;
+  length = items.length;
+
+  while (++index < length) {
+    item = items[index].value.join(C_NEWLINE);
+    now = eat.now();
+
+    item = eat(item)(listItem(self, item, now), node);
+
+    if (item.loose) {
+      isLoose = true;
+    }
+
+    item = items[index].trail.join(C_NEWLINE);
+
+    if (index !== length - 1) {
+      item += C_NEWLINE;
+    }
+
+    eat(item);
+  }
+
+  enterTop();
+  exitBlockquote();
+
+  node.loose = isLoose;
+
+  return node;
+}
+
+function listItem(ctx, value, position) {
+  var offsets = ctx.offset;
+  var fn = ctx.options.pedantic ? pedanticListItem : normalListItem;
+  var checked = null;
+  var task;
+  var indent;
+
+  value = fn.apply(null, arguments);
+
+  if (ctx.options.gfm) {
+    task = value.match(EXPRESSION_TASK_ITEM);
+
+    if (task) {
+      indent = task[0].length;
+      checked = task[1].toLowerCase() === C_X_LOWER;
+      offsets[position.line] += indent;
+      value = value.slice(indent);
+    }
+  }
+
+  return {
+    type: 'listItem',
+    loose: EXPRESSION_LOOSE_LIST_ITEM.test(value) ||
+      value.charAt(value.length - 1) === C_NEWLINE,
+    checked: checked,
+    children: ctx.tokenizeBlock(value, position)
+  };
+}
+
+/* Create a list-item using overly simple mechanics. */
+function pedanticListItem(ctx, value, position) {
+  var offsets = ctx.offset;
+  var line = position.line;
+
+  /* Remove the list-item’s bullet. */
+  value = value.replace(EXPRESSION_PEDANTIC_BULLET, replacer);
+
+  /* The initial line was also matched by the below, so
+   * we reset the `line`. */
+  line = position.line;
+
+  return value.replace(EXPRESSION_INITIAL_INDENT, replacer);
+
+  /* A simple replacer which removed all matches,
+   * and adds their length to `offset`. */
+  function replacer($0) {
+    offsets[line] = (offsets[line] || 0) + $0.length;
+    line++;
+
+    return '';
+  }
+}
+
+/* Create a list-item using sane mechanics. */
+function normalListItem(ctx, value, position) {
+  var offsets = ctx.offset;
+  var line = position.line;
+  var max;
+  var bullet;
+  var rest;
+  var lines;
+  var trimmedLines;
+  var index;
+  var length;
+
+  /* Remove the list-item’s bullet. */
+  value = value.replace(EXPRESSION_BULLET, replacer);
+
+  lines = value.split(C_NEWLINE);
+
+  trimmedLines = removeIndent(value, getIndent(max).indent).split(C_NEWLINE);
+
+  /* We replaced the initial bullet with something
+   * else above, which was used to trick
+   * `removeIndentation` into removing some more
+   * characters when possible.  However, that could
+   * result in the initial line to be stripped more
+   * than it should be. */
+  trimmedLines[0] = rest;
+
+  offsets[line] = (offsets[line] || 0) + bullet.length;
+  line++;
+
+  index = 0;
+  length = lines.length;
+
+  while (++index < length) {
+    offsets[line] = (offsets[line] || 0) +
+      lines[index].length - trimmedLines[index].length;
+    line++;
+  }
+
+  return trimmedLines.join(C_NEWLINE);
+
+  function replacer($0, $1, $2, $3, $4) {
+    bullet = $1 + $2 + $3;
+    rest = $4;
+
+    /* Make sure that the first nine numbered list items
+     * can indent with an extra space.  That is, when
+     * the bullet did not receive an extra final space. */
+    if (Number($2) < 10 && bullet.length % 2 === 1) {
+      $2 = C_SPACE + $2;
+    }
+
+    max = $1 + repeat(C_SPACE, $2.length) + $3;
+
+    return max + rest;
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/tokenize/newline.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/remark-parse/lib/tokenize/newline.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var whitespace = __webpack_require__(/*! is-whitespace-character */ "./node_modules/is-whitespace-character/index.js");
+
+module.exports = newline;
+
+/* Tokenise newline. */
+function newline(eat, value, silent) {
+  var character = value.charAt(0);
+  var length;
+  var subvalue;
+  var queue;
+  var index;
+
+  if (character !== '\n') {
+    return;
+  }
+
+  /* istanbul ignore if - never used (yet) */
+  if (silent) {
+    return true;
+  }
+
+  index = 1;
+  length = value.length;
+  subvalue = character;
+  queue = '';
+
+  while (index < length) {
+    character = value.charAt(index);
+
+    if (!whitespace(character)) {
+      break;
+    }
+
+    queue += character;
+
+    if (character === '\n') {
+      subvalue += queue;
+      queue = '';
+    }
+
+    index++;
+  }
+
+  eat(subvalue);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/tokenize/paragraph.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/remark-parse/lib/tokenize/paragraph.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var trim = __webpack_require__(/*! trim */ "./node_modules/trim/index.js");
+var decimal = __webpack_require__(/*! is-decimal */ "./node_modules/is-decimal/index.js");
+var trimTrailingLines = __webpack_require__(/*! trim-trailing-lines */ "./node_modules/trim-trailing-lines/index.js");
+var interrupt = __webpack_require__(/*! ../util/interrupt */ "./node_modules/remark-parse/lib/util/interrupt.js");
+
+module.exports = paragraph;
+
+var C_NEWLINE = '\n';
+var C_TAB = '\t';
+var C_SPACE = ' ';
+
+var TAB_SIZE = 4;
+
+/* Tokenise paragraph. */
+function paragraph(eat, value, silent) {
+  var self = this;
+  var settings = self.options;
+  var commonmark = settings.commonmark;
+  var gfm = settings.gfm;
+  var tokenizers = self.blockTokenizers;
+  var interruptors = self.interruptParagraph;
+  var index = value.indexOf(C_NEWLINE);
+  var length = value.length;
+  var position;
+  var subvalue;
+  var character;
+  var size;
+  var now;
+
+  while (index < length) {
+    /* Eat everything if there’s no following newline. */
+    if (index === -1) {
+      index = length;
+      break;
+    }
+
+    /* Stop if the next character is NEWLINE. */
+    if (value.charAt(index + 1) === C_NEWLINE) {
+      break;
+    }
+
+    /* In commonmark-mode, following indented lines
+     * are part of the paragraph. */
+    if (commonmark) {
+      size = 0;
+      position = index + 1;
+
+      while (position < length) {
+        character = value.charAt(position);
+
+        if (character === C_TAB) {
+          size = TAB_SIZE;
+          break;
+        } else if (character === C_SPACE) {
+          size++;
+        } else {
+          break;
+        }
+
+        position++;
+      }
+
+      if (size >= TAB_SIZE) {
+        index = value.indexOf(C_NEWLINE, index + 1);
+        continue;
+      }
+    }
+
+    subvalue = value.slice(index + 1);
+
+    /* Check if the following code contains a possible
+     * block. */
+    if (interrupt(interruptors, tokenizers, self, [eat, subvalue, true])) {
+      break;
+    }
+
+    /* Break if the following line starts a list, when
+     * already in a list, or when in commonmark, or when
+     * in gfm mode and the bullet is *not* numeric. */
+    if (
+      tokenizers.list.call(self, eat, subvalue, true) &&
+      (
+        self.inList ||
+        commonmark ||
+        (gfm && !decimal(trim.left(subvalue).charAt(0)))
+      )
+    ) {
+      break;
+    }
+
+    position = index;
+    index = value.indexOf(C_NEWLINE, index + 1);
+
+    if (index !== -1 && trim(value.slice(position, index)) === '') {
+      index = position;
+      break;
+    }
+  }
+
+  subvalue = value.slice(0, index);
+
+  if (trim(subvalue) === '') {
+    eat(subvalue);
+
+    return null;
+  }
+
+  /* istanbul ignore if - never used (yet) */
+  if (silent) {
+    return true;
+  }
+
+  now = eat.now();
+  subvalue = trimTrailingLines(subvalue);
+
+  return eat(subvalue)({
+    type: 'paragraph',
+    children: self.tokenizeInline(subvalue, now)
+  });
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/tokenize/reference.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/remark-parse/lib/tokenize/reference.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var whitespace = __webpack_require__(/*! is-whitespace-character */ "./node_modules/is-whitespace-character/index.js");
+var locate = __webpack_require__(/*! ../locate/link */ "./node_modules/remark-parse/lib/locate/link.js");
+var normalize = __webpack_require__(/*! ../util/normalize */ "./node_modules/remark-parse/lib/util/normalize.js");
+
+module.exports = reference;
+reference.locator = locate;
+
+var T_LINK = 'link';
+var T_IMAGE = 'image';
+var T_FOOTNOTE = 'footnote';
+var REFERENCE_TYPE_SHORTCUT = 'shortcut';
+var REFERENCE_TYPE_COLLAPSED = 'collapsed';
+var REFERENCE_TYPE_FULL = 'full';
+var C_CARET = '^';
+var C_BACKSLASH = '\\';
+var C_BRACKET_OPEN = '[';
+var C_BRACKET_CLOSE = ']';
+
+function reference(eat, value, silent) {
+  var self = this;
+  var character = value.charAt(0);
+  var index = 0;
+  var length = value.length;
+  var subvalue = '';
+  var intro = '';
+  var type = T_LINK;
+  var referenceType = REFERENCE_TYPE_SHORTCUT;
+  var content;
+  var identifier;
+  var now;
+  var node;
+  var exit;
+  var queue;
+  var bracketed;
+  var depth;
+
+  /* Check whether we’re eating an image. */
+  if (character === '!') {
+    type = T_IMAGE;
+    intro = character;
+    character = value.charAt(++index);
+  }
+
+  if (character !== C_BRACKET_OPEN) {
+    return;
+  }
+
+  index++;
+  intro += character;
+  queue = '';
+
+  /* Check whether we’re eating a footnote. */
+  if (self.options.footnotes && value.charAt(index) === C_CARET) {
+    /* Exit if `![^` is found, so the `!` will be seen as text after this,
+     * and we’ll enter this function again when `[^` is found. */
+    if (type === T_IMAGE) {
+      return;
+    }
+
+    intro += C_CARET;
+    index++;
+    type = T_FOOTNOTE;
+  }
+
+  /* Eat the text. */
+  depth = 0;
+
+  while (index < length) {
+    character = value.charAt(index);
+
+    if (character === C_BRACKET_OPEN) {
+      bracketed = true;
+      depth++;
+    } else if (character === C_BRACKET_CLOSE) {
+      if (!depth) {
+        break;
+      }
+
+      depth--;
+    }
+
+    if (character === C_BACKSLASH) {
+      queue += C_BACKSLASH;
+      character = value.charAt(++index);
+    }
+
+    queue += character;
+    index++;
+  }
+
+  subvalue = queue;
+  content = queue;
+  character = value.charAt(index);
+
+  if (character !== C_BRACKET_CLOSE) {
+    return;
+  }
+
+  index++;
+  subvalue += character;
+  queue = '';
+
+  while (index < length) {
+    character = value.charAt(index);
+
+    if (!whitespace(character)) {
+      break;
+    }
+
+    queue += character;
+    index++;
+  }
+
+  character = value.charAt(index);
+
+  /* Inline footnotes cannot have an identifier. */
+  if (type !== T_FOOTNOTE && character === C_BRACKET_OPEN) {
+    identifier = '';
+    queue += character;
+    index++;
+
+    while (index < length) {
+      character = value.charAt(index);
+
+      if (character === C_BRACKET_OPEN || character === C_BRACKET_CLOSE) {
+        break;
+      }
+
+      if (character === C_BACKSLASH) {
+        identifier += C_BACKSLASH;
+        character = value.charAt(++index);
+      }
+
+      identifier += character;
+      index++;
+    }
+
+    character = value.charAt(index);
+
+    if (character === C_BRACKET_CLOSE) {
+      referenceType = identifier ? REFERENCE_TYPE_FULL : REFERENCE_TYPE_COLLAPSED;
+      queue += identifier + character;
+      index++;
+    } else {
+      identifier = '';
+    }
+
+    subvalue += queue;
+    queue = '';
+  } else {
+    if (!content) {
+      return;
+    }
+
+    identifier = content;
+  }
+
+  /* Brackets cannot be inside the identifier. */
+  if (referenceType !== REFERENCE_TYPE_FULL && bracketed) {
+    return;
+  }
+
+  subvalue = intro + subvalue;
+
+  if (type === T_LINK && self.inLink) {
+    return null;
+  }
+
+  /* istanbul ignore if - never used (yet) */
+  if (silent) {
+    return true;
+  }
+
+  if (type === T_FOOTNOTE && content.indexOf(' ') !== -1) {
+    return eat(subvalue)({
+      type: 'footnote',
+      children: this.tokenizeInline(content, eat.now())
+    });
+  }
+
+  now = eat.now();
+  now.column += intro.length;
+  now.offset += intro.length;
+  identifier = referenceType === REFERENCE_TYPE_FULL ? identifier : content;
+
+  node = {
+    type: type + 'Reference',
+    identifier: normalize(identifier)
+  };
+
+  if (type === T_LINK || type === T_IMAGE) {
+    node.referenceType = referenceType;
+  }
+
+  if (type === T_LINK) {
+    exit = self.enterLink();
+    node.children = self.tokenizeInline(content, now);
+    exit();
+  } else if (type === T_IMAGE) {
+    node.alt = self.decode.raw(self.unescape(content), now) || null;
+  }
+
+  return eat(subvalue)(node);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/tokenize/strong.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/remark-parse/lib/tokenize/strong.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var trim = __webpack_require__(/*! trim */ "./node_modules/trim/index.js");
+var whitespace = __webpack_require__(/*! is-whitespace-character */ "./node_modules/is-whitespace-character/index.js");
+var locate = __webpack_require__(/*! ../locate/strong */ "./node_modules/remark-parse/lib/locate/strong.js");
+
+module.exports = strong;
+strong.locator = locate;
+
+var C_ASTERISK = '*';
+var C_UNDERSCORE = '_';
+
+function strong(eat, value, silent) {
+  var self = this;
+  var index = 0;
+  var character = value.charAt(index);
+  var now;
+  var pedantic;
+  var marker;
+  var queue;
+  var subvalue;
+  var length;
+  var prev;
+
+  if (
+    (character !== C_ASTERISK && character !== C_UNDERSCORE) ||
+    value.charAt(++index) !== character
+  ) {
+    return;
+  }
+
+  pedantic = self.options.pedantic;
+  marker = character;
+  subvalue = marker + marker;
+  length = value.length;
+  index++;
+  queue = '';
+  character = '';
+
+  if (pedantic && whitespace(value.charAt(index))) {
+    return;
+  }
+
+  while (index < length) {
+    prev = character;
+    character = value.charAt(index);
+
+    if (
+      character === marker &&
+      value.charAt(index + 1) === marker &&
+      (!pedantic || !whitespace(prev))
+    ) {
+      character = value.charAt(index + 2);
+
+      if (character !== marker) {
+        if (!trim(queue)) {
+          return;
+        }
+
+        /* istanbul ignore if - never used (yet) */
+        if (silent) {
+          return true;
+        }
+
+        now = eat.now();
+        now.column += 2;
+        now.offset += 2;
+
+        return eat(subvalue + queue + subvalue)({
+          type: 'strong',
+          children: self.tokenizeInline(queue, now)
+        });
+      }
+    }
+
+    if (!pedantic && character === '\\') {
+      queue += character;
+      character = value.charAt(++index);
+    }
+
+    queue += character;
+    index++;
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/tokenize/table.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/remark-parse/lib/tokenize/table.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var whitespace = __webpack_require__(/*! is-whitespace-character */ "./node_modules/is-whitespace-character/index.js");
+
+module.exports = table;
+
+var C_BACKSLASH = '\\';
+var C_TICK = '`';
+var C_DASH = '-';
+var C_PIPE = '|';
+var C_COLON = ':';
+var C_SPACE = ' ';
+var C_NEWLINE = '\n';
+var C_TAB = '\t';
+
+var MIN_TABLE_COLUMNS = 1;
+var MIN_TABLE_ROWS = 2;
+
+var TABLE_ALIGN_LEFT = 'left';
+var TABLE_ALIGN_CENTER = 'center';
+var TABLE_ALIGN_RIGHT = 'right';
+var TABLE_ALIGN_NONE = null;
+
+function table(eat, value, silent) {
+  var self = this;
+  var index;
+  var alignments;
+  var alignment;
+  var subvalue;
+  var row;
+  var length;
+  var lines;
+  var queue;
+  var character;
+  var hasDash;
+  var align;
+  var cell;
+  var preamble;
+  var count;
+  var opening;
+  var now;
+  var position;
+  var lineCount;
+  var line;
+  var rows;
+  var table;
+  var lineIndex;
+  var pipeIndex;
+  var first;
+
+  /* Exit when not in gfm-mode. */
+  if (!self.options.gfm) {
+    return;
+  }
+
+  /* Get the rows.
+   * Detecting tables soon is hard, so there are some
+   * checks for performance here, such as the minimum
+   * number of rows, and allowed characters in the
+   * alignment row. */
+  index = 0;
+  lineCount = 0;
+  length = value.length + 1;
+  lines = [];
+
+  while (index < length) {
+    lineIndex = value.indexOf(C_NEWLINE, index);
+    pipeIndex = value.indexOf(C_PIPE, index + 1);
+
+    if (lineIndex === -1) {
+      lineIndex = value.length;
+    }
+
+    if (pipeIndex === -1 || pipeIndex > lineIndex) {
+      if (lineCount < MIN_TABLE_ROWS) {
+        return;
+      }
+
+      break;
+    }
+
+    lines.push(value.slice(index, lineIndex));
+    lineCount++;
+    index = lineIndex + 1;
+  }
+
+  /* Parse the alignment row. */
+  subvalue = lines.join(C_NEWLINE);
+  alignments = lines.splice(1, 1)[0] || [];
+  index = 0;
+  length = alignments.length;
+  lineCount--;
+  alignment = false;
+  align = [];
+
+  while (index < length) {
+    character = alignments.charAt(index);
+
+    if (character === C_PIPE) {
+      hasDash = null;
+
+      if (alignment === false) {
+        if (first === false) {
+          return;
+        }
+      } else {
+        align.push(alignment);
+        alignment = false;
+      }
+
+      first = false;
+    } else if (character === C_DASH) {
+      hasDash = true;
+      alignment = alignment || TABLE_ALIGN_NONE;
+    } else if (character === C_COLON) {
+      if (alignment === TABLE_ALIGN_LEFT) {
+        alignment = TABLE_ALIGN_CENTER;
+      } else if (hasDash && alignment === TABLE_ALIGN_NONE) {
+        alignment = TABLE_ALIGN_RIGHT;
+      } else {
+        alignment = TABLE_ALIGN_LEFT;
+      }
+    } else if (!whitespace(character)) {
+      return;
+    }
+
+    index++;
+  }
+
+  if (alignment !== false) {
+    align.push(alignment);
+  }
+
+  /* Exit when without enough columns. */
+  if (align.length < MIN_TABLE_COLUMNS) {
+    return;
+  }
+
+  /* istanbul ignore if - never used (yet) */
+  if (silent) {
+    return true;
+  }
+
+  /* Parse the rows. */
+  position = -1;
+  rows = [];
+
+  table = eat(subvalue).reset({
+    type: 'table',
+    align: align,
+    children: rows
+  });
+
+  while (++position < lineCount) {
+    line = lines[position];
+    row = {type: 'tableRow', children: []};
+
+    /* Eat a newline character when this is not the
+     * first row. */
+    if (position) {
+      eat(C_NEWLINE);
+    }
+
+    /* Eat the row. */
+    eat(line).reset(row, table);
+
+    length = line.length + 1;
+    index = 0;
+    queue = '';
+    cell = '';
+    preamble = true;
+    count = null;
+    opening = null;
+
+    while (index < length) {
+      character = line.charAt(index);
+
+      if (character === C_TAB || character === C_SPACE) {
+        if (cell) {
+          queue += character;
+        } else {
+          eat(character);
+        }
+
+        index++;
+        continue;
+      }
+
+      if (character === '' || character === C_PIPE) {
+        if (preamble) {
+          eat(character);
+        } else {
+          if (character && opening) {
+            queue += character;
+            index++;
+            continue;
+          }
+
+          if ((cell || character) && !preamble) {
+            subvalue = cell;
+
+            if (queue.length > 1) {
+              if (character) {
+                subvalue += queue.slice(0, queue.length - 1);
+                queue = queue.charAt(queue.length - 1);
+              } else {
+                subvalue += queue;
+                queue = '';
+              }
+            }
+
+            now = eat.now();
+
+            eat(subvalue)({
+              type: 'tableCell',
+              children: self.tokenizeInline(cell, now)
+            }, row);
+          }
+
+          eat(queue + character);
+
+          queue = '';
+          cell = '';
+        }
+      } else {
+        if (queue) {
+          cell += queue;
+          queue = '';
+        }
+
+        cell += character;
+
+        if (character === C_BACKSLASH && index !== length - 2) {
+          cell += line.charAt(index + 1);
+          index++;
+        }
+
+        if (character === C_TICK) {
+          count = 1;
+
+          while (line.charAt(index + 1) === character) {
+            cell += character;
+            index++;
+            count++;
+          }
+
+          if (!opening) {
+            opening = count;
+          } else if (count >= opening) {
+            opening = 0;
+          }
+        }
+      }
+
+      preamble = false;
+      index++;
+    }
+
+    /* Eat the alignment row. */
+    if (!position) {
+      eat(C_NEWLINE + alignments);
+    }
+  }
+
+  return table;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/tokenize/text.js":
+/*!********************************************************!*\
+  !*** ./node_modules/remark-parse/lib/tokenize/text.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = text;
+
+function text(eat, value, silent) {
+  var self = this;
+  var methods;
+  var tokenizers;
+  var index;
+  var length;
+  var subvalue;
+  var position;
+  var tokenizer;
+  var name;
+  var min;
+  var now;
+
+  /* istanbul ignore if - never used (yet) */
+  if (silent) {
+    return true;
+  }
+
+  methods = self.inlineMethods;
+  length = methods.length;
+  tokenizers = self.inlineTokenizers;
+  index = -1;
+  min = value.length;
+
+  while (++index < length) {
+    name = methods[index];
+
+    if (name === 'text' || !tokenizers[name]) {
+      continue;
+    }
+
+    tokenizer = tokenizers[name].locator;
+
+    if (!tokenizer) {
+      eat.file.fail('Missing locator: `' + name + '`');
+    }
+
+    position = tokenizer.call(self, value, 1);
+
+    if (position !== -1 && position < min) {
+      min = position;
+    }
+  }
+
+  subvalue = value.slice(0, min);
+  now = eat.now();
+
+  self.decode(subvalue, now, function (content, position, source) {
+    eat(source || content)({
+      type: 'text',
+      value: content
+    });
+  });
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/tokenize/thematic-break.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/remark-parse/lib/tokenize/thematic-break.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = thematicBreak;
+
+var C_NEWLINE = '\n';
+var C_TAB = '\t';
+var C_SPACE = ' ';
+var C_ASTERISK = '*';
+var C_UNDERSCORE = '_';
+var C_DASH = '-';
+
+var THEMATIC_BREAK_MARKER_COUNT = 3;
+
+function thematicBreak(eat, value, silent) {
+  var index = -1;
+  var length = value.length + 1;
+  var subvalue = '';
+  var character;
+  var marker;
+  var markerCount;
+  var queue;
+
+  while (++index < length) {
+    character = value.charAt(index);
+
+    if (character !== C_TAB && character !== C_SPACE) {
+      break;
+    }
+
+    subvalue += character;
+  }
+
+  if (
+    character !== C_ASTERISK &&
+    character !== C_DASH &&
+    character !== C_UNDERSCORE
+  ) {
+    return;
+  }
+
+  marker = character;
+  subvalue += character;
+  markerCount = 1;
+  queue = '';
+
+  while (++index < length) {
+    character = value.charAt(index);
+
+    if (character === marker) {
+      markerCount++;
+      subvalue += queue + marker;
+      queue = '';
+    } else if (character === C_SPACE) {
+      queue += character;
+    } else if (
+      markerCount >= THEMATIC_BREAK_MARKER_COUNT &&
+      (!character || character === C_NEWLINE)
+    ) {
+      subvalue += queue;
+
+      if (silent) {
+        return true;
+      }
+
+      return eat(subvalue)({type: 'thematicBreak'});
+    } else {
+      return;
+    }
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/tokenize/url.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/remark-parse/lib/tokenize/url.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var decode = __webpack_require__(/*! parse-entities */ "./node_modules/parse-entities/index.js");
+var whitespace = __webpack_require__(/*! is-whitespace-character */ "./node_modules/is-whitespace-character/index.js");
+var locate = __webpack_require__(/*! ../locate/url */ "./node_modules/remark-parse/lib/locate/url.js");
+
+module.exports = url;
+url.locator = locate;
+url.notInLink = true;
+
+var C_BRACKET_OPEN = '[';
+var C_BRACKET_CLOSE = ']';
+var C_PAREN_OPEN = '(';
+var C_PAREN_CLOSE = ')';
+var C_LT = '<';
+var C_AT_SIGN = '@';
+
+var HTTP_PROTOCOL = 'http://';
+var HTTPS_PROTOCOL = 'https://';
+var MAILTO_PROTOCOL = 'mailto:';
+
+var PROTOCOLS = [
+  HTTP_PROTOCOL,
+  HTTPS_PROTOCOL,
+  MAILTO_PROTOCOL
+];
+
+var PROTOCOLS_LENGTH = PROTOCOLS.length;
+
+function url(eat, value, silent) {
+  var self = this;
+  var subvalue;
+  var content;
+  var character;
+  var index;
+  var position;
+  var protocol;
+  var match;
+  var length;
+  var queue;
+  var parenCount;
+  var nextCharacter;
+  var exit;
+
+  if (!self.options.gfm) {
+    return;
+  }
+
+  subvalue = '';
+  index = -1;
+  length = PROTOCOLS_LENGTH;
+
+  while (++index < length) {
+    protocol = PROTOCOLS[index];
+    match = value.slice(0, protocol.length);
+
+    if (match.toLowerCase() === protocol) {
+      subvalue = match;
+      break;
+    }
+  }
+
+  if (!subvalue) {
+    return;
+  }
+
+  index = subvalue.length;
+  length = value.length;
+  queue = '';
+  parenCount = 0;
+
+  while (index < length) {
+    character = value.charAt(index);
+
+    if (whitespace(character) || character === C_LT) {
+      break;
+    }
+
+    if (
+      character === '.' ||
+      character === ',' ||
+      character === ':' ||
+      character === ';' ||
+      character === '"' ||
+      character === '\'' ||
+      character === ')' ||
+      character === ']'
+    ) {
+      nextCharacter = value.charAt(index + 1);
+
+      if (!nextCharacter || whitespace(nextCharacter)) {
+        break;
+      }
+    }
+
+    if (character === C_PAREN_OPEN || character === C_BRACKET_OPEN) {
+      parenCount++;
+    }
+
+    if (character === C_PAREN_CLOSE || character === C_BRACKET_CLOSE) {
+      parenCount--;
+
+      if (parenCount < 0) {
+        break;
+      }
+    }
+
+    queue += character;
+    index++;
+  }
+
+  if (!queue) {
+    return;
+  }
+
+  subvalue += queue;
+  content = subvalue;
+
+  if (protocol === MAILTO_PROTOCOL) {
+    position = queue.indexOf(C_AT_SIGN);
+
+    if (position === -1 || position === length - 1) {
+      return;
+    }
+
+    content = content.substr(MAILTO_PROTOCOL.length);
+  }
+
+  /* istanbul ignore if - never used (yet) */
+  if (silent) {
+    return true;
+  }
+
+  exit = self.enterLink();
+  content = self.tokenizeInline(content, eat.now());
+  exit();
+
+  return eat(subvalue)({
+    type: 'link',
+    title: null,
+    url: decode(subvalue, {nonTerminated: false}),
+    children: content
+  });
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/tokenizer.js":
+/*!****************************************************!*\
+  !*** ./node_modules/remark-parse/lib/tokenizer.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = factory;
+
+var MERGEABLE_NODES = {
+  text: mergeText,
+  blockquote: mergeBlockquote
+};
+
+/* Check whether a node is mergeable with adjacent nodes. */
+function mergeable(node) {
+  var start;
+  var end;
+
+  if (node.type !== 'text' || !node.position) {
+    return true;
+  }
+
+  start = node.position.start;
+  end = node.position.end;
+
+  /* Only merge nodes which occupy the same size as their
+   * `value`. */
+  return start.line !== end.line ||
+      end.column - start.column === node.value.length;
+}
+
+/* Merge two text nodes: `node` into `prev`. */
+function mergeText(prev, node) {
+  prev.value += node.value;
+
+  return prev;
+}
+
+/* Merge two blockquotes: `node` into `prev`, unless in
+ * CommonMark mode. */
+function mergeBlockquote(prev, node) {
+  if (this.options.commonmark) {
+    return node;
+  }
+
+  prev.children = prev.children.concat(node.children);
+
+  return prev;
+}
+
+/* Construct a tokenizer.  This creates both
+ * `tokenizeInline` and `tokenizeBlock`. */
+function factory(type) {
+  return tokenize;
+
+  /* Tokenizer for a bound `type`. */
+  function tokenize(value, location) {
+    var self = this;
+    var offset = self.offset;
+    var tokens = [];
+    var methods = self[type + 'Methods'];
+    var tokenizers = self[type + 'Tokenizers'];
+    var line = location.line;
+    var column = location.column;
+    var index;
+    var length;
+    var method;
+    var name;
+    var matched;
+    var valueLength;
+
+    /* Trim white space only lines. */
+    if (!value) {
+      return tokens;
+    }
+
+    /* Expose on `eat`. */
+    eat.now = now;
+    eat.file = self.file;
+
+    /* Sync initial offset. */
+    updatePosition('');
+
+    /* Iterate over `value`, and iterate over all
+     * tokenizers.  When one eats something, re-iterate
+     * with the remaining value.  If no tokenizer eats,
+     * something failed (should not happen) and an
+     * exception is thrown. */
+    while (value) {
+      index = -1;
+      length = methods.length;
+      matched = false;
+
+      while (++index < length) {
+        name = methods[index];
+        method = tokenizers[name];
+
+        if (
+          method &&
+          /* istanbul ignore next */ (!method.onlyAtStart || self.atStart) &&
+          (!method.notInList || !self.inList) &&
+          (!method.notInBlock || !self.inBlock) &&
+          (!method.notInLink || !self.inLink)
+        ) {
+          valueLength = value.length;
+
+          method.apply(self, [eat, value]);
+
+          matched = valueLength !== value.length;
+
+          if (matched) {
+            break;
+          }
+        }
+      }
+
+      /* istanbul ignore if */
+      if (!matched) {
+        self.file.fail(new Error('Infinite loop'), eat.now());
+      }
+    }
+
+    self.eof = now();
+
+    return tokens;
+
+    /* Update line, column, and offset based on
+     * `value`. */
+    function updatePosition(subvalue) {
+      var lastIndex = -1;
+      var index = subvalue.indexOf('\n');
+
+      while (index !== -1) {
+        line++;
+        lastIndex = index;
+        index = subvalue.indexOf('\n', index + 1);
+      }
+
+      if (lastIndex === -1) {
+        column += subvalue.length;
+      } else {
+        column = subvalue.length - lastIndex;
+      }
+
+      if (line in offset) {
+        if (lastIndex !== -1) {
+          column += offset[line];
+        } else if (column <= offset[line]) {
+          column = offset[line] + 1;
+        }
+      }
+    }
+
+    /* Get offset.  Called before the first character is
+     * eaten to retrieve the range's offsets. */
+    function getOffset() {
+      var indentation = [];
+      var pos = line + 1;
+
+      /* Done.  Called when the last character is
+       * eaten to retrieve the range’s offsets. */
+      return function () {
+        var last = line + 1;
+
+        while (pos < last) {
+          indentation.push((offset[pos] || 0) + 1);
+
+          pos++;
+        }
+
+        return indentation;
+      };
+    }
+
+    /* Get the current position. */
+    function now() {
+      var pos = {line: line, column: column};
+
+      pos.offset = self.toOffset(pos);
+
+      return pos;
+    }
+
+    /* Store position information for a node. */
+    function Position(start) {
+      this.start = start;
+      this.end = now();
+    }
+
+    /* Throw when a value is incorrectly eaten.
+     * This shouldn’t happen but will throw on new,
+     * incorrect rules. */
+    function validateEat(subvalue) {
+      /* istanbul ignore if */
+      if (value.substring(0, subvalue.length) !== subvalue) {
+        /* Capture stack-trace. */
+        self.file.fail(
+          new Error(
+            'Incorrectly eaten value: please report this ' +
+            'warning on http://git.io/vg5Ft'
+          ),
+          now()
+        );
+      }
+    }
+
+    /* Mark position and patch `node.position`. */
+    function position() {
+      var before = now();
+
+      return update;
+
+      /* Add the position to a node. */
+      function update(node, indent) {
+        var prev = node.position;
+        var start = prev ? prev.start : before;
+        var combined = [];
+        var n = prev && prev.end.line;
+        var l = before.line;
+
+        node.position = new Position(start);
+
+        /* If there was already a `position`, this
+         * node was merged.  Fixing `start` wasn’t
+         * hard, but the indent is different.
+         * Especially because some information, the
+         * indent between `n` and `l` wasn’t
+         * tracked.  Luckily, that space is
+         * (should be?) empty, so we can safely
+         * check for it now. */
+        if (prev && indent && prev.indent) {
+          combined = prev.indent;
+
+          if (n < l) {
+            while (++n < l) {
+              combined.push((offset[n] || 0) + 1);
+            }
+
+            combined.push(before.column);
+          }
+
+          indent = combined.concat(indent);
+        }
+
+        node.position.indent = indent || [];
+
+        return node;
+      }
+    }
+
+    /* Add `node` to `parent`s children or to `tokens`.
+     * Performs merges where possible. */
+    function add(node, parent) {
+      var children = parent ? parent.children : tokens;
+      var prev = children[children.length - 1];
+
+      if (
+        prev &&
+        node.type === prev.type &&
+        node.type in MERGEABLE_NODES &&
+        mergeable(prev) &&
+        mergeable(node)
+      ) {
+        node = MERGEABLE_NODES[node.type].call(self, prev, node);
+      }
+
+      if (node !== prev) {
+        children.push(node);
+      }
+
+      if (self.atStart && tokens.length !== 0) {
+        self.exitStart();
+      }
+
+      return node;
+    }
+
+    /* Remove `subvalue` from `value`.
+     * `subvalue` must be at the start of `value`. */
+    function eat(subvalue) {
+      var indent = getOffset();
+      var pos = position();
+      var current = now();
+
+      validateEat(subvalue);
+
+      apply.reset = reset;
+      reset.test = test;
+      apply.test = test;
+
+      value = value.substring(subvalue.length);
+
+      updatePosition(subvalue);
+
+      indent = indent();
+
+      return apply;
+
+      /* Add the given arguments, add `position` to
+       * the returned node, and return the node. */
+      function apply(node, parent) {
+        return pos(add(pos(node), parent), indent);
+      }
+
+      /* Functions just like apply, but resets the
+       * content:  the line and column are reversed,
+       * and the eaten value is re-added.
+       * This is useful for nodes with a single
+       * type of content, such as lists and tables.
+       * See `apply` above for what parameters are
+       * expected. */
+      function reset() {
+        var node = apply.apply(null, arguments);
+
+        line = current.line;
+        column = current.column;
+        value = subvalue + value;
+
+        return node;
+      }
+
+      /* Test the position, after eating, and reverse
+       * to a not-eaten state. */
+      function test() {
+        var result = pos({});
+
+        line = current.line;
+        column = current.column;
+        value = subvalue + value;
+
+        return result.position;
+      }
+    }
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/unescape.js":
+/*!***************************************************!*\
+  !*** ./node_modules/remark-parse/lib/unescape.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = factory;
+
+/* Factory to de-escape a value, based on a list at `key`
+ * in `ctx`. */
+function factory(ctx, key) {
+  return unescape;
+
+  /* De-escape a string using the expression at `key`
+   * in `ctx`. */
+  function unescape(value) {
+    var prev = 0;
+    var index = value.indexOf('\\');
+    var escape = ctx[key];
+    var queue = [];
+    var character;
+
+    while (index !== -1) {
+      queue.push(value.slice(prev, index));
+      prev = index + 1;
+      character = value.charAt(prev);
+
+      /* If the following character is not a valid escape,
+       * add the slash. */
+      if (!character || escape.indexOf(character) === -1) {
+        queue.push('\\');
+      }
+
+      index = value.indexOf('\\', prev);
+    }
+
+    queue.push(value.slice(prev));
+
+    return queue.join('');
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/util/get-indentation.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/remark-parse/lib/util/get-indentation.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = indentation;
+
+/* Map of characters, and their column length,
+ * which can be used as indentation. */
+var characters = {' ': 1, '\t': 4};
+
+/* Gets indentation information for a line. */
+function indentation(value) {
+  var index = 0;
+  var indent = 0;
+  var character = value.charAt(index);
+  var stops = {};
+  var size;
+
+  while (character in characters) {
+    size = characters[character];
+
+    indent += size;
+
+    if (size > 1) {
+      indent = Math.floor(indent / size) * size;
+    }
+
+    stops[indent] = index;
+
+    character = value.charAt(++index);
+  }
+
+  return {indent: indent, stops: stops};
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/util/html.js":
+/*!****************************************************!*\
+  !*** ./node_modules/remark-parse/lib/util/html.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var attributeName = '[a-zA-Z_:][a-zA-Z0-9:._-]*';
+var unquoted = '[^"\'=<>`\\u0000-\\u0020]+';
+var singleQuoted = '\'[^\']*\'';
+var doubleQuoted = '"[^"]*"';
+var attributeValue = '(?:' + unquoted + '|' + singleQuoted + '|' + doubleQuoted + ')';
+var attribute = '(?:\\s+' + attributeName + '(?:\\s*=\\s*' + attributeValue + ')?)';
+var openTag = '<[A-Za-z][A-Za-z0-9\\-]*' + attribute + '*\\s*\\/?>';
+var closeTag = '<\\/[A-Za-z][A-Za-z0-9\\-]*\\s*>';
+var comment = '<!---->|<!--(?:-?[^>-])(?:-?[^-])*-->';
+var processing = '<[?].*?[?]>';
+var declaration = '<![A-Za-z]+\\s+[^>]*>';
+var cdata = '<!\\[CDATA\\[[\\s\\S]*?\\]\\]>';
+
+exports.openCloseTag = new RegExp('^(?:' + openTag + '|' + closeTag + ')');
+
+exports.tag = new RegExp('^(?:' +
+  openTag + '|' +
+  closeTag + '|' +
+  comment + '|' +
+  processing + '|' +
+  declaration + '|' +
+  cdata +
+')');
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/util/interrupt.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/remark-parse/lib/util/interrupt.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = interrupt;
+
+function interrupt(interruptors, tokenizers, ctx, params) {
+  var bools = ['pedantic', 'commonmark'];
+  var count = bools.length;
+  var length = interruptors.length;
+  var index = -1;
+  var interruptor;
+  var config;
+  var fn;
+  var offset;
+  var bool;
+  var ignore;
+
+  while (++index < length) {
+    interruptor = interruptors[index];
+    config = interruptor[1] || {};
+    fn = interruptor[0];
+    offset = -1;
+    ignore = false;
+
+    while (++offset < count) {
+      bool = bools[offset];
+
+      if (config[bool] !== undefined && config[bool] !== ctx.options[bool]) {
+        ignore = true;
+        break;
+      }
+    }
+
+    if (ignore) {
+      continue;
+    }
+
+    if (tokenizers[fn].apply(ctx, params)) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/util/normalize.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/remark-parse/lib/util/normalize.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var collapseWhiteSpace = __webpack_require__(/*! collapse-white-space */ "./node_modules/collapse-white-space/index.js");
+
+module.exports = normalize;
+
+/* Normalize an identifier.  Collapses multiple white space
+ * characters into a single space, and removes casing. */
+function normalize(value) {
+  return collapseWhiteSpace(value).toLowerCase();
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/remark-parse/lib/util/remove-indentation.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/remark-parse/lib/util/remove-indentation.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var trim = __webpack_require__(/*! trim */ "./node_modules/trim/index.js");
+var repeat = __webpack_require__(/*! repeat-string */ "./node_modules/repeat-string/index.js");
+var getIndent = __webpack_require__(/*! ./get-indentation */ "./node_modules/remark-parse/lib/util/get-indentation.js");
+
+module.exports = indentation;
+
+var C_SPACE = ' ';
+var C_NEWLINE = '\n';
+var C_TAB = '\t';
+
+/* Remove the minimum indent from every line in `value`.
+ * Supports both tab, spaced, and mixed indentation (as
+ * well as possible). */
+function indentation(value, maximum) {
+  var values = value.split(C_NEWLINE);
+  var position = values.length + 1;
+  var minIndent = Infinity;
+  var matrix = [];
+  var index;
+  var indentation;
+  var stops;
+  var padding;
+
+  values.unshift(repeat(C_SPACE, maximum) + '!');
+
+  while (position--) {
+    indentation = getIndent(values[position]);
+
+    matrix[position] = indentation.stops;
+
+    if (trim(values[position]).length === 0) {
+      continue;
+    }
+
+    if (indentation.indent) {
+      if (indentation.indent > 0 && indentation.indent < minIndent) {
+        minIndent = indentation.indent;
+      }
+    } else {
+      minIndent = Infinity;
+
+      break;
+    }
+  }
+
+  if (minIndent !== Infinity) {
+    position = values.length;
+
+    while (position--) {
+      stops = matrix[position];
+      index = minIndent;
+
+      while (index && !(index in stops)) {
+        index--;
+      }
+
+      if (
+        trim(values[position]).length !== 0 &&
+        minIndent &&
+        index !== minIndent
+      ) {
+        padding = C_TAB;
+      } else {
+        padding = '';
+      }
+
+      values[position] = padding + values[position].slice(
+        index in stops ? stops[index] + 1 : 0
+      );
+    }
+  }
+
+  values.shift();
+
+  return values.join(C_NEWLINE);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/repeat-string/index.js":
+/*!*********************************************!*\
+  !*** ./node_modules/repeat-string/index.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/*!
+ * repeat-string <https://github.com/jonschlinkert/repeat-string>
+ *
+ * Copyright (c) 2014-2015, Jon Schlinkert.
+ * Licensed under the MIT License.
+ */
+
+
+
+/**
+ * Results cache
+ */
+
+var res = '';
+var cache;
+
+/**
+ * Expose `repeat`
+ */
+
+module.exports = repeat;
+
+/**
+ * Repeat the given `string` the specified `number`
+ * of times.
+ *
+ * **Example:**
+ *
+ * ```js
+ * var repeat = require('repeat-string');
+ * repeat('A', 5);
+ * //=> AAAAA
+ * ```
+ *
+ * @param {String} `string` The string to repeat
+ * @param {Number} `number` The number of times to repeat the string
+ * @return {String} Repeated string
+ * @api public
+ */
+
+function repeat(str, num) {
+  if (typeof str !== 'string') {
+    throw new TypeError('expected a string');
+  }
+
+  // cover common, quick use cases
+  if (num === 1) return str;
+  if (num === 2) return str + str;
+
+  var max = str.length * num;
+  if (cache !== str || typeof cache === 'undefined') {
+    cache = str;
+    res = '';
+  } else if (res.length >= max) {
+    return res.substr(0, max);
+  }
+
+  while (max > res.length && num > 1) {
+    if (num & 1) {
+      res += str;
+    }
+
+    num >>= 1;
+    str += str;
+  }
+
+  res += str;
+  res = res.substr(0, max);
+  return res;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/replace-ext/index.js":
+/*!*******************************************!*\
+  !*** ./node_modules/replace-ext/index.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var path = __webpack_require__(/*! path */ "./node_modules/path-browserify/index.js");
+
+function replaceExt(npath, ext) {
+  if (typeof npath !== 'string') {
+    return npath;
+  }
+
+  if (npath.length === 0) {
+    return npath;
+  }
+
+  var nFileName = path.basename(npath, path.extname(npath)) + ext;
+  return path.join(path.dirname(npath), nFileName);
+}
+
+module.exports = replaceExt;
+
+
+/***/ }),
+
+/***/ "./node_modules/scroll-into-view-if-needed/es/index.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/scroll-into-view-if-needed/es/index.js ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var compute_scroll_into_view__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! compute-scroll-into-view */ "./node_modules/compute-scroll-into-view/es/index.js");
+
+
+function isOptionsObject(options) {
+  return options === Object(options) && Object.keys(options).length !== 0;
+}
+
+function defaultBehavior(actions, behavior) {
+  if (behavior === void 0) {
+    behavior = 'auto';
+  }
+
+  var canSmoothScroll = 'scrollBehavior' in document.body.style;
+  actions.forEach(function (_ref) {
+    var el = _ref.el,
+        top = _ref.top,
+        left = _ref.left;
+
+    if (el.scroll && canSmoothScroll) {
+      el.scroll({
+        top: top,
+        left: left,
+        behavior: behavior
+      });
+    } else {
+      el.scrollTop = top;
+      el.scrollLeft = left;
+    }
+  });
+}
+
+function getOptions(options) {
+  if (options === false) {
+    return {
+      block: 'end',
+      inline: 'nearest'
+    };
+  }
+
+  if (isOptionsObject(options)) {
+    return options;
+  }
+
+  return {
+    block: 'start',
+    inline: 'nearest'
+  };
+}
+
+function scrollIntoView(target, options) {
+  var targetIsDetached = !target.ownerDocument.documentElement.contains(target);
+
+  if (isOptionsObject(options) && typeof options.behavior === 'function') {
+    return options.behavior(targetIsDetached ? [] : Object(compute_scroll_into_view__WEBPACK_IMPORTED_MODULE_0__["default"])(target, options));
+  }
+
+  if (targetIsDetached) {
+    return;
+  }
+
+  var computeOptions = getOptions(options);
+  return defaultBehavior(Object(compute_scroll_into_view__WEBPACK_IMPORTED_MODULE_0__["default"])(target, computeOptions), computeOptions.behavior);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (scrollIntoView);
+
+/***/ }),
+
 /***/ "./node_modules/setimmediate/setImmediate.js":
 /*!***************************************************!*\
   !*** ./node_modules/setimmediate/setImmediate.js ***!
@@ -22945,6 +37981,7864 @@ try {
 
 /***/ }),
 
+/***/ "./node_modules/slate-history/dist/index.es.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/slate-history/dist/index.es.js ***!
+  \*****************************************************/
+/*! exports provided: HISTORY, History, HistoryEditor, MERGING, SAVING, withHistory */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HISTORY", function() { return HISTORY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "History", function() { return History; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HistoryEditor", function() { return HistoryEditor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MERGING", function() { return MERGING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SAVING", function() { return SAVING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withHistory", function() { return withHistory; });
+/* harmony import */ var is_plain_object__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! is-plain-object */ "./node_modules/is-plain-object/index.js");
+/* harmony import */ var slate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! slate */ "./node_modules/slate/dist/index.es.js");
+
+
+
+var History = {
+  /**
+   * Check if a value is a `History` object.
+   */
+  isHistory(value) {
+    return Object(is_plain_object__WEBPACK_IMPORTED_MODULE_0__["default"])(value) && Array.isArray(value.redos) && Array.isArray(value.undos) && (value.redos.length === 0 || slate__WEBPACK_IMPORTED_MODULE_1__["Operation"].isOperationList(value.redos[0])) && (value.undos.length === 0 || slate__WEBPACK_IMPORTED_MODULE_1__["Operation"].isOperationList(value.undos[0]));
+  }
+
+};
+
+/**
+ * Weakmaps for attaching state to the editor.
+ */
+
+var HISTORY = new WeakMap();
+var SAVING = new WeakMap();
+var MERGING = new WeakMap();
+var HistoryEditor = {
+  /**
+   * Check if a value is a `HistoryEditor` object.
+   */
+  isHistoryEditor(value) {
+    return slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].isEditor(value) && History.isHistory(value.history);
+  },
+
+  /**
+   * Get the merge flag's current value.
+   */
+  isMerging(editor) {
+    return MERGING.get(editor);
+  },
+
+  /**
+   * Get the saving flag's current value.
+   */
+  isSaving(editor) {
+    return SAVING.get(editor);
+  },
+
+  /**
+   * Redo to the previous saved state.
+   */
+  redo(editor) {
+    editor.redo();
+  },
+
+  /**
+   * Undo to the previous saved state.
+   */
+  undo(editor) {
+    editor.undo();
+  },
+
+  /**
+   * Apply a series of changes inside a synchronous `fn`, without merging any of
+   * the new operations into previous save point in the history.
+   */
+  withoutMerging(editor, fn) {
+    var prev = HistoryEditor.isMerging(editor);
+    MERGING.set(editor, false);
+    fn();
+    MERGING.set(editor, prev);
+  },
+
+  /**
+   * Apply a series of changes inside a synchronous `fn`, without saving any of
+   * their operations into the history.
+   */
+  withoutSaving(editor, fn) {
+    var prev = HistoryEditor.isSaving(editor);
+    SAVING.set(editor, false);
+    fn();
+    SAVING.set(editor, prev);
+  }
+
+};
+
+/**
+ * The `withHistory` plugin keeps track of the operation history of a Slate
+ * editor as operations are applied to it, using undo and redo stacks.
+ */
+
+var withHistory = editor => {
+  var e = editor;
+  var {
+    apply
+  } = e;
+  e.history = {
+    undos: [],
+    redos: []
+  };
+
+  e.redo = () => {
+    var {
+      history
+    } = e;
+    var {
+      redos
+    } = history;
+
+    if (redos.length > 0) {
+      var batch = redos[redos.length - 1];
+      HistoryEditor.withoutSaving(e, () => {
+        slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].withoutNormalizing(e, () => {
+          for (var op of batch) {
+            e.apply(op);
+          }
+        });
+      });
+      history.redos.pop();
+      history.undos.push(batch);
+    }
+  };
+
+  e.undo = () => {
+    var {
+      history
+    } = e;
+    var {
+      undos
+    } = history;
+
+    if (undos.length > 0) {
+      var batch = undos[undos.length - 1];
+      HistoryEditor.withoutSaving(e, () => {
+        slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].withoutNormalizing(e, () => {
+          var inverseOps = batch.map(slate__WEBPACK_IMPORTED_MODULE_1__["Operation"].inverse).reverse();
+
+          for (var op of inverseOps) {
+            // If the final operation is deselecting the editor, skip it. This is
+            if (op === inverseOps[inverseOps.length - 1] && op.type === 'set_selection' && op.newProperties == null) {
+              continue;
+            } else {
+              e.apply(op);
+            }
+          }
+        });
+      });
+      history.redos.push(batch);
+      history.undos.pop();
+    }
+  };
+
+  e.apply = op => {
+    var {
+      operations,
+      history
+    } = e;
+    var {
+      undos
+    } = history;
+    var lastBatch = undos[undos.length - 1];
+    var lastOp = lastBatch && lastBatch[lastBatch.length - 1];
+    var overwrite = shouldOverwrite(op, lastOp);
+    var save = HistoryEditor.isSaving(e);
+    var merge = HistoryEditor.isMerging(e);
+
+    if (save == null) {
+      save = shouldSave(op);
+    }
+
+    if (save) {
+      if (merge == null) {
+        if (lastBatch == null) {
+          merge = false;
+        } else if (operations.length !== 0) {
+          merge = true;
+        } else {
+          merge = shouldMerge(op, lastOp) || overwrite;
+        }
+      }
+
+      if (lastBatch && merge) {
+        if (overwrite) {
+          lastBatch.pop();
+        }
+
+        lastBatch.push(op);
+      } else {
+        var batch = [op];
+        undos.push(batch);
+      }
+
+      while (undos.length > 100) {
+        undos.shift();
+      }
+
+      if (shouldClear(op)) {
+        history.redos = [];
+      }
+    }
+
+    apply(op);
+  };
+
+  return e;
+};
+/**
+ * Check whether to merge an operation into the previous operation.
+ */
+
+var shouldMerge = (op, prev) => {
+  if (op.type === 'set_selection') {
+    return true;
+  }
+
+  if (prev && op.type === 'insert_text' && prev.type === 'insert_text' && op.offset === prev.offset + prev.text.length && slate__WEBPACK_IMPORTED_MODULE_1__["Path"].equals(op.path, prev.path)) {
+    return true;
+  }
+
+  if (prev && op.type === 'remove_text' && prev.type === 'remove_text' && op.offset + op.text.length === prev.offset && slate__WEBPACK_IMPORTED_MODULE_1__["Path"].equals(op.path, prev.path)) {
+    return true;
+  }
+
+  return false;
+};
+/**
+ * Check whether an operation needs to be saved to the history.
+ */
+
+
+var shouldSave = (op, prev) => {
+  if (op.type === 'set_selection' && op.newProperties == null) {
+    return false;
+  }
+
+  return true;
+};
+/**
+ * Check whether an operation should overwrite the previous one.
+ */
+
+
+var shouldOverwrite = (op, prev) => {
+  if (prev && op.type === 'set_selection' && prev.type === 'set_selection') {
+    return true;
+  }
+
+  return false;
+};
+/**
+ * Check whether an operation should clear the redos stack.
+ */
+
+
+var shouldClear = op => {
+  if (op.type === 'set_selection') {
+    return false;
+  }
+
+  return true;
+};
+
+
+//# sourceMappingURL=index.es.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/slate-react/dist/index.es.js":
+/*!***************************************************!*\
+  !*** ./node_modules/slate-react/dist/index.es.js ***!
+  \***************************************************/
+/*! exports provided: DefaultElement, DefaultLeaf, Editable, ReactEditor, Slate, useEditor, useFocused, useReadOnly, useSelected, useSlate, withReact */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DefaultElement", function() { return DefaultElement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DefaultLeaf", function() { return DefaultLeaf; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Editable", function() { return Editable; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReactEditor", function() { return ReactEditor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Slate", function() { return Slate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useEditor", function() { return useEditor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useFocused", function() { return useFocused; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useReadOnly", function() { return useReadOnly; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useSelected", function() { return useSelected; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useSlate", function() { return useSlate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withReact", function() { return withReact; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var slate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! slate */ "./node_modules/slate/dist/index.es.js");
+/* harmony import */ var debounce__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! debounce */ "./node_modules/debounce/index.js");
+/* harmony import */ var debounce__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(debounce__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var scroll_into_view_if_needed__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! scroll-into-view-if-needed */ "./node_modules/scroll-into-view-if-needed/es/index.js");
+/* harmony import */ var direction__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! direction */ "./node_modules/direction/index.js");
+/* harmony import */ var direction__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(direction__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var is_hotkey__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! is-hotkey */ "./node_modules/is-hotkey/lib/index.js");
+/* harmony import */ var is_hotkey__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(is_hotkey__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_6__);
+
+
+
+
+
+
+
+
+/**
+ * Leaf content strings.
+ */
+const String = (props) => {
+    const { isLast, leaf, parent, text } = props;
+    const editor = useEditor();
+    const path = ReactEditor.findPath(editor, text);
+    const parentPath = slate__WEBPACK_IMPORTED_MODULE_1__["Path"].parent(path);
+    // COMPAT: Render text inside void nodes with a zero-width space.
+    // So the node can contain selection but the text is not visible.
+    if (editor.isVoid(parent)) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ZeroWidthString, { length: slate__WEBPACK_IMPORTED_MODULE_1__["Node"].string(parent).length });
+    }
+    // COMPAT: If this is the last text node in an empty block, render a zero-
+    // width space that will convert into a line break when copying and pasting
+    // to support expected plain text.
+    if (leaf.text === '' &&
+        parent.children[parent.children.length - 1] === text &&
+        !editor.isInline(parent) &&
+        slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].string(editor, parentPath) === '') {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ZeroWidthString, { isLineBreak: true });
+    }
+    // COMPAT: If the text is empty, it's because it's on the edge of an inline
+    // node, so we render a zero-width space so that the selection can be
+    // inserted next to it still.
+    if (leaf.text === '') {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ZeroWidthString, null);
+    }
+    // COMPAT: Browsers will collapse trailing new lines at the end of blocks,
+    // so we need to add an extra trailing new lines to prevent that.
+    if (isLast && leaf.text.slice(-1) === '\n') {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TextString, { isTrailing: true, text: leaf.text });
+    }
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TextString, { text: leaf.text });
+};
+/**
+ * Leaf strings with text in them.
+ */
+const TextString = (props) => {
+    const { text, isTrailing = false } = props;
+    return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", { "data-slate-string": true },
+        text,
+        isTrailing ? '\n' : null));
+};
+/**
+ * Leaf strings without text, render as zero-width strings.
+ */
+const ZeroWidthString = (props) => {
+    const { length = 0, isLineBreak = false } = props;
+    return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", { "data-slate-zero-width": isLineBreak ? 'n' : 'z', "data-slate-length": length },
+        '\uFEFF',
+        isLineBreak ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null) : null));
+};
+
+/**
+ * Two weak maps that allow us rebuild a path given a node. They are populated
+ * at render time such that after a render occurs we can always backtrack.
+ */
+var NODE_TO_INDEX = new WeakMap();
+var NODE_TO_PARENT = new WeakMap();
+/**
+ * Weak maps that allow us to go between Slate nodes and DOM nodes. These
+ * are used to resolve DOM event-related logic into Slate actions.
+ */
+
+var EDITOR_TO_ELEMENT = new WeakMap();
+var ELEMENT_TO_NODE = new WeakMap();
+var KEY_TO_ELEMENT = new WeakMap();
+var NODE_TO_ELEMENT = new WeakMap();
+var NODE_TO_KEY = new WeakMap();
+/**
+ * Weak maps for storing editor-related state.
+ */
+
+var IS_READ_ONLY = new WeakMap();
+var IS_FOCUSED = new WeakMap();
+/**
+ * Weak map for associating the context `onChange` context with the plugin.
+ */
+
+var EDITOR_TO_ON_CHANGE = new WeakMap();
+/**
+ * Symbols.
+ */
+
+var PLACEHOLDER_SYMBOL = Symbol('placeholder');
+
+/**
+ * Individual leaves in a text node with unique formatting.
+ */
+const Leaf = (props) => {
+    const { leaf, isLast, text, parent, renderLeaf = (props) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DefaultLeaf, Object.assign({}, props)), } = props;
+    let children = (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(String, { isLast: isLast, leaf: leaf, parent: parent, text: text }));
+    if (leaf[PLACEHOLDER_SYMBOL]) {
+        children = (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null,
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", { contentEditable: false, style: {
+                    pointerEvents: 'none',
+                    display: 'inline-block',
+                    verticalAlign: 'text-top',
+                    width: '0',
+                    maxWidth: '100%',
+                    whiteSpace: 'nowrap',
+                    opacity: '0.333',
+                } }, leaf.placeholder),
+            children));
+    }
+    // COMPAT: Having the `data-` attributes on these leaf elements ensures that
+    // in certain misbehaving browsers they aren't weirdly cloned/destroyed by
+    // contenteditable behaviors. (2019/05/08)
+    const attributes = {
+        'data-slate-leaf': true,
+    };
+    return renderLeaf({ attributes, children, leaf, text });
+};
+const MemoizedLeaf = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(Leaf, (prev, next) => {
+    return (next.parent === prev.parent &&
+        next.isLast === prev.isLast &&
+        next.renderLeaf === prev.renderLeaf &&
+        next.text === prev.text &&
+        slate__WEBPACK_IMPORTED_MODULE_1__["Text"].matches(next.leaf, prev.leaf));
+});
+/**
+ * The default custom leaf renderer.
+ */
+const DefaultLeaf = (props) => {
+    const { attributes, children } = props;
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", Object.assign({}, attributes), children);
+};
+
+/**
+ * Prevent warning on SSR by falling back to useEffect when window is not defined
+ */
+
+var useIsomorphicLayoutEffect = typeof window !== 'undefined' ? react__WEBPACK_IMPORTED_MODULE_0__["useLayoutEffect"] : react__WEBPACK_IMPORTED_MODULE_0__["useEffect"];
+
+/**
+ * Text.
+ */
+const Text = (props) => {
+    const { decorations, isLast, parent, renderLeaf, text } = props;
+    const editor = useEditor();
+    const ref = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
+    const leaves = slate__WEBPACK_IMPORTED_MODULE_1__["Text"].decorations(text, decorations);
+    const key = ReactEditor.findKey(editor, text);
+    const children = [];
+    for (let i = 0; i < leaves.length; i++) {
+        const leaf = leaves[i];
+        children.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MemoizedLeaf, { isLast: isLast && i === leaves.length - 1, key: `${key.id}-${i}`, leaf: leaf, text: text, parent: parent, renderLeaf: renderLeaf }));
+    }
+    // Update element-related weak maps with the DOM element ref.
+    useIsomorphicLayoutEffect(() => {
+        if (ref.current) {
+            KEY_TO_ELEMENT.set(key, ref.current);
+            NODE_TO_ELEMENT.set(text, ref.current);
+            ELEMENT_TO_NODE.set(ref.current, text);
+        }
+        else {
+            KEY_TO_ELEMENT.delete(key);
+            NODE_TO_ELEMENT.delete(text);
+        }
+    });
+    return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", { "data-slate-node": "text", ref: ref }, children));
+};
+const MemoizedText = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(Text, (prev, next) => {
+    return (next.parent === prev.parent &&
+        next.isLast === prev.isLast &&
+        next.renderLeaf === prev.renderLeaf &&
+        next.text === prev.text);
+});
+
+/**
+ * A React context for sharing the `selected` state of an element.
+ */
+
+var SelectedContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["createContext"])(false);
+/**
+ * Get the current `selected` state of an element.
+ */
+
+var useSelected = () => {
+  return Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(SelectedContext);
+};
+
+/**
+ * Element.
+ */
+const Element = (props) => {
+    const { decorate, decorations, element, renderElement = (p) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DefaultElement, Object.assign({}, p)), renderLeaf, selection, } = props;
+    const ref = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
+    const editor = useEditor();
+    const readOnly = useReadOnly();
+    const isInline = editor.isInline(element);
+    const key = ReactEditor.findKey(editor, element);
+    let children = (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Children, { decorate: decorate, decorations: decorations, node: element, renderElement: renderElement, renderLeaf: renderLeaf, selection: selection }));
+    // Attributes that the developer must mix into the element in their
+    // custom node renderer component.
+    const attributes = {
+        'data-slate-node': 'element',
+        ref,
+    };
+    if (isInline) {
+        attributes['data-slate-inline'] = true;
+    }
+    // If it's a block node with inline children, add the proper `dir` attribute
+    // for text direction.
+    if (!isInline && slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].hasInlines(editor, element)) {
+        const text = slate__WEBPACK_IMPORTED_MODULE_1__["Node"].string(element);
+        const dir = direction__WEBPACK_IMPORTED_MODULE_4___default()(text);
+        if (dir === 'rtl') {
+            attributes.dir = dir;
+        }
+    }
+    // If it's a void node, wrap the children in extra void-specific elements.
+    if (slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].isVoid(editor, element)) {
+        attributes['data-slate-void'] = true;
+        if (!readOnly && isInline) {
+            attributes.contentEditable = false;
+        }
+        const Tag = isInline ? 'span' : 'div';
+        const [[text]] = slate__WEBPACK_IMPORTED_MODULE_1__["Node"].texts(element);
+        children = readOnly ? null : (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Tag, { "data-slate-spacer": true, style: {
+                height: '0',
+                color: 'transparent',
+                outline: 'none',
+                position: 'absolute',
+            } },
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MemoizedText, { decorations: [], isLast: false, parent: element, text: text })));
+        NODE_TO_INDEX.set(text, 0);
+        NODE_TO_PARENT.set(text, element);
+    }
+    // Update element-related weak maps with the DOM element ref.
+    useIsomorphicLayoutEffect(() => {
+        if (ref.current) {
+            KEY_TO_ELEMENT.set(key, ref.current);
+            NODE_TO_ELEMENT.set(element, ref.current);
+            ELEMENT_TO_NODE.set(ref.current, element);
+        }
+        else {
+            KEY_TO_ELEMENT.delete(key);
+            NODE_TO_ELEMENT.delete(element);
+        }
+    });
+    return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SelectedContext.Provider, { value: !!selection }, renderElement({ attributes, children, element })));
+};
+const MemoizedElement = react__WEBPACK_IMPORTED_MODULE_0___default.a.memo(Element, (prev, next) => {
+    return (prev.decorate === next.decorate &&
+        prev.element === next.element &&
+        prev.renderElement === next.renderElement &&
+        prev.renderLeaf === next.renderLeaf &&
+        isRangeListEqual(prev.decorations, next.decorations) &&
+        (prev.selection === next.selection ||
+            (!!prev.selection &&
+                !!next.selection &&
+                slate__WEBPACK_IMPORTED_MODULE_1__["Range"].equals(prev.selection, next.selection))));
+});
+/**
+ * The default element renderer.
+ */
+const DefaultElement = (props) => {
+    const { attributes, children, element } = props;
+    const editor = useEditor();
+    const Tag = editor.isInline(element) ? 'span' : 'div';
+    return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Tag, Object.assign({}, attributes, { style: { position: 'relative' } }), children));
+};
+/**
+ * Check if a list of ranges is equal to another.
+ *
+ * PERF: this requires the two lists to also have the ranges inside them in the
+ * same order, but this is an okay constraint for us since decorations are
+ * kept in order, and the odd case where they aren't is okay to re-render for.
+ */
+const isRangeListEqual = (list, another) => {
+    if (list.length !== another.length) {
+        return false;
+    }
+    for (let i = 0; i < list.length; i++) {
+        const range = list[i];
+        const other = another[i];
+        if (!slate__WEBPACK_IMPORTED_MODULE_1__["Range"].equals(range, other)) {
+            return false;
+        }
+    }
+    return true;
+};
+
+/**
+ * A React context for sharing the editor object.
+ */
+const EditorContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["createContext"])(null);
+/**
+ * Get the current editor object from the React context.
+ */
+const useEditor = () => {
+    const editor = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(EditorContext);
+    if (!editor) {
+        throw new Error(`The \`useEditor\` hook must be used inside the <Slate> component's context.`);
+    }
+    return editor;
+};
+
+/**
+ * Children.
+ */
+const Children = (props) => {
+    const { decorate, decorations, node, renderElement, renderLeaf, selection, } = props;
+    const editor = useEditor();
+    const path = ReactEditor.findPath(editor, node);
+    const children = [];
+    const isLeafBlock = slate__WEBPACK_IMPORTED_MODULE_1__["Element"].isElement(node) &&
+        !editor.isInline(node) &&
+        slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].hasInlines(editor, node);
+    for (let i = 0; i < node.children.length; i++) {
+        const p = path.concat(i);
+        const n = node.children[i];
+        const key = ReactEditor.findKey(editor, n);
+        const range = slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].range(editor, p);
+        const sel = selection && slate__WEBPACK_IMPORTED_MODULE_1__["Range"].intersection(range, selection);
+        const ds = decorate([n, p]);
+        for (const dec of decorations) {
+            const d = slate__WEBPACK_IMPORTED_MODULE_1__["Range"].intersection(dec, range);
+            if (d) {
+                ds.push(d);
+            }
+        }
+        if (slate__WEBPACK_IMPORTED_MODULE_1__["Element"].isElement(n)) {
+            children.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MemoizedElement, { decorate: decorate, decorations: ds, element: n, key: key.id, renderElement: renderElement, renderLeaf: renderLeaf, selection: sel }));
+        }
+        else {
+            children.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MemoizedText, { decorations: ds, key: key.id, isLast: isLeafBlock && i === node.children.length - 1, parent: node, renderLeaf: renderLeaf, text: n }));
+        }
+        NODE_TO_INDEX.set(n, i);
+        NODE_TO_PARENT.set(n, node);
+    }
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, children);
+};
+
+var IS_IOS = typeof navigator !== 'undefined' && typeof window !== 'undefined' && /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+var IS_APPLE = typeof navigator !== 'undefined' && /Mac OS X/.test(navigator.userAgent);
+var IS_FIREFOX = typeof navigator !== 'undefined' && /^(?!.*Seamonkey)(?=.*Firefox).*/i.test(navigator.userAgent);
+var IS_SAFARI = typeof navigator !== 'undefined' && /Version\/[\d\.]+.*Safari/.test(navigator.userAgent);
+
+/**
+ * Hotkey mappings for each platform.
+ */
+
+var HOTKEYS = {
+  bold: 'mod+b',
+  compose: ['down', 'left', 'right', 'up', 'backspace', 'enter'],
+  moveBackward: 'left',
+  moveForward: 'right',
+  moveWordBackward: 'ctrl+left',
+  moveWordForward: 'ctrl+right',
+  deleteBackward: 'shift?+backspace',
+  deleteForward: 'shift?+delete',
+  extendBackward: 'shift+left',
+  extendForward: 'shift+right',
+  italic: 'mod+i',
+  splitBlock: 'shift?+enter',
+  undo: 'mod+z'
+};
+var APPLE_HOTKEYS = {
+  moveLineBackward: 'opt+up',
+  moveLineForward: 'opt+down',
+  moveWordBackward: 'opt+left',
+  moveWordForward: 'opt+right',
+  deleteBackward: ['ctrl+backspace', 'ctrl+h'],
+  deleteForward: ['ctrl+delete', 'ctrl+d'],
+  deleteLineBackward: 'cmd+shift?+backspace',
+  deleteLineForward: ['cmd+shift?+delete', 'ctrl+k'],
+  deleteWordBackward: 'opt+shift?+backspace',
+  deleteWordForward: 'opt+shift?+delete',
+  extendLineBackward: 'opt+shift+up',
+  extendLineForward: 'opt+shift+down',
+  redo: 'cmd+shift+z',
+  transposeCharacter: 'ctrl+t'
+};
+var WINDOWS_HOTKEYS = {
+  deleteWordBackward: 'ctrl+shift?+backspace',
+  deleteWordForward: 'ctrl+shift?+delete',
+  redo: ['ctrl+y', 'ctrl+shift+z']
+};
+/**
+ * Create a platform-aware hotkey checker.
+ */
+
+var create = key => {
+  var generic = HOTKEYS[key];
+  var apple = APPLE_HOTKEYS[key];
+  var windows = WINDOWS_HOTKEYS[key];
+  var isGeneric = generic && Object(is_hotkey__WEBPACK_IMPORTED_MODULE_5__["isKeyHotkey"])(generic);
+  var isApple = apple && Object(is_hotkey__WEBPACK_IMPORTED_MODULE_5__["isKeyHotkey"])(apple);
+  var isWindows = windows && Object(is_hotkey__WEBPACK_IMPORTED_MODULE_5__["isKeyHotkey"])(windows);
+  return event => {
+    if (isGeneric && isGeneric(event)) return true;
+    if (IS_APPLE && isApple && isApple(event)) return true;
+    if (!IS_APPLE && isWindows && isWindows(event)) return true;
+    return false;
+  };
+};
+/**
+ * Hotkeys.
+ */
+
+
+var Hotkeys = {
+  isBold: create('bold'),
+  isCompose: create('compose'),
+  isMoveBackward: create('moveBackward'),
+  isMoveForward: create('moveForward'),
+  isDeleteBackward: create('deleteBackward'),
+  isDeleteForward: create('deleteForward'),
+  isDeleteLineBackward: create('deleteLineBackward'),
+  isDeleteLineForward: create('deleteLineForward'),
+  isDeleteWordBackward: create('deleteWordBackward'),
+  isDeleteWordForward: create('deleteWordForward'),
+  isExtendBackward: create('extendBackward'),
+  isExtendForward: create('extendForward'),
+  isExtendLineBackward: create('extendLineBackward'),
+  isExtendLineForward: create('extendLineForward'),
+  isItalic: create('italic'),
+  isMoveLineBackward: create('moveLineBackward'),
+  isMoveLineForward: create('moveLineForward'),
+  isMoveWordBackward: create('moveWordBackward'),
+  isMoveWordForward: create('moveWordForward'),
+  isRedo: create('redo'),
+  isSplitBlock: create('splitBlock'),
+  isTransposeCharacter: create('transposeCharacter'),
+  isUndo: create('undo')
+};
+
+/**
+ * A React context for sharing the `readOnly` state of the editor.
+ */
+
+var ReadOnlyContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["createContext"])(false);
+/**
+ * Get the current `readOnly` state of the editor.
+ */
+
+var useReadOnly = () => {
+  return Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(ReadOnlyContext);
+};
+
+/**
+ * A React context for sharing the editor object, in a way that re-renders the
+ * context whenever changes occur.
+ */
+const SlateContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["createContext"])(null);
+/**
+ * Get the current editor object from the React context.
+ */
+const useSlate = () => {
+    const context = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(SlateContext);
+    if (!context) {
+        throw new Error(`The \`useSlate\` hook must be used inside the <SlateProvider> component's context.`);
+    }
+    const [editor] = context;
+    return editor;
+};
+
+/**
+ * Types.
+ */
+/**
+ * Check if a DOM node is a comment node.
+ */
+
+var isDOMComment = value => {
+  return isDOMNode(value) && value.nodeType === 8;
+};
+/**
+ * Check if a DOM node is an element node.
+ */
+
+var isDOMElement = value => {
+  return isDOMNode(value) && value.nodeType === 1;
+};
+/**
+ * Check if a value is a DOM node.
+ */
+
+var isDOMNode = value => {
+  return value instanceof Node;
+};
+/**
+ * Check if a DOM node is an element node.
+ */
+
+var isDOMText = value => {
+  return isDOMNode(value) && value.nodeType === 3;
+};
+/**
+ * Normalize a DOM point so that it always refers to a text node.
+ */
+
+var normalizeDOMPoint = domPoint => {
+  var [node, offset] = domPoint; // If it's an element node, its offset refers to the index of its children
+  // including comment nodes, so try to find the right text child node.
+
+  if (isDOMElement(node) && node.childNodes.length) {
+    var isLast = offset === node.childNodes.length;
+    var direction = isLast ? 'backward' : 'forward';
+    var index = isLast ? offset - 1 : offset;
+    node = getEditableChild(node, index, direction); // If the node has children, traverse until we have a leaf node. Leaf nodes
+    // can be either text nodes, or other void DOM nodes.
+
+    while (isDOMElement(node) && node.childNodes.length) {
+      var i = isLast ? node.childNodes.length - 1 : 0;
+      node = getEditableChild(node, i, direction);
+    } // Determine the new offset inside the text node.
+
+
+    offset = isLast && node.textContent != null ? node.textContent.length : 0;
+  } // Return the node and offset.
+
+
+  return [node, offset];
+};
+/**
+ * Get the nearest editable child at `index` in a `parent`, preferring
+ * `direction`.
+ */
+
+var getEditableChild = (parent, index, direction) => {
+  var {
+    childNodes
+  } = parent;
+  var child = childNodes[index];
+  var i = index;
+  var triedForward = false;
+  var triedBackward = false; // While the child is a comment node, or an element node with no children,
+  // keep iterating to find a sibling non-void, non-comment node.
+
+  while (isDOMComment(child) || isDOMElement(child) && child.childNodes.length === 0 || isDOMElement(child) && child.getAttribute('contenteditable') === 'false') {
+    if (triedForward && triedBackward) {
+      break;
+    }
+
+    if (i >= childNodes.length) {
+      triedForward = true;
+      i = index - 1;
+      direction = 'backward';
+      continue;
+    }
+
+    if (i < 0) {
+      triedBackward = true;
+      i = index + 1;
+      direction = 'forward';
+      continue;
+    }
+
+    child = childNodes[i];
+    i += direction === 'forward' ? 1 : -1;
+  }
+
+  return child;
+};
+
+/**
+ * Editable.
+ */
+const Editable = (props) => {
+    const { autoFocus, decorate = defaultDecorate, onDOMBeforeInput: propsOnDOMBeforeInput, placeholder, readOnly = false, renderElement, renderLeaf, style = {}, as: Component = 'div', ...attributes } = props;
+    const editor = useSlate();
+    const ref = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
+    // Update internal state on each render.
+    IS_READ_ONLY.set(editor, readOnly);
+    // Keep track of some state for the event handler logic.
+    const state = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(() => ({
+        isComposing: false,
+        isUpdatingSelection: false,
+        latestElement: null,
+    }), []);
+    // Update element-related weak maps with the DOM element ref.
+    useIsomorphicLayoutEffect(() => {
+        if (ref.current) {
+            EDITOR_TO_ELEMENT.set(editor, ref.current);
+            NODE_TO_ELEMENT.set(editor, ref.current);
+            ELEMENT_TO_NODE.set(ref.current, editor);
+        }
+        else {
+            NODE_TO_ELEMENT.delete(editor);
+        }
+    });
+    // Attach a native DOM event handler for `selectionchange`, because React's
+    // built-in `onSelect` handler doesn't fire for all selection changes. It's a
+    // leaky polyfill that only fires on keypresses or clicks. Instead, we want to
+    // fire for any change to the selection inside the editor. (2019/11/04)
+    // https://github.com/facebook/react/issues/5785
+    useIsomorphicLayoutEffect(() => {
+        window.document.addEventListener('selectionchange', onDOMSelectionChange);
+        return () => {
+            window.document.removeEventListener('selectionchange', onDOMSelectionChange);
+        };
+    }, []);
+    // Attach a native DOM event handler for `beforeinput` events, because React's
+    // built-in `onBeforeInput` is actually a leaky polyfill that doesn't expose
+    // real `beforeinput` events sadly... (2019/11/04)
+    // https://github.com/facebook/react/issues/11211
+    useIsomorphicLayoutEffect(() => {
+        if (ref.current) {
+            // @ts-ignore The `beforeinput` event isn't recognized.
+            ref.current.addEventListener('beforeinput', onDOMBeforeInput);
+        }
+        return () => {
+            if (ref.current) {
+                // @ts-ignore The `beforeinput` event isn't recognized.
+                ref.current.removeEventListener('beforeinput', onDOMBeforeInput);
+            }
+        };
+    }, []);
+    // Whenever the editor updates, make sure the DOM selection state is in sync.
+    useIsomorphicLayoutEffect(() => {
+        const { selection } = editor;
+        const domSelection = window.getSelection();
+        if (state.isComposing || !domSelection || !ReactEditor.isFocused(editor)) {
+            return;
+        }
+        const hasDomSelection = domSelection.type !== 'None';
+        // If the DOM selection is properly unset, we're done.
+        if (!selection && !hasDomSelection) {
+            return;
+        }
+        const newDomRange = selection && ReactEditor.toDOMRange(editor, selection);
+        // If the DOM selection is already correct, we're done.
+        if (hasDomSelection &&
+            newDomRange &&
+            isRangeEqual(domSelection.getRangeAt(0), newDomRange)) {
+            return;
+        }
+        // Otherwise the DOM selection is out of sync, so update it.
+        const el = ReactEditor.toDOMNode(editor, editor);
+        state.isUpdatingSelection = true;
+        domSelection.removeAllRanges();
+        if (newDomRange) {
+            domSelection.addRange(newDomRange);
+            const leafEl = newDomRange.startContainer.parentElement;
+            Object(scroll_into_view_if_needed__WEBPACK_IMPORTED_MODULE_3__["default"])(leafEl, { scrollMode: 'if-needed' });
+        }
+        setTimeout(() => {
+            // COMPAT: In Firefox, it's not enough to create a range, you also need
+            // to focus the contenteditable element too. (2016/11/16)
+            if (newDomRange && IS_FIREFOX) {
+                el.focus();
+            }
+            state.isUpdatingSelection = false;
+        });
+    });
+    // The autoFocus TextareaHTMLAttribute doesn't do anything on a div, so it
+    // needs to be manually focused.
+    Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+        if (ref.current && autoFocus) {
+            ref.current.focus();
+        }
+    }, [autoFocus]);
+    // Listen on the native `beforeinput` event to get real "Level 2" events. This
+    // is required because React's `beforeinput` is fake and never really attaches
+    // to the real event sadly. (2019/11/01)
+    // https://github.com/facebook/react/issues/11211
+    const onDOMBeforeInput = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])((event) => {
+        if (!readOnly &&
+            hasEditableTarget(editor, event.target) &&
+            !isDOMEventHandled(event, propsOnDOMBeforeInput)) {
+            const { selection } = editor;
+            const { inputType: type } = event;
+            const data = event.dataTransfer || event.data || undefined;
+            // These two types occur while a user is composing text and can't be
+            // cancelled. Let them through and wait for the composition to end.
+            if (type === 'insertCompositionText' ||
+                type === 'deleteCompositionText') {
+                return;
+            }
+            event.preventDefault();
+            // COMPAT: For the deleting forward/backward input types we don't want
+            // to change the selection because it is the range that will be deleted,
+            // and those commands determine that for themselves.
+            if (!type.startsWith('delete') || type.startsWith('deleteBy')) {
+                const [targetRange] = event.getTargetRanges();
+                if (targetRange) {
+                    const range = ReactEditor.toSlateRange(editor, targetRange);
+                    if (!selection || !slate__WEBPACK_IMPORTED_MODULE_1__["Range"].equals(selection, range)) {
+                        slate__WEBPACK_IMPORTED_MODULE_1__["Transforms"].select(editor, range);
+                    }
+                }
+            }
+            // COMPAT: If the selection is expanded, even if the command seems like
+            // a delete forward/backward command it should delete the selection.
+            if (selection &&
+                slate__WEBPACK_IMPORTED_MODULE_1__["Range"].isExpanded(selection) &&
+                type.startsWith('delete')) {
+                slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].deleteFragment(editor);
+                return;
+            }
+            switch (type) {
+                case 'deleteByComposition':
+                case 'deleteByCut':
+                case 'deleteByDrag': {
+                    slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].deleteFragment(editor);
+                    break;
+                }
+                case 'deleteContent':
+                case 'deleteContentForward': {
+                    slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].deleteForward(editor);
+                    break;
+                }
+                case 'deleteContentBackward': {
+                    slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].deleteBackward(editor);
+                    break;
+                }
+                case 'deleteEntireSoftLine': {
+                    slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].deleteBackward(editor, { unit: 'line' });
+                    slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].deleteForward(editor, { unit: 'line' });
+                    break;
+                }
+                case 'deleteHardLineBackward': {
+                    slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].deleteBackward(editor, { unit: 'block' });
+                    break;
+                }
+                case 'deleteSoftLineBackward': {
+                    slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].deleteBackward(editor, { unit: 'line' });
+                    break;
+                }
+                case 'deleteHardLineForward': {
+                    slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].deleteForward(editor, { unit: 'block' });
+                    break;
+                }
+                case 'deleteSoftLineForward': {
+                    slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].deleteForward(editor, { unit: 'line' });
+                    break;
+                }
+                case 'deleteWordBackward': {
+                    slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].deleteBackward(editor, { unit: 'word' });
+                    break;
+                }
+                case 'deleteWordForward': {
+                    slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].deleteForward(editor, { unit: 'word' });
+                    break;
+                }
+                case 'insertLineBreak':
+                case 'insertParagraph': {
+                    slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].insertBreak(editor);
+                    break;
+                }
+                case 'insertFromComposition':
+                case 'insertFromDrop':
+                case 'insertFromPaste':
+                case 'insertFromYank':
+                case 'insertReplacementText':
+                case 'insertText': {
+                    if (data instanceof DataTransfer) {
+                        ReactEditor.insertData(editor, data);
+                    }
+                    else if (typeof data === 'string') {
+                        slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].insertText(editor, data);
+                    }
+                    break;
+                }
+            }
+        }
+    }, []);
+    // Listen on the native `selectionchange` event to be able to update any time
+    // the selection changes. This is required because React's `onSelect` is leaky
+    // and non-standard so it doesn't fire until after a selection has been
+    // released. This causes issues in situations where another change happens
+    // while a selection is being dragged.
+    const onDOMSelectionChange = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(debounce__WEBPACK_IMPORTED_MODULE_2___default()(() => {
+        if (!readOnly && !state.isComposing && !state.isUpdatingSelection) {
+            const { activeElement } = window.document;
+            const el = ReactEditor.toDOMNode(editor, editor);
+            const domSelection = window.getSelection();
+            const domRange = domSelection &&
+                domSelection.rangeCount > 0 &&
+                domSelection.getRangeAt(0);
+            if (activeElement === el) {
+                state.latestElement = activeElement;
+                IS_FOCUSED.set(editor, true);
+            }
+            else {
+                IS_FOCUSED.delete(editor);
+            }
+            if (domRange &&
+                hasEditableTarget(editor, domRange.startContainer) &&
+                hasEditableTarget(editor, domRange.endContainer)) {
+                const range = ReactEditor.toSlateRange(editor, domRange);
+                slate__WEBPACK_IMPORTED_MODULE_1__["Transforms"].select(editor, range);
+            }
+            else {
+                slate__WEBPACK_IMPORTED_MODULE_1__["Transforms"].deselect(editor);
+            }
+        }
+    }, 100), []);
+    const decorations = decorate([editor, []]);
+    if (placeholder &&
+        editor.children.length === 1 &&
+        Array.from(slate__WEBPACK_IMPORTED_MODULE_1__["Node"].texts(editor)).length === 1 &&
+        slate__WEBPACK_IMPORTED_MODULE_1__["Node"].string(editor) === '') {
+        const start = slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].start(editor, []);
+        decorations.push({
+            [PLACEHOLDER_SYMBOL]: true,
+            placeholder,
+            anchor: start,
+            focus: start,
+        });
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ReadOnlyContext.Provider, { value: readOnly },
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component
+        // COMPAT: The Grammarly Chrome extension works by changing the DOM
+        // out from under `contenteditable` elements, which leads to weird
+        // behaviors so we have to disable it like editor. (2017/04/24)
+        , Object.assign({ "data-gramm": false, role: readOnly ? undefined : 'textbox' }, attributes, { 
+            // COMPAT: Firefox doesn't support the `beforeinput` event, so we'd
+            // have to use hacks to make these replacement-based features work.
+            spellCheck: IS_FIREFOX ? undefined : attributes.spellCheck, autoCorrect: IS_FIREFOX ? undefined : attributes.autoCorrect, autoCapitalize: IS_FIREFOX ? undefined : attributes.autoCapitalize, "data-slate-editor": true, "data-slate-node": "value", contentEditable: readOnly ? undefined : true, suppressContentEditableWarning: true, ref: ref, style: {
+                // Prevent the default outline styles.
+                outline: 'none',
+                // Preserve adjacent whitespace and new lines.
+                whiteSpace: 'pre-wrap',
+                // Allow words to break if they are too long.
+                wordWrap: 'break-word',
+                // Allow for passed-in styles to override anything.
+                ...style,
+            }, onBeforeInput: Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])((event) => {
+                // COMPAT: Firefox doesn't support the `beforeinput` event, so we
+                // fall back to React's leaky polyfill instead just for it. It
+                // only works for the `insertText` input type.
+                if (IS_FIREFOX && !readOnly) {
+                    event.preventDefault();
+                    const text = event.data;
+                    slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].insertText(editor, text);
+                }
+            }, [readOnly]), onBlur: Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])((event) => {
+                if (readOnly ||
+                    state.isUpdatingSelection ||
+                    !hasEditableTarget(editor, event.target) ||
+                    isEventHandled(event, attributes.onBlur)) {
+                    return;
+                }
+                // COMPAT: If the current `activeElement` is still the previous
+                // one, this is due to the window being blurred when the tab
+                // itself becomes unfocused, so we want to abort early to allow to
+                // editor to stay focused when the tab becomes focused again.
+                if (state.latestElement === window.document.activeElement) {
+                    return;
+                }
+                const { relatedTarget } = event;
+                const el = ReactEditor.toDOMNode(editor, editor);
+                // COMPAT: The event should be ignored if the focus is returning
+                // to the editor from an embedded editable element (eg. an <input>
+                // element inside a void node).
+                if (relatedTarget === el) {
+                    return;
+                }
+                // COMPAT: The event should be ignored if the focus is moving from
+                // the editor to inside a void node's spacer element.
+                if (isDOMElement(relatedTarget) &&
+                    relatedTarget.hasAttribute('data-slate-spacer')) {
+                    return;
+                }
+                // COMPAT: The event should be ignored if the focus is moving to a
+                // non- editable section of an element that isn't a void node (eg.
+                // a list item of the check list example).
+                if (relatedTarget != null &&
+                    isDOMNode(relatedTarget) &&
+                    ReactEditor.hasDOMNode(editor, relatedTarget)) {
+                    const node = ReactEditor.toSlateNode(editor, relatedTarget);
+                    if (slate__WEBPACK_IMPORTED_MODULE_1__["Element"].isElement(node) && !editor.isVoid(node)) {
+                        return;
+                    }
+                }
+                IS_FOCUSED.delete(editor);
+            }, [readOnly, attributes.onBlur]), onClick: Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])((event) => {
+                if (!readOnly &&
+                    hasTarget(editor, event.target) &&
+                    !isEventHandled(event, attributes.onClick) &&
+                    isDOMNode(event.target)) {
+                    const node = ReactEditor.toSlateNode(editor, event.target);
+                    const path = ReactEditor.findPath(editor, node);
+                    const start = slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].start(editor, path);
+                    if (slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].void(editor, { at: start })) {
+                        const range = slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].range(editor, start);
+                        slate__WEBPACK_IMPORTED_MODULE_1__["Transforms"].select(editor, range);
+                    }
+                }
+            }, [readOnly, attributes.onClick]), onCompositionEnd: Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])((event) => {
+                if (hasEditableTarget(editor, event.target) &&
+                    !isEventHandled(event, attributes.onCompositionEnd)) {
+                    state.isComposing = false;
+                    // COMPAT: In Chrome, `beforeinput` events for compositions
+                    // aren't correct and never fire the "insertFromComposition"
+                    // type that we need. So instead, insert whenever a composition
+                    // ends since it will already have been committed to the DOM.
+                    if (!IS_SAFARI && !IS_FIREFOX && event.data) {
+                        slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].insertText(editor, event.data);
+                    }
+                }
+            }, [attributes.onCompositionEnd]), onCompositionStart: Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])((event) => {
+                if (hasEditableTarget(editor, event.target) &&
+                    !isEventHandled(event, attributes.onCompositionStart)) {
+                    state.isComposing = true;
+                }
+            }, [attributes.onCompositionStart]), onCopy: Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])((event) => {
+                if (hasEditableTarget(editor, event.target) &&
+                    !isEventHandled(event, attributes.onCopy)) {
+                    event.preventDefault();
+                    setFragmentData(event.clipboardData, editor);
+                }
+            }, [attributes.onCopy]), onCut: Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])((event) => {
+                if (!readOnly &&
+                    hasEditableTarget(editor, event.target) &&
+                    !isEventHandled(event, attributes.onCut)) {
+                    event.preventDefault();
+                    setFragmentData(event.clipboardData, editor);
+                    const { selection } = editor;
+                    if (selection && slate__WEBPACK_IMPORTED_MODULE_1__["Range"].isExpanded(selection)) {
+                        slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].deleteFragment(editor);
+                    }
+                }
+            }, [readOnly, attributes.onCut]), onDragOver: Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])((event) => {
+                if (hasTarget(editor, event.target) &&
+                    !isEventHandled(event, attributes.onDragOver)) {
+                    // Only when the target is void, call `preventDefault` to signal
+                    // that drops are allowed. Editable content is droppable by
+                    // default, and calling `preventDefault` hides the cursor.
+                    const node = ReactEditor.toSlateNode(editor, event.target);
+                    if (slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].isVoid(editor, node)) {
+                        event.preventDefault();
+                    }
+                }
+            }, [attributes.onDragOver]), onDragStart: Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])((event) => {
+                if (hasTarget(editor, event.target) &&
+                    !isEventHandled(event, attributes.onDragStart)) {
+                    const node = ReactEditor.toSlateNode(editor, event.target);
+                    const path = ReactEditor.findPath(editor, node);
+                    const voidMatch = slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].void(editor, { at: path });
+                    // If starting a drag on a void node, make sure it is selected
+                    // so that it shows up in the selection's fragment.
+                    if (voidMatch) {
+                        const range = slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].range(editor, path);
+                        slate__WEBPACK_IMPORTED_MODULE_1__["Transforms"].select(editor, range);
+                    }
+                    setFragmentData(event.dataTransfer, editor);
+                }
+            }, [attributes.onDragStart]), onDrop: Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])((event) => {
+                if (hasTarget(editor, event.target) &&
+                    !readOnly &&
+                    !isEventHandled(event, attributes.onDrop)) {
+                    // COMPAT: Firefox doesn't fire `beforeinput` events at all, and
+                    // Chromium browsers don't properly fire them for files being
+                    // dropped into a `contenteditable`. (2019/11/26)
+                    // https://bugs.chromium.org/p/chromium/issues/detail?id=1028668
+                    if (IS_FIREFOX ||
+                        (!IS_SAFARI && event.dataTransfer.files.length > 0)) {
+                        event.preventDefault();
+                        const range = ReactEditor.findEventRange(editor, event);
+                        const data = event.dataTransfer;
+                        slate__WEBPACK_IMPORTED_MODULE_1__["Transforms"].select(editor, range);
+                        ReactEditor.insertData(editor, data);
+                    }
+                }
+            }, [readOnly, attributes.onDrop]), onFocus: Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])((event) => {
+                if (!readOnly &&
+                    !state.isUpdatingSelection &&
+                    hasEditableTarget(editor, event.target) &&
+                    !isEventHandled(event, attributes.onFocus)) {
+                    const el = ReactEditor.toDOMNode(editor, editor);
+                    state.latestElement = window.document.activeElement;
+                    // COMPAT: If the editor has nested editable elements, the focus
+                    // can go to them. In Firefox, this must be prevented because it
+                    // results in issues with keyboard navigation. (2017/03/30)
+                    if (IS_FIREFOX && event.target !== el) {
+                        el.focus();
+                        return;
+                    }
+                    IS_FOCUSED.set(editor, true);
+                }
+            }, [readOnly, attributes.onFocus]), onKeyDown: Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])((event) => {
+                if (!readOnly &&
+                    hasEditableTarget(editor, event.target) &&
+                    !isEventHandled(event, attributes.onKeyDown)) {
+                    const { nativeEvent } = event;
+                    const { selection } = editor;
+                    // COMPAT: Since we prevent the default behavior on
+                    // `beforeinput` events, the browser doesn't think there's ever
+                    // any history stack to undo or redo, so we have to manage these
+                    // hotkeys ourselves. (2019/11/06)
+                    if (Hotkeys.isRedo(nativeEvent)) {
+                        event.preventDefault();
+                        if (editor.redo) {
+                            editor.redo();
+                        }
+                        return;
+                    }
+                    if (Hotkeys.isUndo(nativeEvent)) {
+                        event.preventDefault();
+                        if (editor.undo) {
+                            editor.undo();
+                        }
+                        return;
+                    }
+                    // COMPAT: Certain browsers don't handle the selection updates
+                    // properly. In Chrome, the selection isn't properly extended.
+                    // And in Firefox, the selection isn't properly collapsed.
+                    // (2017/10/17)
+                    if (Hotkeys.isMoveLineBackward(nativeEvent)) {
+                        event.preventDefault();
+                        slate__WEBPACK_IMPORTED_MODULE_1__["Transforms"].move(editor, { unit: 'line', reverse: true });
+                        return;
+                    }
+                    if (Hotkeys.isMoveLineForward(nativeEvent)) {
+                        event.preventDefault();
+                        slate__WEBPACK_IMPORTED_MODULE_1__["Transforms"].move(editor, { unit: 'line' });
+                        return;
+                    }
+                    if (Hotkeys.isExtendLineBackward(nativeEvent)) {
+                        event.preventDefault();
+                        slate__WEBPACK_IMPORTED_MODULE_1__["Transforms"].move(editor, {
+                            unit: 'line',
+                            edge: 'focus',
+                            reverse: true,
+                        });
+                        return;
+                    }
+                    if (Hotkeys.isExtendLineForward(nativeEvent)) {
+                        event.preventDefault();
+                        slate__WEBPACK_IMPORTED_MODULE_1__["Transforms"].move(editor, { unit: 'line', edge: 'focus' });
+                        return;
+                    }
+                    // COMPAT: If a void node is selected, or a zero-width text node
+                    // adjacent to an inline is selected, we need to handle these
+                    // hotkeys manually because browsers won't be able to skip over
+                    // the void node with the zero-width space not being an empty
+                    // string.
+                    if (Hotkeys.isMoveBackward(nativeEvent)) {
+                        event.preventDefault();
+                        if (selection && slate__WEBPACK_IMPORTED_MODULE_1__["Range"].isCollapsed(selection)) {
+                            slate__WEBPACK_IMPORTED_MODULE_1__["Transforms"].move(editor, { reverse: true });
+                        }
+                        else {
+                            slate__WEBPACK_IMPORTED_MODULE_1__["Transforms"].collapse(editor, { edge: 'start' });
+                        }
+                        return;
+                    }
+                    if (Hotkeys.isMoveForward(nativeEvent)) {
+                        event.preventDefault();
+                        if (selection && slate__WEBPACK_IMPORTED_MODULE_1__["Range"].isCollapsed(selection)) {
+                            slate__WEBPACK_IMPORTED_MODULE_1__["Transforms"].move(editor);
+                        }
+                        else {
+                            slate__WEBPACK_IMPORTED_MODULE_1__["Transforms"].collapse(editor, { edge: 'end' });
+                        }
+                        return;
+                    }
+                    if (Hotkeys.isMoveWordBackward(nativeEvent)) {
+                        event.preventDefault();
+                        slate__WEBPACK_IMPORTED_MODULE_1__["Transforms"].move(editor, { unit: 'word', reverse: true });
+                        return;
+                    }
+                    if (Hotkeys.isMoveWordForward(nativeEvent)) {
+                        event.preventDefault();
+                        slate__WEBPACK_IMPORTED_MODULE_1__["Transforms"].move(editor, { unit: 'word' });
+                        return;
+                    }
+                    // COMPAT: Firefox doesn't support the `beforeinput` event, so we
+                    // fall back to guessing at the input intention for hotkeys.
+                    // COMPAT: In iOS, some of these hotkeys are handled in the
+                    if (IS_FIREFOX) {
+                        // We don't have a core behavior for these, but they change the
+                        // DOM if we don't prevent them, so we have to.
+                        if (Hotkeys.isBold(nativeEvent) ||
+                            Hotkeys.isItalic(nativeEvent) ||
+                            Hotkeys.isTransposeCharacter(nativeEvent)) {
+                            event.preventDefault();
+                            return;
+                        }
+                        if (Hotkeys.isSplitBlock(nativeEvent)) {
+                            event.preventDefault();
+                            slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].insertBreak(editor);
+                            return;
+                        }
+                        if (Hotkeys.isDeleteBackward(nativeEvent)) {
+                            event.preventDefault();
+                            if (selection && slate__WEBPACK_IMPORTED_MODULE_1__["Range"].isExpanded(selection)) {
+                                slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].deleteFragment(editor);
+                            }
+                            else {
+                                slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].deleteBackward(editor);
+                            }
+                            return;
+                        }
+                        if (Hotkeys.isDeleteForward(nativeEvent)) {
+                            event.preventDefault();
+                            if (selection && slate__WEBPACK_IMPORTED_MODULE_1__["Range"].isExpanded(selection)) {
+                                slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].deleteFragment(editor);
+                            }
+                            else {
+                                slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].deleteForward(editor);
+                            }
+                            return;
+                        }
+                        if (Hotkeys.isDeleteLineBackward(nativeEvent)) {
+                            event.preventDefault();
+                            if (selection && slate__WEBPACK_IMPORTED_MODULE_1__["Range"].isExpanded(selection)) {
+                                slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].deleteFragment(editor);
+                            }
+                            else {
+                                slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].deleteBackward(editor, { unit: 'line' });
+                            }
+                            return;
+                        }
+                        if (Hotkeys.isDeleteLineForward(nativeEvent)) {
+                            event.preventDefault();
+                            if (selection && slate__WEBPACK_IMPORTED_MODULE_1__["Range"].isExpanded(selection)) {
+                                slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].deleteFragment(editor);
+                            }
+                            else {
+                                slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].deleteForward(editor, { unit: 'line' });
+                            }
+                            return;
+                        }
+                        if (Hotkeys.isDeleteWordBackward(nativeEvent)) {
+                            event.preventDefault();
+                            if (selection && slate__WEBPACK_IMPORTED_MODULE_1__["Range"].isExpanded(selection)) {
+                                slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].deleteFragment(editor);
+                            }
+                            else {
+                                slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].deleteBackward(editor, { unit: 'word' });
+                            }
+                            return;
+                        }
+                        if (Hotkeys.isDeleteWordForward(nativeEvent)) {
+                            event.preventDefault();
+                            if (selection && slate__WEBPACK_IMPORTED_MODULE_1__["Range"].isExpanded(selection)) {
+                                slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].deleteFragment(editor);
+                            }
+                            else {
+                                slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].deleteForward(editor, { unit: 'word' });
+                            }
+                            return;
+                        }
+                    }
+                }
+            }, [readOnly, attributes.onKeyDown]), onPaste: Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])((event) => {
+                // COMPAT: Firefox doesn't support the `beforeinput` event, so we
+                // fall back to React's `onPaste` here instead.
+                if (IS_FIREFOX &&
+                    !readOnly &&
+                    hasEditableTarget(editor, event.target) &&
+                    !isEventHandled(event, attributes.onPaste)) {
+                    event.preventDefault();
+                    ReactEditor.insertData(editor, event.clipboardData);
+                }
+            }, [readOnly, attributes.onPaste]) }),
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Children, { decorate: decorate, decorations: decorations, node: editor, renderElement: renderElement, renderLeaf: renderLeaf, selection: editor.selection }))));
+};
+/**
+ * A default memoized decorate function.
+ */
+const defaultDecorate = () => [];
+/**
+ * Check if two DOM range objects are equal.
+ */
+const isRangeEqual = (a, b) => {
+    return ((a.startContainer === b.startContainer &&
+        a.startOffset === b.startOffset &&
+        a.endContainer === b.endContainer &&
+        a.endOffset === b.endOffset) ||
+        (a.startContainer === b.endContainer &&
+            a.startOffset === b.endOffset &&
+            a.endContainer === b.startContainer &&
+            a.endOffset === b.startOffset));
+};
+/**
+ * Check if the target is in the editor.
+ */
+const hasTarget = (editor, target) => {
+    return isDOMNode(target) && ReactEditor.hasDOMNode(editor, target);
+};
+/**
+ * Check if the target is editable and in the editor.
+ */
+const hasEditableTarget = (editor, target) => {
+    return (isDOMNode(target) &&
+        ReactEditor.hasDOMNode(editor, target, { editable: true }));
+};
+/**
+ * Check if an event is overrided by a handler.
+ */
+const isEventHandled = (event, handler) => {
+    if (!handler) {
+        return false;
+    }
+    handler(event);
+    return event.isDefaultPrevented() || event.isPropagationStopped();
+};
+/**
+ * Check if a DOM event is overrided by a handler.
+ */
+const isDOMEventHandled = (event, handler) => {
+    if (!handler) {
+        return false;
+    }
+    handler(event);
+    return event.defaultPrevented;
+};
+/**
+ * Set the currently selected fragment to the clipboard.
+ */
+const setFragmentData = (dataTransfer, editor) => {
+    const { selection } = editor;
+    if (!selection) {
+        return;
+    }
+    const [start, end] = slate__WEBPACK_IMPORTED_MODULE_1__["Range"].edges(selection);
+    const startVoid = slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].void(editor, { at: start.path });
+    const endVoid = slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].void(editor, { at: end.path });
+    if (slate__WEBPACK_IMPORTED_MODULE_1__["Range"].isCollapsed(selection) && !startVoid) {
+        return;
+    }
+    // Create a fake selection so that we can add a Base64-encoded copy of the
+    // fragment to the HTML, to decode on future pastes.
+    const domRange = ReactEditor.toDOMRange(editor, selection);
+    let contents = domRange.cloneContents();
+    let attach = contents.childNodes[0];
+    // Make sure attach is non-empty, since empty nodes will not get copied.
+    contents.childNodes.forEach(node => {
+        if (node.textContent && node.textContent.trim() !== '') {
+            attach = node;
+        }
+    });
+    // COMPAT: If the end node is a void node, we need to move the end of the
+    // range from the void node's spacer span, to the end of the void node's
+    // content, since the spacer is before void's content in the DOM.
+    if (endVoid) {
+        const [voidNode] = endVoid;
+        const r = domRange.cloneRange();
+        const domNode = ReactEditor.toDOMNode(editor, voidNode);
+        r.setEndAfter(domNode);
+        contents = r.cloneContents();
+    }
+    // COMPAT: If the start node is a void node, we need to attach the encoded
+    // fragment to the void node's content node instead of the spacer, because
+    // attaching it to empty `<div>/<span>` nodes will end up having it erased by
+    // most browsers. (2018/04/27)
+    if (startVoid) {
+        attach = contents.querySelector('[data-slate-spacer]');
+    }
+    // Remove any zero-width space spans from the cloned DOM so that they don't
+    // show up elsewhere when pasted.
+    Array.from(contents.querySelectorAll('[data-slate-zero-width]')).forEach(zw => {
+        const isNewline = zw.getAttribute('data-slate-zero-width') === 'n';
+        zw.textContent = isNewline ? '\n' : '';
+    });
+    // Set a `data-slate-fragment` attribute on a non-empty node, so it shows up
+    // in the HTML, and can be used for intra-Slate pasting. If it's a text
+    // node, wrap it in a `<span>` so we have something to set an attribute on.
+    if (isDOMText(attach)) {
+        const span = document.createElement('span');
+        // COMPAT: In Chrome and Safari, if we don't add the `white-space` style
+        // then leading and trailing spaces will be ignored. (2017/09/21)
+        span.style.whiteSpace = 'pre';
+        span.appendChild(attach);
+        contents.appendChild(span);
+        attach = span;
+    }
+    const fragment = slate__WEBPACK_IMPORTED_MODULE_1__["Node"].fragment(editor, selection);
+    const string = JSON.stringify(fragment);
+    const encoded = window.btoa(encodeURIComponent(string));
+    attach.setAttribute('data-slate-fragment', encoded);
+    dataTransfer.setData('application/x-slate-fragment', encoded);
+    // Add the content to a <div> so that we can get its inner HTML.
+    const div = document.createElement('div');
+    div.appendChild(contents);
+    dataTransfer.setData('text/html', div.innerHTML);
+    dataTransfer.setData('text/plain', getPlainText(div));
+};
+/**
+ * Get a plaintext representation of the content of a node, accounting for block
+ * elements which get a newline appended.
+ */
+const getPlainText = (domNode) => {
+    let text = '';
+    if (isDOMText(domNode) && domNode.nodeValue) {
+        return domNode.nodeValue;
+    }
+    if (isDOMElement(domNode)) {
+        for (const childNode of Array.from(domNode.childNodes)) {
+            text += getPlainText(childNode);
+        }
+        const display = getComputedStyle(domNode).getPropertyValue('display');
+        if (display === 'block' || display === 'list' || domNode.tagName === 'BR') {
+            text += '\n';
+        }
+    }
+    return text;
+};
+
+/**
+ * An auto-incrementing identifier for keys.
+ */
+var n = 0;
+/**
+ * A class that keeps track of a key string. We use a full class here because we
+ * want to be able to use them as keys in `WeakMap` objects.
+ */
+
+class Key {
+  constructor() {
+    this.id = "".concat(n++);
+  }
+
+}
+
+var ReactEditor = {
+  /**
+   * Find a key for a Slate node.
+   */
+  findKey(editor, node) {
+    var key = NODE_TO_KEY.get(node);
+
+    if (!key) {
+      key = new Key();
+      NODE_TO_KEY.set(node, key);
+    }
+
+    return key;
+  },
+
+  /**
+   * Find the path of Slate node.
+   */
+  findPath(editor, node) {
+    var path = [];
+    var child = node;
+
+    while (true) {
+      var parent = NODE_TO_PARENT.get(child);
+
+      if (parent == null) {
+        if (slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].isEditor(child)) {
+          return path;
+        } else {
+          break;
+        }
+      }
+
+      var i = NODE_TO_INDEX.get(child);
+
+      if (i == null) {
+        break;
+      }
+
+      path.unshift(i);
+      child = parent;
+    }
+
+    throw new Error("Unable to find the path for Slate node: ".concat(JSON.stringify(node)));
+  },
+
+  /**
+   * Check if the editor is focused.
+   */
+  isFocused(editor) {
+    return !!IS_FOCUSED.get(editor);
+  },
+
+  /**
+   * Check if the editor is in read-only mode.
+   */
+  isReadOnly(editor) {
+    return !!IS_READ_ONLY.get(editor);
+  },
+
+  /**
+   * Blur the editor.
+   */
+  blur(editor) {
+    var el = ReactEditor.toDOMNode(editor, editor);
+    IS_FOCUSED.set(editor, false);
+
+    if (window.document.activeElement === el) {
+      el.blur();
+    }
+  },
+
+  /**
+   * Focus the editor.
+   */
+  focus(editor) {
+    var el = ReactEditor.toDOMNode(editor, editor);
+    IS_FOCUSED.set(editor, true);
+
+    if (window.document.activeElement !== el) {
+      el.focus({
+        preventScroll: true
+      });
+    }
+  },
+
+  /**
+   * Deselect the editor.
+   */
+  deselect(editor) {
+    var {
+      selection
+    } = editor;
+    var domSelection = window.getSelection();
+
+    if (domSelection && domSelection.rangeCount > 0) {
+      domSelection.removeAllRanges();
+    }
+
+    if (selection) {
+      slate__WEBPACK_IMPORTED_MODULE_1__["Transforms"].deselect(editor);
+    }
+  },
+
+  /**
+   * Check if a DOM node is within the editor.
+   */
+  hasDOMNode(editor, target) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    var {
+      editable = false
+    } = options;
+    var el = ReactEditor.toDOMNode(editor, editor);
+    var element; // COMPAT: In Firefox, reading `target.nodeType` will throw an error if
+    // target is originating from an internal "restricted" element (e.g. a
+    // stepper arrow on a number input). (2018/05/04)
+    // https://github.com/ianstormtaylor/slate/issues/1819
+
+    try {
+      element = isDOMElement(target) ? target : target.parentElement;
+    } catch (err) {
+      if (!err.message.includes('Permission denied to access property "nodeType"')) {
+        throw err;
+      }
+    }
+
+    if (!element) {
+      return false;
+    }
+
+    return element.closest("[data-slate-editor]") === el && (!editable || el.isContentEditable);
+  },
+
+  /**
+   * Insert data from a `DataTransfer` into the editor.
+   */
+  insertData(editor, data) {
+    editor.insertData(data);
+  },
+
+  /**
+   * Find the native DOM element from a Slate node.
+   */
+  toDOMNode(editor, node) {
+    var domNode = slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].isEditor(node) ? EDITOR_TO_ELEMENT.get(editor) : KEY_TO_ELEMENT.get(ReactEditor.findKey(editor, node));
+
+    if (!domNode) {
+      throw new Error("Cannot resolve a DOM node from Slate node: ".concat(JSON.stringify(node)));
+    }
+
+    return domNode;
+  },
+
+  /**
+   * Find a native DOM selection point from a Slate point.
+   */
+  toDOMPoint(editor, point) {
+    var [node] = slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].node(editor, point.path);
+    var el = ReactEditor.toDOMNode(editor, node);
+    var domPoint; // If we're inside a void node, force the offset to 0, otherwise the zero
+    // width spacing character will result in an incorrect offset of 1
+
+    if (slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].void(editor, {
+      at: point
+    })) {
+      point = {
+        path: point.path,
+        offset: 0
+      };
+    } // For each leaf, we need to isolate its content, which means filtering
+    // to its direct text and zero-width spans. (We have to filter out any
+    // other siblings that may have been rendered alongside them.)
+
+
+    var selector = "[data-slate-string], [data-slate-zero-width]";
+    var texts = Array.from(el.querySelectorAll(selector));
+    var start = 0;
+
+    for (var text of texts) {
+      var domNode = text.childNodes[0];
+
+      if (domNode == null || domNode.textContent == null) {
+        continue;
+      }
+
+      var {
+        length
+      } = domNode.textContent;
+      var attr = text.getAttribute('data-slate-length');
+      var trueLength = attr == null ? length : parseInt(attr, 10);
+      var end = start + trueLength;
+
+      if (point.offset <= end) {
+        var offset = Math.min(length, Math.max(0, point.offset - start));
+        domPoint = [domNode, offset];
+        break;
+      }
+
+      start = end;
+    }
+
+    if (!domPoint) {
+      throw new Error("Cannot resolve a DOM point from Slate point: ".concat(JSON.stringify(point)));
+    }
+
+    return domPoint;
+  },
+
+  /**
+   * Find a native DOM range from a Slate `range`.
+   */
+  toDOMRange(editor, range) {
+    var {
+      anchor,
+      focus
+    } = range;
+    var domAnchor = ReactEditor.toDOMPoint(editor, anchor);
+    var domFocus = slate__WEBPACK_IMPORTED_MODULE_1__["Range"].isCollapsed(range) ? domAnchor : ReactEditor.toDOMPoint(editor, focus);
+    var domRange = window.document.createRange();
+    var start = slate__WEBPACK_IMPORTED_MODULE_1__["Range"].isBackward(range) ? domFocus : domAnchor;
+    var end = slate__WEBPACK_IMPORTED_MODULE_1__["Range"].isBackward(range) ? domAnchor : domFocus;
+    domRange.setStart(start[0], start[1]);
+    domRange.setEnd(end[0], end[1]);
+    return domRange;
+  },
+
+  /**
+   * Find a Slate node from a native DOM `element`.
+   */
+  toSlateNode(editor, domNode) {
+    var domEl = isDOMElement(domNode) ? domNode : domNode.parentElement;
+
+    if (domEl && !domEl.hasAttribute('data-slate-node')) {
+      domEl = domEl.closest("[data-slate-node]");
+    }
+
+    var node = domEl ? ELEMENT_TO_NODE.get(domEl) : null;
+
+    if (!node) {
+      throw new Error("Cannot resolve a Slate node from DOM node: ".concat(domEl));
+    }
+
+    return node;
+  },
+
+  /**
+   * Get the target range from a DOM `event`.
+   */
+  findEventRange(editor, event) {
+    if ('nativeEvent' in event) {
+      event = event.nativeEvent;
+    }
+
+    var {
+      clientX: x,
+      clientY: y,
+      target
+    } = event;
+
+    if (x == null || y == null) {
+      throw new Error("Cannot resolve a Slate range from a DOM event: ".concat(event));
+    }
+
+    var node = ReactEditor.toSlateNode(editor, event.target);
+    var path = ReactEditor.findPath(editor, node); // If the drop target is inside a void node, move it into either the
+    // next or previous node, depending on which side the `x` and `y`
+    // coordinates are closest to.
+
+    if (slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].isVoid(editor, node)) {
+      var rect = target.getBoundingClientRect();
+      var isPrev = editor.isInline(node) ? x - rect.left < rect.left + rect.width - x : y - rect.top < rect.top + rect.height - y;
+      var edge = slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].point(editor, path, {
+        edge: isPrev ? 'start' : 'end'
+      });
+      var point = isPrev ? slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].before(editor, edge) : slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].after(editor, edge);
+
+      if (point) {
+        var _range = slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].range(editor, point);
+
+        return _range;
+      }
+    } // Else resolve a range from the caret position where the drop occured.
+
+
+    var domRange;
+    var {
+      document
+    } = window; // COMPAT: In Firefox, `caretRangeFromPoint` doesn't exist. (2016/07/25)
+
+    if (document.caretRangeFromPoint) {
+      domRange = document.caretRangeFromPoint(x, y);
+    } else {
+      var position = document.caretPositionFromPoint(x, y);
+
+      if (position) {
+        domRange = document.createRange();
+        domRange.setStart(position.offsetNode, position.offset);
+        domRange.setEnd(position.offsetNode, position.offset);
+      }
+    }
+
+    if (!domRange) {
+      throw new Error("Cannot resolve a Slate range from a DOM event: ".concat(event));
+    } // Resolve a Slate range from the DOM range.
+
+
+    var range = ReactEditor.toSlateRange(editor, domRange);
+    return range;
+  },
+
+  /**
+   * Find a Slate point from a DOM selection's `domNode` and `domOffset`.
+   */
+  toSlatePoint(editor, domPoint) {
+    var [nearestNode, nearestOffset] = normalizeDOMPoint(domPoint);
+    var parentNode = nearestNode.parentNode;
+    var textNode = null;
+    var offset = 0;
+
+    if (parentNode) {
+      var voidNode = parentNode.closest('[data-slate-void="true"]');
+      var leafNode = parentNode.closest('[data-slate-leaf]');
+      var domNode = null; // Calculate how far into the text node the `nearestNode` is, so that we
+      // can determine what the offset relative to the text node is.
+
+      if (leafNode) {
+        textNode = leafNode.closest('[data-slate-node="text"]');
+        var range = window.document.createRange();
+        range.setStart(textNode, 0);
+        range.setEnd(nearestNode, nearestOffset);
+        var contents = range.cloneContents();
+        var removals = [...contents.querySelectorAll('[data-slate-zero-width]'), ...contents.querySelectorAll('[contenteditable=false]')];
+        removals.forEach(el => {
+          el.parentNode.removeChild(el);
+        }); // COMPAT: Edge has a bug where Range.prototype.toString() will
+        // convert \n into \r\n. The bug causes a loop when slate-react
+        // attempts to reposition its cursor to match the native position. Use
+        // textContent.length instead.
+        // https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/10291116/
+
+        offset = contents.textContent.length;
+        domNode = textNode;
+      } else if (voidNode) {
+        // For void nodes, the element with the offset key will be a cousin, not an
+        // ancestor, so find it by going down from the nearest void parent.
+        leafNode = voidNode.querySelector('[data-slate-leaf]');
+        textNode = leafNode.closest('[data-slate-node="text"]');
+        domNode = leafNode;
+        offset = domNode.textContent.length;
+      } // COMPAT: If the parent node is a Slate zero-width space, editor is
+      // because the text node should have no characters. However, during IME
+      // composition the ASCII characters will be prepended to the zero-width
+      // space, so subtract 1 from the offset to account for the zero-width
+      // space character.
+
+
+      if (domNode && offset === domNode.textContent.length && parentNode.hasAttribute('data-slate-zero-width')) {
+        offset--;
+      }
+    }
+
+    if (!textNode) {
+      throw new Error("Cannot resolve a Slate point from DOM point: ".concat(domPoint));
+    } // COMPAT: If someone is clicking from one Slate editor into another,
+    // the select event fires twice, once for the old editor's `element`
+    // first, and then afterwards for the correct `element`. (2017/03/03)
+
+
+    var slateNode = ReactEditor.toSlateNode(editor, textNode);
+    var path = ReactEditor.findPath(editor, slateNode);
+    return {
+      path,
+      offset
+    };
+  },
+
+  /**
+   * Find a Slate range from a DOM range or selection.
+   */
+  toSlateRange(editor, domRange) {
+    var el = domRange instanceof Selection ? domRange.anchorNode : domRange.startContainer;
+    var anchorNode;
+    var anchorOffset;
+    var focusNode;
+    var focusOffset;
+    var isCollapsed;
+
+    if (el) {
+      if (domRange instanceof Selection) {
+        anchorNode = domRange.anchorNode;
+        anchorOffset = domRange.anchorOffset;
+        focusNode = domRange.focusNode;
+        focusOffset = domRange.focusOffset;
+        isCollapsed = domRange.isCollapsed;
+      } else {
+        anchorNode = domRange.startContainer;
+        anchorOffset = domRange.startOffset;
+        focusNode = domRange.endContainer;
+        focusOffset = domRange.endOffset;
+        isCollapsed = domRange.collapsed;
+      }
+    }
+
+    if (anchorNode == null || focusNode == null || anchorOffset == null || focusOffset == null) {
+      throw new Error("Cannot resolve a Slate range from DOM range: ".concat(domRange));
+    }
+
+    var anchor = ReactEditor.toSlatePoint(editor, [anchorNode, anchorOffset]);
+    var focus = isCollapsed ? anchor : ReactEditor.toSlatePoint(editor, [focusNode, focusOffset]);
+    return {
+      anchor,
+      focus
+    };
+  }
+
+};
+
+/**
+ * A React context for sharing the `focused` state of the editor.
+ */
+
+var FocusedContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["createContext"])(false);
+/**
+ * Get the current `focused` state of the editor.
+ */
+
+var useFocused = () => {
+  return Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(FocusedContext);
+};
+
+/**
+ * A wrapper around the provider to handle `onChange` events, because the editor
+ * is a mutable singleton so it won't ever register as "changed" otherwise.
+ */
+const Slate = (props) => {
+    const { editor, children, onChange, value, ...rest } = props;
+    const [key, setKey] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0);
+    const context = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(() => {
+        editor.children = value;
+        Object.assign(editor, rest);
+        return [editor];
+    }, [key, value, ...Object.values(rest)]);
+    const onContextChange = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(() => {
+        onChange(editor.children);
+        setKey(key + 1);
+    }, [key, onChange]);
+    EDITOR_TO_ON_CHANGE.set(editor, onContextChange);
+    return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SlateContext.Provider, { value: context },
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(EditorContext.Provider, { value: editor },
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(FocusedContext.Provider, { value: ReactEditor.isFocused(editor) }, children))));
+};
+
+/**
+ * `withReact` adds React and DOM specific behaviors to the editor.
+ */
+
+var withReact = editor => {
+  var e = editor;
+  var {
+    apply,
+    onChange
+  } = e;
+
+  e.apply = op => {
+    var matches = [];
+
+    switch (op.type) {
+      case 'insert_text':
+      case 'remove_text':
+      case 'set_node':
+        {
+          for (var [node, path] of slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].levels(e, {
+            at: op.path
+          })) {
+            var key = ReactEditor.findKey(e, node);
+            matches.push([path, key]);
+          }
+
+          break;
+        }
+
+      case 'insert_node':
+      case 'remove_node':
+      case 'merge_node':
+      case 'split_node':
+        {
+          for (var [_node, _path] of slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].levels(e, {
+            at: slate__WEBPACK_IMPORTED_MODULE_1__["Path"].parent(op.path)
+          })) {
+            var _key = ReactEditor.findKey(e, _node);
+
+            matches.push([_path, _key]);
+          }
+
+          break;
+        }
+    }
+
+    apply(op);
+
+    for (var [_path2, _key2] of matches) {
+      var [_node2] = slate__WEBPACK_IMPORTED_MODULE_1__["Editor"].node(e, _path2);
+      NODE_TO_KEY.set(_node2, _key2);
+    }
+  };
+
+  e.insertData = data => {
+    var fragment = data.getData('application/x-slate-fragment');
+
+    if (fragment) {
+      var decoded = decodeURIComponent(window.atob(fragment));
+      var parsed = JSON.parse(decoded);
+      slate__WEBPACK_IMPORTED_MODULE_1__["Transforms"].insertFragment(e, parsed);
+      return;
+    }
+
+    var text = data.getData('text/plain');
+
+    if (text) {
+      var lines = text.split('\n');
+      var split = false;
+
+      for (var line of lines) {
+        if (split) {
+          slate__WEBPACK_IMPORTED_MODULE_1__["Transforms"].splitNodes(e);
+        }
+
+        slate__WEBPACK_IMPORTED_MODULE_1__["Transforms"].insertText(e, line);
+        split = true;
+      }
+    }
+  };
+
+  e.onChange = () => {
+    // COMPAT: React doesn't batch `setState` hook calls, which means that the
+    // children and selection can get out of sync for one render pass. So we
+    // have to use this unstable API to ensure it batches them. (2019/12/03)
+    // https://github.com/facebook/react/issues/14259#issuecomment-439702367
+    react_dom__WEBPACK_IMPORTED_MODULE_6___default.a.unstable_batchedUpdates(() => {
+      var onContextChange = EDITOR_TO_ON_CHANGE.get(e);
+
+      if (onContextChange) {
+        onContextChange();
+      }
+
+      onChange();
+    });
+  };
+
+  return e;
+};
+
+
+//# sourceMappingURL=index.es.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/slate/dist/index.es.js":
+/*!*********************************************!*\
+  !*** ./node_modules/slate/dist/index.es.js ***!
+  \*********************************************/
+/*! exports provided: Editor, Element, Location, Node, Operation, Path, PathRef, Point, PointRef, Range, RangeRef, Span, Text, Transforms, createEditor */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Editor", function() { return Editor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Element", function() { return Element; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Location", function() { return Location; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Node", function() { return Node; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Operation", function() { return Operation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Path", function() { return Path; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PathRef", function() { return PathRef; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Point", function() { return Point; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PointRef", function() { return PointRef; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Range", function() { return Range; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RangeRef", function() { return RangeRef; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Span", function() { return Span; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Text", function() { return Text; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Transforms", function() { return Transforms; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createEditor", function() { return createEditor; });
+/* harmony import */ var is_plain_object__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! is-plain-object */ "./node_modules/is-plain-object/index.js");
+/* harmony import */ var immer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! immer */ "./node_modules/immer/dist/immer.module.js");
+/* harmony import */ var esrever__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! esrever */ "./node_modules/esrever/esrever.js");
+/* harmony import */ var esrever__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(esrever__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+var DIRTY_PATHS = new WeakMap();
+var FLUSHING = new WeakMap();
+var NORMALIZING = new WeakMap();
+var PATH_REFS = new WeakMap();
+var POINT_REFS = new WeakMap();
+var RANGE_REFS = new WeakMap();
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+/**
+ * Create a new Slate `Editor` object.
+ */
+
+var createEditor = () => {
+  var editor = {
+    children: [],
+    operations: [],
+    selection: null,
+    marks: null,
+    isInline: () => false,
+    isVoid: () => false,
+    onChange: () => {},
+    apply: op => {
+      for (var ref of Editor.pathRefs(editor)) {
+        PathRef.transform(ref, op);
+      }
+
+      for (var _ref of Editor.pointRefs(editor)) {
+        PointRef.transform(_ref, op);
+      }
+
+      for (var _ref2 of Editor.rangeRefs(editor)) {
+        RangeRef.transform(_ref2, op);
+      }
+
+      var set = new Set();
+      var dirtyPaths = [];
+
+      var add = path => {
+        if (path) {
+          var key = path.join(',');
+
+          if (!set.has(key)) {
+            set.add(key);
+            dirtyPaths.push(path);
+          }
+        }
+      };
+
+      var oldDirtyPaths = DIRTY_PATHS.get(editor) || [];
+      var newDirtyPaths = getDirtyPaths(op);
+
+      for (var path of oldDirtyPaths) {
+        var newPath = Path.transform(path, op);
+        add(newPath);
+      }
+
+      for (var _path of newDirtyPaths) {
+        add(_path);
+      }
+
+      DIRTY_PATHS.set(editor, dirtyPaths);
+      Editor.transform(editor, op);
+      editor.operations.push(op);
+      Editor.normalize(editor); // Clear any formats applied to the cursor if the selection changes.
+
+      if (op.type === 'set_selection') {
+        editor.marks = null;
+      }
+
+      if (!FLUSHING.get(editor)) {
+        FLUSHING.set(editor, true);
+        Promise.resolve().then(() => {
+          FLUSHING.set(editor, false);
+          editor.onChange();
+          editor.operations = [];
+        });
+      }
+    },
+    addMark: (key, value) => {
+      var {
+        selection
+      } = editor;
+
+      if (selection) {
+        if (Range.isExpanded(selection)) {
+          Transforms.setNodes(editor, {
+            [key]: value
+          }, {
+            match: Text.isText,
+            split: true
+          });
+        } else {
+          var marks = _objectSpread({}, Editor.marks(editor) || {}, {
+            [key]: value
+          });
+
+          editor.marks = marks;
+          editor.onChange();
+        }
+      }
+    },
+    deleteBackward: unit => {
+      var {
+        selection
+      } = editor;
+
+      if (selection && Range.isCollapsed(selection)) {
+        Transforms.delete(editor, {
+          unit,
+          reverse: true
+        });
+      }
+    },
+    deleteForward: unit => {
+      var {
+        selection
+      } = editor;
+
+      if (selection && Range.isCollapsed(selection)) {
+        Transforms.delete(editor, {
+          unit
+        });
+      }
+    },
+    deleteFragment: () => {
+      var {
+        selection
+      } = editor;
+
+      if (selection && Range.isExpanded(selection)) {
+        Transforms.delete(editor);
+      }
+    },
+    insertBreak: () => {
+      Transforms.splitNodes(editor, {
+        always: true
+      });
+    },
+    insertFragment: fragment => {
+      Transforms.insertFragment(editor, fragment);
+    },
+    insertNode: node => {
+      Transforms.insertNodes(editor, node);
+    },
+    insertText: text => {
+      var {
+        selection,
+        marks
+      } = editor;
+
+      if (selection) {
+        // If the cursor is at the end of an inline, move it outside of
+        // the inline before inserting
+        if (Range.isCollapsed(selection)) {
+          var inline = Editor.above(editor, {
+            match: n => Editor.isInline(editor, n),
+            mode: 'highest'
+          });
+
+          if (inline) {
+            var [, inlinePath] = inline;
+
+            if (Editor.isEnd(editor, selection.anchor, inlinePath)) {
+              var point = Editor.after(editor, inlinePath);
+              Transforms.setSelection(editor, {
+                anchor: point,
+                focus: point
+              });
+            }
+          }
+        }
+
+        if (marks) {
+          var node = _objectSpread({
+            text
+          }, marks);
+
+          Transforms.insertNodes(editor, node);
+        } else {
+          Transforms.insertText(editor, text);
+        }
+
+        editor.marks = null;
+      }
+    },
+    normalizeNode: entry => {
+      var [node, path] = entry; // There are no core normalizations for text nodes.
+
+      if (Text.isText(node)) {
+        return;
+      } // Ensure that block and inline nodes have at least one text child.
+
+
+      if (Element.isElement(node) && node.children.length === 0) {
+        var child = {
+          text: ''
+        };
+        Transforms.insertNodes(editor, child, {
+          at: path.concat(0),
+          voids: true
+        });
+        return;
+      } // Determine whether the node should have block or inline children.
+
+
+      var shouldHaveInlines = Editor.isEditor(node) ? false : Element.isElement(node) && (editor.isInline(node) || node.children.length === 0 || Text.isText(node.children[0]) || editor.isInline(node.children[0])); // Since we'll be applying operations while iterating, keep track of an
+      // index that accounts for any added/removed nodes.
+
+      var n = 0;
+
+      for (var i = 0; i < node.children.length; i++, n++) {
+        var _child = node.children[i];
+        var prev = node.children[i - 1];
+        var isLast = i === node.children.length - 1;
+        var isInlineOrText = Text.isText(_child) || Element.isElement(_child) && editor.isInline(_child); // Only allow block nodes in the top-level children and parent blocks
+        // that only contain block nodes. Similarly, only allow inline nodes in
+        // other inline nodes, or parent blocks that only contain inlines and
+        // text.
+
+        if (isInlineOrText !== shouldHaveInlines) {
+          Transforms.removeNodes(editor, {
+            at: path.concat(n),
+            voids: true
+          });
+          n--;
+        } else if (Element.isElement(_child)) {
+          // Ensure that inline nodes are surrounded by text nodes.
+          if (editor.isInline(_child)) {
+            if (prev == null || !Text.isText(prev)) {
+              var newChild = {
+                text: ''
+              };
+              Transforms.insertNodes(editor, newChild, {
+                at: path.concat(n),
+                voids: true
+              });
+              n++;
+            } else if (isLast) {
+              var _newChild = {
+                text: ''
+              };
+              Transforms.insertNodes(editor, _newChild, {
+                at: path.concat(n + 1),
+                voids: true
+              });
+              n++;
+            }
+          }
+        } else {
+          // Merge adjacent text nodes that are empty or match.
+          if (prev != null && Text.isText(prev)) {
+            if (Text.equals(_child, prev, {
+              loose: true
+            })) {
+              Transforms.mergeNodes(editor, {
+                at: path.concat(n),
+                voids: true
+              });
+              n--;
+            } else if (prev.text === '') {
+              Transforms.removeNodes(editor, {
+                at: path.concat(n - 1),
+                voids: true
+              });
+              n--;
+            } else if (isLast && _child.text === '') {
+              Transforms.removeNodes(editor, {
+                at: path.concat(n),
+                voids: true
+              });
+              n--;
+            }
+          }
+        }
+      }
+    },
+    removeMark: key => {
+      var {
+        selection
+      } = editor;
+
+      if (selection) {
+        if (Range.isExpanded(selection)) {
+          Transforms.unsetNodes(editor, key, {
+            match: Text.isText,
+            split: true
+          });
+        } else {
+          var marks = _objectSpread({}, Editor.marks(editor) || {});
+
+          delete marks[key];
+          editor.marks = marks;
+          editor.onChange();
+        }
+      }
+    }
+  };
+  return editor;
+};
+/**
+ * Get the "dirty" paths generated from an operation.
+ */
+
+var getDirtyPaths = op => {
+  switch (op.type) {
+    case 'insert_text':
+    case 'remove_text':
+    case 'set_node':
+      {
+        var {
+          path
+        } = op;
+        return Path.levels(path);
+      }
+
+    case 'insert_node':
+      {
+        var {
+          node,
+          path: _path2
+        } = op;
+        var levels = Path.levels(_path2);
+        var descendants = Text.isText(node) ? [] : Array.from(Node.nodes(node), (_ref3) => {
+          var [, p] = _ref3;
+          return _path2.concat(p);
+        });
+        return [...levels, ...descendants];
+      }
+
+    case 'merge_node':
+      {
+        var {
+          path: _path3
+        } = op;
+        var ancestors = Path.ancestors(_path3);
+        var previousPath = Path.previous(_path3);
+        return [...ancestors, previousPath];
+      }
+
+    case 'move_node':
+      {
+        var {
+          path: _path4,
+          newPath
+        } = op;
+
+        if (Path.equals(_path4, newPath)) {
+          return [];
+        }
+
+        var oldAncestors = [];
+        var newAncestors = [];
+
+        for (var ancestor of Path.ancestors(_path4)) {
+          var p = Path.transform(ancestor, op);
+          oldAncestors.push(p);
+        }
+
+        for (var _ancestor of Path.ancestors(newPath)) {
+          var _p = Path.transform(_ancestor, op);
+
+          newAncestors.push(_p);
+        }
+
+        return [...oldAncestors, ...newAncestors];
+      }
+
+    case 'remove_node':
+      {
+        var {
+          path: _path5
+        } = op;
+
+        var _ancestors = Path.ancestors(_path5);
+
+        return [..._ancestors];
+      }
+
+    case 'split_node':
+      {
+        var {
+          path: _path6
+        } = op;
+
+        var _levels = Path.levels(_path6);
+
+        var nextPath = Path.next(_path6);
+        return [..._levels, nextPath];
+      }
+
+    default:
+      {
+        return [];
+      }
+  }
+};
+
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+function _objectWithoutProperties(source, excluded) {
+  if (source == null) return {};
+  var target = _objectWithoutPropertiesLoose(source, excluded);
+  var key, i;
+
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
+    }
+  }
+
+  return target;
+}
+
+/**
+ * Constants for string distance checking.
+ */
+var SPACE = /\s/;
+var PUNCTUATION = /[\u0021-\u0023\u0025-\u002A\u002C-\u002F\u003A\u003B\u003F\u0040\u005B-\u005D\u005F\u007B\u007D\u00A1\u00A7\u00AB\u00B6\u00B7\u00BB\u00BF\u037E\u0387\u055A-\u055F\u0589\u058A\u05BE\u05C0\u05C3\u05C6\u05F3\u05F4\u0609\u060A\u060C\u060D\u061B\u061E\u061F\u066A-\u066D\u06D4\u0700-\u070D\u07F7-\u07F9\u0830-\u083E\u085E\u0964\u0965\u0970\u0AF0\u0DF4\u0E4F\u0E5A\u0E5B\u0F04-\u0F12\u0F14\u0F3A-\u0F3D\u0F85\u0FD0-\u0FD4\u0FD9\u0FDA\u104A-\u104F\u10FB\u1360-\u1368\u1400\u166D\u166E\u169B\u169C\u16EB-\u16ED\u1735\u1736\u17D4-\u17D6\u17D8-\u17DA\u1800-\u180A\u1944\u1945\u1A1E\u1A1F\u1AA0-\u1AA6\u1AA8-\u1AAD\u1B5A-\u1B60\u1BFC-\u1BFF\u1C3B-\u1C3F\u1C7E\u1C7F\u1CC0-\u1CC7\u1CD3\u2010-\u2027\u2030-\u2043\u2045-\u2051\u2053-\u205E\u207D\u207E\u208D\u208E\u2329\u232A\u2768-\u2775\u27C5\u27C6\u27E6-\u27EF\u2983-\u2998\u29D8-\u29DB\u29FC\u29FD\u2CF9-\u2CFC\u2CFE\u2CFF\u2D70\u2E00-\u2E2E\u2E30-\u2E3B\u3001-\u3003\u3008-\u3011\u3014-\u301F\u3030\u303D\u30A0\u30FB\uA4FE\uA4FF\uA60D-\uA60F\uA673\uA67E\uA6F2-\uA6F7\uA874-\uA877\uA8CE\uA8CF\uA8F8-\uA8FA\uA92E\uA92F\uA95F\uA9C1-\uA9CD\uA9DE\uA9DF\uAA5C-\uAA5F\uAADE\uAADF\uAAF0\uAAF1\uABEB\uFD3E\uFD3F\uFE10-\uFE19\uFE30-\uFE52\uFE54-\uFE61\uFE63\uFE68\uFE6A\uFE6B\uFF01-\uFF03\uFF05-\uFF0A\uFF0C-\uFF0F\uFF1A\uFF1B\uFF1F\uFF20\uFF3B-\uFF3D\uFF3F\uFF5B\uFF5D\uFF5F-\uFF65]/;
+var CHAMELEON = /['\u2018\u2019]/;
+var SURROGATE_START = 0xd800;
+var SURROGATE_END = 0xdfff;
+var ZERO_WIDTH_JOINER = 0x200d;
+/**
+ * Get the distance to the end of the first character in a string of text.
+ */
+
+var getCharacterDistance = text => {
+  var offset = 0; // prev types:
+  // SURR: surrogate pair
+  // MOD: modifier (technically also surrogate pair)
+  // ZWJ: zero width joiner
+  // VAR: variation selector
+  // BMP: sequenceable character from basic multilingual plane
+
+  var prev = null;
+  var charCode = text.charCodeAt(0);
+
+  while (charCode) {
+    if (isSurrogate(charCode)) {
+      var modifier = isModifier(charCode, text, offset); // Early returns are the heart of this function, where we decide if previous and current
+      // codepoints should form a single character (in terms of how many of them should selection
+      // jump over).
+
+      if (prev === 'SURR' || prev === 'BMP') {
+        break;
+      }
+
+      offset += 2;
+      prev = modifier ? 'MOD' : 'SURR';
+      charCode = text.charCodeAt(offset); // Absolutely fine to `continue` without any checks because if `charCode` is NaN (which
+      // is the case when out of `text` range), next `while` loop won"t execute and we"re done.
+
+      continue;
+    }
+
+    if (charCode === ZERO_WIDTH_JOINER) {
+      offset += 1;
+      prev = 'ZWJ';
+      charCode = text.charCodeAt(offset);
+      continue;
+    }
+
+    if (isBMPEmoji(charCode)) {
+      if (prev && prev !== 'ZWJ' && prev !== 'VAR') {
+        break;
+      }
+
+      offset += 1;
+      prev = 'BMP';
+      charCode = text.charCodeAt(offset);
+      continue;
+    }
+
+    if (isVariationSelector(charCode)) {
+      if (prev && prev !== 'ZWJ') {
+        break;
+      }
+
+      offset += 1;
+      prev = 'VAR';
+      charCode = text.charCodeAt(offset);
+      continue;
+    } // Modifier 'groups up' with what ever character is before that (even whitespace), need to
+    // look ahead.
+
+
+    if (prev === 'MOD') {
+      offset += 1;
+      break;
+    } // If while loop ever gets here, we're done (e.g latin chars).
+
+
+    break;
+  }
+
+  return offset || 1;
+};
+/**
+ * Get the distance to the end of the first word in a string of text.
+ */
+
+var getWordDistance = text => {
+  var length = 0;
+  var i = 0;
+  var started = false;
+  var char;
+
+  while (char = text.charAt(i)) {
+    var l = getCharacterDistance(char);
+    char = text.slice(i, i + l);
+    var rest = text.slice(i + l);
+
+    if (isWordCharacter(char, rest)) {
+      started = true;
+      length += l;
+    } else if (!started) {
+      length += l;
+    } else {
+      break;
+    }
+
+    i += l;
+  }
+
+  return length;
+};
+/**
+ * Check if a character is a word character. The `remaining` argument is used
+ * because sometimes you must read subsequent characters to truly determine it.
+ */
+
+var isWordCharacter = (char, remaining) => {
+  if (SPACE.test(char)) {
+    return false;
+  } // Chameleons count as word characters as long as they're in a word, so
+  // recurse to see if the next one is a word character or not.
+
+
+  if (CHAMELEON.test(char)) {
+    var next = remaining.charAt(0);
+    var length = getCharacterDistance(next);
+    next = remaining.slice(0, length);
+    var rest = remaining.slice(length);
+
+    if (isWordCharacter(next, rest)) {
+      return true;
+    }
+  }
+
+  if (PUNCTUATION.test(char)) {
+    return false;
+  }
+
+  return true;
+};
+/**
+ * Determines if `code` is a surrogate
+ */
+
+
+var isSurrogate = code => SURROGATE_START <= code && code <= SURROGATE_END;
+/**
+ * Does `code` form Modifier with next one.
+ *
+ * https://emojipedia.org/modifiers/
+ */
+
+
+var isModifier = (code, text, offset) => {
+  if (code === 0xd83c) {
+    var next = text.charCodeAt(offset + 1);
+    return next <= 0xdfff && next >= 0xdffb;
+  }
+
+  return false;
+};
+/**
+ * Is `code` a Variation Selector.
+ *
+ * https://codepoints.net/variation_selectors
+ */
+
+
+var isVariationSelector = code => {
+  return code <= 0xfe0f && code >= 0xfe00;
+};
+/**
+ * Is `code` one of the BMP codes used in emoji sequences.
+ *
+ * https://emojipedia.org/emoji-zwj-sequences/
+ */
+
+
+var isBMPEmoji = code => {
+  // This requires tiny bit of maintanance, better ideas?
+  // Fortunately it only happens if new Unicode Standard
+  // is released. Fails gracefully if upkeep lags behind,
+  // same way Slate previously behaved with all emojis.
+  return code === 0x2764 || // heart (❤)
+  code === 0x2642 || // male (♂)
+  code === 0x2640 || // female (♀)
+  code === 0x2620 || // scull (☠)
+  code === 0x2695 || // medical (⚕)
+  code === 0x2708 || // plane (✈️)
+  code === 0x25ef // large circle (◯)
+  ;
+};
+
+function ownKeys$1(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$1(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$1(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$1(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var Editor = {
+  /**
+   * Get the ancestor above a location in the document.
+   */
+  above(editor) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var {
+      voids = false,
+      mode = 'lowest',
+      at = editor.selection,
+      match
+    } = options;
+
+    if (!at) {
+      return;
+    }
+
+    var path = Editor.path(editor, at);
+    var reverse = mode === 'lowest';
+
+    for (var [n, p] of Editor.levels(editor, {
+      at: path,
+      voids,
+      match,
+      reverse
+    })) {
+      if (!Text.isText(n) && !Path.equals(path, p)) {
+        return [n, p];
+      }
+    }
+  },
+
+  /**
+   * Add a custom property to the leaf text nodes in the current selection.
+   *
+   * If the selection is currently collapsed, the marks will be added to the
+   * `editor.marks` property instead, and applied when text is inserted next.
+   */
+  addMark(editor, key, value) {
+    editor.addMark(key, value);
+  },
+
+  /**
+   * Get the point after a location.
+   */
+  after(editor, at) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    var anchor = Editor.point(editor, at, {
+      edge: 'end'
+    });
+    var focus = Editor.end(editor, []);
+    var range = {
+      anchor,
+      focus
+    };
+    var {
+      distance = 1
+    } = options;
+    var d = 0;
+    var target;
+
+    for (var p of Editor.positions(editor, _objectSpread$1({}, options, {
+      at: range
+    }))) {
+      if (d > distance) {
+        break;
+      }
+
+      if (d !== 0) {
+        target = p;
+      }
+
+      d++;
+    }
+
+    return target;
+  },
+
+  /**
+   * Get the point before a location.
+   */
+  before(editor, at) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    var anchor = Editor.start(editor, []);
+    var focus = Editor.point(editor, at, {
+      edge: 'start'
+    });
+    var range = {
+      anchor,
+      focus
+    };
+    var {
+      distance = 1
+    } = options;
+    var d = 0;
+    var target;
+
+    for (var p of Editor.positions(editor, _objectSpread$1({}, options, {
+      at: range,
+      reverse: true
+    }))) {
+      if (d > distance) {
+        break;
+      }
+
+      if (d !== 0) {
+        target = p;
+      }
+
+      d++;
+    }
+
+    return target;
+  },
+
+  /**
+   * Delete content in the editor backward from the current selection.
+   */
+  deleteBackward(editor) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var {
+      unit = 'character'
+    } = options;
+    editor.deleteBackward(unit);
+  },
+
+  /**
+   * Delete content in the editor forward from the current selection.
+   */
+  deleteForward(editor) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var {
+      unit = 'character'
+    } = options;
+    editor.deleteForward(unit);
+  },
+
+  /**
+   * Delete the content in the current selection.
+   */
+  deleteFragment(editor) {
+    editor.deleteFragment();
+  },
+
+  /**
+   * Get the start and end points of a location.
+   */
+  edges(editor, at) {
+    return [Editor.start(editor, at), Editor.end(editor, at)];
+  },
+
+  /**
+   * Get the end point of a location.
+   */
+  end(editor, at) {
+    return Editor.point(editor, at, {
+      edge: 'end'
+    });
+  },
+
+  /**
+   * Get the first node at a location.
+   */
+  first(editor, at) {
+    var path = Editor.path(editor, at, {
+      edge: 'start'
+    });
+    return Editor.node(editor, path);
+  },
+
+  /**
+   * Get the fragment at a location.
+   */
+  fragment(editor, at) {
+    var range = Editor.range(editor, at);
+    var fragment = Node.fragment(editor, range);
+    return fragment;
+  },
+
+  /**
+   * Check if a node has block children.
+   */
+  hasBlocks(editor, element) {
+    return element.children.some(n => Editor.isBlock(editor, n));
+  },
+
+  /**
+   * Check if a node has inline and text children.
+   */
+  hasInlines(editor, element) {
+    return element.children.some(n => Text.isText(n) || Editor.isInline(editor, n));
+  },
+
+  /**
+   * Check if a node has text children.
+   */
+  hasTexts(editor, element) {
+    return element.children.every(n => Text.isText(n));
+  },
+
+  /**
+   * Insert a block break at the current selection.
+   *
+   * If the selection is currently expanded, it will be deleted first.
+   */
+  insertBreak(editor) {
+    editor.insertBreak();
+  },
+
+  /**
+   * Insert a fragment at the current selection.
+   *
+   * If the selection is currently expanded, it will be deleted first.
+   */
+  insertFragment(editor, fragment) {
+    editor.insertFragment(fragment);
+  },
+
+  /**
+   * Insert a node at the current selection.
+   *
+   * If the selection is currently expanded, it will be deleted first.
+   */
+  insertNode(editor, node) {
+    editor.insertNode(node);
+  },
+
+  /**
+   * Insert text at the current selection.
+   *
+   * If the selection is currently expanded, it will be deleted first.
+   */
+  insertText(editor, text) {
+    editor.insertText(text);
+  },
+
+  /**
+   * Check if a value is a block `Element` object.
+   */
+  isBlock(editor, value) {
+    return Element.isElement(value) && !editor.isInline(value);
+  },
+
+  /**
+   * Check if a value is an `Editor` object.
+   */
+  isEditor(value) {
+    return Object(is_plain_object__WEBPACK_IMPORTED_MODULE_0__["default"])(value) && typeof value.addMark === 'function' && typeof value.apply === 'function' && typeof value.deleteBackward === 'function' && typeof value.deleteForward === 'function' && typeof value.deleteFragment === 'function' && typeof value.insertBreak === 'function' && typeof value.insertFragment === 'function' && typeof value.insertNode === 'function' && typeof value.insertText === 'function' && typeof value.isInline === 'function' && typeof value.isVoid === 'function' && typeof value.normalizeNode === 'function' && typeof value.onChange === 'function' && typeof value.removeMark === 'function' && (value.marks === null || Object(is_plain_object__WEBPACK_IMPORTED_MODULE_0__["default"])(value.marks)) && (value.selection === null || Range.isRange(value.selection)) && Node.isNodeList(value.children) && Operation.isOperationList(value.operations);
+  },
+
+  /**
+   * Check if a point is the end point of a location.
+   */
+  isEnd(editor, point, at) {
+    var end = Editor.end(editor, at);
+    return Point.equals(point, end);
+  },
+
+  /**
+   * Check if a point is an edge of a location.
+   */
+  isEdge(editor, point, at) {
+    return Editor.isStart(editor, point, at) || Editor.isEnd(editor, point, at);
+  },
+
+  /**
+   * Check if an element is empty, accounting for void nodes.
+   */
+  isEmpty(editor, element) {
+    var {
+      children
+    } = element;
+    var [first] = children;
+    return children.length === 0 || children.length === 1 && Text.isText(first) && first.text === '' && !editor.isVoid(element);
+  },
+
+  /**
+   * Check if a value is an inline `Element` object.
+   */
+  isInline(editor, value) {
+    return Element.isElement(value) && editor.isInline(value);
+  },
+
+  /**
+   * Check if the editor is currently normalizing after each operation.
+   */
+  isNormalizing(editor) {
+    var isNormalizing = NORMALIZING.get(editor);
+    return isNormalizing === undefined ? true : isNormalizing;
+  },
+
+  /**
+   * Check if a point is the start point of a location.
+   */
+  isStart(editor, point, at) {
+    // PERF: If the offset isn't `0` we know it's not the start.
+    if (point.offset !== 0) {
+      return false;
+    }
+
+    var start = Editor.start(editor, at);
+    return Point.equals(point, start);
+  },
+
+  /**
+   * Check if a value is a void `Element` object.
+   */
+  isVoid(editor, value) {
+    return Element.isElement(value) && editor.isVoid(value);
+  },
+
+  /**
+   * Get the last node at a location.
+   */
+  last(editor, at) {
+    var path = Editor.path(editor, at, {
+      edge: 'end'
+    });
+    return Editor.node(editor, path);
+  },
+
+  /**
+   * Get the leaf text node at a location.
+   */
+  leaf(editor, at) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    var path = Editor.path(editor, at, options);
+    var node = Node.leaf(editor, path);
+    return [node, path];
+  },
+
+  /**
+   * Iterate through all of the levels at a location.
+   */
+  *levels(editor) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var {
+      at = editor.selection,
+      reverse = false,
+      voids = false
+    } = options;
+    var {
+      match
+    } = options;
+
+    if (match == null) {
+      match = () => true;
+    }
+
+    if (!at) {
+      return;
+    }
+
+    var levels = [];
+    var path = Editor.path(editor, at);
+
+    for (var [n, p] of Node.levels(editor, path)) {
+      if (!match(n)) {
+        continue;
+      }
+
+      levels.push([n, p]);
+
+      if (!voids && Editor.isVoid(editor, n)) {
+        break;
+      }
+    }
+
+    if (reverse) {
+      levels.reverse();
+    }
+
+    yield* levels;
+  },
+
+  /**
+   * Get the marks that would be added to text at the current selection.
+   */
+  marks(editor) {
+    var {
+      marks,
+      selection
+    } = editor;
+
+    if (!selection) {
+      return null;
+    }
+
+    if (marks) {
+      return marks;
+    }
+
+    if (Range.isExpanded(selection)) {
+      var [match] = Editor.nodes(editor, {
+        match: Text.isText
+      });
+
+      if (match) {
+        var [_node] = match;
+
+        var _rest = _objectWithoutProperties(_node, ["text"]);
+
+        return _rest;
+      } else {
+        return {};
+      }
+    }
+
+    var {
+      anchor
+    } = selection;
+    var {
+      path
+    } = anchor;
+    var [node] = Editor.leaf(editor, path);
+
+    if (anchor.offset === 0) {
+      var prev = Editor.previous(editor, {
+        at: path,
+        match: Text.isText
+      });
+      var block = Editor.above(editor, {
+        match: n => Editor.isBlock(editor, n)
+      });
+
+      if (prev && block) {
+        var [prevNode, prevPath] = prev;
+        var [, blockPath] = block;
+
+        if (Path.isAncestor(blockPath, prevPath)) {
+          node = prevNode;
+        }
+      }
+    }
+
+    var rest = _objectWithoutProperties(node, ["text"]);
+
+    return rest;
+  },
+
+  /**
+   * Get the matching node in the branch of the document after a location.
+   */
+  next(editor) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var {
+      mode = 'lowest',
+      voids = false
+    } = options;
+    var {
+      match,
+      at = editor.selection
+    } = options;
+
+    if (!at) {
+      return;
+    }
+
+    var [, from] = Editor.last(editor, at);
+    var [, to] = Editor.last(editor, []);
+    var span = [from, to];
+
+    if (Path.isPath(at) && at.length === 0) {
+      throw new Error("Cannot get the next node from the root node!");
+    }
+
+    if (match == null) {
+      if (Path.isPath(at)) {
+        var [parent] = Editor.parent(editor, at);
+
+        match = n => parent.children.includes(n);
+      } else {
+        match = () => true;
+      }
+    }
+
+    var [, next] = Editor.nodes(editor, {
+      at: span,
+      match,
+      mode,
+      voids
+    });
+    return next;
+  },
+
+  /**
+   * Get the node at a location.
+   */
+  node(editor, at) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    var path = Editor.path(editor, at, options);
+    var node = Node.get(editor, path);
+    return [node, path];
+  },
+
+  /**
+   * Iterate through all of the nodes in the Editor.
+   */
+  *nodes(editor) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var {
+      at = editor.selection,
+      mode = 'all',
+      universal = false,
+      reverse = false,
+      voids = false
+    } = options;
+    var {
+      match
+    } = options;
+
+    if (!match) {
+      match = () => true;
+    }
+
+    if (!at) {
+      return;
+    }
+
+    var from;
+    var to;
+
+    if (Span.isSpan(at)) {
+      from = at[0];
+      to = at[1];
+    } else {
+      var first = Editor.path(editor, at, {
+        edge: 'start'
+      });
+      var last = Editor.path(editor, at, {
+        edge: 'end'
+      });
+      from = reverse ? last : first;
+      to = reverse ? first : last;
+    }
+
+    var iterable = Node.nodes(editor, {
+      reverse,
+      from,
+      to,
+      pass: (_ref) => {
+        var [n] = _ref;
+        return voids ? false : Editor.isVoid(editor, n);
+      }
+    });
+    var matches = [];
+    var hit;
+
+    for (var [node, path] of iterable) {
+      var isLower = hit && Path.compare(path, hit[1]) === 0; // In highest mode any node lower than the last hit is not a match.
+
+      if (mode === 'highest' && isLower) {
+        continue;
+      }
+
+      if (!match(node)) {
+        // If we've arrived at a leaf text node that is not lower than the last
+        // hit, then we've found a branch that doesn't include a match, which
+        // means the match is not universal.
+        if (universal && !isLower && Text.isText(node)) {
+          return;
+        } else {
+          continue;
+        }
+      } // If there's a match and it's lower than the last, update the hit.
+
+
+      if (mode === 'lowest' && isLower) {
+        hit = [node, path];
+        continue;
+      } // In lowest mode we emit the last hit, once it's guaranteed lowest.
+
+
+      var emit = mode === 'lowest' ? hit : [node, path];
+
+      if (emit) {
+        if (universal) {
+          matches.push(emit);
+        } else {
+          yield emit;
+        }
+      }
+
+      hit = [node, path];
+    } // Since lowest is always emitting one behind, catch up at the end.
+
+
+    if (mode === 'lowest' && hit) {
+      if (universal) {
+        matches.push(hit);
+      } else {
+        yield hit;
+      }
+    } // Universal defers to ensure that the match occurs in every branch, so we
+    // yield all of the matches after iterating.
+
+
+    if (universal) {
+      yield* matches;
+    }
+  },
+
+  /**
+   * Normalize any dirty objects in the editor.
+   */
+  normalize(editor) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var {
+      force = false
+    } = options;
+
+    var getDirtyPaths = editor => {
+      return DIRTY_PATHS.get(editor) || [];
+    };
+
+    if (!Editor.isNormalizing(editor)) {
+      return;
+    }
+
+    if (force) {
+      var allPaths = Array.from(Node.nodes(editor), (_ref2) => {
+        var [, p] = _ref2;
+        return p;
+      });
+      DIRTY_PATHS.set(editor, allPaths);
+    }
+
+    if (getDirtyPaths(editor).length === 0) {
+      return;
+    }
+
+    Editor.withoutNormalizing(editor, () => {
+      var max = getDirtyPaths(editor).length * 42; // HACK: better way?
+
+      var m = 0;
+
+      while (getDirtyPaths(editor).length !== 0) {
+        if (m > max) {
+          throw new Error("\n            Could not completely normalize the editor after ".concat(max, " iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.\n          "));
+        }
+
+        var path = getDirtyPaths(editor).pop();
+        var entry = Editor.node(editor, path);
+        editor.normalizeNode(entry);
+        m++;
+      }
+    });
+  },
+
+  /**
+   * Get the parent node of a location.
+   */
+  parent(editor, at) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    var path = Editor.path(editor, at, options);
+    var parentPath = Path.parent(path);
+    var entry = Editor.node(editor, parentPath);
+    return entry;
+  },
+
+  /**
+   * Get the path of a location.
+   */
+  path(editor, at) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    var {
+      depth,
+      edge
+    } = options;
+
+    if (Path.isPath(at)) {
+      if (edge === 'start') {
+        var [, firstPath] = Node.first(editor, at);
+        at = firstPath;
+      } else if (edge === 'end') {
+        var [, lastPath] = Node.last(editor, at);
+        at = lastPath;
+      }
+    }
+
+    if (Range.isRange(at)) {
+      if (edge === 'start') {
+        at = Range.start(at);
+      } else if (edge === 'end') {
+        at = Range.end(at);
+      } else {
+        at = Path.common(at.anchor.path, at.focus.path);
+      }
+    }
+
+    if (Point.isPoint(at)) {
+      at = at.path;
+    }
+
+    if (depth != null) {
+      at = at.slice(0, depth);
+    }
+
+    return at;
+  },
+
+  /**
+   * Create a mutable ref for a `Path` object, which will stay in sync as new
+   * operations are applied to the editor.
+   */
+  pathRef(editor, path) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    var {
+      affinity = 'forward'
+    } = options;
+    var ref = {
+      current: path,
+      affinity,
+
+      unref() {
+        var {
+          current
+        } = ref;
+        var pathRefs = Editor.pathRefs(editor);
+        pathRefs.delete(ref);
+        ref.current = null;
+        return current;
+      }
+
+    };
+    var refs = Editor.pathRefs(editor);
+    refs.add(ref);
+    return ref;
+  },
+
+  /**
+   * Get the set of currently tracked path refs of the editor.
+   */
+  pathRefs(editor) {
+    var refs = PATH_REFS.get(editor);
+
+    if (!refs) {
+      refs = new Set();
+      PATH_REFS.set(editor, refs);
+    }
+
+    return refs;
+  },
+
+  /**
+   * Get the start or end point of a location.
+   */
+  point(editor, at) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    var {
+      edge = 'start'
+    } = options;
+
+    if (Path.isPath(at)) {
+      var path;
+
+      if (edge === 'end') {
+        var [, lastPath] = Node.last(editor, at);
+        path = lastPath;
+      } else {
+        var [, firstPath] = Node.first(editor, at);
+        path = firstPath;
+      }
+
+      var node = Node.get(editor, path);
+
+      if (!Text.isText(node)) {
+        throw new Error("Cannot get the ".concat(edge, " point in the node at path [").concat(at, "] because it has no ").concat(edge, " text node."));
+      }
+
+      return {
+        path,
+        offset: edge === 'end' ? node.text.length : 0
+      };
+    }
+
+    if (Range.isRange(at)) {
+      var [start, end] = Range.edges(at);
+      return edge === 'start' ? start : end;
+    }
+
+    return at;
+  },
+
+  /**
+   * Create a mutable ref for a `Point` object, which will stay in sync as new
+   * operations are applied to the editor.
+   */
+  pointRef(editor, point) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    var {
+      affinity = 'forward'
+    } = options;
+    var ref = {
+      current: point,
+      affinity,
+
+      unref() {
+        var {
+          current
+        } = ref;
+        var pointRefs = Editor.pointRefs(editor);
+        pointRefs.delete(ref);
+        ref.current = null;
+        return current;
+      }
+
+    };
+    var refs = Editor.pointRefs(editor);
+    refs.add(ref);
+    return ref;
+  },
+
+  /**
+   * Get the set of currently tracked point refs of the editor.
+   */
+  pointRefs(editor) {
+    var refs = POINT_REFS.get(editor);
+
+    if (!refs) {
+      refs = new Set();
+      POINT_REFS.set(editor, refs);
+    }
+
+    return refs;
+  },
+
+  /**
+   * Iterate through all of the positions in the document where a `Point` can be
+   * placed.
+   *
+   * By default it will move forward by individual offsets at a time,  but you
+   * can pass the `unit: 'character'` option to moved forward one character, word,
+   * or line at at time.
+   *
+   * Note: void nodes are treated as a single point, and iteration will not
+   * happen inside their content.
+   */
+  *positions(editor) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var {
+      at = editor.selection,
+      unit = 'offset',
+      reverse: reverse$1 = false
+    } = options;
+
+    if (!at) {
+      return;
+    }
+
+    var range = Editor.range(editor, at);
+    var [start, end] = Range.edges(range);
+    var first = reverse$1 ? end : start;
+    var string = '';
+    var available = 0;
+    var offset = 0;
+    var distance = null;
+    var isNewBlock = false;
+
+    var advance = () => {
+      if (distance == null) {
+        if (unit === 'character') {
+          distance = getCharacterDistance(string);
+        } else if (unit === 'word') {
+          distance = getWordDistance(string);
+        } else if (unit === 'line' || unit === 'block') {
+          distance = string.length;
+        } else {
+          distance = 1;
+        }
+
+        string = string.slice(distance);
+      } // Add or substract the offset.
+
+
+      offset = reverse$1 ? offset - distance : offset + distance; // Subtract the distance traveled from the available text.
+
+      available = available - distance; // If the available had room to spare, reset the distance so that it will
+      // advance again next time. Otherwise, set it to the overflow amount.
+
+      distance = available >= 0 ? null : 0 - available;
+    };
+
+    for (var [node, path] of Editor.nodes(editor, {
+      at,
+      reverse: reverse$1
+    })) {
+      if (Element.isElement(node)) {
+        // Void nodes are a special case, since we don't want to iterate over
+        // their content. We instead always just yield their first point.
+        if (editor.isVoid(node)) {
+          yield Editor.start(editor, path);
+          continue;
+        }
+
+        if (editor.isInline(node)) {
+          continue;
+        }
+
+        if (Editor.hasInlines(editor, node)) {
+          var e = Path.isAncestor(path, end.path) ? end : Editor.end(editor, path);
+          var s = Path.isAncestor(path, start.path) ? start : Editor.start(editor, path);
+          var text = Editor.string(editor, {
+            anchor: s,
+            focus: e
+          });
+          string = reverse$1 ? Object(esrever__WEBPACK_IMPORTED_MODULE_2__["reverse"])(text) : text;
+          isNewBlock = true;
+        }
+      }
+
+      if (Text.isText(node)) {
+        var isFirst = Path.equals(path, first.path);
+        available = node.text.length;
+        offset = reverse$1 ? available : 0;
+
+        if (isFirst) {
+          available = reverse$1 ? first.offset : available - first.offset;
+          offset = first.offset;
+        }
+
+        if (isFirst || isNewBlock || unit === 'offset') {
+          yield {
+            path,
+            offset
+          };
+        }
+
+        while (true) {
+          // If there's no more string, continue to the next block.
+          if (string === '') {
+            break;
+          } else {
+            advance();
+          } // If the available space hasn't overflow, we have another point to
+          // yield in the current text node.
+
+
+          if (available >= 0) {
+            yield {
+              path,
+              offset
+            };
+          } else {
+            break;
+          }
+        }
+
+        isNewBlock = false;
+      }
+    }
+  },
+
+  /**
+   * Get the matching node in the branch of the document before a location.
+   */
+  previous(editor) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var {
+      mode = 'lowest',
+      voids = false
+    } = options;
+    var {
+      match,
+      at = editor.selection
+    } = options;
+
+    if (!at) {
+      return;
+    }
+
+    var [, from] = Editor.first(editor, at);
+    var [, to] = Editor.first(editor, []);
+    var span = [from, to];
+
+    if (Path.isPath(at) && at.length === 0) {
+      throw new Error("Cannot get the previous node from the root node!");
+    }
+
+    if (match == null) {
+      if (Path.isPath(at)) {
+        var [parent] = Editor.parent(editor, at);
+
+        match = n => parent.children.includes(n);
+      } else {
+        match = () => true;
+      }
+    }
+
+    var [, previous] = Editor.nodes(editor, {
+      reverse: true,
+      at: span,
+      match,
+      mode,
+      voids
+    });
+    return previous;
+  },
+
+  /**
+   * Get a range of a location.
+   */
+  range(editor, at, to) {
+    if (Range.isRange(at) && !to) {
+      return at;
+    }
+
+    var start = Editor.start(editor, at);
+    var end = Editor.end(editor, to || at);
+    return {
+      anchor: start,
+      focus: end
+    };
+  },
+
+  /**
+   * Create a mutable ref for a `Range` object, which will stay in sync as new
+   * operations are applied to the editor.
+   */
+  rangeRef(editor, range) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    var {
+      affinity = 'forward'
+    } = options;
+    var ref = {
+      current: range,
+      affinity,
+
+      unref() {
+        var {
+          current
+        } = ref;
+        var rangeRefs = Editor.rangeRefs(editor);
+        rangeRefs.delete(ref);
+        ref.current = null;
+        return current;
+      }
+
+    };
+    var refs = Editor.rangeRefs(editor);
+    refs.add(ref);
+    return ref;
+  },
+
+  /**
+   * Get the set of currently tracked range refs of the editor.
+   */
+  rangeRefs(editor) {
+    var refs = RANGE_REFS.get(editor);
+
+    if (!refs) {
+      refs = new Set();
+      RANGE_REFS.set(editor, refs);
+    }
+
+    return refs;
+  },
+
+  /**
+   * Remove a custom property from all of the leaf text nodes in the current
+   * selection.
+   *
+   * If the selection is currently collapsed, the removal will be stored on
+   * `editor.marks` and applied to the text inserted next.
+   */
+  removeMark(editor, key) {
+    editor.removeMark(key);
+  },
+
+  /**
+   * Get the start point of a location.
+   */
+  start(editor, at) {
+    return Editor.point(editor, at, {
+      edge: 'start'
+    });
+  },
+
+  /**
+   * Get the text string content of a location.
+   *
+   * Note: the text of void nodes is presumed to be an empty string, regardless
+   * of what their actual content is.
+   */
+  string(editor, at) {
+    var range = Editor.range(editor, at);
+    var [start, end] = Range.edges(range);
+    var text = '';
+
+    for (var [node, path] of Editor.nodes(editor, {
+      at: range,
+      match: Text.isText
+    })) {
+      var t = node.text;
+
+      if (Path.equals(path, end.path)) {
+        t = t.slice(0, end.offset);
+      }
+
+      if (Path.equals(path, start.path)) {
+        t = t.slice(start.offset);
+      }
+
+      text += t;
+    }
+
+    return text;
+  },
+
+  /**
+   * Transform the editor by an operation.
+   */
+  transform(editor, op) {
+    editor.children = Object(immer__WEBPACK_IMPORTED_MODULE_1__["createDraft"])(editor.children);
+    var selection = editor.selection && Object(immer__WEBPACK_IMPORTED_MODULE_1__["createDraft"])(editor.selection);
+
+    switch (op.type) {
+      case 'insert_node':
+        {
+          var {
+            path,
+            node
+          } = op;
+          var parent = Node.parent(editor, path);
+          var index = path[path.length - 1];
+          parent.children.splice(index, 0, node);
+
+          if (selection) {
+            for (var [point, key] of Range.points(selection)) {
+              selection[key] = Point.transform(point, op);
+            }
+          }
+
+          break;
+        }
+
+      case 'insert_text':
+        {
+          var {
+            path: _path,
+            offset,
+            text
+          } = op;
+
+          var _node2 = Node.leaf(editor, _path);
+
+          var before = _node2.text.slice(0, offset);
+
+          var after = _node2.text.slice(offset);
+
+          _node2.text = before + text + after;
+
+          if (selection) {
+            for (var [_point, _key] of Range.points(selection)) {
+              selection[_key] = Point.transform(_point, op);
+            }
+          }
+
+          break;
+        }
+
+      case 'merge_node':
+        {
+          var {
+            path: _path2
+          } = op;
+
+          var _node3 = Node.get(editor, _path2);
+
+          var prevPath = Path.previous(_path2);
+          var prev = Node.get(editor, prevPath);
+
+          var _parent = Node.parent(editor, _path2);
+
+          var _index = _path2[_path2.length - 1];
+
+          if (Text.isText(_node3) && Text.isText(prev)) {
+            prev.text += _node3.text;
+          } else if (!Text.isText(_node3) && !Text.isText(prev)) {
+            prev.children.push(..._node3.children);
+          } else {
+            throw new Error("Cannot apply a \"merge_node\" operation at path [".concat(_path2, "] to nodes of different interaces: ").concat(_node3, " ").concat(prev));
+          }
+
+          _parent.children.splice(_index, 1);
+
+          if (selection) {
+            for (var [_point2, _key2] of Range.points(selection)) {
+              selection[_key2] = Point.transform(_point2, op);
+            }
+          }
+
+          break;
+        }
+
+      case 'move_node':
+        {
+          var {
+            path: _path3,
+            newPath
+          } = op;
+
+          if (Path.isAncestor(_path3, newPath)) {
+            throw new Error("Cannot move a path [".concat(_path3, "] to new path [").concat(newPath, "] because the destination is inside itself."));
+          }
+
+          var _node4 = Node.get(editor, _path3);
+
+          var _parent2 = Node.parent(editor, _path3);
+
+          var _index2 = _path3[_path3.length - 1]; // This is tricky, but since the `path` and `newPath` both refer to
+          // the same snapshot in time, there's a mismatch. After either
+          // removing the original position, the second step's path can be out
+          // of date. So instead of using the `op.newPath` directly, we
+          // transform `op.path` to ascertain what the `newPath` would be after
+          // the operation was applied.
+
+          _parent2.children.splice(_index2, 1);
+
+          var truePath = Path.transform(_path3, op);
+          var newParent = Node.get(editor, Path.parent(truePath));
+          var newIndex = truePath[truePath.length - 1];
+          newParent.children.splice(newIndex, 0, _node4);
+
+          if (selection) {
+            for (var [_point3, _key3] of Range.points(selection)) {
+              selection[_key3] = Point.transform(_point3, op);
+            }
+          }
+
+          break;
+        }
+
+      case 'remove_node':
+        {
+          var {
+            path: _path4
+          } = op;
+          var _index3 = _path4[_path4.length - 1];
+
+          var _parent3 = Node.parent(editor, _path4);
+
+          _parent3.children.splice(_index3, 1); // Transform all of the points in the value, but if the point was in the
+          // node that was removed we need to update the range or remove it.
+
+
+          if (selection) {
+            for (var [_point4, _key4] of Range.points(selection)) {
+              var result = Point.transform(_point4, op);
+
+              if (selection != null && result != null) {
+                selection[_key4] = result;
+              } else {
+                var _prev = void 0;
+
+                var next = void 0;
+
+                for (var [n, p] of Node.texts(editor)) {
+                  if (Path.compare(p, _path4) === -1) {
+                    _prev = [n, p];
+                  } else {
+                    next = [n, p];
+                    break;
+                  }
+                }
+
+                if (_prev) {
+                  _point4.path = _prev[1];
+                  _point4.offset = _prev[0].text.length;
+                } else if (next) {
+                  _point4.path = next[1];
+                  _point4.offset = 0;
+                } else {
+                  selection = null;
+                }
+              }
+            }
+          }
+
+          break;
+        }
+
+      case 'remove_text':
+        {
+          var {
+            path: _path5,
+            offset: _offset,
+            text: _text2
+          } = op;
+
+          var _node5 = Node.leaf(editor, _path5);
+
+          var _before = _node5.text.slice(0, _offset);
+
+          var _after = _node5.text.slice(_offset + _text2.length);
+
+          _node5.text = _before + _after;
+
+          if (selection) {
+            for (var [_point5, _key5] of Range.points(selection)) {
+              selection[_key5] = Point.transform(_point5, op);
+            }
+          }
+
+          break;
+        }
+
+      case 'set_node':
+        {
+          var {
+            path: _path6,
+            newProperties
+          } = op;
+
+          if (_path6.length === 0) {
+            throw new Error("Cannot set properties on the root node!");
+          }
+
+          var _node6 = Node.get(editor, _path6);
+
+          for (var _key6 in newProperties) {
+            if (_key6 === 'children' || _key6 === 'text') {
+              throw new Error("Cannot set the \"".concat(_key6, "\" property of nodes!"));
+            }
+
+            var value = newProperties[_key6];
+
+            if (value == null) {
+              delete _node6[_key6];
+            } else {
+              _node6[_key6] = value;
+            }
+          }
+
+          break;
+        }
+
+      case 'set_selection':
+        {
+          var {
+            newProperties: _newProperties
+          } = op;
+
+          if (_newProperties == null) {
+            selection = _newProperties;
+          } else if (selection == null) {
+            if (!Range.isRange(_newProperties)) {
+              throw new Error("Cannot apply an incomplete \"set_selection\" operation properties ".concat(JSON.stringify(_newProperties), " when there is no current selection."));
+            }
+
+            selection = _newProperties;
+          } else {
+            Object.assign(selection, _newProperties);
+          }
+
+          break;
+        }
+
+      case 'split_node':
+        {
+          var {
+            path: _path7,
+            position,
+            properties
+          } = op;
+
+          if (_path7.length === 0) {
+            throw new Error("Cannot apply a \"split_node\" operation at path [".concat(_path7, "] because the root node cannot be split."));
+          }
+
+          var _node7 = Node.get(editor, _path7);
+
+          var _parent4 = Node.parent(editor, _path7);
+
+          var _index4 = _path7[_path7.length - 1];
+          var newNode;
+
+          if (Text.isText(_node7)) {
+            var _before2 = _node7.text.slice(0, position);
+
+            var _after2 = _node7.text.slice(position);
+
+            _node7.text = _before2;
+            newNode = _objectSpread$1({}, _node7, {}, properties, {
+              text: _after2
+            });
+          } else {
+            var _before3 = _node7.children.slice(0, position);
+
+            var _after3 = _node7.children.slice(position);
+
+            _node7.children = _before3;
+            newNode = _objectSpread$1({}, _node7, {}, properties, {
+              children: _after3
+            });
+          }
+
+          _parent4.children.splice(_index4 + 1, 0, newNode);
+
+          if (selection) {
+            for (var [_point6, _key7] of Range.points(selection)) {
+              selection[_key7] = Point.transform(_point6, op);
+            }
+          }
+
+          break;
+        }
+    }
+
+    editor.children = Object(immer__WEBPACK_IMPORTED_MODULE_1__["finishDraft"])(editor.children);
+
+    if (selection) {
+      editor.selection = Object(immer__WEBPACK_IMPORTED_MODULE_1__["isDraft"])(selection) ? Object(immer__WEBPACK_IMPORTED_MODULE_1__["finishDraft"])(selection) : selection;
+    } else {
+      editor.selection = null;
+    }
+  },
+
+  /**
+   * Convert a range into a non-hanging one.
+   */
+  unhangRange(editor, range) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    var {
+      voids = false
+    } = options;
+    var [start, end] = Range.edges(range); // PERF: exit early if we can guarantee that the range isn't hanging.
+
+    if (start.offset !== 0 || end.offset !== 0 || Range.isCollapsed(range)) {
+      return range;
+    }
+
+    var endBlock = Editor.above(editor, {
+      at: end,
+      match: n => Editor.isBlock(editor, n)
+    });
+    var blockPath = endBlock ? endBlock[1] : [];
+    var first = Editor.start(editor, []);
+    var before = {
+      anchor: first,
+      focus: end
+    };
+    var skip = true;
+
+    for (var [node, path] of Editor.nodes(editor, {
+      at: before,
+      match: Text.isText,
+      reverse: true,
+      voids
+    })) {
+      if (skip) {
+        skip = false;
+        continue;
+      }
+
+      if (node.text !== '' || Path.isBefore(path, blockPath)) {
+        end = {
+          path,
+          offset: node.text.length
+        };
+        break;
+      }
+    }
+
+    return {
+      anchor: start,
+      focus: end
+    };
+  },
+
+  /**
+   * Match a void node in the current branch of the editor.
+   */
+  void(editor) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    return Editor.above(editor, _objectSpread$1({}, options, {
+      match: n => Editor.isVoid(editor, n)
+    }));
+  },
+
+  /**
+   * Call a function, deferring normalization until after it completes.
+   */
+  withoutNormalizing(editor, fn) {
+    var value = Editor.isNormalizing(editor);
+    NORMALIZING.set(editor, false);
+    fn();
+    NORMALIZING.set(editor, value);
+    Editor.normalize(editor);
+  }
+
+};
+
+var Element = {
+  /**
+   * Check if a value implements the `Element` interface.
+   */
+  isElement(value) {
+    return Object(is_plain_object__WEBPACK_IMPORTED_MODULE_0__["default"])(value) && Node.isNodeList(value.children) && !Editor.isEditor(value);
+  },
+
+  /**
+   * Check if a value is an array of `Element` objects.
+   */
+  isElementList(value) {
+    return Array.isArray(value) && (value.length === 0 || Element.isElement(value[0]));
+  },
+
+  /**
+   * Check if an element matches set of properties.
+   *
+   * Note: this checks custom properties, and it does not ensure that any
+   * children are equivalent.
+   */
+  matches(element, props) {
+    for (var key in props) {
+      if (key === 'children') {
+        continue;
+      }
+
+      if (element[key] !== props[key]) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+};
+
+var Location = {
+  /**
+   * Check if a value implements the `Location` interface.
+   */
+  isLocation(value) {
+    return Path.isPath(value) || Point.isPoint(value) || Range.isRange(value);
+  }
+
+};
+var Span = {
+  /**
+   * Check if a value implements the `Span` interface.
+   */
+  isSpan(value) {
+    return Array.isArray(value) && value.length === 2 && value.every(Path.isPath);
+  }
+
+};
+
+var Node = {
+  /**
+   * Get the node at a specific path, asserting that it's an ancestor node.
+   */
+  ancestor(root, path) {
+    var node = Node.get(root, path);
+
+    if (Text.isText(node)) {
+      throw new Error("Cannot get the ancestor node at path [".concat(path, "] because it refers to a text node instead: ").concat(node));
+    }
+
+    return node;
+  },
+
+  /**
+   * Return an iterable of all the ancestor nodes above a specific path.
+   *
+   * By default the order is bottom-up, from lowest to highest ancestor in
+   * the tree, but you can pass the `reverse: true` option to go top-down.
+   */
+  *ancestors(root, path) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
+    for (var p of Path.ancestors(path, options)) {
+      var n = Node.ancestor(root, p);
+      var entry = [n, p];
+      yield entry;
+    }
+  },
+
+  /**
+   * Get the child of a node at a specific index.
+   */
+  child(root, index) {
+    if (Text.isText(root)) {
+      throw new Error("Cannot get the child of a text node: ".concat(JSON.stringify(root)));
+    }
+
+    var c = root.children[index];
+
+    if (c == null) {
+      throw new Error("Cannot get child at index `".concat(index, "` in node: ").concat(JSON.stringify(root)));
+    }
+
+    return c;
+  },
+
+  /**
+   * Iterate over the children of a node at a specific path.
+   */
+  *children(root, path) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    var {
+      reverse = false
+    } = options;
+    var ancestor = Node.ancestor(root, path);
+    var {
+      children
+    } = ancestor;
+    var index = reverse ? children.length - 1 : 0;
+
+    while (reverse ? index >= 0 : index < children.length) {
+      var child = Node.child(ancestor, index);
+      var childPath = path.concat(index);
+      yield [child, childPath];
+      index = reverse ? index - 1 : index + 1;
+    }
+  },
+
+  /**
+   * Get an entry for the common ancesetor node of two paths.
+   */
+  common(root, path, another) {
+    var p = Path.common(path, another);
+    var n = Node.get(root, p);
+    return [n, p];
+  },
+
+  /**
+   * Get the node at a specific path, asserting that it's a descendant node.
+   */
+  descendant(root, path) {
+    var node = Node.get(root, path);
+
+    if (Editor.isEditor(node)) {
+      throw new Error("Cannot get the descendant node at path [".concat(path, "] because it refers to the root editor node instead: ").concat(node));
+    }
+
+    return node;
+  },
+
+  /**
+   * Return an iterable of all the descendant node entries inside a root node.
+   */
+  *descendants(root) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    for (var [node, path] of Node.nodes(root, options)) {
+      if (path.length !== 0) {
+        // NOTE: we have to coerce here because checking the path's length does
+        // guarantee that `node` is not a `Editor`, but TypeScript doesn't know.
+        yield [node, path];
+      }
+    }
+  },
+
+  /**
+   * Return an iterable of all the element nodes inside a root node. Each iteration
+   * will return an `ElementEntry` tuple consisting of `[Element, Path]`. If the
+   * root node is an element it will be included in the iteration as well.
+   */
+  *elements(root) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    for (var [node, path] of Node.nodes(root, options)) {
+      if (Element.isElement(node)) {
+        yield [node, path];
+      }
+    }
+  },
+
+  /**
+   * Get the first node entry in a root node from a path.
+   */
+  first(root, path) {
+    var p = path.slice();
+    var n = Node.get(root, p);
+
+    while (n) {
+      if (Text.isText(n) || n.children.length === 0) {
+        break;
+      } else {
+        n = n.children[0];
+        p.push(0);
+      }
+    }
+
+    return [n, p];
+  },
+
+  /**
+   * Get the sliced fragment represented by a range inside a root node.
+   */
+  fragment(root, range) {
+    if (Text.isText(root)) {
+      throw new Error("Cannot get a fragment starting from a root text node: ".concat(JSON.stringify(root)));
+    }
+
+    var newRoot = Object(immer__WEBPACK_IMPORTED_MODULE_1__["produce"])(root, r => {
+      var [start, end] = Range.edges(range);
+      var iterable = Node.nodes(r, {
+        reverse: true,
+        pass: (_ref) => {
+          var [, path] = _ref;
+          return !Range.includes(range, path);
+        }
+      });
+
+      for (var [, path] of iterable) {
+        if (!Range.includes(range, path)) {
+          var parent = Node.parent(r, path);
+          var index = path[path.length - 1];
+          parent.children.splice(index, 1);
+        }
+
+        if (Path.equals(path, end.path)) {
+          var leaf = Node.leaf(r, path);
+          leaf.text = leaf.text.slice(0, end.offset);
+        }
+
+        if (Path.equals(path, start.path)) {
+          var _leaf = Node.leaf(r, path);
+
+          _leaf.text = _leaf.text.slice(start.offset);
+        }
+      }
+
+      delete r.selection;
+    });
+    return newRoot.children;
+  },
+
+  /**
+   * Get the descendant node referred to by a specific path. If the path is an
+   * empty array, it refers to the root node itself.
+   */
+  get(root, path) {
+    var node = root;
+
+    for (var i = 0; i < path.length; i++) {
+      var p = path[i];
+
+      if (Text.isText(node) || !node.children[p]) {
+        throw new Error("Cannot find a descendant at path [".concat(path, "] in node: ").concat(JSON.stringify(root)));
+      }
+
+      node = node.children[p];
+    }
+
+    return node;
+  },
+
+  /**
+   * Check if a descendant node exists at a specific path.
+   */
+  has(root, path) {
+    var node = root;
+
+    for (var i = 0; i < path.length; i++) {
+      var p = path[i];
+
+      if (Text.isText(node) || !node.children[p]) {
+        return false;
+      }
+
+      node = node.children[p];
+    }
+
+    return true;
+  },
+
+  /**
+   * Check if a value implements the `Node` interface.
+   */
+  isNode(value) {
+    return Text.isText(value) || Element.isElement(value) || Editor.isEditor(value);
+  },
+
+  /**
+   * Check if a value is a list of `Node` objects.
+   */
+  isNodeList(value) {
+    return Array.isArray(value) && (value.length === 0 || Node.isNode(value[0]));
+  },
+
+  /**
+   * Get the lash node entry in a root node from a path.
+   */
+  last(root, path) {
+    var p = path.slice();
+    var n = Node.get(root, p);
+
+    while (n) {
+      if (Text.isText(n) || n.children.length === 0) {
+        break;
+      } else {
+        var i = n.children.length - 1;
+        n = n.children[i];
+        p.push(i);
+      }
+    }
+
+    return [n, p];
+  },
+
+  /**
+   * Get the node at a specific path, ensuring it's a leaf text node.
+   */
+  leaf(root, path) {
+    var node = Node.get(root, path);
+
+    if (!Text.isText(node)) {
+      throw new Error("Cannot get the leaf node at path [".concat(path, "] because it refers to a non-leaf node: ").concat(node));
+    }
+
+    return node;
+  },
+
+  /**
+   * Return an iterable of the in a branch of the tree, from a specific path.
+   *
+   * By default the order is top-down, from lowest to highest node in the tree,
+   * but you can pass the `reverse: true` option to go bottom-up.
+   */
+  *levels(root, path) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
+    for (var p of Path.levels(path, options)) {
+      var n = Node.get(root, p);
+      yield [n, p];
+    }
+  },
+
+  /**
+   * Check if a node matches a set of props.
+   */
+  matches(node, props) {
+    return Element.isElement(node) && Element.matches(node, props) || Text.isText(node) && Text.matches(node, props);
+  },
+
+  /**
+   * Return an iterable of all the node entries of a root node. Each entry is
+   * returned as a `[Node, Path]` tuple, with the path referring to the node's
+   * position inside the root node.
+   */
+  *nodes(root) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var {
+      pass,
+      reverse = false
+    } = options;
+    var {
+      from = [],
+      to
+    } = options;
+    var visited = new Set();
+    var p = [];
+    var n = root;
+
+    while (true) {
+      if (to && (reverse ? Path.isBefore(p, to) : Path.isAfter(p, to))) {
+        break;
+      }
+
+      if (!visited.has(n)) {
+        yield [n, p];
+      } // If we're allowed to go downward and we haven't decsended yet, do.
+
+
+      if (!visited.has(n) && !Text.isText(n) && n.children.length !== 0 && (pass == null || pass([n, p]) === false)) {
+        visited.add(n);
+        var nextIndex = reverse ? n.children.length - 1 : 0;
+
+        if (Path.isAncestor(p, from)) {
+          nextIndex = from[p.length];
+        }
+
+        p = p.concat(nextIndex);
+        n = Node.get(root, p);
+        continue;
+      } // If we're at the root and we can't go down, we're done.
+
+
+      if (p.length === 0) {
+        break;
+      } // If we're going forward...
+
+
+      if (!reverse) {
+        var newPath = Path.next(p);
+
+        if (Node.has(root, newPath)) {
+          p = newPath;
+          n = Node.get(root, p);
+          continue;
+        }
+      } // If we're going backward...
+
+
+      if (reverse && p[p.length - 1] !== 0) {
+        var _newPath = Path.previous(p);
+
+        p = _newPath;
+        n = Node.get(root, p);
+        continue;
+      } // Otherwise we're going upward...
+
+
+      p = Path.parent(p);
+      n = Node.get(root, p);
+      visited.add(n);
+    }
+  },
+
+  /**
+   * Get the parent of a node at a specific path.
+   */
+  parent(root, path) {
+    var parentPath = Path.parent(path);
+    var p = Node.get(root, parentPath);
+
+    if (Text.isText(p)) {
+      throw new Error("Cannot get the parent of path [".concat(path, "] because it does not exist in the root."));
+    }
+
+    return p;
+  },
+
+  /**
+   * Get the concatenated text string of a node's content.
+   *
+   * Note that this will not include spaces or line breaks between block nodes.
+   * It is not a user-facing string, but a string for performing offset-related
+   * computations for a node.
+   */
+  string(node) {
+    if (Text.isText(node)) {
+      return node.text;
+    } else {
+      return node.children.map(Node.string).join('');
+    }
+  },
+
+  /**
+   * Return an iterable of all leaf text nodes in a root node.
+   */
+  *texts(root) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    for (var [node, path] of Node.nodes(root, options)) {
+      if (Text.isText(node)) {
+        yield [node, path];
+      }
+    }
+  }
+
+};
+
+function ownKeys$2(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$2(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$2(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$2(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var Operation = {
+  /**
+   * Check of a value is a `NodeOperation` object.
+   */
+  isNodeOperation(value) {
+    return Operation.isOperation(value) && value.type.endsWith('_node');
+  },
+
+  /**
+   * Check of a value is an `Operation` object.
+   */
+  isOperation(value) {
+    if (!Object(is_plain_object__WEBPACK_IMPORTED_MODULE_0__["default"])(value)) {
+      return false;
+    }
+
+    switch (value.type) {
+      case 'insert_node':
+        return Path.isPath(value.path) && Node.isNode(value.node);
+
+      case 'insert_text':
+        return typeof value.offset === 'number' && typeof value.text === 'string' && Path.isPath(value.path);
+
+      case 'merge_node':
+        return typeof value.position === 'number' && (typeof value.target === 'number' || value.target === null) && Path.isPath(value.path) && Object(is_plain_object__WEBPACK_IMPORTED_MODULE_0__["default"])(value.properties);
+
+      case 'move_node':
+        return Path.isPath(value.path) && Path.isPath(value.newPath);
+
+      case 'remove_node':
+        return Path.isPath(value.path) && Node.isNode(value.node);
+
+      case 'remove_text':
+        return typeof value.offset === 'number' && typeof value.text === 'string' && Path.isPath(value.path);
+
+      case 'set_node':
+        return Path.isPath(value.path) && Object(is_plain_object__WEBPACK_IMPORTED_MODULE_0__["default"])(value.properties) && Object(is_plain_object__WEBPACK_IMPORTED_MODULE_0__["default"])(value.newProperties);
+
+      case 'set_selection':
+        return value.properties === null && Range.isRange(value.newProperties) || value.newProperties === null && Range.isRange(value.properties) || Object(is_plain_object__WEBPACK_IMPORTED_MODULE_0__["default"])(value.properties) && Object(is_plain_object__WEBPACK_IMPORTED_MODULE_0__["default"])(value.newProperties);
+
+      case 'split_node':
+        return Path.isPath(value.path) && typeof value.position === 'number' && (typeof value.target === 'number' || value.target === null) && Object(is_plain_object__WEBPACK_IMPORTED_MODULE_0__["default"])(value.properties);
+
+      default:
+        return false;
+    }
+  },
+
+  /**
+   * Check if a value is a list of `Operation` objects.
+   */
+  isOperationList(value) {
+    return Array.isArray(value) && (value.length === 0 || Operation.isOperation(value[0]));
+  },
+
+  /**
+   * Check of a value is a `SelectionOperation` object.
+   */
+  isSelectionOperation(value) {
+    return Operation.isOperation(value) && value.type.endsWith('_selection');
+  },
+
+  /**
+   * Check of a value is a `TextOperation` object.
+   */
+  isTextOperation(value) {
+    return Operation.isOperation(value) && value.type.endsWith('_text');
+  },
+
+  /**
+   * Invert an operation, returning a new operation that will exactly undo the
+   * original when applied.
+   */
+  inverse(op) {
+    switch (op.type) {
+      case 'insert_node':
+        {
+          return _objectSpread$2({}, op, {
+            type: 'remove_node'
+          });
+        }
+
+      case 'insert_text':
+        {
+          return _objectSpread$2({}, op, {
+            type: 'remove_text'
+          });
+        }
+
+      case 'merge_node':
+        {
+          return _objectSpread$2({}, op, {
+            type: 'split_node',
+            path: Path.previous(op.path)
+          });
+        }
+
+      case 'move_node':
+        {
+          var {
+            newPath,
+            path
+          } = op; // PERF: in this case the move operation is a no-op anyways.
+
+          if (Path.equals(newPath, path)) {
+            return op;
+          } // We need to get the original path here, but sometimes the `newPath`
+          // is a younger sibling of (or ends before) the original, and this
+          // accounts for it.
+
+
+          var inversePath = Path.transform(path, op);
+          var inverseNewPath = Path.transform(Path.next(path), op);
+          return _objectSpread$2({}, op, {
+            path: inversePath,
+            newPath: inverseNewPath
+          });
+        }
+
+      case 'remove_node':
+        {
+          return _objectSpread$2({}, op, {
+            type: 'insert_node'
+          });
+        }
+
+      case 'remove_text':
+        {
+          return _objectSpread$2({}, op, {
+            type: 'insert_text'
+          });
+        }
+
+      case 'set_node':
+        {
+          var {
+            properties,
+            newProperties
+          } = op;
+          return _objectSpread$2({}, op, {
+            properties: newProperties,
+            newProperties: properties
+          });
+        }
+
+      case 'set_selection':
+        {
+          var {
+            properties: _properties,
+            newProperties: _newProperties
+          } = op;
+
+          if (_properties == null) {
+            return _objectSpread$2({}, op, {
+              properties: _newProperties,
+              newProperties: null
+            });
+          } else if (_newProperties == null) {
+            return _objectSpread$2({}, op, {
+              properties: null,
+              newProperties: _properties
+            });
+          } else {
+            return _objectSpread$2({}, op, {
+              properties: _newProperties,
+              newProperties: _properties
+            });
+          }
+        }
+
+      case 'split_node':
+        {
+          return _objectSpread$2({}, op, {
+            type: 'merge_node',
+            path: Path.next(op.path)
+          });
+        }
+    }
+  }
+
+};
+
+var Path = {
+  /**
+   * Get a list of ancestor paths for a given path.
+   *
+   * The paths are sorted from deepest to shallowest ancestor. However, if the
+   * `reverse: true` option is passed, they are reversed.
+   */
+  ancestors(path) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var {
+      reverse = false
+    } = options;
+    var paths = Path.levels(path, options);
+
+    if (reverse) {
+      paths = paths.slice(1);
+    } else {
+      paths = paths.slice(0, -1);
+    }
+
+    return paths;
+  },
+
+  /**
+   * Get the common ancestor path of two paths.
+   */
+  common(path, another) {
+    var common = [];
+
+    for (var i = 0; i < path.length && i < another.length; i++) {
+      var av = path[i];
+      var bv = another[i];
+
+      if (av !== bv) {
+        break;
+      }
+
+      common.push(av);
+    }
+
+    return common;
+  },
+
+  /**
+   * Compare a path to another, returning an integer indicating whether the path
+   * was before, at, or after the other.
+   *
+   * Note: Two paths of unequal length can still receive a `0` result if one is
+   * directly above or below the other. If you want exact matching, use
+   * [[Path.equals]] instead.
+   */
+  compare(path, another) {
+    var min = Math.min(path.length, another.length);
+
+    for (var i = 0; i < min; i++) {
+      if (path[i] < another[i]) return -1;
+      if (path[i] > another[i]) return 1;
+    }
+
+    return 0;
+  },
+
+  /**
+   * Check if a path ends after one of the indexes in another.
+   */
+  endsAfter(path, another) {
+    var i = path.length - 1;
+    var as = path.slice(0, i);
+    var bs = another.slice(0, i);
+    var av = path[i];
+    var bv = another[i];
+    return Path.equals(as, bs) && av > bv;
+  },
+
+  /**
+   * Check if a path ends at one of the indexes in another.
+   */
+  endsAt(path, another) {
+    var i = path.length;
+    var as = path.slice(0, i);
+    var bs = another.slice(0, i);
+    return Path.equals(as, bs);
+  },
+
+  /**
+   * Check if a path ends before one of the indexes in another.
+   */
+  endsBefore(path, another) {
+    var i = path.length - 1;
+    var as = path.slice(0, i);
+    var bs = another.slice(0, i);
+    var av = path[i];
+    var bv = another[i];
+    return Path.equals(as, bs) && av < bv;
+  },
+
+  /**
+   * Check if a path is exactly equal to another.
+   */
+  equals(path, another) {
+    return path.length === another.length && path.every((n, i) => n === another[i]);
+  },
+
+  /**
+   * Check if a path is after another.
+   */
+  isAfter(path, another) {
+    return Path.compare(path, another) === 1;
+  },
+
+  /**
+   * Check if a path is an ancestor of another.
+   */
+  isAncestor(path, another) {
+    return path.length < another.length && Path.compare(path, another) === 0;
+  },
+
+  /**
+   * Check if a path is before another.
+   */
+  isBefore(path, another) {
+    return Path.compare(path, another) === -1;
+  },
+
+  /**
+   * Check if a path is a child of another.
+   */
+  isChild(path, another) {
+    return path.length === another.length + 1 && Path.compare(path, another) === 0;
+  },
+
+  /**
+   * Check if a path is equal to or an ancestor of another.
+   */
+  isCommon(path, another) {
+    return path.length <= another.length && Path.compare(path, another) === 0;
+  },
+
+  /**
+   * Check if a path is a descendant of another.
+   */
+  isDescendant(path, another) {
+    return path.length > another.length && Path.compare(path, another) === 0;
+  },
+
+  /**
+   * Check if a path is the parent of another.
+   */
+  isParent(path, another) {
+    return path.length + 1 === another.length && Path.compare(path, another) === 0;
+  },
+
+  /**
+   * Check is a value implements the `Path` interface.
+   */
+  isPath(value) {
+    return Array.isArray(value) && (value.length === 0 || typeof value[0] === 'number');
+  },
+
+  /**
+   * Check if a path is a sibling of another.
+   */
+  isSibling(path, another) {
+    if (path.length !== another.length) {
+      return false;
+    }
+
+    var as = path.slice(0, -1);
+    var bs = another.slice(0, -1);
+    var al = path[path.length - 1];
+    var bl = another[another.length - 1];
+    return al !== bl && Path.equals(as, bs);
+  },
+
+  /**
+   * Get a list of paths at every level down to a path. Note: this is the same
+   * as `Path.ancestors`, but including the path itself.
+   *
+   * The paths are sorted from shallowest to deepest. However, if the `reverse:
+   * true` option is passed, they are reversed.
+   */
+  levels(path) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var {
+      reverse = false
+    } = options;
+    var list = [];
+
+    for (var i = 0; i <= path.length; i++) {
+      list.push(path.slice(0, i));
+    }
+
+    if (reverse) {
+      list.reverse();
+    }
+
+    return list;
+  },
+
+  /**
+   * Given a path, get the path to the next sibling node.
+   */
+  next(path) {
+    if (path.length === 0) {
+      throw new Error("Cannot get the next path of a root path [".concat(path, "], because it has no next index."));
+    }
+
+    var last = path[path.length - 1];
+    return path.slice(0, -1).concat(last + 1);
+  },
+
+  /**
+   * Given a path, return a new path referring to the parent node above it.
+   */
+  parent(path) {
+    if (path.length === 0) {
+      throw new Error("Cannot get the parent path of the root path [".concat(path, "]."));
+    }
+
+    return path.slice(0, -1);
+  },
+
+  /**
+   * Given a path, get the path to the previous sibling node.
+   */
+  previous(path) {
+    if (path.length === 0) {
+      throw new Error("Cannot get the previous path of a root path [".concat(path, "], because it has no previous index."));
+    }
+
+    var last = path[path.length - 1];
+
+    if (last <= 0) {
+      throw new Error("Cannot get the previous path of a first child path [".concat(path, "] because it would result in a negative index."));
+    }
+
+    return path.slice(0, -1).concat(last - 1);
+  },
+
+  /**
+   * Get a path relative to an ancestor.
+   */
+  relative(path, ancestor) {
+    if (!Path.isAncestor(ancestor, path) && !Path.equals(path, ancestor)) {
+      throw new Error("Cannot get the relative path of [".concat(path, "] inside ancestor [").concat(ancestor, "], because it is not above or equal to the path."));
+    }
+
+    return path.slice(ancestor.length);
+  },
+
+  /**
+   * Transform a path by an operation.
+   */
+  transform(path, operation) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    return Object(immer__WEBPACK_IMPORTED_MODULE_1__["produce"])(path, p => {
+      var {
+        affinity = 'forward'
+      } = options; // PERF: Exit early if the operation is guaranteed not to have an effect.
+
+      if (path.length === 0) {
+        return;
+      }
+
+      switch (operation.type) {
+        case 'insert_node':
+          {
+            var {
+              path: op
+            } = operation;
+
+            if (Path.equals(op, p) || Path.endsBefore(op, p) || Path.isAncestor(op, p)) {
+              p[op.length - 1] += 1;
+            }
+
+            break;
+          }
+
+        case 'remove_node':
+          {
+            var {
+              path: _op
+            } = operation;
+
+            if (Path.equals(_op, p) || Path.isAncestor(_op, p)) {
+              return null;
+            } else if (Path.endsBefore(_op, p)) {
+              p[_op.length - 1] -= 1;
+            }
+
+            break;
+          }
+
+        case 'merge_node':
+          {
+            var {
+              path: _op2,
+              position
+            } = operation;
+
+            if (Path.equals(_op2, p) || Path.endsBefore(_op2, p)) {
+              p[_op2.length - 1] -= 1;
+            } else if (Path.isAncestor(_op2, p)) {
+              p[_op2.length - 1] -= 1;
+              p[_op2.length] += position;
+            }
+
+            break;
+          }
+
+        case 'split_node':
+          {
+            var {
+              path: _op3,
+              position: _position
+            } = operation;
+
+            if (Path.equals(_op3, p)) {
+              if (affinity === 'forward') {
+                p[p.length - 1] += 1;
+              } else if (affinity === 'backward') ; else {
+                return null;
+              }
+            } else if (Path.endsBefore(_op3, p)) {
+              p[_op3.length - 1] += 1;
+            } else if (Path.isAncestor(_op3, p) && path[_op3.length] >= _position) {
+              p[_op3.length - 1] += 1;
+              p[_op3.length] -= _position;
+            }
+
+            break;
+          }
+
+        case 'move_node':
+          {
+            var {
+              path: _op4,
+              newPath: onp
+            } = operation; // If the old and new path are the same, it's a no-op.
+
+            if (Path.equals(_op4, onp)) {
+              return;
+            }
+
+            if (Path.isAncestor(_op4, p) || Path.equals(_op4, p)) {
+              var copy = onp.slice();
+
+              if (Path.endsBefore(_op4, onp) && _op4.length < onp.length) {
+                var i = Math.min(onp.length, _op4.length) - 1;
+                copy[i] -= 1;
+              }
+
+              return copy.concat(p.slice(_op4.length));
+            } else if (Path.endsBefore(onp, p) || Path.equals(onp, p) || Path.isAncestor(onp, p)) {
+              if (Path.endsBefore(_op4, p)) {
+                p[_op4.length - 1] -= 1;
+              }
+
+              p[onp.length - 1] += 1;
+            } else if (Path.endsBefore(_op4, p)) {
+              if (Path.equals(onp, p)) {
+                p[onp.length - 1] += 1;
+              }
+
+              p[_op4.length - 1] -= 1;
+            }
+
+            break;
+          }
+      }
+    });
+  }
+
+};
+
+var PathRef = {
+  /**
+   * Transform the path ref's current value by an operation.
+   */
+  transform(ref, op) {
+    var {
+      current,
+      affinity
+    } = ref;
+
+    if (current == null) {
+      return;
+    }
+
+    var path = Path.transform(current, op, {
+      affinity
+    });
+    ref.current = path;
+
+    if (path == null) {
+      ref.unref();
+    }
+  }
+
+};
+
+function ownKeys$3(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$3(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$3(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$3(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var Point = {
+  /**
+   * Compare a point to another, returning an integer indicating whether the
+   * point was before, at, or after the other.
+   */
+  compare(point, another) {
+    var result = Path.compare(point.path, another.path);
+
+    if (result === 0) {
+      if (point.offset < another.offset) return -1;
+      if (point.offset > another.offset) return 1;
+      return 0;
+    }
+
+    return result;
+  },
+
+  /**
+   * Check if a point is after another.
+   */
+  isAfter(point, another) {
+    return Point.compare(point, another) === 1;
+  },
+
+  /**
+   * Check if a point is before another.
+   */
+  isBefore(point, another) {
+    return Point.compare(point, another) === -1;
+  },
+
+  /**
+   * Check if a point is exactly equal to another.
+   */
+  equals(point, another) {
+    // PERF: ensure the offsets are equal first since they are cheaper to check.
+    return point.offset === another.offset && Path.equals(point.path, another.path);
+  },
+
+  /**
+   * Check if a value implements the `Point` interface.
+   */
+  isPoint(value) {
+    return Object(is_plain_object__WEBPACK_IMPORTED_MODULE_0__["default"])(value) && typeof value.offset === 'number' && Path.isPath(value.path);
+  },
+
+  /**
+   * Transform a point by an operation.
+   */
+  transform(point, op) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    return Object(immer__WEBPACK_IMPORTED_MODULE_1__["produce"])(point, p => {
+      var {
+        affinity = 'forward'
+      } = options;
+      var {
+        path,
+        offset
+      } = p;
+
+      switch (op.type) {
+        case 'insert_node':
+        case 'move_node':
+          {
+            p.path = Path.transform(path, op, options);
+            break;
+          }
+
+        case 'insert_text':
+          {
+            if (Path.equals(op.path, path) && op.offset <= offset) {
+              p.offset += op.text.length;
+            }
+
+            break;
+          }
+
+        case 'merge_node':
+          {
+            if (Path.equals(op.path, path)) {
+              p.offset += op.position;
+            }
+
+            p.path = Path.transform(path, op, options);
+            break;
+          }
+
+        case 'remove_text':
+          {
+            if (Path.equals(op.path, path) && op.offset <= offset) {
+              p.offset -= Math.min(offset - op.offset, op.text.length);
+            }
+
+            break;
+          }
+
+        case 'remove_node':
+          {
+            if (Path.equals(op.path, path) || Path.isAncestor(op.path, path)) {
+              return null;
+            }
+
+            p.path = Path.transform(path, op, options);
+            break;
+          }
+
+        case 'split_node':
+          {
+            if (Path.equals(op.path, path)) {
+              if (op.position === offset && affinity == null) {
+                return null;
+              } else if (op.position < offset || op.position === offset && affinity === 'forward') {
+                p.offset -= op.position;
+                p.path = Path.transform(path, op, _objectSpread$3({}, options, {
+                  affinity: 'forward'
+                }));
+              }
+            } else {
+              p.path = Path.transform(path, op, options);
+            }
+
+            break;
+          }
+      }
+    });
+  }
+
+};
+
+var PointRef = {
+  /**
+   * Transform the point ref's current value by an operation.
+   */
+  transform(ref, op) {
+    var {
+      current,
+      affinity
+    } = ref;
+
+    if (current == null) {
+      return;
+    }
+
+    var point = Point.transform(current, op, {
+      affinity
+    });
+    ref.current = point;
+
+    if (point == null) {
+      ref.unref();
+    }
+  }
+
+};
+
+function ownKeys$4(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$4(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$4(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$4(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var Range = {
+  /**
+   * Get the start and end points of a range, in the order in which they appear
+   * in the document.
+   */
+  edges(range) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var {
+      reverse = false
+    } = options;
+    var {
+      anchor,
+      focus
+    } = range;
+    return Range.isBackward(range) === reverse ? [anchor, focus] : [focus, anchor];
+  },
+
+  /**
+   * Get the end point of a range.
+   */
+  end(range) {
+    var [, end] = Range.edges(range);
+    return end;
+  },
+
+  /**
+   * Check if a range is exactly equal to another.
+   */
+  equals(range, another) {
+    return Point.equals(range.anchor, another.anchor) && Point.equals(range.focus, another.focus);
+  },
+
+  /**
+   * Check if a range includes a path, a point or part of another range.
+   */
+  includes(range, target) {
+    if (Range.isRange(target)) {
+      if (Range.includes(range, target.anchor) || Range.includes(range, target.focus)) {
+        return true;
+      }
+
+      var [rs, re] = Range.edges(range);
+      var [ts, te] = Range.edges(target);
+      return Point.isBefore(rs, ts) && Point.isAfter(re, te);
+    }
+
+    var [start, end] = Range.edges(range);
+    var isAfterStart = false;
+    var isBeforeEnd = false;
+
+    if (Point.isPoint(target)) {
+      isAfterStart = Point.compare(target, start) >= 0;
+      isBeforeEnd = Point.compare(target, end) <= 0;
+    } else {
+      isAfterStart = Path.compare(target, start.path) >= 0;
+      isBeforeEnd = Path.compare(target, end.path) <= 0;
+    }
+
+    return isAfterStart && isBeforeEnd;
+  },
+
+  /**
+   * Get the intersection of a range with another.
+   */
+  intersection(range, another) {
+    var rest = _objectWithoutProperties(range, ["anchor", "focus"]);
+
+    var [s1, e1] = Range.edges(range);
+    var [s2, e2] = Range.edges(another);
+    var start = Point.isBefore(s1, s2) ? s2 : s1;
+    var end = Point.isBefore(e1, e2) ? e1 : e2;
+
+    if (Point.isBefore(end, start)) {
+      return null;
+    } else {
+      return _objectSpread$4({
+        anchor: start,
+        focus: end
+      }, rest);
+    }
+  },
+
+  /**
+   * Check if a range is backward, meaning that its anchor point appears in the
+   * document _after_ its focus point.
+   */
+  isBackward(range) {
+    var {
+      anchor,
+      focus
+    } = range;
+    return Point.isAfter(anchor, focus);
+  },
+
+  /**
+   * Check if a range is collapsed, meaning that both its anchor and focus
+   * points refer to the exact same position in the document.
+   */
+  isCollapsed(range) {
+    var {
+      anchor,
+      focus
+    } = range;
+    return Point.equals(anchor, focus);
+  },
+
+  /**
+   * Check if a range is expanded.
+   *
+   * This is the opposite of [[Range.isCollapsed]] and is provided for legibility.
+   */
+  isExpanded(range) {
+    return !Range.isCollapsed(range);
+  },
+
+  /**
+   * Check if a range is forward.
+   *
+   * This is the opposite of [[Range.isBackward]] and is provided for legibility.
+   */
+  isForward(range) {
+    return !Range.isBackward(range);
+  },
+
+  /**
+   * Check if a value implements the [[Range]] interface.
+   */
+  isRange(value) {
+    return Object(is_plain_object__WEBPACK_IMPORTED_MODULE_0__["default"])(value) && Point.isPoint(value.anchor) && Point.isPoint(value.focus);
+  },
+
+  /**
+   * Iterate through all of the point entries in a range.
+   */
+  *points(range) {
+    yield [range.anchor, 'anchor'];
+    yield [range.focus, 'focus'];
+  },
+
+  /**
+   * Get the start point of a range.
+   */
+  start(range) {
+    var [start] = Range.edges(range);
+    return start;
+  },
+
+  /**
+   * Transform a range by an operation.
+   */
+  transform(range, op, options) {
+    var {
+      affinity = 'inward'
+    } = options;
+    var affinityAnchor;
+    var affinityFocus;
+
+    if (affinity === 'inward') {
+      if (Range.isForward(range)) {
+        affinityAnchor = 'forward';
+        affinityFocus = 'backward';
+      } else {
+        affinityAnchor = 'backward';
+        affinityFocus = 'forward';
+      }
+    } else if (affinity === 'outward') {
+      if (Range.isForward(range)) {
+        affinityAnchor = 'backward';
+        affinityFocus = 'forward';
+      } else {
+        affinityAnchor = 'forward';
+        affinityFocus = 'backward';
+      }
+    } else {
+      affinityAnchor = affinity;
+      affinityFocus = affinity;
+    }
+
+    return Object(immer__WEBPACK_IMPORTED_MODULE_1__["produce"])(range, r => {
+      var anchor = Point.transform(r.anchor, op, {
+        affinity: affinityAnchor
+      });
+      var focus = Point.transform(r.focus, op, {
+        affinity: affinityFocus
+      });
+
+      if (!anchor || !focus) {
+        return null;
+      }
+
+      r.anchor = anchor;
+      r.focus = focus;
+    });
+  }
+
+};
+
+var RangeRef = {
+  /**
+   * Transform the range ref's current value by an operation.
+   */
+  transform(ref, op) {
+    var {
+      current,
+      affinity
+    } = ref;
+
+    if (current == null) {
+      return;
+    }
+
+    var path = Range.transform(current, op, {
+      affinity
+    });
+    ref.current = path;
+
+    if (path == null) {
+      ref.unref();
+    }
+  }
+
+};
+
+function ownKeys$5(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$5(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$5(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$5(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var Text = {
+  /**
+   * Check if two text nodes are equal.
+   */
+  equals(text, another) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    var {
+      loose = false
+    } = options;
+
+    for (var key in text) {
+      if (loose && key === 'text') {
+        continue;
+      }
+
+      if (text[key] !== another[key]) {
+        return false;
+      }
+    }
+
+    for (var _key in another) {
+      if (loose && _key === 'text') {
+        continue;
+      }
+
+      if (text[_key] !== another[_key]) {
+        return false;
+      }
+    }
+
+    return true;
+  },
+
+  /**
+   * Check if a value implements the `Text` interface.
+   */
+  isText(value) {
+    return Object(is_plain_object__WEBPACK_IMPORTED_MODULE_0__["default"])(value) && typeof value.text === 'string';
+  },
+
+  /**
+   * Check if a value is a list of `Text` objects.
+   */
+  isTextList(value) {
+    return Array.isArray(value) && (value.length === 0 || Text.isText(value[0]));
+  },
+
+  /**
+   * Check if an text matches set of properties.
+   *
+   * Note: this is for matching custom properties, and it does not ensure that
+   * the `text` property are two nodes equal.
+   */
+  matches(text, props) {
+    for (var key in props) {
+      if (key === 'text') {
+        continue;
+      }
+
+      if (text[key] !== props[key]) {
+        return false;
+      }
+    }
+
+    return true;
+  },
+
+  /**
+   * Get the leaves for a text node given decorations.
+   */
+  decorations(node, decorations) {
+    var leaves = [_objectSpread$5({}, node)];
+
+    for (var dec of decorations) {
+      var rest = _objectWithoutProperties(dec, ["anchor", "focus"]);
+
+      var [start, end] = Range.edges(dec);
+      var next = [];
+      var o = 0;
+
+      for (var leaf of leaves) {
+        var {
+          length
+        } = leaf.text;
+        var offset = o;
+        o += length; // If the range encompases the entire leaf, add the range.
+
+        if (start.offset <= offset && end.offset >= offset + length) {
+          Object.assign(leaf, rest);
+          next.push(leaf);
+          continue;
+        } // If the range starts after the leaf, or ends before it, continue.
+
+
+        if (start.offset > offset + length || end.offset < offset || end.offset === offset && offset !== 0) {
+          next.push(leaf);
+          continue;
+        } // Otherwise we need to split the leaf, at the start, end, or both,
+        // and add the range to the middle intersecting section. Do the end
+        // split first since we don't need to update the offset that way.
+
+
+        var middle = leaf;
+        var before = void 0;
+        var after = void 0;
+
+        if (end.offset < offset + length) {
+          var off = end.offset - offset;
+          after = _objectSpread$5({}, middle, {
+            text: middle.text.slice(off)
+          });
+          middle = _objectSpread$5({}, middle, {
+            text: middle.text.slice(0, off)
+          });
+        }
+
+        if (start.offset > offset) {
+          var _off = start.offset - offset;
+
+          before = _objectSpread$5({}, middle, {
+            text: middle.text.slice(0, _off)
+          });
+          middle = _objectSpread$5({}, middle, {
+            text: middle.text.slice(_off)
+          });
+        }
+
+        Object.assign(middle, rest);
+
+        if (before) {
+          next.push(before);
+        }
+
+        next.push(middle);
+
+        if (after) {
+          next.push(after);
+        }
+      }
+
+      leaves = next;
+    }
+
+    return leaves;
+  }
+
+};
+
+function ownKeys$6(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$6(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$6(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$6(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var GeneralTransforms = {
+  /**
+   * Transform the editor by an operation.
+   */
+  transform(editor, op) {
+    editor.children = Object(immer__WEBPACK_IMPORTED_MODULE_1__["createDraft"])(editor.children);
+    var selection = editor.selection && Object(immer__WEBPACK_IMPORTED_MODULE_1__["createDraft"])(editor.selection);
+
+    switch (op.type) {
+      case 'insert_node':
+        {
+          var {
+            path,
+            node
+          } = op;
+          var parent = Node.parent(editor, path);
+          var index = path[path.length - 1];
+          parent.children.splice(index, 0, node);
+
+          if (selection) {
+            for (var [point, key] of Range.points(selection)) {
+              selection[key] = Point.transform(point, op);
+            }
+          }
+
+          break;
+        }
+
+      case 'insert_text':
+        {
+          var {
+            path: _path,
+            offset,
+            text
+          } = op;
+
+          var _node = Node.leaf(editor, _path);
+
+          var before = _node.text.slice(0, offset);
+
+          var after = _node.text.slice(offset);
+
+          _node.text = before + text + after;
+
+          if (selection) {
+            for (var [_point, _key] of Range.points(selection)) {
+              selection[_key] = Point.transform(_point, op);
+            }
+          }
+
+          break;
+        }
+
+      case 'merge_node':
+        {
+          var {
+            path: _path2
+          } = op;
+
+          var _node2 = Node.get(editor, _path2);
+
+          var prevPath = Path.previous(_path2);
+          var prev = Node.get(editor, prevPath);
+
+          var _parent = Node.parent(editor, _path2);
+
+          var _index = _path2[_path2.length - 1];
+
+          if (Text.isText(_node2) && Text.isText(prev)) {
+            prev.text += _node2.text;
+          } else if (!Text.isText(_node2) && !Text.isText(prev)) {
+            prev.children.push(..._node2.children);
+          } else {
+            throw new Error("Cannot apply a \"merge_node\" operation at path [".concat(_path2, "] to nodes of different interaces: ").concat(_node2, " ").concat(prev));
+          }
+
+          _parent.children.splice(_index, 1);
+
+          if (selection) {
+            for (var [_point2, _key2] of Range.points(selection)) {
+              selection[_key2] = Point.transform(_point2, op);
+            }
+          }
+
+          break;
+        }
+
+      case 'move_node':
+        {
+          var {
+            path: _path3,
+            newPath
+          } = op;
+
+          if (Path.isAncestor(_path3, newPath)) {
+            throw new Error("Cannot move a path [".concat(_path3, "] to new path [").concat(newPath, "] because the destination is inside itself."));
+          }
+
+          var _node3 = Node.get(editor, _path3);
+
+          var _parent2 = Node.parent(editor, _path3);
+
+          var _index2 = _path3[_path3.length - 1]; // This is tricky, but since the `path` and `newPath` both refer to
+          // the same snapshot in time, there's a mismatch. After either
+          // removing the original position, the second step's path can be out
+          // of date. So instead of using the `op.newPath` directly, we
+          // transform `op.path` to ascertain what the `newPath` would be after
+          // the operation was applied.
+
+          _parent2.children.splice(_index2, 1);
+
+          var truePath = Path.transform(_path3, op);
+          var newParent = Node.get(editor, Path.parent(truePath));
+          var newIndex = truePath[truePath.length - 1];
+          newParent.children.splice(newIndex, 0, _node3);
+
+          if (selection) {
+            for (var [_point3, _key3] of Range.points(selection)) {
+              selection[_key3] = Point.transform(_point3, op);
+            }
+          }
+
+          break;
+        }
+
+      case 'remove_node':
+        {
+          var {
+            path: _path4
+          } = op;
+          var _index3 = _path4[_path4.length - 1];
+
+          var _parent3 = Node.parent(editor, _path4);
+
+          _parent3.children.splice(_index3, 1); // Transform all of the points in the value, but if the point was in the
+          // node that was removed we need to update the range or remove it.
+
+
+          if (selection) {
+            for (var [_point4, _key4] of Range.points(selection)) {
+              var result = Point.transform(_point4, op);
+
+              if (selection != null && result != null) {
+                selection[_key4] = result;
+              } else {
+                var _prev = void 0;
+
+                var next = void 0;
+
+                for (var [n, p] of Node.texts(editor)) {
+                  if (Path.compare(p, _path4) === -1) {
+                    _prev = [n, p];
+                  } else {
+                    next = [n, p];
+                    break;
+                  }
+                }
+
+                if (_prev) {
+                  _point4.path = _prev[1];
+                  _point4.offset = _prev[0].text.length;
+                } else if (next) {
+                  _point4.path = next[1];
+                  _point4.offset = 0;
+                } else {
+                  selection = null;
+                }
+              }
+            }
+          }
+
+          break;
+        }
+
+      case 'remove_text':
+        {
+          var {
+            path: _path5,
+            offset: _offset,
+            text: _text
+          } = op;
+
+          var _node4 = Node.leaf(editor, _path5);
+
+          var _before = _node4.text.slice(0, _offset);
+
+          var _after = _node4.text.slice(_offset + _text.length);
+
+          _node4.text = _before + _after;
+
+          if (selection) {
+            for (var [_point5, _key5] of Range.points(selection)) {
+              selection[_key5] = Point.transform(_point5, op);
+            }
+          }
+
+          break;
+        }
+
+      case 'set_node':
+        {
+          var {
+            path: _path6,
+            newProperties
+          } = op;
+
+          if (_path6.length === 0) {
+            throw new Error("Cannot set properties on the root node!");
+          }
+
+          var _node5 = Node.get(editor, _path6);
+
+          for (var _key6 in newProperties) {
+            if (_key6 === 'children' || _key6 === 'text') {
+              throw new Error("Cannot set the \"".concat(_key6, "\" property of nodes!"));
+            }
+
+            var value = newProperties[_key6];
+
+            if (value == null) {
+              delete _node5[_key6];
+            } else {
+              _node5[_key6] = value;
+            }
+          }
+
+          break;
+        }
+
+      case 'set_selection':
+        {
+          var {
+            newProperties: _newProperties
+          } = op;
+
+          if (_newProperties == null) {
+            selection = _newProperties;
+          } else if (selection == null) {
+            if (!Range.isRange(_newProperties)) {
+              throw new Error("Cannot apply an incomplete \"set_selection\" operation properties ".concat(JSON.stringify(_newProperties), " when there is no current selection."));
+            }
+
+            selection = _newProperties;
+          } else {
+            Object.assign(selection, _newProperties);
+          }
+
+          break;
+        }
+
+      case 'split_node':
+        {
+          var {
+            path: _path7,
+            position,
+            properties
+          } = op;
+
+          if (_path7.length === 0) {
+            throw new Error("Cannot apply a \"split_node\" operation at path [".concat(_path7, "] because the root node cannot be split."));
+          }
+
+          var _node6 = Node.get(editor, _path7);
+
+          var _parent4 = Node.parent(editor, _path7);
+
+          var _index4 = _path7[_path7.length - 1];
+          var newNode;
+
+          if (Text.isText(_node6)) {
+            var _before2 = _node6.text.slice(0, position);
+
+            var _after2 = _node6.text.slice(position);
+
+            _node6.text = _before2;
+            newNode = _objectSpread$6({}, _node6, {}, properties, {
+              text: _after2
+            });
+          } else {
+            var _before3 = _node6.children.slice(0, position);
+
+            var _after3 = _node6.children.slice(position);
+
+            _node6.children = _before3;
+            newNode = _objectSpread$6({}, _node6, {}, properties, {
+              children: _after3
+            });
+          }
+
+          _parent4.children.splice(_index4 + 1, 0, newNode);
+
+          if (selection) {
+            for (var [_point6, _key7] of Range.points(selection)) {
+              selection[_key7] = Point.transform(_point6, op);
+            }
+          }
+
+          break;
+        }
+    }
+
+    editor.children = Object(immer__WEBPACK_IMPORTED_MODULE_1__["finishDraft"])(editor.children);
+
+    if (selection) {
+      editor.selection = Object(immer__WEBPACK_IMPORTED_MODULE_1__["isDraft"])(selection) ? Object(immer__WEBPACK_IMPORTED_MODULE_1__["finishDraft"])(selection) : selection;
+    } else {
+      editor.selection = null;
+    }
+  }
+
+};
+
+function ownKeys$7(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$7(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$7(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$7(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var NodeTransforms = {
+  /**
+   * Insert nodes at a specific location in the Editor.
+   */
+  insertNodes(editor, nodes) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    Editor.withoutNormalizing(editor, () => {
+      var {
+        hanging = false,
+        voids = false,
+        mode = 'lowest'
+      } = options;
+      var {
+        at,
+        match,
+        select
+      } = options;
+
+      if (Node.isNode(nodes)) {
+        nodes = [nodes];
+      }
+
+      if (nodes.length === 0) {
+        return;
+      }
+
+      var [node] = nodes; // By default, use the selection as the target location. But if there is
+      // no selection, insert at the end of the document since that is such a
+      // common use case when inserting from a non-selected state.
+
+      if (!at) {
+        if (editor.selection) {
+          at = editor.selection;
+        } else if (editor.children.length > 0) {
+          at = Editor.end(editor, []);
+        } else {
+          at = [0];
+        }
+
+        select = true;
+      }
+
+      if (select == null) {
+        select = false;
+      }
+
+      if (Range.isRange(at)) {
+        if (!hanging) {
+          at = Editor.unhangRange(editor, at);
+        }
+
+        if (Range.isCollapsed(at)) {
+          at = at.anchor;
+        } else {
+          var [, end] = Range.edges(at);
+          var pointRef = Editor.pointRef(editor, end);
+          Transforms.delete(editor, {
+            at
+          });
+          at = pointRef.unref();
+        }
+      }
+
+      if (Point.isPoint(at)) {
+        if (match == null) {
+          if (Text.isText(node)) {
+            match = n => Text.isText(n);
+          } else if (editor.isInline(node)) {
+            match = n => Text.isText(n) || Editor.isInline(editor, n);
+          } else {
+            match = n => Editor.isBlock(editor, n);
+          }
+        }
+
+        var [entry] = Editor.nodes(editor, {
+          at: at.path,
+          match,
+          mode,
+          voids
+        });
+
+        if (entry) {
+          var [, _matchPath] = entry;
+          var pathRef = Editor.pathRef(editor, _matchPath);
+          var isAtEnd = Editor.isEnd(editor, at, _matchPath);
+          Transforms.splitNodes(editor, {
+            at,
+            match,
+            mode,
+            voids
+          });
+          var path = pathRef.unref();
+          at = isAtEnd ? Path.next(path) : path;
+        } else {
+          return;
+        }
+      }
+
+      var parentPath = Path.parent(at);
+      var index = at[at.length - 1];
+
+      if (!voids && Editor.void(editor, {
+        at: parentPath
+      })) {
+        return;
+      }
+
+      for (var _node of nodes) {
+        var _path = parentPath.concat(index);
+
+        index++;
+        editor.apply({
+          type: 'insert_node',
+          path: _path,
+          node: _node
+        });
+      }
+
+      if (select) {
+        var point = Editor.end(editor, at);
+
+        if (point) {
+          Transforms.select(editor, point);
+        }
+      }
+    });
+  },
+
+  /**
+   * Lift nodes at a specific location upwards in the document tree, splitting
+   * their parent in two if necessary.
+   */
+  liftNodes(editor) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    Editor.withoutNormalizing(editor, () => {
+      var {
+        at = editor.selection,
+        mode = 'lowest',
+        voids = false
+      } = options;
+      var {
+        match
+      } = options;
+
+      if (match == null) {
+        match = Path.isPath(at) ? matchPath(editor, at) : n => Editor.isBlock(editor, n);
+      }
+
+      if (!at) {
+        return;
+      }
+
+      var matches = Editor.nodes(editor, {
+        at,
+        match,
+        mode,
+        voids
+      });
+      var pathRefs = Array.from(matches, (_ref) => {
+        var [, p] = _ref;
+        return Editor.pathRef(editor, p);
+      });
+
+      for (var pathRef of pathRefs) {
+        var path = pathRef.unref();
+
+        if (path.length < 2) {
+          throw new Error("Cannot lift node at a path [".concat(path, "] because it has a depth of less than `2`."));
+        }
+
+        var [parent, parentPath] = Editor.node(editor, Path.parent(path));
+        var index = path[path.length - 1];
+        var {
+          length
+        } = parent.children;
+
+        if (length === 1) {
+          var toPath = Path.next(parentPath);
+          Transforms.moveNodes(editor, {
+            at: path,
+            to: toPath,
+            voids
+          });
+          Transforms.removeNodes(editor, {
+            at: parentPath,
+            voids
+          });
+        } else if (index === 0) {
+          Transforms.moveNodes(editor, {
+            at: path,
+            to: parentPath,
+            voids
+          });
+        } else if (index === length - 1) {
+          var _toPath = Path.next(parentPath);
+
+          Transforms.moveNodes(editor, {
+            at: path,
+            to: _toPath,
+            voids
+          });
+        } else {
+          var splitPath = Path.next(path);
+
+          var _toPath2 = Path.next(parentPath);
+
+          Transforms.splitNodes(editor, {
+            at: splitPath,
+            voids
+          });
+          Transforms.moveNodes(editor, {
+            at: path,
+            to: _toPath2,
+            voids
+          });
+        }
+      }
+    });
+  },
+
+  /**
+   * Merge a node at a location with the previous node of the same depth,
+   * removing any empty containing nodes after the merge if necessary.
+   */
+  mergeNodes(editor) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    Editor.withoutNormalizing(editor, () => {
+      var {
+        match,
+        at = editor.selection
+      } = options;
+      var {
+        hanging = false,
+        voids = false,
+        mode = 'lowest'
+      } = options;
+
+      if (!at) {
+        return;
+      }
+
+      if (match == null) {
+        if (Path.isPath(at)) {
+          var [parent] = Editor.parent(editor, at);
+
+          match = n => parent.children.includes(n);
+        } else {
+          match = n => Editor.isBlock(editor, n);
+        }
+      }
+
+      if (!hanging && Range.isRange(at)) {
+        at = Editor.unhangRange(editor, at);
+      }
+
+      if (Range.isRange(at)) {
+        if (Range.isCollapsed(at)) {
+          at = at.anchor;
+        } else {
+          var [, end] = Range.edges(at);
+          var pointRef = Editor.pointRef(editor, end);
+          Transforms.delete(editor, {
+            at
+          });
+          at = pointRef.unref();
+
+          if (options.at == null) {
+            Transforms.select(editor, at);
+          }
+        }
+      }
+
+      var [current] = Editor.nodes(editor, {
+        at,
+        match,
+        voids,
+        mode
+      });
+      var prev = Editor.previous(editor, {
+        at,
+        match,
+        voids,
+        mode
+      });
+
+      if (!current || !prev) {
+        return;
+      }
+
+      var [node, path] = current;
+      var [prevNode, prevPath] = prev;
+
+      if (path.length === 0 || prevPath.length === 0) {
+        return;
+      }
+
+      var newPath = Path.next(prevPath);
+      var commonPath = Path.common(path, prevPath);
+      var isPreviousSibling = Path.isSibling(path, prevPath);
+      var levels = Array.from(Editor.levels(editor, {
+        at: path
+      }), (_ref2) => {
+        var [n] = _ref2;
+        return n;
+      }).slice(commonPath.length).slice(0, -1); // Determine if the merge will leave an ancestor of the path empty as a
+      // result, in which case we'll want to remove it after merging.
+
+      var emptyAncestor = Editor.above(editor, {
+        at: path,
+        mode: 'highest',
+        match: n => levels.includes(n) && Element.isElement(n) && n.children.length === 1
+      });
+      var emptyRef = emptyAncestor && Editor.pathRef(editor, emptyAncestor[1]);
+      var properties;
+      var position; // Ensure that the nodes are equivalent, and figure out what the position
+      // and extra properties of the merge will be.
+
+      if (Text.isText(node) && Text.isText(prevNode)) {
+        var rest = _objectWithoutProperties(node, ["text"]);
+
+        position = prevNode.text.length;
+        properties = rest;
+      } else if (Element.isElement(node) && Element.isElement(prevNode)) {
+        var rest = _objectWithoutProperties(node, ["children"]);
+
+        position = prevNode.children.length;
+        properties = rest;
+      } else {
+        throw new Error("Cannot merge the node at path [".concat(path, "] with the previous sibling because it is not the same kind: ").concat(JSON.stringify(node), " ").concat(JSON.stringify(prevNode)));
+      } // If the node isn't already the next sibling of the previous node, move
+      // it so that it is before merging.
+
+
+      if (!isPreviousSibling) {
+        Transforms.moveNodes(editor, {
+          at: path,
+          to: newPath,
+          voids
+        });
+      } // If there was going to be an empty ancestor of the node that was merged,
+      // we remove it from the tree.
+
+
+      if (emptyRef) {
+        Transforms.removeNodes(editor, {
+          at: emptyRef.current,
+          voids
+        });
+      } // If the target node that we're merging with is empty, remove it instead
+      // of merging the two. This is a common rich text editor behavior to
+      // prevent losing formatting when deleting entire nodes when you have a
+      // hanging selection.
+
+
+      if (Element.isElement(prevNode) && Editor.isEmpty(editor, prevNode) || Text.isText(prevNode) && prevNode.text === '') {
+        Transforms.removeNodes(editor, {
+          at: prevPath,
+          voids
+        });
+      } else {
+        editor.apply({
+          type: 'merge_node',
+          path: newPath,
+          position,
+          target: null,
+          properties
+        });
+      }
+
+      if (emptyRef) {
+        emptyRef.unref();
+      }
+    });
+  },
+
+  /**
+   * Move the nodes at a location to a new location.
+   */
+  moveNodes(editor, options) {
+    Editor.withoutNormalizing(editor, () => {
+      var {
+        to,
+        at = editor.selection,
+        mode = 'lowest',
+        voids = false
+      } = options;
+      var {
+        match
+      } = options;
+
+      if (!at) {
+        return;
+      }
+
+      if (match == null) {
+        match = Path.isPath(at) ? matchPath(editor, at) : n => Editor.isBlock(editor, n);
+      }
+
+      var toRef = Editor.pathRef(editor, to);
+      var targets = Editor.nodes(editor, {
+        at,
+        match,
+        mode,
+        voids
+      });
+      var pathRefs = Array.from(targets, (_ref3) => {
+        var [, p] = _ref3;
+        return Editor.pathRef(editor, p);
+      });
+
+      for (var pathRef of pathRefs) {
+        var path = pathRef.unref();
+        var newPath = toRef.current;
+
+        if (path.length !== 0) {
+          editor.apply({
+            type: 'move_node',
+            path,
+            newPath
+          });
+        }
+      }
+
+      toRef.unref();
+    });
+  },
+
+  /**
+   * Remove the nodes at a specific location in the document.
+   */
+  removeNodes(editor) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    Editor.withoutNormalizing(editor, () => {
+      var {
+        hanging = false,
+        voids = false,
+        mode = 'lowest'
+      } = options;
+      var {
+        at = editor.selection,
+        match
+      } = options;
+
+      if (!at) {
+        return;
+      }
+
+      if (match == null) {
+        match = Path.isPath(at) ? matchPath(editor, at) : n => Editor.isBlock(editor, n);
+      }
+
+      if (!hanging && Range.isRange(at)) {
+        at = Editor.unhangRange(editor, at);
+      }
+
+      var depths = Editor.nodes(editor, {
+        at,
+        match,
+        mode,
+        voids
+      });
+      var pathRefs = Array.from(depths, (_ref4) => {
+        var [, p] = _ref4;
+        return Editor.pathRef(editor, p);
+      });
+
+      for (var pathRef of pathRefs) {
+        var path = pathRef.unref();
+
+        if (path) {
+          var [node] = Editor.node(editor, path);
+          editor.apply({
+            type: 'remove_node',
+            path,
+            node
+          });
+        }
+      }
+    });
+  },
+
+  /**
+   * Set new properties on the nodes at a location.
+   */
+  setNodes(editor, props) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    Editor.withoutNormalizing(editor, () => {
+      var {
+        match,
+        at = editor.selection
+      } = options;
+      var {
+        hanging = false,
+        mode = 'lowest',
+        split = false,
+        voids = false
+      } = options;
+
+      if (!at) {
+        return;
+      }
+
+      if (match == null) {
+        match = Path.isPath(at) ? matchPath(editor, at) : n => Editor.isBlock(editor, n);
+      }
+
+      if (!hanging && Range.isRange(at)) {
+        at = Editor.unhangRange(editor, at);
+      }
+
+      if (split && Range.isRange(at)) {
+        var rangeRef = Editor.rangeRef(editor, at, {
+          affinity: 'inward'
+        });
+        var [start, end] = Range.edges(at);
+        var splitMode = mode === 'lowest' ? 'lowest' : 'highest';
+        Transforms.splitNodes(editor, {
+          at: end,
+          match,
+          mode: splitMode,
+          voids
+        });
+        Transforms.splitNodes(editor, {
+          at: start,
+          match,
+          mode: splitMode,
+          voids
+        });
+        at = rangeRef.unref();
+
+        if (options.at == null) {
+          Transforms.select(editor, at);
+        }
+      }
+
+      for (var [node, path] of Editor.nodes(editor, {
+        at,
+        match,
+        mode,
+        voids
+      })) {
+        var properties = {};
+        var newProperties = {}; // You can't set properties on the editor node.
+
+        if (path.length === 0) {
+          continue;
+        }
+
+        for (var k in props) {
+          if (k === 'children' || k === 'text') {
+            continue;
+          }
+
+          if (props[k] !== node[k]) {
+            properties[k] = node[k];
+            newProperties[k] = props[k];
+          }
+        }
+
+        if (Object.keys(newProperties).length !== 0) {
+          editor.apply({
+            type: 'set_node',
+            path,
+            properties,
+            newProperties
+          });
+        }
+      }
+    });
+  },
+
+  /**
+   * Split the nodes at a specific location.
+   */
+  splitNodes(editor) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    Editor.withoutNormalizing(editor, () => {
+      var {
+        mode = 'lowest',
+        voids = false
+      } = options;
+      var {
+        match,
+        at = editor.selection,
+        height = 0,
+        always = false
+      } = options;
+
+      if (match == null) {
+        match = n => Editor.isBlock(editor, n);
+      }
+
+      if (Range.isRange(at)) {
+        at = deleteRange(editor, at);
+      } // If the target is a path, the default height-skipping and position
+      // counters need to account for us potentially splitting at a non-leaf.
+
+
+      if (Path.isPath(at)) {
+        var path = at;
+        var point = Editor.point(editor, path);
+        var [parent] = Editor.parent(editor, path);
+
+        match = n => n === parent;
+
+        height = point.path.length - path.length + 1;
+        at = point;
+        always = true;
+      }
+
+      if (!at) {
+        return;
+      }
+
+      var beforeRef = Editor.pointRef(editor, at, {
+        affinity: 'backward'
+      });
+      var [highest] = Editor.nodes(editor, {
+        at,
+        match,
+        mode,
+        voids
+      });
+
+      if (!highest) {
+        return;
+      }
+
+      var voidMatch = Editor.void(editor, {
+        at,
+        mode: 'highest'
+      });
+      var nudge = 0;
+
+      if (!voids && voidMatch) {
+        var [voidNode, voidPath] = voidMatch;
+
+        if (Element.isElement(voidNode) && editor.isInline(voidNode)) {
+          var after = Editor.after(editor, voidPath);
+
+          if (!after) {
+            var text = {
+              text: ''
+            };
+            var afterPath = Path.next(voidPath);
+            Transforms.insertNodes(editor, text, {
+              at: afterPath,
+              voids
+            });
+            after = Editor.point(editor, afterPath);
+          }
+
+          at = after;
+          always = true;
+        }
+
+        var siblingHeight = at.path.length - voidPath.length;
+        height = siblingHeight + 1;
+        always = true;
+      }
+
+      var afterRef = Editor.pointRef(editor, at);
+      var depth = at.path.length - height;
+      var [, highestPath] = highest;
+      var lowestPath = at.path.slice(0, depth);
+      var position = height === 0 ? at.offset : at.path[depth] + nudge;
+      var target = null;
+
+      for (var [node, _path2] of Editor.levels(editor, {
+        at: lowestPath,
+        reverse: true,
+        voids
+      })) {
+        var split = false;
+
+        if (_path2.length < highestPath.length || _path2.length === 0 || !voids && Editor.isVoid(editor, node)) {
+          break;
+        }
+
+        var _point = beforeRef.current;
+        var isEnd = Editor.isEnd(editor, _point, _path2);
+
+        if (always || !beforeRef || !Editor.isEdge(editor, _point, _path2)) {
+          split = true;
+
+          var properties = _objectWithoutProperties(node, ["text", "children"]);
+
+          editor.apply({
+            type: 'split_node',
+            path: _path2,
+            position,
+            target,
+            properties
+          });
+        }
+
+        target = position;
+        position = _path2[_path2.length - 1] + (split || isEnd ? 1 : 0);
+      }
+
+      if (options.at == null) {
+        var _point2 = afterRef.current || Editor.end(editor, []);
+
+        Transforms.select(editor, _point2);
+      }
+
+      beforeRef.unref();
+      afterRef.unref();
+    });
+  },
+
+  /**
+   * Unset properties on the nodes at a location.
+   */
+  unsetNodes(editor, props) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
+    if (!Array.isArray(props)) {
+      props = [props];
+    }
+
+    var obj = {};
+
+    for (var key of props) {
+      obj[key] = null;
+    }
+
+    Transforms.setNodes(editor, obj, options);
+  },
+
+  /**
+   * Unwrap the nodes at a location from a parent node, splitting the parent if
+   * necessary to ensure that only the content in the range is unwrapped.
+   */
+  unwrapNodes(editor, options) {
+    Editor.withoutNormalizing(editor, () => {
+      var {
+        mode = 'lowest',
+        split = false,
+        voids = false
+      } = options;
+      var {
+        at = editor.selection,
+        match
+      } = options;
+
+      if (!at) {
+        return;
+      }
+
+      if (match == null) {
+        match = Path.isPath(at) ? matchPath(editor, at) : n => Editor.isBlock(editor, n);
+      }
+
+      if (Path.isPath(at)) {
+        at = Editor.range(editor, at);
+      }
+
+      var rangeRef = Range.isRange(at) ? Editor.rangeRef(editor, at) : null;
+      var matches = Editor.nodes(editor, {
+        at,
+        match,
+        mode,
+        voids
+      });
+      var pathRefs = Array.from(matches, (_ref5) => {
+        var [, p] = _ref5;
+        return Editor.pathRef(editor, p);
+      });
+
+      var _loop = function _loop(pathRef) {
+        var path = pathRef.unref();
+        var [node] = Editor.node(editor, path);
+        var range = Editor.range(editor, path);
+
+        if (split && rangeRef) {
+          range = Range.intersection(rangeRef.current, range);
+        }
+
+        Transforms.liftNodes(editor, {
+          at: range,
+          match: n => node.children.includes(n),
+          voids
+        });
+      };
+
+      for (var pathRef of pathRefs) {
+        _loop(pathRef);
+      }
+
+      if (rangeRef) {
+        rangeRef.unref();
+      }
+    });
+  },
+
+  /**
+   * Wrap the nodes at a location in a new container node, splitting the edges
+   * of the range first to ensure that only the content in the range is wrapped.
+   */
+  wrapNodes(editor, element) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    Editor.withoutNormalizing(editor, () => {
+      var {
+        mode = 'lowest',
+        split = false,
+        voids = false
+      } = options;
+      var {
+        match,
+        at = editor.selection
+      } = options;
+
+      if (!at) {
+        return;
+      }
+
+      if (match == null) {
+        if (Path.isPath(at)) {
+          match = matchPath(editor, at);
+        } else if (editor.isInline(element)) {
+          match = n => Editor.isInline(editor, n) || Text.isText(n);
+        } else {
+          match = n => Editor.isBlock(editor, n);
+        }
+      }
+
+      if (split && Range.isRange(at)) {
+        var [start, end] = Range.edges(at);
+        var rangeRef = Editor.rangeRef(editor, at, {
+          affinity: 'inward'
+        });
+        Transforms.splitNodes(editor, {
+          at: end,
+          match,
+          voids
+        });
+        Transforms.splitNodes(editor, {
+          at: start,
+          match,
+          voids
+        });
+        at = rangeRef.unref();
+
+        if (options.at == null) {
+          Transforms.select(editor, at);
+        }
+      }
+
+      var roots = Array.from(Editor.nodes(editor, {
+        at,
+        match: editor.isInline(element) ? n => Editor.isBlock(editor, n) : n => Editor.isEditor(n),
+        mode: 'highest',
+        voids
+      }));
+
+      for (var [, rootPath] of roots) {
+        var a = Range.isRange(at) ? Range.intersection(at, Editor.range(editor, rootPath)) : at;
+
+        if (!a) {
+          continue;
+        }
+
+        var matches = Array.from(Editor.nodes(editor, {
+          at: a,
+          match,
+          mode,
+          voids
+        }));
+
+        if (matches.length > 0) {
+          (function () {
+            var [first] = matches;
+            var last = matches[matches.length - 1];
+            var [, firstPath] = first;
+            var [, lastPath] = last;
+            var commonPath = Path.equals(firstPath, lastPath) ? Path.parent(firstPath) : Path.common(firstPath, lastPath);
+            var range = Editor.range(editor, firstPath, lastPath);
+            var [commonNode] = Editor.node(editor, commonPath);
+            var depth = commonPath.length + 1;
+            var wrapperPath = Path.next(lastPath.slice(0, depth));
+
+            var wrapper = _objectSpread$7({}, element, {
+              children: []
+            });
+
+            Transforms.insertNodes(editor, wrapper, {
+              at: wrapperPath,
+              voids
+            });
+            Transforms.moveNodes(editor, {
+              at: range,
+              match: n => commonNode.children.includes(n),
+              to: wrapperPath.concat(0),
+              voids
+            });
+          })();
+        }
+      }
+    });
+  }
+
+};
+/**
+ * Convert a range into a point by deleting it's content.
+ */
+
+var deleteRange = (editor, range) => {
+  if (Range.isCollapsed(range)) {
+    return range.anchor;
+  } else {
+    var [, end] = Range.edges(range);
+    var pointRef = Editor.pointRef(editor, end);
+    Transforms.delete(editor, {
+      at: range
+    });
+    return pointRef.unref();
+  }
+};
+
+var matchPath = (editor, path) => {
+  var [node] = Editor.node(editor, path);
+  return n => n === node;
+};
+
+var SelectionTransforms = {
+  /**
+   * Collapse the selection.
+   */
+  collapse(editor) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var {
+      edge = 'anchor'
+    } = options;
+    var {
+      selection
+    } = editor;
+
+    if (!selection) {
+      return;
+    } else if (edge === 'anchor') {
+      Transforms.select(editor, selection.anchor);
+    } else if (edge === 'focus') {
+      Transforms.select(editor, selection.focus);
+    } else if (edge === 'start') {
+      var [start] = Range.edges(selection);
+      Transforms.select(editor, start);
+    } else if (edge === 'end') {
+      var [, end] = Range.edges(selection);
+      Transforms.select(editor, end);
+    }
+  },
+
+  /**
+   * Unset the selection.
+   */
+  deselect(editor) {
+    var {
+      selection
+    } = editor;
+
+    if (selection) {
+      editor.apply({
+        type: 'set_selection',
+        properties: selection,
+        newProperties: null
+      });
+    }
+  },
+
+  /**
+   * Move the selection's point forward or backward.
+   */
+  move(editor) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var {
+      selection
+    } = editor;
+    var {
+      distance = 1,
+      unit = 'character',
+      reverse = false
+    } = options;
+    var {
+      edge = null
+    } = options;
+
+    if (!selection) {
+      return;
+    }
+
+    if (edge === 'start') {
+      edge = Range.isBackward(selection) ? 'focus' : 'anchor';
+    }
+
+    if (edge === 'end') {
+      edge = Range.isBackward(selection) ? 'anchor' : 'focus';
+    }
+
+    var {
+      anchor,
+      focus
+    } = selection;
+    var opts = {
+      distance,
+      unit
+    };
+    var props = {};
+
+    if (edge == null || edge === 'anchor') {
+      var point = reverse ? Editor.before(editor, anchor, opts) : Editor.after(editor, anchor, opts);
+
+      if (point) {
+        props.anchor = point;
+      }
+    }
+
+    if (edge == null || edge === 'focus') {
+      var _point = reverse ? Editor.before(editor, focus, opts) : Editor.after(editor, focus, opts);
+
+      if (_point) {
+        props.focus = _point;
+      }
+    }
+
+    Transforms.setSelection(editor, props);
+  },
+
+  /**
+   * Set the selection to a new value.
+   */
+  select(editor, target) {
+    var {
+      selection
+    } = editor;
+    target = Editor.range(editor, target);
+
+    if (selection) {
+      Transforms.setSelection(editor, target);
+      return;
+    }
+
+    if (!Range.isRange(target)) {
+      throw new Error("When setting the selection and the current selection is `null` you must provide at least an `anchor` and `focus`, but you passed: ".concat(JSON.stringify(target)));
+    }
+
+    editor.apply({
+      type: 'set_selection',
+      properties: selection,
+      newProperties: target
+    });
+  },
+
+  /**
+   * Set new properties on one of the selection's points.
+   */
+  setPoint(editor, props, options) {
+    var {
+      selection
+    } = editor;
+    var {
+      edge = 'both'
+    } = options;
+
+    if (!selection) {
+      return;
+    }
+
+    if (edge === 'start') {
+      edge = Range.isBackward(selection) ? 'focus' : 'anchor';
+    }
+
+    if (edge === 'end') {
+      edge = Range.isBackward(selection) ? 'anchor' : 'focus';
+    }
+
+    var {
+      anchor,
+      focus
+    } = selection;
+    var point = edge === 'anchor' ? anchor : focus;
+    var newPoint = Object.assign(point, props);
+
+    if (edge === 'anchor') {
+      Transforms.setSelection(editor, {
+        anchor: newPoint
+      });
+    } else {
+      Transforms.setSelection(editor, {
+        focus: newPoint
+      });
+    }
+  },
+
+  /**
+   * Set new properties on the selection.
+   */
+  setSelection(editor, props) {
+    var {
+      selection
+    } = editor;
+    var oldProps = {};
+    var newProps = {};
+
+    if (!selection) {
+      return;
+    }
+
+    for (var k in props) {
+      if (k === 'anchor' && props.anchor != null && !Point.equals(props.anchor, selection.anchor) || k === 'focus' && props.focus != null && !Point.equals(props.focus, selection.focus) || k !== 'anchor' && k !== 'focus' && props[k] !== selection[k]) {
+        oldProps[k] = selection[k];
+        newProps[k] = props[k];
+      }
+    }
+
+    if (Object.keys(oldProps).length > 0) {
+      editor.apply({
+        type: 'set_selection',
+        properties: oldProps,
+        newProperties: newProps
+      });
+    }
+  }
+
+};
+
+var TextTransforms = {
+  /**
+   * Delete content in the editor.
+   */
+  delete(editor) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    Editor.withoutNormalizing(editor, () => {
+      var {
+        reverse = false,
+        unit = 'character',
+        distance = 1,
+        voids = false
+      } = options;
+      var {
+        at = editor.selection,
+        hanging = false
+      } = options;
+
+      if (!at) {
+        return;
+      }
+
+      if (Range.isRange(at) && Range.isCollapsed(at)) {
+        at = at.anchor;
+      }
+
+      if (Point.isPoint(at)) {
+        var furthestVoid = Editor.void(editor, {
+          at,
+          mode: 'highest'
+        });
+
+        if (!voids && furthestVoid) {
+          var [, voidPath] = furthestVoid;
+          at = voidPath;
+        } else {
+          var opts = {
+            unit,
+            distance
+          };
+          var target = reverse ? Editor.before(editor, at, opts) || Editor.start(editor, []) : Editor.after(editor, at, opts) || Editor.end(editor, []);
+          at = {
+            anchor: at,
+            focus: target
+          };
+          hanging = true;
+        }
+      }
+
+      if (Path.isPath(at)) {
+        Transforms.removeNodes(editor, {
+          at,
+          voids
+        });
+        return;
+      }
+
+      if (Range.isCollapsed(at)) {
+        return;
+      }
+
+      if (!hanging) {
+        at = Editor.unhangRange(editor, at, {
+          voids
+        });
+      }
+
+      var [start, end] = Range.edges(at);
+      var startBlock = Editor.above(editor, {
+        match: n => Editor.isBlock(editor, n),
+        at: start,
+        voids
+      });
+      var endBlock = Editor.above(editor, {
+        match: n => Editor.isBlock(editor, n),
+        at: end,
+        voids
+      });
+      var isAcrossBlocks = startBlock && endBlock && !Path.equals(startBlock[1], endBlock[1]);
+      var isSingleText = Path.equals(start.path, end.path);
+      var startVoid = voids ? null : Editor.void(editor, {
+        at: start,
+        mode: 'highest'
+      });
+      var endVoid = voids ? null : Editor.void(editor, {
+        at: end,
+        mode: 'highest'
+      }); // If the start or end points are inside an inline void, nudge them out.
+
+      if (startVoid) {
+        var before = Editor.before(editor, start);
+
+        if (before && startBlock && Path.isAncestor(startBlock[1], before.path)) {
+          start = before;
+        }
+      }
+
+      if (endVoid) {
+        var after = Editor.after(editor, end);
+
+        if (after && endBlock && Path.isAncestor(endBlock[1], after.path)) {
+          end = after;
+        }
+      } // Get the highest nodes that are completely inside the range, as well as
+      // the start and end nodes.
+
+
+      var matches = [];
+      var lastPath;
+
+      for (var entry of Editor.nodes(editor, {
+        at,
+        voids
+      })) {
+        var [node, path] = entry;
+
+        if (lastPath && Path.compare(path, lastPath) === 0) {
+          continue;
+        }
+
+        if (!voids && Editor.isVoid(editor, node) || !Path.isCommon(path, start.path) && !Path.isCommon(path, end.path)) {
+          matches.push(entry);
+          lastPath = path;
+        }
+      }
+
+      var pathRefs = Array.from(matches, (_ref) => {
+        var [, p] = _ref;
+        return Editor.pathRef(editor, p);
+      });
+      var startRef = Editor.pointRef(editor, start);
+      var endRef = Editor.pointRef(editor, end);
+
+      if (!isSingleText && !startVoid) {
+        var _point = startRef.current;
+        var [_node] = Editor.leaf(editor, _point);
+        var {
+          path: _path
+        } = _point;
+        var {
+          offset
+        } = start;
+
+        var text = _node.text.slice(offset);
+
+        editor.apply({
+          type: 'remove_text',
+          path: _path,
+          offset,
+          text
+        });
+      }
+
+      for (var pathRef of pathRefs) {
+        var _path2 = pathRef.unref();
+
+        Transforms.removeNodes(editor, {
+          at: _path2,
+          voids
+        });
+      }
+
+      if (!endVoid) {
+        var _point2 = endRef.current;
+        var [_node2] = Editor.leaf(editor, _point2);
+        var {
+          path: _path3
+        } = _point2;
+
+        var _offset = isSingleText ? start.offset : 0;
+
+        var _text = _node2.text.slice(_offset, end.offset);
+
+        editor.apply({
+          type: 'remove_text',
+          path: _path3,
+          offset: _offset,
+          text: _text
+        });
+      }
+
+      if (!isSingleText && isAcrossBlocks && endRef.current && startRef.current) {
+        Transforms.mergeNodes(editor, {
+          at: endRef.current,
+          hanging: true,
+          voids
+        });
+      }
+
+      var point = endRef.unref() || startRef.unref();
+
+      if (options.at == null && point) {
+        Transforms.select(editor, point);
+      }
+    });
+  },
+
+  /**
+   * Insert a fragment at a specific location in the editor.
+   */
+  insertFragment(editor, fragment) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    Editor.withoutNormalizing(editor, () => {
+      var {
+        hanging = false,
+        voids = false
+      } = options;
+      var {
+        at = editor.selection
+      } = options;
+
+      if (!fragment.length) {
+        return;
+      }
+
+      if (!at) {
+        return;
+      } else if (Range.isRange(at)) {
+        if (!hanging) {
+          at = Editor.unhangRange(editor, at);
+        }
+
+        if (Range.isCollapsed(at)) {
+          at = at.anchor;
+        } else {
+          var [, end] = Range.edges(at);
+
+          if (!voids && Editor.void(editor, {
+            at: end
+          })) {
+            return;
+          }
+
+          var pointRef = Editor.pointRef(editor, end);
+          Transforms.delete(editor, {
+            at
+          });
+          at = pointRef.unref();
+        }
+      } else if (Path.isPath(at)) {
+        at = Editor.start(editor, at);
+      }
+
+      if (!voids && Editor.void(editor, {
+        at
+      })) {
+        return;
+      } // If the insert point is at the edge of an inline node, move it outside
+      // instead since it will need to be split otherwise.
+
+
+      var inlineElementMatch = Editor.above(editor, {
+        at,
+        match: n => Editor.isInline(editor, n),
+        mode: 'highest',
+        voids
+      });
+
+      if (inlineElementMatch) {
+        var [, _inlinePath] = inlineElementMatch;
+
+        if (Editor.isEnd(editor, at, _inlinePath)) {
+          var after = Editor.after(editor, _inlinePath);
+          at = after;
+        } else if (Editor.isStart(editor, at, _inlinePath)) {
+          var before = Editor.before(editor, _inlinePath);
+          at = before;
+        }
+      }
+
+      var blockMatch = Editor.above(editor, {
+        match: n => Editor.isBlock(editor, n),
+        at,
+        voids
+      });
+      var [, blockPath] = blockMatch;
+      var isBlockStart = Editor.isStart(editor, at, blockPath);
+      var isBlockEnd = Editor.isEnd(editor, at, blockPath);
+      var mergeStart = !isBlockStart || isBlockStart && isBlockEnd;
+      var mergeEnd = !isBlockEnd;
+      var [, firstPath] = Node.first({
+        children: fragment
+      }, []);
+      var [, lastPath] = Node.last({
+        children: fragment
+      }, []);
+      var matches = [];
+
+      var matcher = (_ref2) => {
+        var [n, p] = _ref2;
+
+        if (mergeStart && Path.isAncestor(p, firstPath) && Element.isElement(n) && !editor.isVoid(n) && !editor.isInline(n)) {
+          return false;
+        }
+
+        if (mergeEnd && Path.isAncestor(p, lastPath) && Element.isElement(n) && !editor.isVoid(n) && !editor.isInline(n)) {
+          return false;
+        }
+
+        return true;
+      };
+
+      for (var entry of Node.nodes({
+        children: fragment
+      }, {
+        pass: matcher
+      })) {
+        if (entry[1].length > 0 && matcher(entry)) {
+          matches.push(entry);
+        }
+      }
+
+      var starts = [];
+      var middles = [];
+      var ends = [];
+      var starting = true;
+      var hasBlocks = false;
+
+      for (var [node] of matches) {
+        if (Element.isElement(node) && !editor.isInline(node)) {
+          starting = false;
+          hasBlocks = true;
+          middles.push(node);
+        } else if (starting) {
+          starts.push(node);
+        } else {
+          ends.push(node);
+        }
+      }
+
+      var [inlineMatch] = Editor.nodes(editor, {
+        at,
+        match: n => Text.isText(n) || Editor.isInline(editor, n),
+        mode: 'highest',
+        voids
+      });
+      var [, inlinePath] = inlineMatch;
+      var isInlineStart = Editor.isStart(editor, at, inlinePath);
+      var isInlineEnd = Editor.isEnd(editor, at, inlinePath);
+      var middleRef = Editor.pathRef(editor, isBlockEnd ? Path.next(blockPath) : blockPath);
+      var endRef = Editor.pathRef(editor, isInlineEnd ? Path.next(inlinePath) : inlinePath);
+      Transforms.splitNodes(editor, {
+        at,
+        match: n => hasBlocks ? Editor.isBlock(editor, n) : Text.isText(n) || Editor.isInline(editor, n),
+        mode: hasBlocks ? 'lowest' : 'highest',
+        voids
+      });
+      var startRef = Editor.pathRef(editor, !isInlineStart || isInlineStart && isInlineEnd ? Path.next(inlinePath) : inlinePath);
+      Transforms.insertNodes(editor, starts, {
+        at: startRef.current,
+        match: n => Text.isText(n) || Editor.isInline(editor, n),
+        mode: 'highest',
+        voids
+      });
+      Transforms.insertNodes(editor, middles, {
+        at: middleRef.current,
+        match: n => Editor.isBlock(editor, n),
+        mode: 'lowest',
+        voids
+      });
+      Transforms.insertNodes(editor, ends, {
+        at: endRef.current,
+        match: n => Text.isText(n) || Editor.isInline(editor, n),
+        mode: 'highest',
+        voids
+      });
+
+      if (!options.at) {
+        var path;
+
+        if (ends.length > 0) {
+          path = Path.previous(endRef.current);
+        } else if (middles.length > 0) {
+          path = Path.previous(middleRef.current);
+        } else {
+          path = Path.previous(startRef.current);
+        }
+
+        var _end = Editor.end(editor, path);
+
+        Transforms.select(editor, _end);
+      }
+
+      startRef.unref();
+      middleRef.unref();
+      endRef.unref();
+    });
+  },
+
+  /**
+   * Insert a string of text in the Editor.
+   */
+  insertText(editor, text) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    Editor.withoutNormalizing(editor, () => {
+      var {
+        voids = false
+      } = options;
+      var {
+        at = editor.selection
+      } = options;
+
+      if (!at) {
+        return;
+      }
+
+      if (Path.isPath(at)) {
+        at = Editor.range(editor, at);
+      }
+
+      if (Range.isRange(at)) {
+        if (Range.isCollapsed(at)) {
+          at = at.anchor;
+        } else {
+          var end = Range.end(at);
+
+          if (!voids && Editor.void(editor, {
+            at: end
+          })) {
+            return;
+          }
+
+          var pointRef = Editor.pointRef(editor, end);
+          Transforms.delete(editor, {
+            at,
+            voids
+          });
+          at = pointRef.unref();
+          Transforms.setSelection(editor, {
+            anchor: at,
+            focus: at
+          });
+        }
+      }
+
+      if (!voids && Editor.void(editor, {
+        at
+      })) {
+        return;
+      }
+
+      var {
+        path,
+        offset
+      } = at;
+      editor.apply({
+        type: 'insert_text',
+        path,
+        offset,
+        text
+      });
+    });
+  }
+
+};
+
+function ownKeys$8(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$8(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$8(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$8(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var Transforms = _objectSpread$8({}, GeneralTransforms, {}, NodeTransforms, {}, SelectionTransforms, {}, TextTransforms);
+
+
+//# sourceMappingURL=index.es.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/split-on-first/index.js":
 /*!**********************************************!*\
   !*** ./node_modules/split-on-first/index.js ***!
@@ -22975,6 +45869,41 @@ module.exports = (string, separator) => {
 		string.slice(separatorIndex + separator.length)
 	];
 };
+
+
+/***/ }),
+
+/***/ "./node_modules/state-toggle/index.js":
+/*!********************************************!*\
+  !*** ./node_modules/state-toggle/index.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = factory
+
+// Construct a state `toggler`: a function which inverses `property` in context
+// based on its current value.
+// The by `toggler` returned function restores that value.
+function factory(key, state, ctx) {
+  return enter
+
+  function enter() {
+    var context = ctx || this
+    var current = context[key]
+
+    context[key] = !state
+
+    return exit
+
+    function exit() {
+      context[key] = current
+    }
+  }
+}
 
 
 /***/ }),
@@ -25725,6 +48654,222 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/trim-trailing-lines/index.js":
+/*!***************************************************!*\
+  !*** ./node_modules/trim-trailing-lines/index.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = trimTrailingLines
+
+var line = '\n'
+
+// Remove final newline characters from `value`.
+function trimTrailingLines(value) {
+  var val = String(value)
+  var index = val.length
+
+  while (val.charAt(--index) === line) {
+    // Empty
+  }
+
+  return val.slice(0, index + 1)
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/trim/index.js":
+/*!************************************!*\
+  !*** ./node_modules/trim/index.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+exports = module.exports = trim;
+
+function trim(str){
+  return str.replace(/^\s*|\s*$/g, '');
+}
+
+exports.left = function(str){
+  return str.replace(/^\s*/, '');
+};
+
+exports.right = function(str){
+  return str.replace(/\s*$/, '');
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/trough/index.js":
+/*!**************************************!*\
+  !*** ./node_modules/trough/index.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var wrap = __webpack_require__(/*! ./wrap.js */ "./node_modules/trough/wrap.js")
+
+module.exports = trough
+
+trough.wrap = wrap
+
+var slice = [].slice
+
+// Create new middleware.
+function trough() {
+  var fns = []
+  var middleware = {}
+
+  middleware.run = run
+  middleware.use = use
+
+  return middleware
+
+  // Run `fns`.  Last argument must be a completion handler.
+  function run() {
+    var index = -1
+    var input = slice.call(arguments, 0, -1)
+    var done = arguments[arguments.length - 1]
+
+    if (typeof done !== 'function') {
+      throw new Error('Expected function as last argument, not ' + done)
+    }
+
+    next.apply(null, [null].concat(input))
+
+    // Run the next `fn`, if any.
+    function next(err) {
+      var fn = fns[++index]
+      var params = slice.call(arguments, 0)
+      var values = params.slice(1)
+      var length = input.length
+      var pos = -1
+
+      if (err) {
+        done(err)
+        return
+      }
+
+      // Copy non-nully input into values.
+      while (++pos < length) {
+        if (values[pos] === null || values[pos] === undefined) {
+          values[pos] = input[pos]
+        }
+      }
+
+      input = values
+
+      // Next or done.
+      if (fn) {
+        wrap(fn, next).apply(null, input)
+      } else {
+        done.apply(null, [null].concat(input))
+      }
+    }
+  }
+
+  // Add `fn` to the list.
+  function use(fn) {
+    if (typeof fn !== 'function') {
+      throw new Error('Expected `fn` to be a function, not ' + fn)
+    }
+
+    fns.push(fn)
+
+    return middleware
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/trough/wrap.js":
+/*!*************************************!*\
+  !*** ./node_modules/trough/wrap.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var slice = [].slice
+
+module.exports = wrap
+
+// Wrap `fn`.
+// Can be sync or async; return a promise, receive a completion handler, return
+// new values and errors.
+function wrap(fn, callback) {
+  var invoked
+
+  return wrapped
+
+  function wrapped() {
+    var params = slice.call(arguments, 0)
+    var callback = fn.length > params.length
+    var result
+
+    if (callback) {
+      params.push(done)
+    }
+
+    try {
+      result = fn.apply(null, params)
+    } catch (error) {
+      // Well, this is quite the pickle.
+      // `fn` received a callback and invoked it (thus continuing the pipeline),
+      // but later also threw an error.
+      // We’re not about to restart the pipeline again, so the only thing left
+      // to do is to throw the thing instead.
+      if (callback && invoked) {
+        throw error
+      }
+
+      return done(error)
+    }
+
+    if (!callback) {
+      if (result && typeof result.then === 'function') {
+        result.then(then, done)
+      } else if (result instanceof Error) {
+        done(result)
+      } else {
+        then(result)
+      }
+    }
+  }
+
+  // Invoke `next`, only once.
+  function done() {
+    if (!invoked) {
+      invoked = true
+
+      callback.apply(null, arguments)
+    }
+  }
+
+  // Invoke `done` with one value.
+  // Tracks if an error is passed, too.
+  function then(value) {
+    done(null, value)
+  }
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/ts-invariant/lib/invariant.esm.js":
 /*!********************************************************!*\
   !*** ./node_modules/ts-invariant/lib/invariant.esm.js ***!
@@ -26029,6 +49174,927 @@ function __importStar(mod) {
 
 function __importDefault(mod) {
     return (mod && mod.__esModule) ? mod : { default: mod };
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/unherit/index.js":
+/*!***************************************!*\
+  !*** ./node_modules/unherit/index.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var xtend = __webpack_require__(/*! xtend */ "./node_modules/xtend/immutable.js")
+var inherits = __webpack_require__(/*! inherits */ "./node_modules/inherits/inherits_browser.js")
+
+module.exports = unherit
+
+// Create a custom constructor which can be modified without affecting the
+// original class.
+function unherit(Super) {
+  var result
+  var key
+  var value
+
+  inherits(Of, Super)
+  inherits(From, Of)
+
+  // Clone values.
+  result = Of.prototype
+
+  for (key in result) {
+    value = result[key]
+
+    if (value && typeof value === 'object') {
+      result[key] = 'concat' in value ? value.concat() : xtend(value)
+    }
+  }
+
+  return Of
+
+  // Constructor accepting a single argument, which itself is an `arguments`
+  // object.
+  function From(parameters) {
+    return Super.apply(this, parameters)
+  }
+
+  // Constructor accepting variadic arguments.
+  function Of() {
+    if (!(this instanceof Of)) {
+      return new From(arguments)
+    }
+
+    return Super.apply(this, arguments)
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/unified/index.js":
+/*!***************************************!*\
+  !*** ./node_modules/unified/index.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/* Dependencies. */
+var extend = __webpack_require__(/*! extend */ "./node_modules/extend/index.js")
+var bail = __webpack_require__(/*! bail */ "./node_modules/bail/index.js")
+var vfile = __webpack_require__(/*! vfile */ "./node_modules/vfile/index.js")
+var trough = __webpack_require__(/*! trough */ "./node_modules/trough/index.js")
+var string = __webpack_require__(/*! x-is-string */ "./node_modules/x-is-string/index.js")
+var plain = __webpack_require__(/*! is-plain-obj */ "./node_modules/is-plain-obj/index.js")
+
+/* Expose a frozen processor. */
+module.exports = unified().freeze()
+
+var slice = [].slice
+var own = {}.hasOwnProperty
+
+/* Process pipeline. */
+var pipeline = trough()
+  .use(pipelineParse)
+  .use(pipelineRun)
+  .use(pipelineStringify)
+
+function pipelineParse(p, ctx) {
+  ctx.tree = p.parse(ctx.file)
+}
+
+function pipelineRun(p, ctx, next) {
+  p.run(ctx.tree, ctx.file, done)
+
+  function done(err, tree, file) {
+    if (err) {
+      next(err)
+    } else {
+      ctx.tree = tree
+      ctx.file = file
+      next()
+    }
+  }
+}
+
+function pipelineStringify(p, ctx) {
+  ctx.file.contents = p.stringify(ctx.tree, ctx.file)
+}
+
+/* Function to create the first processor. */
+function unified() {
+  var attachers = []
+  var transformers = trough()
+  var namespace = {}
+  var frozen = false
+  var freezeIndex = -1
+
+  /* Data management. */
+  processor.data = data
+
+  /* Lock. */
+  processor.freeze = freeze
+
+  /* Plug-ins. */
+  processor.attachers = attachers
+  processor.use = use
+
+  /* API. */
+  processor.parse = parse
+  processor.stringify = stringify
+  processor.run = run
+  processor.runSync = runSync
+  processor.process = process
+  processor.processSync = processSync
+
+  /* Expose. */
+  return processor
+
+  /* Create a new processor based on the processor
+   * in the current scope. */
+  function processor() {
+    var destination = unified()
+    var length = attachers.length
+    var index = -1
+
+    while (++index < length) {
+      destination.use.apply(null, attachers[index])
+    }
+
+    destination.data(extend(true, {}, namespace))
+
+    return destination
+  }
+
+  /* Freeze: used to signal a processor that has finished
+   * configuration.
+   *
+   * For example, take unified itself.  It’s frozen.
+   * Plug-ins should not be added to it.  Rather, it should
+   * be extended, by invoking it, before modifying it.
+   *
+   * In essence, always invoke this when exporting a
+   * processor. */
+  function freeze() {
+    var values
+    var plugin
+    var options
+    var transformer
+
+    if (frozen) {
+      return processor
+    }
+
+    while (++freezeIndex < attachers.length) {
+      values = attachers[freezeIndex]
+      plugin = values[0]
+      options = values[1]
+      transformer = null
+
+      if (options === false) {
+        continue
+      }
+
+      if (options === true) {
+        values[1] = undefined
+      }
+
+      transformer = plugin.apply(processor, values.slice(1))
+
+      if (typeof transformer === 'function') {
+        transformers.use(transformer)
+      }
+    }
+
+    frozen = true
+    freezeIndex = Infinity
+
+    return processor
+  }
+
+  /* Data management.
+   * Getter / setter for processor-specific informtion. */
+  function data(key, value) {
+    if (string(key)) {
+      /* Set `key`. */
+      if (arguments.length === 2) {
+        assertUnfrozen('data', frozen)
+
+        namespace[key] = value
+
+        return processor
+      }
+
+      /* Get `key`. */
+      return (own.call(namespace, key) && namespace[key]) || null
+    }
+
+    /* Set space. */
+    if (key) {
+      assertUnfrozen('data', frozen)
+      namespace = key
+      return processor
+    }
+
+    /* Get space. */
+    return namespace
+  }
+
+  /* Plug-in management.
+   *
+   * Pass it:
+   * *   an attacher and options,
+   * *   a preset,
+   * *   a list of presets, attachers, and arguments (list
+   *     of attachers and options). */
+  function use(value) {
+    var settings
+
+    assertUnfrozen('use', frozen)
+
+    if (value === null || value === undefined) {
+      /* Empty */
+    } else if (typeof value === 'function') {
+      addPlugin.apply(null, arguments)
+    } else if (typeof value === 'object') {
+      if ('length' in value) {
+        addList(value)
+      } else {
+        addPreset(value)
+      }
+    } else {
+      throw new Error('Expected usable value, not `' + value + '`')
+    }
+
+    if (settings) {
+      namespace.settings = extend(namespace.settings || {}, settings)
+    }
+
+    return processor
+
+    function addPreset(result) {
+      addList(result.plugins)
+
+      if (result.settings) {
+        settings = extend(settings || {}, result.settings)
+      }
+    }
+
+    function add(value) {
+      if (typeof value === 'function') {
+        addPlugin(value)
+      } else if (typeof value === 'object') {
+        if ('length' in value) {
+          addPlugin.apply(null, value)
+        } else {
+          addPreset(value)
+        }
+      } else {
+        throw new Error('Expected usable value, not `' + value + '`')
+      }
+    }
+
+    function addList(plugins) {
+      var length
+      var index
+
+      if (plugins === null || plugins === undefined) {
+        /* Empty */
+      } else if (typeof plugins === 'object' && 'length' in plugins) {
+        length = plugins.length
+        index = -1
+
+        while (++index < length) {
+          add(plugins[index])
+        }
+      } else {
+        throw new Error('Expected a list of plugins, not `' + plugins + '`')
+      }
+    }
+
+    function addPlugin(plugin, value) {
+      var entry = find(plugin)
+
+      if (entry) {
+        if (plain(entry[1]) && plain(value)) {
+          value = extend(entry[1], value)
+        }
+
+        entry[1] = value
+      } else {
+        attachers.push(slice.call(arguments))
+      }
+    }
+  }
+
+  function find(plugin) {
+    var length = attachers.length
+    var index = -1
+    var entry
+
+    while (++index < length) {
+      entry = attachers[index]
+
+      if (entry[0] === plugin) {
+        return entry
+      }
+    }
+  }
+
+  /* Parse a file (in string or VFile representation)
+   * into a Unist node using the `Parser` on the
+   * processor. */
+  function parse(doc) {
+    var file = vfile(doc)
+    var Parser
+
+    freeze()
+    Parser = processor.Parser
+    assertParser('parse', Parser)
+
+    if (newable(Parser)) {
+      return new Parser(String(file), file).parse()
+    }
+
+    return Parser(String(file), file) // eslint-disable-line new-cap
+  }
+
+  /* Run transforms on a Unist node representation of a file
+   * (in string or VFile representation), async. */
+  function run(node, file, cb) {
+    assertNode(node)
+    freeze()
+
+    if (!cb && typeof file === 'function') {
+      cb = file
+      file = null
+    }
+
+    if (!cb) {
+      return new Promise(executor)
+    }
+
+    executor(null, cb)
+
+    function executor(resolve, reject) {
+      transformers.run(node, vfile(file), done)
+
+      function done(err, tree, file) {
+        tree = tree || node
+        if (err) {
+          reject(err)
+        } else if (resolve) {
+          resolve(tree)
+        } else {
+          cb(null, tree, file)
+        }
+      }
+    }
+  }
+
+  /* Run transforms on a Unist node representation of a file
+   * (in string or VFile representation), sync. */
+  function runSync(node, file) {
+    var complete = false
+    var result
+
+    run(node, file, done)
+
+    assertDone('runSync', 'run', complete)
+
+    return result
+
+    function done(err, tree) {
+      complete = true
+      bail(err)
+      result = tree
+    }
+  }
+
+  /* Stringify a Unist node representation of a file
+   * (in string or VFile representation) into a string
+   * using the `Compiler` on the processor. */
+  function stringify(node, doc) {
+    var file = vfile(doc)
+    var Compiler
+
+    freeze()
+    Compiler = processor.Compiler
+    assertCompiler('stringify', Compiler)
+    assertNode(node)
+
+    if (newable(Compiler)) {
+      return new Compiler(node, file).compile()
+    }
+
+    return Compiler(node, file) // eslint-disable-line new-cap
+  }
+
+  /* Parse a file (in string or VFile representation)
+   * into a Unist node using the `Parser` on the processor,
+   * then run transforms on that node, and compile the
+   * resulting node using the `Compiler` on the processor,
+   * and store that result on the VFile. */
+  function process(doc, cb) {
+    freeze()
+    assertParser('process', processor.Parser)
+    assertCompiler('process', processor.Compiler)
+
+    if (!cb) {
+      return new Promise(executor)
+    }
+
+    executor(null, cb)
+
+    function executor(resolve, reject) {
+      var file = vfile(doc)
+
+      pipeline.run(processor, {file: file}, done)
+
+      function done(err) {
+        if (err) {
+          reject(err)
+        } else if (resolve) {
+          resolve(file)
+        } else {
+          cb(null, file)
+        }
+      }
+    }
+  }
+
+  /* Process the given document (in string or VFile
+   * representation), sync. */
+  function processSync(doc) {
+    var complete = false
+    var file
+
+    freeze()
+    assertParser('processSync', processor.Parser)
+    assertCompiler('processSync', processor.Compiler)
+    file = vfile(doc)
+
+    process(file, done)
+
+    assertDone('processSync', 'process', complete)
+
+    return file
+
+    function done(err) {
+      complete = true
+      bail(err)
+    }
+  }
+}
+
+/* Check if `func` is a constructor. */
+function newable(value) {
+  return typeof value === 'function' && keys(value.prototype)
+}
+
+/* Check if `value` is an object with keys. */
+function keys(value) {
+  var key
+  for (key in value) {
+    return true
+  }
+  return false
+}
+
+/* Assert a parser is available. */
+function assertParser(name, Parser) {
+  if (typeof Parser !== 'function') {
+    throw new Error('Cannot `' + name + '` without `Parser`')
+  }
+}
+
+/* Assert a compiler is available. */
+function assertCompiler(name, Compiler) {
+  if (typeof Compiler !== 'function') {
+    throw new Error('Cannot `' + name + '` without `Compiler`')
+  }
+}
+
+/* Assert the processor is not frozen. */
+function assertUnfrozen(name, frozen) {
+  if (frozen) {
+    throw new Error(
+      [
+        'Cannot invoke `' + name + '` on a frozen processor.\nCreate a new ',
+        'processor first, by invoking it: use `processor()` instead of ',
+        '`processor`.'
+      ].join('')
+    )
+  }
+}
+
+/* Assert `node` is a Unist node. */
+function assertNode(node) {
+  if (!node || !string(node.type)) {
+    throw new Error('Expected node, got `' + node + '`')
+  }
+}
+
+/* Assert that `complete` is `true`. */
+function assertDone(name, asyncName, complete) {
+  if (!complete) {
+    throw new Error(
+      '`' + name + '` finished async. Use `' + asyncName + '` instead'
+    )
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/unist-util-is/convert.js":
+/*!***********************************************!*\
+  !*** ./node_modules/unist-util-is/convert.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = convert
+
+function convert(test) {
+  if (typeof test === 'string') {
+    return typeFactory(test)
+  }
+
+  if (test === null || test === undefined) {
+    return ok
+  }
+
+  if (typeof test === 'object') {
+    return ('length' in test ? anyFactory : matchesFactory)(test)
+  }
+
+  if (typeof test === 'function') {
+    return test
+  }
+
+  throw new Error('Expected function, string, or object as test')
+}
+
+function convertAll(tests) {
+  var results = []
+  var length = tests.length
+  var index = -1
+
+  while (++index < length) {
+    results[index] = convert(tests[index])
+  }
+
+  return results
+}
+
+// Utility assert each property in `test` is represented in `node`, and each
+// values are strictly equal.
+function matchesFactory(test) {
+  return matches
+
+  function matches(node) {
+    var key
+
+    for (key in test) {
+      if (node[key] !== test[key]) {
+        return false
+      }
+    }
+
+    return true
+  }
+}
+
+function anyFactory(tests) {
+  var checks = convertAll(tests)
+  var length = checks.length
+
+  return matches
+
+  function matches() {
+    var index = -1
+
+    while (++index < length) {
+      if (checks[index].apply(this, arguments)) {
+        return true
+      }
+    }
+
+    return false
+  }
+}
+
+// Utility to convert a string into a function which checks a given node’s type
+// for said string.
+function typeFactory(test) {
+  return type
+
+  function type(node) {
+    return Boolean(node && node.type === test)
+  }
+}
+
+// Utility to return true.
+function ok() {
+  return true
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/unist-util-remove-position/index.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/unist-util-remove-position/index.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var visit = __webpack_require__(/*! unist-util-visit */ "./node_modules/unist-util-visit/index.js")
+
+module.exports = removePosition
+
+function removePosition(node, force) {
+  visit(node, force ? hard : soft)
+  return node
+}
+
+function hard(node) {
+  delete node.position
+}
+
+function soft(node) {
+  node.position = undefined
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/unist-util-stringify-position/index.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/unist-util-stringify-position/index.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var own = {}.hasOwnProperty
+
+module.exports = stringify
+
+function stringify(value) {
+  /* Nothing. */
+  if (!value || typeof value !== 'object') {
+    return null
+  }
+
+  /* Node. */
+  if (own.call(value, 'position') || own.call(value, 'type')) {
+    return position(value.position)
+  }
+
+  /* Position. */
+  if (own.call(value, 'start') || own.call(value, 'end')) {
+    return position(value)
+  }
+
+  /* Point. */
+  if (own.call(value, 'line') || own.call(value, 'column')) {
+    return point(value)
+  }
+
+  /* ? */
+  return null
+}
+
+function point(point) {
+  if (!point || typeof point !== 'object') {
+    point = {}
+  }
+
+  return index(point.line) + ':' + index(point.column)
+}
+
+function position(pos) {
+  if (!pos || typeof pos !== 'object') {
+    pos = {}
+  }
+
+  return point(pos.start) + '-' + point(pos.end)
+}
+
+function index(value) {
+  return value && typeof value === 'number' ? value : 1
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/unist-util-visit-parents/index.js":
+/*!********************************************************!*\
+  !*** ./node_modules/unist-util-visit-parents/index.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/* Expose. */
+module.exports = visitParents
+
+/* Visit. */
+function visitParents(tree, type, visitor) {
+  var stack = []
+
+  if (typeof type === 'function') {
+    visitor = type
+    type = null
+  }
+
+  one(tree)
+
+  /* Visit a single node. */
+  function one(node) {
+    var result
+
+    if (!type || node.type === type) {
+      result = visitor(node, stack.concat())
+    }
+
+    if (node.children && result !== false) {
+      return all(node.children, node)
+    }
+
+    return result
+  }
+
+  /* Visit children in `parent`. */
+  function all(children, parent) {
+    var length = children.length
+    var index = -1
+    var child
+
+    stack.push(parent)
+
+    while (++index < length) {
+      child = children[index]
+
+      if (child && one(child) === false) {
+        return false
+      }
+    }
+
+    stack.pop()
+
+    return true
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/unist-util-visit/index.js":
+/*!************************************************!*\
+  !*** ./node_modules/unist-util-visit/index.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = visit
+
+var visitParents = __webpack_require__(/*! unist-util-visit-parents */ "./node_modules/unist-util-visit/node_modules/unist-util-visit-parents/index.js")
+
+var CONTINUE = visitParents.CONTINUE
+var SKIP = visitParents.SKIP
+var EXIT = visitParents.EXIT
+
+visit.CONTINUE = CONTINUE
+visit.SKIP = SKIP
+visit.EXIT = EXIT
+
+function visit(tree, test, visitor, reverse) {
+  if (typeof test === 'function' && typeof visitor !== 'function') {
+    reverse = visitor
+    visitor = test
+    test = null
+  }
+
+  visitParents(tree, test, overload, reverse)
+
+  function overload(node, parents) {
+    var parent = parents[parents.length - 1]
+    var index = parent ? parent.children.indexOf(node) : null
+    return visitor(node, index, parent)
+  }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/unist-util-visit/node_modules/unist-util-visit-parents/index.js":
+/*!**************************************************************************************!*\
+  !*** ./node_modules/unist-util-visit/node_modules/unist-util-visit-parents/index.js ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = visitParents
+
+var convert = __webpack_require__(/*! unist-util-is/convert */ "./node_modules/unist-util-is/convert.js")
+
+var CONTINUE = true
+var SKIP = 'skip'
+var EXIT = false
+
+visitParents.CONTINUE = CONTINUE
+visitParents.SKIP = SKIP
+visitParents.EXIT = EXIT
+
+function visitParents(tree, test, visitor, reverse) {
+  var is
+
+  if (typeof test === 'function' && typeof visitor !== 'function') {
+    reverse = visitor
+    visitor = test
+    test = null
+  }
+
+  is = convert(test)
+
+  one(tree, null, [])
+
+  // Visit a single node.
+  function one(node, index, parents) {
+    var result = []
+    var subresult
+
+    if (!test || is(node, index, parents[parents.length - 1] || null)) {
+      result = toResult(visitor(node, parents))
+
+      if (result[0] === EXIT) {
+        return result
+      }
+    }
+
+    if (node.children && result[0] !== SKIP) {
+      subresult = toResult(all(node.children, parents.concat(node)))
+      return subresult[0] === EXIT ? subresult : result
+    }
+
+    return result
+  }
+
+  // Visit children in `parent`.
+  function all(children, parents) {
+    var min = -1
+    var step = reverse ? -1 : 1
+    var index = (reverse ? children.length : min) + step
+    var result
+
+    while (index > min && index < children.length) {
+      result = one(children[index], index, parents)
+
+      if (result[0] === EXIT) {
+        return result
+      }
+
+      index = typeof result[1] === 'number' ? result[1] : index + step
+    }
+  }
+}
+
+function toResult(value) {
+  if (value !== null && typeof value === 'object' && 'length' in value) {
+    return value
+  }
+
+  if (typeof value === 'number') {
+    return [CONTINUE, value]
+  }
+
+  return [value]
 }
 
 
@@ -26462,6 +50528,445 @@ exports.default = withLoginRequired;
 
 /***/ }),
 
+/***/ "./node_modules/vfile-location/index.js":
+/*!**********************************************!*\
+  !*** ./node_modules/vfile-location/index.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = factory
+
+function factory(file) {
+  var contents = indices(String(file))
+
+  return {
+    toPosition: offsetToPositionFactory(contents),
+    toOffset: positionToOffsetFactory(contents)
+  }
+}
+
+// Factory to get the line and column-based `position` for `offset` in the bound
+// indices.
+function offsetToPositionFactory(indices) {
+  return offsetToPosition
+
+  // Get the line and column-based `position` for `offset` in the bound indices.
+  function offsetToPosition(offset) {
+    var index = -1
+    var length = indices.length
+
+    if (offset < 0) {
+      return {}
+    }
+
+    while (++index < length) {
+      if (indices[index] > offset) {
+        return {
+          line: index + 1,
+          column: offset - (indices[index - 1] || 0) + 1,
+          offset: offset
+        }
+      }
+    }
+
+    return {}
+  }
+}
+
+// Factory to get the `offset` for a line and column-based `position` in the
+// bound indices.
+function positionToOffsetFactory(indices) {
+  return positionToOffset
+
+  // Get the `offset` for a line and column-based `position` in the bound
+  // indices.
+  function positionToOffset(position) {
+    var line = position && position.line
+    var column = position && position.column
+
+    if (!isNaN(line) && !isNaN(column) && line - 1 in indices) {
+      return (indices[line - 2] || 0) + column - 1 || 0
+    }
+
+    return -1
+  }
+}
+
+// Get indices of line-breaks in `value`.
+function indices(value) {
+  var result = []
+  var index = value.indexOf('\n')
+
+  while (index !== -1) {
+    result.push(index + 1)
+    index = value.indexOf('\n', index + 1)
+  }
+
+  result.push(value.length + 1)
+
+  return result
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/vfile-message/index.js":
+/*!*********************************************!*\
+  !*** ./node_modules/vfile-message/index.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var stringify = __webpack_require__(/*! unist-util-stringify-position */ "./node_modules/unist-util-stringify-position/index.js")
+
+module.exports = VMessage
+
+// Inherit from `Error#`.
+function VMessagePrototype() {}
+VMessagePrototype.prototype = Error.prototype
+VMessage.prototype = new VMessagePrototype()
+
+// Message properties.
+var proto = VMessage.prototype
+
+proto.file = ''
+proto.name = ''
+proto.reason = ''
+proto.message = ''
+proto.stack = ''
+proto.fatal = null
+proto.column = null
+proto.line = null
+
+// Construct a new VMessage.
+//
+// Note: We cannot invoke `Error` on the created context, as that adds readonly
+// `line` and `column` attributes on Safari 9, thus throwing and failing the
+// data.
+function VMessage(reason, position, origin) {
+  var parts
+  var range
+  var location
+
+  if (typeof position === 'string') {
+    origin = position
+    position = null
+  }
+
+  parts = parseOrigin(origin)
+  range = stringify(position) || '1:1'
+
+  location = {
+    start: {line: null, column: null},
+    end: {line: null, column: null}
+  }
+
+  // Node.
+  if (position && position.position) {
+    position = position.position
+  }
+
+  if (position) {
+    // Position.
+    if (position.start) {
+      location = position
+      position = position.start
+    } else {
+      // Point.
+      location.start = position
+    }
+  }
+
+  if (reason.stack) {
+    this.stack = reason.stack
+    reason = reason.message
+  }
+
+  this.message = reason
+  this.name = range
+  this.reason = reason
+  this.line = position ? position.line : null
+  this.column = position ? position.column : null
+  this.location = location
+  this.source = parts[0]
+  this.ruleId = parts[1]
+}
+
+function parseOrigin(origin) {
+  var result = [null, null]
+  var index
+
+  if (typeof origin === 'string') {
+    index = origin.indexOf(':')
+
+    if (index === -1) {
+      result[1] = origin
+    } else {
+      result[0] = origin.slice(0, index)
+      result[1] = origin.slice(index + 1)
+    }
+  }
+
+  return result
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/vfile/core.js":
+/*!************************************!*\
+  !*** ./node_modules/vfile/core.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+var path = __webpack_require__(/*! path */ "./node_modules/path-browserify/index.js");
+var replace = __webpack_require__(/*! replace-ext */ "./node_modules/replace-ext/index.js");
+var buffer = __webpack_require__(/*! is-buffer */ "./node_modules/is-buffer/index.js");
+
+module.exports = VFile;
+
+var own = {}.hasOwnProperty;
+var proto = VFile.prototype;
+
+proto.toString = toString;
+
+/* Order of setting (least specific to most), we need this because
+ * otherwise `{stem: 'a', path: '~/b.js'}` would throw, as a path
+ * is needed before a stem can be set. */
+var order = [
+  'history',
+  'path',
+  'basename',
+  'stem',
+  'extname',
+  'dirname'
+];
+
+/* Construct a new file. */
+function VFile(options) {
+  var prop;
+  var index;
+  var length;
+
+  if (!options) {
+    options = {};
+  } else if (typeof options === 'string' || buffer(options)) {
+    options = {contents: options};
+  } else if ('message' in options && 'messages' in options) {
+    return options;
+  }
+
+  if (!(this instanceof VFile)) {
+    return new VFile(options);
+  }
+
+  this.data = {};
+  this.messages = [];
+  this.history = [];
+  this.cwd = process.cwd();
+
+  /* Set path related properties in the correct order. */
+  index = -1;
+  length = order.length;
+
+  while (++index < length) {
+    prop = order[index];
+
+    if (own.call(options, prop)) {
+      this[prop] = options[prop];
+    }
+  }
+
+  /* Set non-path related properties. */
+  for (prop in options) {
+    if (order.indexOf(prop) === -1) {
+      this[prop] = options[prop];
+    }
+  }
+}
+
+/* Access full path (`~/index.min.js`). */
+Object.defineProperty(proto, 'path', {
+  get: function () {
+    return this.history[this.history.length - 1];
+  },
+  set: function (path) {
+    assertNonEmpty(path, 'path');
+
+    if (path !== this.path) {
+      this.history.push(path);
+    }
+  }
+});
+
+/* Access parent path (`~`). */
+Object.defineProperty(proto, 'dirname', {
+  get: function () {
+    return typeof this.path === 'string' ? path.dirname(this.path) : undefined;
+  },
+  set: function (dirname) {
+    assertPath(this.path, 'dirname');
+    this.path = path.join(dirname || '', this.basename);
+  }
+});
+
+/* Access basename (`index.min.js`). */
+Object.defineProperty(proto, 'basename', {
+  get: function () {
+    return typeof this.path === 'string' ? path.basename(this.path) : undefined;
+  },
+  set: function (basename) {
+    assertNonEmpty(basename, 'basename');
+    assertPart(basename, 'basename');
+    this.path = path.join(this.dirname || '', basename);
+  }
+});
+
+/* Access extname (`.js`). */
+Object.defineProperty(proto, 'extname', {
+  get: function () {
+    return typeof this.path === 'string' ? path.extname(this.path) : undefined;
+  },
+  set: function (extname) {
+    var ext = extname || '';
+
+    assertPart(ext, 'extname');
+    assertPath(this.path, 'extname');
+
+    if (ext) {
+      if (ext.charAt(0) !== '.') {
+        throw new Error('`extname` must start with `.`');
+      }
+
+      if (ext.indexOf('.', 1) !== -1) {
+        throw new Error('`extname` cannot contain multiple dots');
+      }
+    }
+
+    this.path = replace(this.path, ext);
+  }
+});
+
+/* Access stem (`index.min`). */
+Object.defineProperty(proto, 'stem', {
+  get: function () {
+    return typeof this.path === 'string' ? path.basename(this.path, this.extname) : undefined;
+  },
+  set: function (stem) {
+    assertNonEmpty(stem, 'stem');
+    assertPart(stem, 'stem');
+    this.path = path.join(this.dirname || '', stem + (this.extname || ''));
+  }
+});
+
+/* Get the value of the file. */
+function toString(encoding) {
+  var value = this.contents || '';
+  return buffer(value) ? value.toString(encoding) : String(value);
+}
+
+/* Assert that `part` is not a path (i.e., does
+ * not contain `path.sep`). */
+function assertPart(part, name) {
+  if (part.indexOf(path.sep) !== -1) {
+    throw new Error('`' + name + '` cannot be a path: did not expect `' + path.sep + '`');
+  }
+}
+
+/* Assert that `part` is not empty. */
+function assertNonEmpty(part, name) {
+  if (!part) {
+    throw new Error('`' + name + '` cannot be empty');
+  }
+}
+
+/* Assert `path` exists. */
+function assertPath(path, name) {
+  if (!path) {
+    throw new Error('Setting `' + name + '` requires `path` to be set too');
+  }
+}
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../process/browser.js */ "./node_modules/process/browser.js")))
+
+/***/ }),
+
+/***/ "./node_modules/vfile/index.js":
+/*!*************************************!*\
+  !*** ./node_modules/vfile/index.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var VMessage = __webpack_require__(/*! vfile-message */ "./node_modules/vfile-message/index.js");
+var VFile = __webpack_require__(/*! ./core.js */ "./node_modules/vfile/core.js");
+
+module.exports = VFile;
+
+var proto = VFile.prototype;
+
+proto.message = message;
+proto.info = info;
+proto.fail = fail;
+
+/* Slight backwards compatibility.  Remove in the future. */
+proto.warn = message;
+
+/* Create a message with `reason` at `position`.
+ * When an error is passed in as `reason`, copies the stack. */
+function message(reason, position, origin) {
+  var filePath = this.path;
+  var message = new VMessage(reason, position, origin);
+
+  if (filePath) {
+    message.name = filePath + ':' + message.name;
+    message.file = filePath;
+  }
+
+  message.fatal = false;
+
+  this.messages.push(message);
+
+  return message;
+}
+
+/* Fail. Creates a vmessage, associates it with the file,
+ * and throws it. */
+function fail() {
+  var message = this.message.apply(this, arguments);
+
+  message.fatal = true;
+
+  throw message;
+}
+
+/* Info. Creates a vmessage, associates it with the file,
+ * and marks the fatality as null. */
+function info() {
+  var message = this.message.apply(this, arguments);
+
+  message.fatal = null;
+
+  return message;
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/webpack/buildin/global.js":
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
@@ -26524,6 +51029,87 @@ module.exports = function(originalModule) {
 	}
 	return module;
 };
+
+
+/***/ }),
+
+/***/ "./node_modules/webpack/buildin/module.js":
+/*!***********************************!*\
+  !*** (webpack)/buildin/module.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function(module) {
+	if (!module.webpackPolyfill) {
+		module.deprecate = function() {};
+		module.paths = [];
+		// module.parent = undefined by default
+		if (!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function() {
+				return module.i;
+			}
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/x-is-string/index.js":
+/*!*******************************************!*\
+  !*** ./node_modules/x-is-string/index.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var toString = Object.prototype.toString
+
+module.exports = isString
+
+function isString(obj) {
+    return toString.call(obj) === "[object String]"
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/xtend/immutable.js":
+/*!*****************************************!*\
+  !*** ./node_modules/xtend/immutable.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = extend
+
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+
+function extend() {
+    var target = {}
+
+    for (var i = 0; i < arguments.length; i++) {
+        var source = arguments[i]
+
+        for (var key in source) {
+            if (hasOwnProperty.call(source, key)) {
+                target[key] = source[key]
+            }
+        }
+    }
+
+    return target
+}
 
 
 /***/ }),
@@ -27217,7 +51803,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var use_auth0_hooks__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(use_auth0_hooks__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../utils */ "./utils/index.js");
+/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../components */ "./components/index.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../utils */ "./utils/index.js");
 
 
 
@@ -27226,7 +51813,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _jsxFileName = "/Users/nicholasbrown/Source/openlaw/pages/_app.js";
-
 var __jsx = react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement;
 
 function _templateObject() {
@@ -27238,6 +51824,8 @@ function _templateObject() {
 
   return data;
 }
+
+
 
 
 
@@ -27292,19 +51880,19 @@ var onRedirecting = function onRedirecting() {
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80
+      lineNumber: 82
     },
     __self: this
   }, __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81
+      lineNumber: 83
     },
     __self: this
   }, "Signing you in"), __jsx("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82
+      lineNumber: 84
     },
     __self: this
   }, "In order to access this page you will need to sign in. Please wait while we redirect you to the login page..."));
@@ -27336,13 +51924,13 @@ function (_App) {
         client: apollo,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 97
+          lineNumber: 99
         },
         __self: this
       }, __jsx(GlobalStyles, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 98
+          lineNumber: 100
         },
         __self: this
       }), __jsx(use_auth0_hooks__WEBPACK_IMPORTED_MODULE_10__["Auth0Provider"], {
@@ -27355,13 +51943,19 @@ function (_App) {
         onRedirectCallback: onRedirectCallback,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 99
+          lineNumber: 101
         },
         __self: this
-      }, __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
+      }, __jsx(_components__WEBPACK_IMPORTED_MODULE_13__["Header"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 108
+          lineNumber: 110
+        },
+        __self: this
+      }), __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 111
         },
         __self: this
       }))));
@@ -27371,7 +51965,227 @@ function (_App) {
   return Root;
 }(next_app__WEBPACK_IMPORTED_MODULE_8___default.a);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_utils__WEBPACK_IMPORTED_MODULE_13__["withApollo"])(Root));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_utils__WEBPACK_IMPORTED_MODULE_14__["withApollo"])(Root));
+
+/***/ }),
+
+/***/ "./queries/index.js":
+/*!**************************!*\
+  !*** ./queries/index.js ***!
+  \**************************/
+/*! exports provided: getProposals, getProposalBranches, getProposalMetadata, getProposalSummary, getProposalLegal, PROPOSALS_QUERY, PROPOSAL_BY_SLUG_QUERY */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getProposals", function() { return getProposals; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getProposalBranches", function() { return getProposalBranches; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getProposalMetadata", function() { return getProposalMetadata; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getProposalSummary", function() { return getProposalSummary; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getProposalLegal", function() { return getProposalLegal; });
+/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/index.js");
+/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! isomorphic-unfetch */ "./node_modules/next/dist/build/polyfills/fetch/index.js");
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _proposals_query__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./proposals.query */ "./queries/proposals.query.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PROPOSALS_QUERY", function() { return _proposals_query__WEBPACK_IMPORTED_MODULE_2__["default"]; });
+
+/* harmony import */ var _proposalBySlug_query__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./proposalBySlug.query */ "./queries/proposalBySlug.query.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PROPOSAL_BY_SLUG_QUERY", function() { return _proposalBySlug_query__WEBPACK_IMPORTED_MODULE_3__["default"]; });
+
+
+
+var getProposals = function getProposals() {
+  var res;
+  return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getProposals$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          _context.next = 2;
+          return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default()("".concat("http://localhost:10080/api/v4", "/projects")).then(function (response) {
+            return response.json();
+          }).then(function (data) {
+            return data;
+          }));
+
+        case 2:
+          res = _context.sent;
+          return _context.abrupt("return", res);
+
+        case 4:
+        case "end":
+          return _context.stop();
+      }
+    }
+  });
+};
+var getProposalBranches = function getProposalBranches(gitlabProjectId) {
+  var res;
+  return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getProposalBranches$(_context2) {
+    while (1) {
+      switch (_context2.prev = _context2.next) {
+        case 0:
+          _context2.next = 2;
+          return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default()("".concat("http://localhost:10080/api/v4", "/projects/").concat(gitlabProjectId, "/repository/branches")).then(function (response) {
+            return response.json();
+          }).then(function (data) {
+            return data;
+          }));
+
+        case 2:
+          res = _context2.sent;
+          return _context2.abrupt("return", res);
+
+        case 4:
+        case "end":
+          return _context2.stop();
+      }
+    }
+  });
+};
+var getProposalMetadata = function getProposalMetadata(gitlabProjectId) {
+  var refName,
+      res,
+      _args3 = arguments;
+  return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getProposalMetadata$(_context3) {
+    while (1) {
+      switch (_context3.prev = _context3.next) {
+        case 0:
+          refName = _args3.length > 1 && _args3[1] !== undefined ? _args3[1] : "master";
+          _context3.next = 3;
+          return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default()("".concat("http://localhost:10080/api/v4", "/projects/").concat(gitlabProjectId, "/repository/files/metadata%2Ejson/raw?ref=").concat(refName)).then(function (response) {
+            return response.json();
+          }).then(function (data) {
+            return data;
+          }));
+
+        case 3:
+          res = _context3.sent;
+          return _context3.abrupt("return", res);
+
+        case 5:
+        case "end":
+          return _context3.stop();
+      }
+    }
+  });
+};
+var getProposalSummary = function getProposalSummary(gitlabProjectId) {
+  var refName,
+      res,
+      _args4 = arguments;
+  return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getProposalSummary$(_context4) {
+    while (1) {
+      switch (_context4.prev = _context4.next) {
+        case 0:
+          refName = _args4.length > 1 && _args4[1] !== undefined ? _args4[1] : "master";
+          _context4.next = 3;
+          return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default()("".concat("http://localhost:10080/api/v4", "/projects/").concat(gitlabProjectId, "/repository/files/summary%2Emd/raw?ref=").concat(refName)).then(function (response) {
+            return response.text();
+          }).then(function (data) {
+            return data;
+          }));
+
+        case 3:
+          res = _context4.sent;
+          return _context4.abrupt("return", res);
+
+        case 5:
+        case "end":
+          return _context4.stop();
+      }
+    }
+  });
+};
+var getProposalLegal = function getProposalLegal(gitlabProjectId) {
+  var refName,
+      res,
+      _args5 = arguments;
+  return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getProposalLegal$(_context5) {
+    while (1) {
+      switch (_context5.prev = _context5.next) {
+        case 0:
+          refName = _args5.length > 1 && _args5[1] !== undefined ? _args5[1] : "master";
+          _context5.next = 3;
+          return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default()("".concat("http://localhost:10080/api/v4", "/projects/").concat(gitlabProjectId, "/repository/files/legal%2Emd/raw?ref=").concat(refName)).then(function (response) {
+            return response.text();
+          }).then(function (data) {
+            return data;
+          }));
+
+        case 3:
+          res = _context5.sent;
+          return _context5.abrupt("return", res);
+
+        case 5:
+        case "end":
+          return _context5.stop();
+      }
+    }
+  });
+};
+
+
+
+/***/ }),
+
+/***/ "./queries/proposalBySlug.query.js":
+/*!*****************************************!*\
+  !*** ./queries/proposalBySlug.query.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function _templateObject() {
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  query getProposalBySlug($slug: String!, $branchName: String) {\n    proposalBySlug(slug: $slug, branchName: $branchName) {\n      id\n      title\n      description\n      summary\n      legal\n      branches\n      commits {\n        id\n        title\n      }\n    }\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+
+var PROPOSAL_BY_SLUG_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_1___default()(_templateObject());
+/* harmony default export */ __webpack_exports__["default"] = (PROPOSAL_BY_SLUG_QUERY);
+
+/***/ }),
+
+/***/ "./queries/proposals.query.js":
+/*!************************************!*\
+  !*** ./queries/proposals.query.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function _templateObject() {
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  query Proposals {\n    proposals {\n      id\n      title\n      summary\n      legal\n      slug\n      updatedAt\n    }\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+
+var PROPOSALS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_1___default()(_templateObject());
+/* harmony default export */ __webpack_exports__["default"] = (PROPOSALS_QUERY);
 
 /***/ }),
 
